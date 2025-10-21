@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjgfob184wil8"]
+
+[ext_resource type="Script" uid="uid://cwyy7lk1r3mpf" path="res://dialogic/portraits/custom_layered_portrait.gd" id="1_v61w5"]
+
+[node name="LayeredPortrait" type="CanvasGroup"]
+script = ExtResource("1_v61w5")
+
+[node name="Main" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Eyebrows" type="Node2D" parent="."]
+
+[node name="Eyes" type="Node2D" parent="."]
+
+[node name="Mouth" type="Node2D" parent="."]
+
+[node name="Additional" type="Node2D" parent="."]
+
+[node name="Blush" type="Sprite2D" parent="Additional"]
+visible = false
+
+[node name="Glasses" type="Sprite2D" parent="Additional"]
+visible = false
+
+[node name="Confusion" type="Sprite2D" parent="Additional"]
+visible = false
