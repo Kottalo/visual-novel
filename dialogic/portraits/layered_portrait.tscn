@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cwyy7lk1r3mpf" path="res://dialogic/portraits/custom_layered_portrait.gd" id="1_v61w5"]
 
-[node name="LayeredPortrait" type="CanvasGroup"]
+[node name="LayeredPortrait" type="CanvasGroup" node_paths=PackedStringArray("main", "parts")]
 script = ExtResource("1_v61w5")
+main = NodePath("Main")
+parts = [NodePath("Body"), NodePath("Eyebrows"), NodePath("Eyes"), NodePath("Mouth"), NodePath("Additional")]
 
 [node name="Main" type="Sprite2D" parent="."]
 visible = false
@@ -17,12 +19,3 @@ visible = false
 [node name="Mouth" type="Node2D" parent="."]
 
 [node name="Additional" type="Node2D" parent="."]
-
-[node name="Blush" type="Sprite2D" parent="Additional"]
-visible = false
-
-[node name="Glasses" type="Sprite2D" parent="Additional"]
-visible = false
-
-[node name="Confusion" type="Sprite2D" parent="Additional"]
-visible = false
