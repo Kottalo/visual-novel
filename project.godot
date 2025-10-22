@@ -18,13 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 Main="*res://main.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"余洛琛": "res://dialogic/characters/juese1.dch"
-}
+directories/dch_directory={}
 directories/dtl_directory={
 "timeline": "res://dialogic/timelines/timeline.dtl"
 }
@@ -83,10 +80,6 @@ window/size/viewport_height=1440
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [input]
 
