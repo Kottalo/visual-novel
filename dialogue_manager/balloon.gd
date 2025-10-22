@@ -60,7 +60,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 func _ready() -> void:
-	await create_tween().tween_property(balloon, "modulate:a", 0, 0.5).finished
+	balloon.modulate.a = 0
 	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -125,7 +125,7 @@ func apply_dialogue_line() -> void:
 	responses_menu.responses = dialogue_line.responses
 
 	# Show our balloon
-	balloon.show()
+	balloon.modulate.a = 1
 	will_hide_balloon = false
 
 	dialogue_label.show()

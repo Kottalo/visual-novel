@@ -1,11 +1,11 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
+余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。
+余洛琛: 你今天过得如何
 - First one
-	Nathan: You picked the first one.
+	余洛琛: You picked the first one.
 - Second one
-	Nathan: You picked the second one.
+	余洛琛: You picked the second one.
 - Start again => start
 - End the conversation => END
-Nathan: For more information see the online documentation.
+余洛琛: For more information see the online documentation.
 => END
