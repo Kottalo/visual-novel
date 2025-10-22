@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=6 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2o6t")
+main_dialogue = ExtResource("2_7jktm")
 
 [node name="MainMenu" type="Control" parent="."]
 visible = false
