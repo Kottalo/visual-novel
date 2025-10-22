@@ -219,6 +219,14 @@ box_size = Vector2(550, 150)
 name_label_box_panel = "res://dialogic/VisualNovelTextbox/vn_textbox_name_label_panel.tres"
 name_label_box_modulate = Color(0, 0, 0, 1)
 
+[node name="Preview" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.9490196)
+layout_mode = 0
+offset_right = 2560.0
+offset_bottom = 1440.0
+texture = ExtResource("15_08i4u")
+
 [node name="DialogTextPanel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 self_modulate = Color(0.007843138, 0.007843138, 0.007843138, 0)
@@ -272,14 +280,6 @@ theme_override_styles/panel = ExtResource("9_yg8ig")
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 metadata/_edit_group_ = true
-
-[node name="Preview" type="TextureRect" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.9490196)
-layout_mode = 0
-offset_right = 2560.0
-offset_bottom = 1440.0
-texture = ExtResource("15_08i4u")
 
 [node name="TextboxController" type="Node" parent="." node_paths=PackedStringArray("sizer", "textbox_layer")]
 script = ExtResource("2_4icml")
@@ -337,6 +337,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Bg_Character" type="TextureRect" parent="Anchor/AnimationParent/Sizer/Bgs"]
 layout_mode = 1
@@ -345,6 +346,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_4t868")
 
 [node name="Bg_Common" type="TextureRect" parent="Anchor/AnimationParent/Sizer/Bgs"]
@@ -355,6 +357,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_je1pc")
 
 [node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer" node_paths=PackedStringArray("textbox_root")]
