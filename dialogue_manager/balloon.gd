@@ -32,6 +32,7 @@ var dialogue_line: DialogueLine:
 	set(value):
 		if value:
 			dialogue_line = value
+			
 			apply_dialogue_line()
 		else:
 			# The dialogue has finished so close the balloon
@@ -59,7 +60,8 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 func _ready() -> void:
-	balloon.hide()
+	await create_tween().tween_property(balloon, "modulate:a", 0, 0.5).finished
+	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
 	# If the responses menu doesn't have a next action set, use this one
@@ -71,6 +73,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if not dialogue_line: return
+	
 	progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
 
 
@@ -94,6 +98,8 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
+	dialogue_label.text = ""
+	
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 
 
@@ -108,6 +114,9 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	
+	if balloon.modulate.a != 1:
+		await create_tween().tween_property(balloon, "modulate:a", 1, 0.5).finished
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -154,7 +163,8 @@ func next(next_id: String) -> void:
 func _on_mutation_cooldown_timeout() -> void:
 	if will_hide_balloon:
 		will_hide_balloon = false
-		balloon.hide()
+		
+		await create_tween().tween_property(balloon, "modulate:a", 0, 0.5).finished
 
 
 func _on_mutated(_mutation: Dictionary) -> void:
