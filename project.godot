@@ -28,10 +28,13 @@ directories/dch_directory={
 directories/dtl_directory={
 "timeline": "res://dialogic/timelines/timeline.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://dialogic/main.tres",
+"main": "res://dialogic/main.tres"
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://dialogic/main.tres"]
+layout/default_style="res://dialogic/main.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

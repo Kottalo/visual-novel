@@ -1,5 +1,2 @@
-join 余洛琛 center [animation="Slide From Left" length="1.0" wait="true" extra_data="set Body/校服"]
-余洛琛: 你好啊
-leave 余洛琛 [animation="Slide To Left" length="1.0" wait="true"]
-join 余洛琛 left [animation="Slide From Left" wait="true" extra_data="set Body/校服,set Eyebrows/生气"]
-余洛琛: 你好啊
+余洛琛: 你好吗
+余洛琛: 我很好

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
-[ext_resource type="Texture2D" uid="uid://b4525m6mkwbjf" path="res://assets/ui/开始游戏/标题界面.png" id="3_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
 
 [node name="Game" type="Control"]
@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_e2o6t")
 
 [node name="MainMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,20 +31,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_e2o6t")
-expand_mode = 5
-stretch_mode = 6
-
-[node name="Background2" type="TextureRect" parent="MainMenu"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 892.0
-offset_right = 892.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_fc0e3")
 expand_mode = 5
 stretch_mode = 6
 
@@ -65,3 +52,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BackgroundPreview" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 892.0
+offset_right = 892.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_7jktm")
+expand_mode = 5
+stretch_mode = 6
