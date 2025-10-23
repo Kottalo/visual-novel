@@ -45,7 +45,7 @@ func FadeIn(position_name: String) -> void:
 func SetParts(parts_string: String) -> void:
 	var parts_array = parts_string.split(",")
 	for part in parts_array:
-		var part_item: Array[String] = part.split(":")
+		var part_item = part.split(":")
 		var part_name = part_item[0]
 		var item_name = part_item[1]
 		body_part_dict[part_name].animation = item_name
