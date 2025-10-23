@@ -9,6 +9,7 @@ extends Node2D
 @export var optionals_pool: Node2D
 
 var body_part_dict: Dictionary[String, AnimatedSprite2D]
+var character_image: Sprite2D
 
 var character_data: CharacterData:
 	get:
@@ -34,15 +35,19 @@ func get_avatar_image() -> AtlasTexture:
 #region Dialogue Commands
 
 func FadeIn(position_name: String, duration: float = 0) -> void:
-	var character_sprite: Sprite2D = Sprite2D.new()
-	character_sprite.texture = subviewport.get_texture()
-	character_sprite.modulate.a = 0
-	Main.game.character_image_pool.add_child(character_sprite)
-	character_sprite.global_position = Main.game.get_position_by_name(position_name)
-	character_sprite.global_position.y -= character_sprite.get_rect().size.y / 2 \
-	* character_sprite.scale.y
-	await create_tween().tween_property(character_sprite, "modulate:a", 1, duration).finished
-	
+	character_image = Sprite2D.new()
+	character_image.texture = subviewport.get_texture()
+	character_image.modulate.a = 0
+	Main.game.character_image_pool.add_child(character_image)
+	character_image.global_position = Main.game.get_position_by_name(position_name)
+	character_image.global_position.y -= character_image.get_rect().size.y / 2 \
+	* character_image.scale.y
+	await create_tween().tween_property(character_image, "modulate:a", 1, duration).finished
+
+func FadeOut(duration: float = 0) -> void:
+	await create_tween().tween_property(character_image, "modulate:a", 0, duration).finished
+	character_image.queue_free()
+
 # Example: SetParts("Body:校服,Eye:悲伤")
 func SetParts(parts_string: String) -> void:
 	var parts_array = parts_string.split(",")
