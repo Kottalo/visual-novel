@@ -5,6 +5,7 @@ extends Node2D
 @export var avatar_frame: Control
 
 @export var body_parts: Array[AnimatedSprite2D]
+@export var optionals_pool: Node2D
 
 var character_data: CharacterData:
 	get:
@@ -27,6 +28,18 @@ func _ready() -> void:
 					).front()
 					
 					body_part.animation = body
+				
+				var clear_optionals: bool = "ClearOptionals" in line.tags
+				if clear_optionals:
+					for additional: Sprite2D in optionals_pool.get_children():
+						additional.visible = false
+				
+				var optionals: String = line.get_tag_value("Optionals")
+				if optionals:
+					var optionals_array = optionals.split(",")
+					for additional in optionals_array:
+						var addtional_sprite: Sprite2D = optionals_pool.get_node(additional)
+						addtional_sprite.visible = true
 	)
 
 func get_avatar_image() -> AtlasTexture:

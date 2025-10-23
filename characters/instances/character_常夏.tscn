@@ -186,6 +186,6 @@ animation = &"星星眼"
 sprite_frames = SubResource("SpriteFrames_8q33n")
 animation = &"小开口"
 
-[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Additional" index="0"]
+[node name="SubViewportContainer_SubViewport_Body_Additionals#脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
 visible = false
 texture = ExtResource("19_sdyfj")

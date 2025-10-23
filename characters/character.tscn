@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://di7qgo24s04cu" path="res://characters/character.gd" id="1_e3kty"]
 
-[node name="Character" type="Node2D" node_paths=PackedStringArray("subviewport", "avatar_frame", "body_parts")]
+[node name="Character" type="Node2D" node_paths=PackedStringArray("subviewport", "avatar_frame", "body_parts", "optionals_pool")]
 script = ExtResource("1_e3kty")
 subviewport = NodePath("SubViewportContainer/SubViewport")
 avatar_frame = NodePath("SubViewportContainer/SubViewport/AvatarFrame")
 body_parts = [NodePath("SubViewportContainer/SubViewport/Body"), NodePath("SubViewportContainer/SubViewport/Body/Eyebrows"), NodePath("SubViewportContainer/SubViewport/Body/Eyes"), NodePath("SubViewportContainer/SubViewport/Body/Mouth")]
+optionals_pool = NodePath("SubViewportContainer/SubViewport/Body/Optionals")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_left = -477.0
@@ -31,7 +32,7 @@ scale = Vector2(0.5986112, 0.5986112)
 
 [node name="Mouth" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/Body"]
 
-[node name="Additional" type="Node2D" parent="SubViewportContainer/SubViewport/Body"]
+[node name="Optionals" type="Node2D" parent="SubViewportContainer/SubViewport/Body"]
 
 [node name="AvatarFrame" type="Control" parent="SubViewportContainer/SubViewport"]
 layout_mode = 3
