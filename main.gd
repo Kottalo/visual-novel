@@ -1,3 +1,5 @@
 extends Node
 
-@export var save_data: SaveData
+var save_data: SaveData
+
+var game: Game

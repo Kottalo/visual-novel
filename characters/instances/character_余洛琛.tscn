@@ -201,4 +201,7 @@ visible = false
 texture = ExtResource("21_h3wkl")
 
 [node name="AvatarFrame" parent="SubViewportContainer/SubViewport" index="1"]
-offset_bottom = 117.46997
+offset_left = -108.95201
+offset_top = -12.555
+offset_right = 88.23993
+offset_bottom = 167.46997

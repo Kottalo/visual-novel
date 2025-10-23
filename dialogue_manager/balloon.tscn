@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c65pxblv3888i"]
+[gd_scene load_steps=12 format=3 uid="uid://c65pxblv3888i"]
 
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://dialogue_manager/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="4_lp1lt"]
 [ext_resource type="Texture2D" uid="uid://rujid3trau57" path="res://assets/ui/对话界面/dialogue_box_noname.png" id="4_qsr3b"]
 [ext_resource type="Texture2D" uid="uid://8q4jt6eqfbr3" path="res://assets/ui/对话界面/dialogue_box.png" id="5_s0025"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="6_3vhth"]
@@ -73,12 +72,6 @@ script = ExtResource("1_36de5")
 bg_common = NodePath("Balloon/Bg_DialogueBox/Bg_Common")
 bg_character = NodePath("Balloon/Bg_DialogueBox/Bg_Character")
 avatar = NodePath("Balloon/Avatar")
-
-[node name="Preview" type="TextureRect" parent="."]
-visible = false
-offset_right = 2560.0
-offset_bottom = 1440.0
-texture = ExtResource("4_lp1lt")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -177,7 +170,7 @@ text = "文学社"
 
 [node name="Progress" type="Polygon2D" parent="Balloon"]
 unique_name_in_owner = true
-position = Vector2(2477, 0)
+position = Vector2(2306, 1337)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
 [node name="Avatar" type="TextureRect" parent="Balloon"]
@@ -188,8 +181,8 @@ anchor_bottom = 1.0
 offset_right = 484.0
 grow_vertical = 0
 mouse_filter = 2
-expand_mode = 4
-stretch_mode = 6
+expand_mode = 5
+stretch_mode = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

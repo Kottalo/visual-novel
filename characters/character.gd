@@ -40,6 +40,15 @@ func _ready() -> void:
 					for additional in optionals_array:
 						var addtional_sprite: Sprite2D = optionals_pool.get_node(additional)
 						addtional_sprite.visible = true
+				
+				var character_position: String = line.get_tag_value("Position")
+				if character_position:
+					var character_sprite: Sprite2D = Sprite2D.new()
+					character_sprite.texture = subviewport.get_texture()
+					Main.game.character_image_pool.add_child(character_sprite)
+					character_sprite.global_position = Main.game.get_position_by_name(character_position)
+				
+				Main.game.balloon.avatar.texture = get_avatar_image()
 	)
 
 func get_avatar_image() -> AtlasTexture:
