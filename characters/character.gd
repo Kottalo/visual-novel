@@ -33,6 +33,14 @@ func get_avatar_image() -> AtlasTexture:
 
 #region Dialogue Commands
 
+func FadeIn(position_name: String) -> void:
+	var character_sprite: Sprite2D = Sprite2D.new()
+	character_sprite.texture = subviewport.get_texture()
+	Main.game.character_image_pool.add_child(character_sprite)
+	character_sprite.global_position = Main.game.get_position_by_name(position_name)
+	character_sprite.global_position.y -= character_sprite.get_rect().size.y / 2 \
+	* character_sprite.scale.y
+	
 # Example: SetParts("Body:校服,Eye:悲伤")
 func SetParts(parts_string: String) -> void:
 	var parts_array = parts_string.split(",")
@@ -51,13 +59,5 @@ func SetOptionals(optionals_string: String) -> void:
 	for additional in optionals_array:
 		var addtional_sprite: Sprite2D = optionals_pool.get_node(additional)
 		addtional_sprite.visible = true
-
-func FadeIn(position_name: String) -> void:
-	var character_sprite: Sprite2D = Sprite2D.new()
-	character_sprite.texture = subviewport.get_texture()
-	Main.game.character_image_pool.add_child(character_sprite)
-	character_sprite.global_position = Main.game.get_position_by_name(position_name)
-	character_sprite.global_position.y -= character_sprite.get_rect().size.y / 2 \
-	* character_sprite.scale.y
 
 #endregion
