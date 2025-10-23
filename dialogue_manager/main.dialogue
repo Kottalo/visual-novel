@@ -1,5 +1,9 @@
 ~ start
-余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。 [#Position=Center]
+
+do Character("余洛琛").FadeIn("Center")
+#do Character("余洛琛").SetParts({ "Body": "校服" })
+余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。
+余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。 [do Character("余洛琛").SetParts({ "Body": "校服" })] [[你好|哈啰|早呀]]，我感到非常愉快。
 余洛琛: 你今天过得如何 [#Optionals=眼镜]
 - First one
 	余洛琛: You picked the first one.

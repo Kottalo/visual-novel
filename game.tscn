@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=6 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="6_ryrav"]
-[ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="7_eow3j"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_pool", "character_image_pool")]
 layout_mode = 3
@@ -18,7 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_e2o6t")
 main_dialogue = ExtResource("2_7jktm")
 hbox_positions = NodePath("HBoxContainer_Positions")
-character_pool = NodePath("Characters")
+character_pool = NodePath("")
 character_image_pool = NodePath("CharacterImages")
 
 [node name="MainMenu" type="Control" parent="."]
@@ -73,14 +71,6 @@ grow_vertical = 2
 texture = ExtResource("4_7jktm")
 expand_mode = 5
 stretch_mode = 6
-
-[node name="Characters" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-
-[node name="余洛琛" parent="Characters" node_paths=PackedStringArray("body_parts") instance=ExtResource("6_ryrav")]
-body_parts = []
-
-[node name="常夏" parent="Characters" instance=ExtResource("7_eow3j")]
 
 [node name="CharacterImages" type="Node2D" parent="."]
 

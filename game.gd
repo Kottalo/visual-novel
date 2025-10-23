@@ -11,12 +11,7 @@ var balloon: DialogueBalloon
 func _ready() -> void:
 	Main.game = self
 	
-	DialogueManager.got_dialogue.connect(
-		func (line: DialogueLine):
-			print(line.tags)
-	)
-	
-	balloon = DialogueManager.show_dialogue_balloon(main_dialogue, "start")
+	balloon = DialogueManager.show_dialogue_balloon(main_dialogue, "start", [Main])
 	
 	pass
 

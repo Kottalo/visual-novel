@@ -8,49 +8,19 @@ extends Node2D
 @export var body_parts: Array[AnimatedSprite2D]
 @export var optionals_pool: Node2D
 
+var body_part_dict: Dictionary[String, AnimatedSprite2D]
+
 var character_data: CharacterData:
 	get:
 		return
 
 func _ready() -> void:
-	#for body_part in body_parts:
-		#body_part.animation_changed.connect(
-			#func ():
-				#character_data.
-		#)
+	for body_part in body_parts:
+		body_part_dict[body_part.name] = body_part
+		
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
 			if line.character == self.name:
-				var body: String = line.get_tag_value("Body")
-				if body:
-					var body_part: AnimatedSprite2D = body_parts.filter(
-						func (part: AnimatedSprite2D):
-							return part.name == "Body"
-					).front()
-					
-					body_part.animation = body
-				
-				var clear_optionals: bool = "ClearOptionals" in line.tags
-				if clear_optionals:
-					for additional: Sprite2D in optionals_pool.get_children():
-						additional.visible = false
-				
-				var optionals: String = line.get_tag_value("Optionals")
-				if optionals:
-					var optionals_array = optionals.split(",")
-					for additional in optionals_array:
-						var addtional_sprite: Sprite2D = optionals_pool.get_node(additional)
-						addtional_sprite.visible = true
-				
-				var character_position: String = line.get_tag_value("Position")
-				if character_position:
-					var character_sprite: Sprite2D = Sprite2D.new()
-					character_sprite.texture = subviewport.get_texture()
-					Main.game.character_image_pool.add_child(character_sprite)
-					character_sprite.global_position = Main.game.get_position_by_name(character_position)
-					character_sprite.global_position.y -= character_sprite.get_rect().size.y / 2 \
-					* character_sprite.scale.y
-				
 				Main.game.balloon.avatar.texture = get_avatar_image()
 	)
 
@@ -60,3 +30,34 @@ func get_avatar_image() -> AtlasTexture:
 	atlas_texture.region = avatar_frame.get_rect()
 	
 	return atlas_texture
+
+#region Dialogue Commands
+
+# Example: SetParts("Body:校服,Eye:悲伤")
+func SetParts(parts_string: String) -> void:
+	var parts_array = parts_string.split(",")
+	for part in parts_array:
+		var part_item: Array[String] = part.split(":")
+		var part_name = part_item[0]
+		var item_name = part_item[1]
+		body_part_dict[part_name].animation = item_name
+
+func ClearOptionals() -> void:
+	for additional: Sprite2D in optionals_pool.get_children():
+		additional.visible = false
+
+func SetOptionals(optionals_string: String) -> void:
+	var optionals_array = optionals_string.split(",")
+	for additional in optionals_array:
+		var addtional_sprite: Sprite2D = optionals_pool.get_node(additional)
+		addtional_sprite.visible = true
+
+func FadeIn(position_name: String) -> void:
+	var character_sprite: Sprite2D = Sprite2D.new()
+	character_sprite.texture = subviewport.get_texture()
+	Main.game.character_image_pool.add_child(character_sprite)
+	character_sprite.global_position = Main.game.get_position_by_name(position_name)
+	character_sprite.global_position.y -= character_sprite.get_rect().size.y / 2 \
+	* character_sprite.scale.y
+
+#endregion
