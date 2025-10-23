@@ -4,6 +4,7 @@ extends Node2D
 @export var subviewport: SubViewport
 @export var avatar_frame: Control
 
+@export var body_node: AnimatedSprite2D
 @export var body_parts: Array[AnimatedSprite2D]
 @export var optionals_pool: Node2D
 
@@ -47,6 +48,8 @@ func _ready() -> void:
 					character_sprite.texture = subviewport.get_texture()
 					Main.game.character_image_pool.add_child(character_sprite)
 					character_sprite.global_position = Main.game.get_position_by_name(character_position)
+					character_sprite.global_position.y -= character_sprite.get_rect().size.y / 2 \
+					* character_sprite.scale.y
 				
 				Main.game.balloon.avatar.texture = get_avatar_image()
 	)

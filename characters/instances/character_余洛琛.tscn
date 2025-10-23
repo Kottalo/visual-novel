@@ -170,7 +170,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="余洛琛" instance=ExtResource("1_pac1f")]
+[node name="余洛琛" node_paths=PackedStringArray("body_node") instance=ExtResource("1_pac1f")]
+body_node = NodePath("SubViewportContainer/SubViewport/Body")
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
 sprite_frames = SubResource("SpriteFrames_qqr4u")
@@ -189,7 +190,6 @@ sprite_frames = SubResource("SpriteFrames_bnq0n")
 animation = &"不满"
 
 [node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
-visible = false
 texture = ExtResource("19_ys0an")
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="1"]
