@@ -1,6 +1,7 @@
 extends Control
 
 @export var main_dialogue: Resource
+@export var hbox_positions: HBoxContainer
 
 var balloon: DialogueBalloon
 

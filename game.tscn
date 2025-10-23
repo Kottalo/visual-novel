@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=8 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="7_eow3j"]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2o6t")
 main_dialogue = ExtResource("2_7jktm")
+hbox_positions = NodePath("HBoxContainer_Positions")
 
 [node name="MainMenu" type="Control" parent="."]
 visible = false
@@ -71,6 +73,53 @@ expand_mode = 5
 stretch_mode = 6
 
 [node name="Characters" type="Node2D" parent="."]
+visible = false
 
-[node name="余洛琛" parent="Characters" instance=ExtResource("6_ryrav")]
-position = Vector2(977, 1442)
+[node name="余洛琛" parent="Characters" node_paths=PackedStringArray("body_parts") instance=ExtResource("6_ryrav")]
+body_parts = []
+
+[node name="常夏" parent="Characters" instance=ExtResource("7_eow3j")]
+
+[node name="HBoxContainer_Positions" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftMost" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/LeftMost"]
+layout_mode = 2
+
+[node name="Left" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Left"]
+layout_mode = 2
+
+[node name="Center" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Center"]
+layout_mode = 2
+
+[node name="Right" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Right"]
+layout_mode = 2
+
+[node name="RightMost" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/RightMost"]
+layout_mode = 2
