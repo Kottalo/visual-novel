@@ -33,13 +33,15 @@ func get_avatar_image() -> AtlasTexture:
 
 #region Dialogue Commands
 
-func FadeIn(position_name: String) -> void:
+func FadeIn(position_name: String, duration: float = 0) -> void:
 	var character_sprite: Sprite2D = Sprite2D.new()
 	character_sprite.texture = subviewport.get_texture()
+	character_sprite.modulate.a = 0
 	Main.game.character_image_pool.add_child(character_sprite)
 	character_sprite.global_position = Main.game.get_position_by_name(position_name)
 	character_sprite.global_position.y -= character_sprite.get_rect().size.y / 2 \
 	* character_sprite.scale.y
+	await create_tween().tween_property(character_sprite, "modulate:a", 1, duration).finished
 	
 # Example: SetParts("Body:校服,Eye:悲伤")
 func SetParts(parts_string: String) -> void:
