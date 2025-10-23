@@ -1,0 +1,204 @@
+[gd_scene load_steps=26 format=3 uid="uid://dvwwuqgnvc672"]
+
+[ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_pac1f"]
+[ext_resource type="Texture2D" uid="uid://cmfsvgwh7isgg" path="res://assets/characters/余洛琛/身体/常服.png" id="2_mrvlk"]
+[ext_resource type="Texture2D" uid="uid://epoa2vri5tau" path="res://assets/characters/余洛琛/身体/校服.png" id="3_jfkyx"]
+[ext_resource type="Texture2D" uid="uid://d2hys0h13sj5y" path="res://assets/characters/余洛琛/眉毛/上挑.png" id="4_wwk3g"]
+[ext_resource type="Texture2D" uid="uid://cxvs3g4uk74bu" path="res://assets/characters/余洛琛/眉毛/悲伤.png" id="5_sxffg"]
+[ext_resource type="Texture2D" uid="uid://cp0ha7po4h4lp" path="res://assets/characters/余洛琛/眉毛/生气.png" id="6_ykarx"]
+[ext_resource type="Texture2D" uid="uid://65rykxsqu2v" path="res://assets/characters/余洛琛/眉毛/默认.png" id="7_ys0an"]
+[ext_resource type="Texture2D" uid="uid://dla1gqodfa67n" path="res://assets/characters/余洛琛/眼睛/不敢对视.png" id="8_tlcri"]
+[ext_resource type="Texture2D" uid="uid://iknuc4sfxm7g" path="res://assets/characters/余洛琛/眼睛/微眯.png" id="9_h3wkl"]
+[ext_resource type="Texture2D" uid="uid://dgyb0x410f7xh" path="res://assets/characters/余洛琛/眼睛/悲伤.png" id="10_lpavb"]
+[ext_resource type="Texture2D" uid="uid://c4ickffk3gegr" path="res://assets/characters/余洛琛/眼睛/晕.png" id="11_2s1x3"]
+[ext_resource type="Texture2D" uid="uid://due174br16i6n" path="res://assets/characters/余洛琛/眼睛/眯眼.png" id="12_gfdhf"]
+[ext_resource type="Texture2D" uid="uid://8excqu7flhqq" path="res://assets/characters/余洛琛/眼睛/默认.png" id="13_iajx4"]
+[ext_resource type="Texture2D" uid="uid://1jk4n7h1f5ia" path="res://assets/characters/余洛琛/嘴巴/不满.png" id="14_gv6fb"]
+[ext_resource type="Texture2D" uid="uid://c3c85c07jfu6q" path="res://assets/characters/余洛琛/嘴巴/不满说话.png" id="15_6x227"]
+[ext_resource type="Texture2D" uid="uid://7jrccfhrbdyp" path="res://assets/characters/余洛琛/嘴巴/微笑.png" id="16_5es0l"]
+[ext_resource type="Texture2D" uid="uid://ckg5qsfjgc8lq" path="res://assets/characters/余洛琛/嘴巴/无口.png" id="17_vorhc"]
+[ext_resource type="Texture2D" uid="uid://br60urm60kbsr" path="res://assets/characters/余洛琛/嘴巴/笑开口.png" id="18_kproh"]
+[ext_resource type="Texture2D" uid="uid://cmgmvo611yp6e" path="res://assets/characters/余洛琛/附加/眼镜.png" id="19_ys0an"]
+[ext_resource type="Texture2D" uid="uid://dt0wc55pprx4" path="res://assets/characters/余洛琛/附加/脸红.png" id="20_tlcri"]
+[ext_resource type="Texture2D" uid="uid://dbk85qj2xuiyg" path="res://assets/characters/余洛琛/附加/问号.png" id="21_h3wkl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qqr4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mrvlk")
+}],
+"loop": true,
+"name": &"常服",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jfkyx")
+}],
+"loop": true,
+"name": &"校服",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qulg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wwk3g")
+}],
+"loop": true,
+"name": &"上挑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_sxffg")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ykarx")
+}],
+"loop": true,
+"name": &"生气",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ys0an")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ke030"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_tlcri")
+}],
+"loop": true,
+"name": &"不敢对视",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_h3wkl")
+}],
+"loop": true,
+"name": &"微眯",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lpavb")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_2s1x3")
+}],
+"loop": true,
+"name": &"晕",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_gfdhf")
+}],
+"loop": true,
+"name": &"眯眼",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_iajx4")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnq0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_gv6fb")
+}],
+"loop": true,
+"name": &"不满",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_6x227")
+}],
+"loop": true,
+"name": &"不满说话",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_5es0l")
+}],
+"loop": true,
+"name": &"微笑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_vorhc")
+}],
+"loop": true,
+"name": &"无口",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_kproh")
+}],
+"loop": true,
+"name": &"笑开口",
+"speed": 5.0
+}]
+
+[node name="余洛琛" instance=ExtResource("1_pac1f")]
+
+[node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
+sprite_frames = SubResource("SpriteFrames_qqr4u")
+animation = &"常服"
+
+[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
+sprite_frames = SubResource("SpriteFrames_qulg7")
+animation = &"上挑"
+
+[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
+sprite_frames = SubResource("SpriteFrames_ke030")
+animation = &"不敢对视"
+
+[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
+sprite_frames = SubResource("SpriteFrames_bnq0n")
+animation = &"不满"
+
+[node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Additional" index="0"]
+visible = false
+texture = ExtResource("19_ys0an")
+
+[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Additional" index="1"]
+visible = false
+texture = ExtResource("20_tlcri")
+
+[node name="问号" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Additional" index="2"]
+visible = false
+texture = ExtResource("21_h3wkl")
+
+[node name="AvatarFrame" parent="SubViewportContainer/SubViewport" index="1"]
+offset_bottom = 117.46997
