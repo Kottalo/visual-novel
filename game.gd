@@ -3,7 +3,6 @@ extends Control
 
 @export var main_dialogue: Resource
 @export var hbox_positions: HBoxContainer
-@export var character_pool: Node2D
 @export var character_image_pool: Node2D
 
 var balloon: DialogueBalloon

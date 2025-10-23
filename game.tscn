@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=5 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
-[ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
 
-[node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_pool", "character_image_pool")]
+[node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,9 +14,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2o6t")
 main_dialogue = ExtResource("2_7jktm")
-hbox_positions = NodePath("HBoxContainer_Positions")
-character_pool = NodePath("")
-character_image_pool = NodePath("CharacterImages")
+hbox_positions = NodePath("Stage/HBoxContainer_Positions")
+character_image_pool = NodePath("Stage/CharacterImages")
 
 [node name="MainMenu" type="Control" parent="."]
 visible = false
@@ -50,7 +48,7 @@ offset_right = 168.0
 offset_bottom = -142.0
 grow_vertical = 0
 
-[node name="Control" type="Control" parent="."]
+[node name="Stage" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,23 +56,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundPreview" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 892.0
-offset_right = 892.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_7jktm")
-expand_mode = 5
-stretch_mode = 6
+[node name="CharacterImages" type="Node2D" parent="Stage"]
 
-[node name="CharacterImages" type="Node2D" parent="."]
-
-[node name="HBoxContainer_Positions" type="HBoxContainer" parent="."]
+[node name="HBoxContainer_Positions" type="HBoxContainer" parent="Stage"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -83,37 +67,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LeftMost" type="CenterContainer" parent="HBoxContainer_Positions"]
+[node name="LeftMost" type="CenterContainer" parent="Stage/HBoxContainer_Positions"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/LeftMost"]
+[node name="CenterPoint" type="Control" parent="Stage/HBoxContainer_Positions/LeftMost"]
 layout_mode = 2
 
-[node name="Left" type="CenterContainer" parent="HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Left"]
-layout_mode = 2
-
-[node name="Center" type="CenterContainer" parent="HBoxContainer_Positions"]
+[node name="Left" type="CenterContainer" parent="Stage/HBoxContainer_Positions"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Center"]
+[node name="CenterPoint" type="Control" parent="Stage/HBoxContainer_Positions/Left"]
 layout_mode = 2
 
-[node name="Right" type="CenterContainer" parent="HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Right"]
-layout_mode = 2
-
-[node name="RightMost" type="CenterContainer" parent="HBoxContainer_Positions"]
+[node name="Center" type="CenterContainer" parent="Stage/HBoxContainer_Positions"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/RightMost"]
+[node name="CenterPoint" type="Control" parent="Stage/HBoxContainer_Positions/Center"]
+layout_mode = 2
+
+[node name="Right" type="CenterContainer" parent="Stage/HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="Stage/HBoxContainer_Positions/Right"]
+layout_mode = 2
+
+[node name="RightMost" type="CenterContainer" parent="Stage/HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="Stage/HBoxContainer_Positions/RightMost"]
 layout_mode = 2
