@@ -1,3 +1,4 @@
+class_name DialogueBalloon
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
@@ -9,6 +10,8 @@ extends CanvasLayer
 
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+
+@export var avatar: TextureRect
 
 ## The dialogue resource
 var resource: DialogueResource

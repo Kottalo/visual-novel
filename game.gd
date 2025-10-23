@@ -1,12 +1,15 @@
 extends Control
 
 @export var main_dialogue: Resource
-@export var subviewport: SubViewport
+
+var balloon: DialogueBalloon
 
 func _ready() -> void:
-	DialogueManager.mutated.connect(
-		func ():
-			print(11)
+	DialogueManager.got_dialogue.connect(
+		func (line: DialogueLine):
+			balloon.avatar.texture = %"Character".avatar_image
 	)
 	
-	DialogueManager.show_dialogue_balloon(main_dialogue, "start")
+	balloon = DialogueManager.show_dialogue_balloon(main_dialogue, "start")
+	
+	pass

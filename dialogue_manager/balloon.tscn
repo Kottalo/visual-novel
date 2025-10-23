@@ -67,9 +67,10 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
-[node name="ExampleBalloon" type="CanvasLayer"]
+[node name="ExampleBalloon" type="CanvasLayer" node_paths=PackedStringArray("avatar")]
 layer = 100
 script = ExtResource("1_36de5")
+avatar = NodePath("Balloon/Avatar")
 
 [node name="Preview" type="TextureRect" parent="."]
 visible = false
@@ -174,6 +175,16 @@ text = "文学社"
 unique_name_in_owner = true
 position = Vector2(2477, 0)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
+
+[node name="Avatar" type="TextureRect" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 484.0
+grow_vertical = 0
+expand_mode = 4
+stretch_mode = 6
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
