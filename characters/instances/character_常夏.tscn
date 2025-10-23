@@ -1,0 +1,191 @@
+[gd_scene load_steps=24 format=3 uid="uid://crtfb3f3rs7b1"]
+
+[ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_1d4w3"]
+[ext_resource type="Texture2D" uid="uid://lisv5uubn5jh" path="res://assets/characters/常夏/身体/默认.png" id="2_ejj1m"]
+[ext_resource type="Texture2D" uid="uid://cle0p6n6k3st0" path="res://assets/characters/常夏/眉毛/上挑.png" id="3_qlwf8"]
+[ext_resource type="Texture2D" uid="uid://ddgrrd3oc1bep" path="res://assets/characters/常夏/眉毛/悲伤.png" id="4_w0vi7"]
+[ext_resource type="Texture2D" uid="uid://c1qsto14pybo7" path="res://assets/characters/常夏/眉毛/生气.png" id="5_ewne5"]
+[ext_resource type="Texture2D" uid="uid://bqdki4vpcap75" path="res://assets/characters/常夏/眉毛/认真.png" id="6_wta5g"]
+[ext_resource type="Texture2D" uid="uid://buonsc0yvlmvp" path="res://assets/characters/常夏/眉毛/默认.png" id="7_vlqqc"]
+[ext_resource type="Texture2D" uid="uid://b7qdkq72joryr" path="res://assets/characters/常夏/眼睛/微眯.png" id="8_mpe7f"]
+[ext_resource type="Texture2D" uid="uid://y6rbr4mb0em8" path="res://assets/characters/常夏/眼睛/悲伤.png" id="9_mvn6w"]
+[ext_resource type="Texture2D" uid="uid://xacxv3eif5xa" path="res://assets/characters/常夏/眼睛/星星眼.png" id="10_ugi5u"]
+[ext_resource type="Texture2D" uid="uid://ca70dteg0shc" path="res://assets/characters/常夏/眼睛/眯眼.png" id="11_164i5"]
+[ext_resource type="Texture2D" uid="uid://buq3tkkt1fvlt" path="res://assets/characters/常夏/眼睛/默认.png" id="12_8kdgb"]
+[ext_resource type="Texture2D" uid="uid://1i3l53kk7uxi" path="res://assets/characters/常夏/嘴巴/不满.png" id="13_j2hme"]
+[ext_resource type="Texture2D" uid="uid://dbhj4c8rgx1g6" path="res://assets/characters/常夏/嘴巴/大开口.png" id="14_sdyfj"]
+[ext_resource type="Texture2D" uid="uid://hkntr8sqjovi" path="res://assets/characters/常夏/嘴巴/小开口.png" id="15_fvwqr"]
+[ext_resource type="Texture2D" uid="uid://2yxptyf5j60h" path="res://assets/characters/常夏/嘴巴/微笑.png" id="16_cmy8o"]
+[ext_resource type="Texture2D" uid="uid://ca580fsnbmlbu" path="res://assets/characters/常夏/嘴巴/笑嘻嘻.png" id="17_p5ym6"]
+[ext_resource type="Texture2D" uid="uid://bk5abqd5le0qc" path="res://assets/characters/常夏/嘴巴/笑开口.png" id="18_h7f86"]
+[ext_resource type="Texture2D" uid="uid://dt7qlxn1d8tv5" path="res://assets/characters/常夏/附加/脸红.png" id="19_sdyfj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mflfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ejj1m")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpe7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qlwf8")
+}],
+"loop": true,
+"name": &"上挑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w0vi7")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ewne5")
+}],
+"loop": true,
+"name": &"生气",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wta5g")
+}],
+"loop": true,
+"name": &"认真",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vlqqc")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ioytk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mpe7f")
+}],
+"loop": true,
+"name": &"微眯",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_mvn6w")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ugi5u")
+}],
+"loop": true,
+"name": &"星星眼",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_164i5")
+}],
+"loop": true,
+"name": &"眯眼",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_8kdgb")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8q33n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_j2hme")
+}],
+"loop": true,
+"name": &"不满",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_sdyfj")
+}],
+"loop": true,
+"name": &"大开口",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_fvwqr")
+}],
+"loop": true,
+"name": &"小开口",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_cmy8o")
+}],
+"loop": true,
+"name": &"微笑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_p5ym6")
+}],
+"loop": true,
+"name": &"笑嘻嘻",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_h7f86")
+}],
+"loop": true,
+"name": &"笑开口",
+"speed": 5.0
+}]
+
+[node name="常夏" instance=ExtResource("1_1d4w3")]
+
+[node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
+sprite_frames = SubResource("SpriteFrames_mflfp")
+animation = &"默认"
+
+[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
+sprite_frames = SubResource("SpriteFrames_mpe7f")
+animation = &"悲伤"
+
+[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
+sprite_frames = SubResource("SpriteFrames_ioytk")
+animation = &"星星眼"
+
+[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
+sprite_frames = SubResource("SpriteFrames_8q33n")
+animation = &"小开口"
+
+[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Additional" index="0"]
+visible = false
+texture = ExtResource("19_sdyfj")

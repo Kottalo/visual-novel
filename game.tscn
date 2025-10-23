@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="6_ryrav"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -70,6 +70,7 @@ texture = ExtResource("4_7jktm")
 expand_mode = 5
 stretch_mode = 6
 
-[node name="Character" parent="." instance=ExtResource("6_ryrav")]
-unique_name_in_owner = true
-position = Vector2(329, 1254)
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="余洛琛" parent="Characters" instance=ExtResource("6_ryrav")]
+position = Vector2(977, 1442)

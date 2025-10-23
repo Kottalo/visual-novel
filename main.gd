@@ -1,6 +1,3 @@
 extends Node
 
-var abc = 1
-
-func test():
-	print("test")
+@export var save_data: SaveData

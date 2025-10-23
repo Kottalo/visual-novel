@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://di7qgo24s04cu" path="res://characters/character.gd" id="1_e3kty"]
 
-[node name="Character" type="Node2D" node_paths=PackedStringArray("subviewport", "avatar_frame")]
+[node name="Character" type="Node2D" node_paths=PackedStringArray("subviewport", "avatar_frame", "body_parts")]
 script = ExtResource("1_e3kty")
 subviewport = NodePath("SubViewportContainer/SubViewport")
 avatar_frame = NodePath("SubViewportContainer/SubViewport/AvatarFrame")
+body_parts = [NodePath("SubViewportContainer/SubViewport/Body"), NodePath("SubViewportContainer/SubViewport/Body/Eyebrows"), NodePath("SubViewportContainer/SubViewport/Body/Eyes"), NodePath("SubViewportContainer/SubViewport/Body/Mouth")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_left = -477.0
