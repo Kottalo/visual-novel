@@ -67,9 +67,11 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
-[node name="ExampleBalloon" type="CanvasLayer" node_paths=PackedStringArray("avatar")]
+[node name="ExampleBalloon" type="CanvasLayer" node_paths=PackedStringArray("bg_common", "bg_character", "avatar")]
 layer = 100
 script = ExtResource("1_36de5")
+bg_common = NodePath("Balloon/Bg_DialogueBox/Bg_Common")
+bg_character = NodePath("Balloon/Bg_DialogueBox/Bg_Character")
 avatar = NodePath("Balloon/Avatar")
 
 [node name="Preview" type="TextureRect" parent="."]

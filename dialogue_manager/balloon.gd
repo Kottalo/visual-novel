@@ -11,6 +11,8 @@ extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+@export var bg_common: TextureRect
+@export var bg_character: TextureRect
 @export var avatar: TextureRect
 
 ## The dialogue resource
@@ -117,6 +119,10 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	
+	bg_common.visible = dialogue_line.character.is_empty()
+	bg_character.visible = not dialogue_line.character.is_empty()
+	avatar.visible = not dialogue_line.character.is_empty()
 	
 	if balloon.modulate.a != 1:
 		await create_tween().tween_property(balloon, "modulate:a", 1, 0.5).finished
