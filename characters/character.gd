@@ -9,7 +9,7 @@ extends Node2D
 @export var optionals_pool: Node2D
 
 var body_part_dict: Dictionary[String, AnimatedSprite2D]
-var character_image: Sprite2D
+var character_image: Node2D
 
 var character_data: CharacterData:
 	get:
@@ -35,18 +35,24 @@ func get_avatar_image() -> AtlasTexture:
 #region Dialogue Commands
 
 func FadeIn(position_name: String, duration: float = 0) -> void:
-	character_image = Sprite2D.new()
-	character_image.texture = subviewport.get_texture()
+	character_image = Node2D.new()
+	var character_sprite = Sprite2D.new()
+	character_sprite.texture = subviewport.get_texture()
+	character_image.add_child(character_sprite)
+	character_sprite.position.y -= character_sprite.get_rect().size.y / 2 \
+	* character_image.scale.y
 	character_image.modulate.a = 0
 	Main.game.character_image_pool.add_child(character_image)
 	character_image.global_position = Main.game.get_position_by_name(position_name)
-	character_image.global_position.y -= character_image.get_rect().size.y / 2 \
-	* character_image.scale.y
 	await create_tween().tween_property(character_image, "modulate:a", 1, duration).finished
 
 func FadeOut(duration: float = 0) -> void:
 	await create_tween().tween_property(character_image, "modulate:a", 0, duration).finished
 	character_image.queue_free()
+
+func MoveTo(position_name: String, duration: float = 0.5) -> void:
+	var target_position: Vector2 = Main.game.get_position_by_name(position_name)
+	await create_tween().tween_property(character_image, "global_position", target_position, duration).finished
 
 # Example: SetParts("Body:校服,Eye:悲伤")
 func SetParts(parts_string: String) -> void:
