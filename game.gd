@@ -1,6 +1,7 @@
 extends Control
 
 @export var main_dialogue: Resource
+@export var subviewport: SubViewport
 
 func _ready() -> void:
 	DialogueManager.mutated.connect(
