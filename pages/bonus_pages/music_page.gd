@@ -1,10 +1,7 @@
 extends Control
 
-enum PlayStatus { PLAY, PAUSE }
+const PlayStatus = AudioManager.PlayStatus
 
-@export var playlist: Array[MusicData]
-
-@export var audio_player: AudioStreamPlayer2D
 @export var play_progress_container: Control
 @export var play_progress_line: ColorRect
 @export var play_button: TextureButton
@@ -12,49 +9,36 @@ enum PlayStatus { PLAY, PAUSE }
 @export var next_button: TextureButton
 @export var previous_button: TextureButton
 
-var play_status: PlayStatus = PlayStatus.PLAY:
-	set(value):
-		play_status = value
-		play_button.visible = false
-		pause_button.visible = false
-		
-		match play_status:
-			PlayStatus.PLAY:
-				pause_button.visible = true
-				audio_player.stream_paused = false
-				pass
-			PlayStatus.PAUSE:
-				play_button.visible = true
-				audio_player.stream_paused = true
-				pass
+var audio_player: AudioStreamPlayer2D:
+	get:
+		return AudioManager.audio_player
 
-var track_index: int:
-	set(value):
-		track_index = value
-		if track_index < 0: track_index = playlist.size() - 1
-		if track_index >= playlist.size(): track_index = 0
-		audio_player.stream = playlist[track_index].track
-		audio_player.play()
-
-func _ready() -> void:
-	track_index = 0
-	play_status = play_status
+func _ready() -> void:	
+	AudioManager.play_status_changed.connect(
+		func ():
+			play_button.visible = false
+			pause_button.visible = false
+			
+			match AudioManager.play_status:
+				PlayStatus.PLAY:
+					pause_button.visible = true
+				PlayStatus.PAUSE:
+					play_button.visible = true
+	)
 	
 	play_button.pressed.connect(
-		func (): play_status = PlayStatus.PLAY
+		func (): AudioManager.play_status = PlayStatus.PLAY
 	)
 	pause_button.pressed.connect(
-		func (): play_status = PlayStatus.PAUSE
+		func (): AudioManager.play_status = PlayStatus.PAUSE
 	)
 	next_button.pressed.connect(
-		func (): track_index += 1
+		func (): AudioManager.track_index += 1
 	)
 	previous_button.pressed.connect(
-		func (): track_index -= 1
+		func (): AudioManager.track_index -= 1
 	)
-	audio_player.finished.connect(
-		func (): track_index += 1
-	)
+	
 
 func _physics_process(delta: float) -> void:
 	play_progress_line.size.x = play_progress_container.size.x * \
