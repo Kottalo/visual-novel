@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=45 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://save_profiles/save_profile_card.tscn" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bq4dne8l5a5qr" path="res://assets/ui/奇迹书/background.png" id="8_215e1"]
 [ext_resource type="Texture2D" uid="uid://c1nsptow73vv4" path="res://assets/ui/奇迹书/奇迹书.png" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="8_klri6"]
 [ext_resource type="Texture2D" uid="uid://d1elj7yroe3b7" path="res://assets/ui/奇迹书/book.png" id="9_7sc4i"]
 [ext_resource type="Texture2D" uid="uid://bulngn6a57phl" path="res://assets/ui/奇迹书/frame_1.png" id="10_80cx4"]
 [ext_resource type="Texture2D" uid="uid://bndrl2b5xlneq" path="res://assets/ui/奇迹书/things.png" id="11_7sc4i"]
@@ -37,6 +38,9 @@
 [ext_resource type="Texture2D" uid="uid://bfek3nnequevu" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_normal.png" id="35_iu0sx"]
 [ext_resource type="Texture2D" uid="uid://c43o2le44abf5" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_click.png" id="36_4v2jo"]
 [ext_resource type="Texture2D" uid="uid://mnmjup6twua7" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_hover.png" id="37_l1i01"]
+[ext_resource type="Texture2D" uid="uid://dbfnmuah3507l" path="res://assets/ui/鉴赏内容/音乐鉴赏/song_click.png" id="38_l1i01"]
+[ext_resource type="Texture2D" uid="uid://bcjhevvrpbkve" path="res://assets/ui/鉴赏内容/音乐鉴赏/song_hover.png" id="39_r62pu"]
+[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="40_r62pu"]
 
 [sub_resource type="Resource" id="Resource_36jdj"]
 script = ExtResource("18_i2p71")
@@ -157,8 +161,7 @@ size_flags_horizontal = 3
 [node name="CenterPoint" type="Control" parent="Stage/HBoxContainer_Positions/RightMost"]
 layout_mode = 2
 
-[node name="SaveGamePage" type="Control" parent="." node_paths=PackedStringArray("scroll_container", "grid_container", "v_scrollbar")]
-visible = false
+[node name="SaveGamePage" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -167,12 +170,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("5_eow3j")
-scroll_container = NodePath("ScrollContainer")
-grid_container = NodePath("ScrollContainer/GridContainer")
-v_scrollbar = NodePath("VScrollBar")
 
 [node name="Preview" type="TextureRect" parent="SaveGamePage"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -223,12 +222,18 @@ layout_mode = 2
 [node name="SaveProfileCard9" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="VScrollBar" type="VScrollBar" parent="SaveGamePage"]
-layout_mode = 0
-offset_left = 2442.0
-offset_top = 116.0
-offset_right = 2452.0
-offset_bottom = 1327.0
+[node name="VScrollBarEx" parent="SaveGamePage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95400006
+anchor_top = 0.081
+anchor_right = 0.95400006
+anchor_bottom = 0.081
+offset_left = -0.24023438
+offset_top = -0.6399994
+offset_right = 9.759766
+offset_bottom = 1210.36
+target_scroll_container = NodePath("../ScrollContainer")
 
 [node name="BookPage" type="Control" parent="."]
 visible = false
@@ -327,6 +332,7 @@ grow_vertical = 2
 texture = ExtResource("8_j5wjh")
 
 [node name="BonusPage" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -454,7 +460,6 @@ texture_pressed = ExtResource("36_4v2jo")
 texture_hover = ExtResource("37_l1i01")
 
 [node name="Preview" type="TextureRect" parent="BonusPage/MusicPage"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -462,3 +467,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_e8heu")
+
+[node name="ScrollContainer_Playlist" type="ScrollContainer" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_left = 1911.0
+offset_top = 108.0
+offset_right = 2401.0
+offset_bottom = 1203.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BonusPage/MusicPage/ScrollContainer_Playlist"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TrackItem" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem2" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem2"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://1qd1ifwgiuft"]
+
+[ext_resource type="Script" uid="uid://c451u0wxoyvl7" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.gd" id="1_mpri4"]
+
+[node name="VScrollBarEx" type="VScrollBar"]
+offset_left = 2442.0
+offset_top = 116.0
+offset_right = 2452.0
+offset_bottom = 1327.0
+script = ExtResource("1_mpri4")
