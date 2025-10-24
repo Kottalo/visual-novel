@@ -5,6 +5,9 @@ extends Node
 var save_data: SaveData
 var game: Game
 
+var clicked: bool
+var dragged: bool
+
 var selected_save_profile_index: int:
 	set(value):
 		selected_save_profile_index = value

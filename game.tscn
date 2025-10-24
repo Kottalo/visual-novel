@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=8 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://kdb1r5x3d2o8" path="res://assets/ui/存读档案/存读档界面.png" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/save_game_page.gd" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://save_profiles/save_profile_card.tscn" id="6_ryrav"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
@@ -104,7 +105,7 @@ size_flags_horizontal = 3
 [node name="CenterPoint" type="Control" parent="Stage/HBoxContainer_Positions/RightMost"]
 layout_mode = 2
 
-[node name="SaveGame" type="Control" parent="."]
+[node name="SaveGamePage" type="Control" parent="." node_paths=PackedStringArray("scroll_container", "grid_container", "v_scrollbar")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,8 +113,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("5_eow3j")
+scroll_container = NodePath("ScrollContainer")
+grid_container = NodePath("ScrollContainer/GridContainer")
+v_scrollbar = NodePath("VScrollBar")
 
-[node name="Preview" type="TextureRect" parent="SaveGame"]
+[node name="Preview" type="TextureRect" parent="SaveGamePage"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,7 +128,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_7jktm")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="SaveGame"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SaveGamePage"]
 layout_mode = 0
 offset_left = 596.0
 offset_top = 104.0
@@ -131,46 +137,40 @@ offset_bottom = 1331.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="GridContainer" type="GridContainer" parent="SaveGame/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="SaveGamePage/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 22
 theme_override_constants/v_separation = 42
 columns = 3
 
-[node name="SaveProfileCard" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard2" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard2" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard3" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard3" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard4" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard4" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard5" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard5" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard6" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard6" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard7" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard7" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard8" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard8" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard9" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard9" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard10" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard11" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="VScrollBar" type="VScrollBar" parent="SaveGame"]
+[node name="VScrollBar" type="VScrollBar" parent="SaveGamePage"]
 layout_mode = 0
 offset_left = 2442.0
 offset_top = 116.0

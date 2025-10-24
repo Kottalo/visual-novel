@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bhk56e201y345" path="res://assets/ui/存读档案/data_background_normal.png" id="1_ueu0p"]
 [ext_resource type="Script" uid="uid://c8kumhshi054" path="res://save_profiles/save_profile_card.gd" id="2_ocbxf"]
-[ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="3_wp8o1"]
+[ext_resource type="Texture2D" uid="uid://c7j0ffldcerti" path="res://assets/ui/存读档案/dataimage_empty.png" id="3_ueu0p"]
 [ext_resource type="Texture2D" uid="uid://cbsg1w1i7o3lo" path="res://assets/ui/存读档案/no_background.png" id="4_3cquv"]
 [ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="5_4wxwx"]
 [ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_mkcy0"]
@@ -20,7 +20,7 @@ offset_left = 53.0
 offset_top = 64.0
 offset_right = 523.0
 offset_bottom = 329.0
-texture = ExtResource("3_wp8o1")
+texture = ExtResource("3_ueu0p")
 expand_mode = 1
 
 [node name="TextureRect_Index" type="TextureRect" parent="."]

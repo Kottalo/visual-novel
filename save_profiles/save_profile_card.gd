@@ -24,9 +24,18 @@ func _ready() -> void:
 	gui_input.connect(
 		func (event: InputEvent):
 			if event is InputEventMouseButton:
-				if event.is_pressed():
-					if event.button_index == MOUSE_BUTTON_LEFT:
-						Main.selected_save_profile_index = get_index()
+				if event.button_index == MOUSE_BUTTON_LEFT:
+					if event.is_pressed():
+						Main.clicked = true
+						Main.dragged = false
+					if event.is_released():
+						if not Main.dragged and Main.clicked:
+							Main.selected_save_profile_index = get_index()
+							Main.clicked = false
+						Main.dragged = false
+			if event is InputEventMouseMotion:
+				if Main.clicked:
+					Main.dragged = true
 	)
 	Main.save_profile_index_changed.connect(
 		func ():
