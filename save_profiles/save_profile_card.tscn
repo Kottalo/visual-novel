@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgqkic1n3os2r"]
+
+[ext_resource type="Texture2D" uid="uid://bhk56e201y345" path="res://assets/ui/存读档案/data_background_normal.png" id="1_ueu0p"]
+[ext_resource type="Script" uid="uid://c8kumhshi054" path="res://save_profiles/save_profile_card.gd" id="2_ocbxf"]
+[ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="3_wp8o1"]
+[ext_resource type="Texture2D" uid="uid://cbsg1w1i7o3lo" path="res://assets/ui/存读档案/no_background.png" id="4_3cquv"]
+[ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="5_4wxwx"]
+[ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_mkcy0"]
+[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_0nu7h"]
+
+[node name="SaveProfileCard" type="TextureRect" node_paths=PackedStringArray("texture_rect_preview")]
+texture = ExtResource("1_ueu0p")
+stretch_mode = 4
+script = ExtResource("2_ocbxf")
+texture_rect_preview = NodePath("TextureRect_Preview")
+
+[node name="TextureRect_Preview" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 523.0
+offset_bottom = 329.0
+texture = ExtResource("3_wp8o1")
+expand_mode = 1
+
+[node name="TextureRect_Index" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 34.0
+offset_right = 148.0
+offset_bottom = 88.0
+texture = ExtResource("4_3cquv")
+
+[node name="Label_Index" type="Label" parent="TextureRect_Index"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 11.0
+offset_right = 100.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.72156864, 0.6901961, 0.75686276, 1)
+theme_override_fonts/font = ExtResource("5_4wxwx")
+theme_override_font_sizes/font_size = 23
+text = "NO.01"
+
+[node name="Label_Chapter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 346.0
+offset_right = 165.0
+offset_bottom = 373.0
+theme_override_colors/font_color = Color(0.72156864, 0.6901961, 0.75686276, 1)
+theme_override_fonts/font = ExtResource("6_mkcy0")
+theme_override_font_sizes/font_size = 19
+text = "CHAPTER 01"
+
+[node name="Label_ChapterTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 367.0
+offset_right = 196.0
+offset_bottom = 420.0
+theme_override_colors/font_color = Color(0.72156864, 0.6901961, 0.75686276, 1)
+theme_override_fonts/font = ExtResource("7_0nu7h")
+theme_override_font_sizes/font_size = 36
+text = "章节名称"

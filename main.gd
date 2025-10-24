@@ -5,6 +5,12 @@ extends Node
 var save_data: SaveData
 var game: Game
 
+var selected_save_profile_index: int:
+	set(value):
+		selected_save_profile_index = value
+		emit_signal("save_profile_index_changed")
+signal save_profile_index_changed
+
 var character_dict: Dictionary[String, Character]
 
 func _ready() -> void:
