@@ -18,6 +18,7 @@ var play_status: PlayStatus = PlayStatus.PLAY:
 		
 		emit_signal("play_status_changed")
 
+signal track_index_changed
 var track_index: int:
 	set(value):
 		track_index = value
@@ -25,6 +26,7 @@ var track_index: int:
 		if track_index >= playlist.size(): track_index = 0
 		audio_player.stream = playlist[track_index].track
 		audio_player.play()
+		emit_signal("track_index_changed")
 
 func _ready() -> void:
 	track_index = 0
@@ -33,5 +35,6 @@ func _ready() -> void:
 	audio_player.finished.connect(
 		func (): Main.track_index += 1
 	)
+	
 	
 	

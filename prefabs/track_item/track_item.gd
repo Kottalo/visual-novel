@@ -4,6 +4,10 @@ extends TextureButton
 @export var drag_filter: DragFilter
 @export var label_title: Label
 
+var selected: bool:
+	get:
+		return AudioManager.track_index == get_index()
+
 var music_data: MusicData:
 	set(value):
 		music_data = value
@@ -14,3 +18,9 @@ func _ready() -> void:
 		func ():
 			AudioManager.track_index = get_index()
 	)
+	AudioManager.track_index_changed.connect(update)
+	update()
+
+func update() -> void:
+	button_pressed = false
+	button_pressed = selected

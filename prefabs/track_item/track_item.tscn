@@ -8,7 +8,8 @@
 
 [node name="TrackItem" type="TextureButton" node_paths=PackedStringArray("drag_filter", "label_title")]
 mouse_filter = 1
-texture_normal = ExtResource("1_ueqsu")
+toggle_mode = true
+action_mode = 0
 texture_pressed = ExtResource("1_ueqsu")
 texture_hover = ExtResource("2_bic3u")
 script = ExtResource("3_bic3u")
