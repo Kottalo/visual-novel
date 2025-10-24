@@ -224,14 +224,8 @@ layout_mode = 2
 
 [node name="VScrollBarEx" parent="SaveGamePage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.95400006
 anchor_top = 0.081
-anchor_right = 0.95400006
 anchor_bottom = 0.081
-offset_left = -0.24023438
-offset_top = -0.6399994
-offset_right = 9.759766
 offset_bottom = 1210.36
 target_scroll_container = NodePath("../ScrollContainer")
 
@@ -460,6 +454,7 @@ texture_pressed = ExtResource("36_4v2jo")
 texture_hover = ExtResource("37_l1i01")
 
 [node name="Preview" type="TextureRect" parent="BonusPage/MusicPage"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -512,3 +507,297 @@ offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("40_r62pu")
 theme_override_font_sizes/font_size = 30
 text = "歌曲名称"
+
+[node name="TrackItem3" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem3"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem4" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem4"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem5" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem5"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem6" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem6"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem7" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem7"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem8" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem8"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem9" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem9"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem10" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem10"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem11" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem11"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem12" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem12"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem13" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem13"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem14" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem14"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem15" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem15"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem16" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem16"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem17" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem17"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem18" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem18"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem19" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem19"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="TrackItem20" type="TextureButton" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("38_l1i01")
+texture_pressed = ExtResource("38_l1i01")
+texture_hover = ExtResource("39_r62pu")
+
+[node name="Label_Title" type="Label" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer/TrackItem20"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 173.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("40_r62pu")
+theme_override_font_sizes/font_size = 30
+text = "歌曲名称"
+
+[node name="VScrollBarEx" parent="BonusPage/MusicPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+layout_mode = 1
+offset_top = 116.0
+offset_bottom = 1186.0
+target_scroll_container = NodePath("../ScrollContainer_Playlist")

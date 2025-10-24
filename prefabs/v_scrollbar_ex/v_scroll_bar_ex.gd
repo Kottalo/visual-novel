@@ -27,3 +27,4 @@ func update() -> void:
 	max_value = target_scrollbar.max_value
 	page = target_scrollbar.page
 	self.value = target_scrollbar.value
+	visible = page < max_value

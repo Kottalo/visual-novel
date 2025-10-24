@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://c451u0wxoyvl7" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.gd" id="1_mpri4"]
 
 [node name="VScrollBarEx" type="VScrollBar"]
-offset_left = 2442.0
-offset_top = 116.0
-offset_right = 2452.0
+anchors_preset = -1
+anchor_left = 0.95400006
+anchor_right = 0.95400006
+offset_left = -0.24023438
+offset_top = -0.6399994
+offset_right = 9.759766
 offset_bottom = 1327.0
 script = ExtResource("1_mpri4")

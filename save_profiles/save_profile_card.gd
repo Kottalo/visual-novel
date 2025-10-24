@@ -2,6 +2,7 @@ class_name SaveProfileCard
 extends TextureRect
 
 @export var texture_rect_preview: TextureRect
+@export var drag_filter: DragFilter
 
 var hovered: bool:
 	set(value):
@@ -21,22 +22,10 @@ func _ready() -> void:
 		func ():
 			hovered = false
 	)
-	gui_input.connect(
-		func (event: InputEvent):
-			if event is InputEventMouseButton:
-				if event.button_index == MOUSE_BUTTON_LEFT:
-					if event.is_pressed():
-						Main.clicked = true
-						Main.dragged = false
-					if event.is_released():
-						if not Main.dragged and Main.clicked:
-							Main.selected_save_profile_index = get_index()
-							Main.clicked = false
-						Main.dragged = false
-			if event is InputEventMouseMotion:
-				if Main.clicked:
-					Main.dragged = true
+	drag_filter.execute.connect(
+		func (): Main.selected_save_profile_index = get_index()
 	)
+	
 	Main.save_profile_index_changed.connect(
 		func ():
 			update()

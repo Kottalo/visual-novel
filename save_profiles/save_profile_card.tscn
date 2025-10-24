@@ -1,18 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgqkic1n3os2r"]
+[gd_scene load_steps=9 format=3 uid="uid://cgqkic1n3os2r"]
 
 [ext_resource type="Texture2D" uid="uid://bhk56e201y345" path="res://assets/ui/存读档案/data_background_normal.png" id="1_ueu0p"]
 [ext_resource type="Script" uid="uid://c8kumhshi054" path="res://save_profiles/save_profile_card.gd" id="2_ocbxf"]
+[ext_resource type="PackedScene" uid="uid://cdnnwlov248c" path="res://prefabs/components/drag_filter.tscn" id="3_ocbxf"]
 [ext_resource type="Texture2D" uid="uid://c7j0ffldcerti" path="res://assets/ui/存读档案/dataimage_empty.png" id="3_ueu0p"]
 [ext_resource type="Texture2D" uid="uid://cbsg1w1i7o3lo" path="res://assets/ui/存读档案/no_background.png" id="4_3cquv"]
 [ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="5_4wxwx"]
 [ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_mkcy0"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_0nu7h"]
 
-[node name="SaveProfileCard" type="TextureRect" node_paths=PackedStringArray("texture_rect_preview")]
+[node name="SaveProfileCard" type="TextureRect" node_paths=PackedStringArray("texture_rect_preview", "drag_filter")]
 texture = ExtResource("1_ueu0p")
 stretch_mode = 4
 script = ExtResource("2_ocbxf")
 texture_rect_preview = NodePath("TextureRect_Preview")
+drag_filter = NodePath("DragFilter")
+
+[node name="DragFilter" parent="." node_paths=PackedStringArray("target_object") instance=ExtResource("3_ocbxf")]
+target_object = NodePath("..")
 
 [node name="TextureRect_Preview" type="TextureRect" parent="."]
 layout_mode = 0

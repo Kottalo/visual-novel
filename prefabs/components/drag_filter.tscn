@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdnnwlov248c"]
+
+[ext_resource type="Script" uid="uid://bonnjjxt11u8k" path="res://prefabs/components/drag_filter.gd" id="1_x56a4"]
+
+[node name="DragFilter" type="Node"]
+script = ExtResource("1_x56a4")
