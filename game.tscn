@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=41 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -16,6 +16,48 @@
 [ext_resource type="Texture2D" uid="uid://bwdhggq2t0ahc" path="res://assets/ui/奇迹书/frame2.png" id="12_rvswv"]
 [ext_resource type="FontFile" uid="uid://dgn3iice41qn8" path="res://assets/fonts/瑞美加张清平硬笔楷书.ttf" id="13_boyg6"]
 [ext_resource type="Texture2D" uid="uid://boxp02ammaqij" path="res://assets/ui/奇迹书/frame_title.png" id="15_80cx4"]
+[ext_resource type="Texture2D" uid="uid://bhp4hq27rc641" path="res://assets/ui/鉴赏内容/音乐鉴赏/音乐鉴赏.png" id="17_e8heu"]
+[ext_resource type="Texture2D" uid="uid://bgg21fij7tmh4" path="res://assets/ui/鉴赏内容/background_full.png" id="17_rvswv"]
+[ext_resource type="Script" uid="uid://omnxih0ho37j" path="res://pages/bonus_pages/music_page.gd" id="17_x5p1p"]
+[ext_resource type="Texture2D" uid="uid://dlm1m8jw4iygt" path="res://assets/ui/鉴赏内容/音乐鉴赏/album.png" id="18_e36ub"]
+[ext_resource type="Script" uid="uid://dd5qtcvk5r731" path="res://music_data/music_data.gd" id="18_i2p71"]
+[ext_resource type="Texture2D" uid="uid://d2hj5j33shnui" path="res://assets/ui/鉴赏内容/音乐鉴赏/background.png" id="19_hb5m1"]
+[ext_resource type="AudioStream" uid="uid://c4iurm62qedb6" path="res://assets/musics/One Step From Eden - Battle of Fire I.mp3" id="19_xa8c5"]
+[ext_resource type="AudioStream" uid="uid://bsdiw8mr3scgs" path="res://assets/musics/One Step From Eden - Neverending Song_ Violette's Theme.mp3" id="20_5b14r"]
+[ext_resource type="AudioStream" uid="uid://ct78sgbt2gm4g" path="res://assets/musics/One Step From Eden - Perpetual Motion_ Hazel's Theme.mp3" id="21_bnpwn"]
+[ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="21_hb5m1"]
+[ext_resource type="Texture2D" uid="uid://dbxht1t3n4gtq" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_hover.png" id="27_xa8c5"]
+[ext_resource type="Texture2D" uid="uid://bcal14yrqfeet" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_click.png" id="28_5b14r"]
+[ext_resource type="Texture2D" uid="uid://cjpl5db37js54" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_normal.png" id="29_xfvwf"]
+[ext_resource type="Texture2D" uid="uid://q3rb8edm0k6b" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_click.png" id="30_dhpj7"]
+[ext_resource type="Texture2D" uid="uid://4cj4g5cwxqi" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_hover.png" id="31_7knny"]
+[ext_resource type="Texture2D" uid="uid://c8opaonxwcbeb" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_normal.png" id="32_082n1"]
+[ext_resource type="Texture2D" uid="uid://4pcmkkc7q3y4" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_click.png" id="33_xex6t"]
+[ext_resource type="Texture2D" uid="uid://bh85a7p3e14cs" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_hover.png" id="34_aa0lp"]
+[ext_resource type="Texture2D" uid="uid://bfek3nnequevu" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_normal.png" id="35_iu0sx"]
+[ext_resource type="Texture2D" uid="uid://c43o2le44abf5" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_click.png" id="36_4v2jo"]
+[ext_resource type="Texture2D" uid="uid://mnmjup6twua7" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_hover.png" id="37_l1i01"]
+
+[sub_resource type="Resource" id="Resource_36jdj"]
+script = ExtResource("18_i2p71")
+title = "Battle of Fire I"
+description = "是我挺喜欢的一首战斗曲，非常好听"
+track = ExtResource("19_xa8c5")
+metadata/_custom_type_script = "uid://dd5qtcvk5r731"
+
+[sub_resource type="Resource" id="Resource_xfvwf"]
+script = ExtResource("18_i2p71")
+title = "Neverending Song"
+description = "这歌燃了，角色曲非常个性化"
+track = ExtResource("20_5b14r")
+metadata/_custom_type_script = "uid://dd5qtcvk5r731"
+
+[sub_resource type="Resource" id="Resource_dhpj7"]
+script = ExtResource("18_i2p71")
+title = "Perpetual Motion"
+description = "我挺喜欢这首的"
+track = ExtResource("21_bnpwn")
+metadata/_custom_type_script = "uid://dd5qtcvk5r731"
 
 [node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
 layout_mode = 3
@@ -61,6 +103,7 @@ offset_bottom = -142.0
 grow_vertical = 0
 
 [node name="Stage" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -188,6 +231,7 @@ offset_right = 2452.0
 offset_bottom = 1327.0
 
 [node name="BookPage" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -281,3 +325,140 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_j5wjh")
+
+[node name="BonusPage" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicPage" type="Control" parent="BonusPage" node_paths=PackedStringArray("audio_player", "play_progress_container", "play_progress_line", "play_button", "pause_button", "next_button", "previous_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_x5p1p")
+playlist = Array[ExtResource("18_i2p71")]([SubResource("Resource_36jdj"), SubResource("Resource_xfvwf"), SubResource("Resource_dhpj7")])
+audio_player = NodePath("AudioStreamPlayer2D")
+play_progress_container = NodePath("PlayProgressContainer")
+play_progress_line = NodePath("PlayProgressContainer/PlayProgressLine")
+play_button = NodePath("TextureRect_PlayButton")
+pause_button = NodePath("TextureRect_PauseButton")
+next_button = NodePath("TextureRect_NextButton")
+previous_button = NodePath("TextureRect_PreviousButton")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BonusPage/MusicPage"]
+
+[node name="TextureRect_Background" type="TextureRect" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_rvswv")
+
+[node name="TextureRect_Panel" type="TextureRect" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1882.0
+offset_bottom = 1264.0
+texture = ExtResource("19_hb5m1")
+
+[node name="TextureRect_Disc" type="TextureRect" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_top = 121.0
+offset_right = 855.0
+offset_bottom = 1091.0
+texture = ExtResource("18_e36ub")
+
+[node name="PlayProgressContainer" type="Control" parent="BonusPage/MusicPage"]
+layout_mode = 1
+anchors_preset = 0
+offset_top = 1103.0
+offset_right = 1866.5
+offset_bottom = 1107.0
+
+[node name="PlayProgressLine" type="ColorRect" parent="BonusPage/MusicPage/PlayProgressContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.34901962, 0.33333334, 0.3882353, 1)
+
+[node name="AnchorPoint" type="Control" parent="BonusPage/MusicPage/PlayProgressContainer/PlayProgressLine"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BonusPage/MusicPage/PlayProgressContainer/PlayProgressLine/AnchorPoint"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -33.0
+offset_right = 31.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 33)
+texture = ExtResource("21_hb5m1")
+
+[node name="TextureRect_PlayButton" type="TextureButton" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 1139.0
+offset_right = 927.0
+offset_bottom = 1211.0
+texture_normal = ExtResource("27_xa8c5")
+texture_pressed = ExtResource("28_5b14r")
+texture_hover = ExtResource("27_xa8c5")
+
+[node name="TextureRect_PauseButton" type="TextureButton" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 1139.0
+offset_right = 927.0
+offset_bottom = 1211.0
+texture_normal = ExtResource("29_xfvwf")
+texture_pressed = ExtResource("30_dhpj7")
+texture_hover = ExtResource("31_7knny")
+
+[node name="TextureRect_NextButton" type="TextureButton" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_left = 975.0
+offset_top = 1162.0
+offset_right = 1002.0
+offset_bottom = 1190.0
+texture_normal = ExtResource("32_082n1")
+texture_pressed = ExtResource("33_xex6t")
+texture_hover = ExtResource("34_aa0lp")
+
+[node name="TextureRect_PreviousButton" type="TextureButton" parent="BonusPage/MusicPage"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 1162.0
+offset_right = 811.0
+offset_bottom = 1190.0
+texture_normal = ExtResource("35_iu0sx")
+texture_pressed = ExtResource("36_4v2jo")
+texture_hover = ExtResource("37_l1i01")
+
+[node name="Preview" type="TextureRect" parent="BonusPage/MusicPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_e8heu")
