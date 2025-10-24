@@ -307,7 +307,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MusicPage" type="Control" parent="BonusPage" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_button", "pause_button", "next_button", "previous_button")]
+[node name="MusicPage" type="Control" parent="BonusPage" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -315,12 +315,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("17_x5p1p")
+track_item_scene = ExtResource("39_eu6ph")
 play_progress_container = NodePath("PlayProgressContainer")
 play_progress_line = NodePath("PlayProgressContainer/PlayProgressLine")
 play_button = NodePath("TextureRect_PlayButton")
 pause_button = NodePath("TextureRect_PauseButton")
 next_button = NodePath("TextureRect_NextButton")
 previous_button = NodePath("TextureRect_PreviousButton")
+vbox_playlist = NodePath("ScrollContainer_Playlist/VBoxContainer_Playlist")
 
 [node name="TextureRect_Background" type="TextureRect" parent="BonusPage/MusicPage"]
 layout_mode = 0
@@ -441,57 +443,9 @@ offset_bottom = 1203.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BonusPage/MusicPage/ScrollContainer_Playlist"]
+[node name="VBoxContainer_Playlist" type="VBoxContainer" parent="BonusPage/MusicPage/ScrollContainer_Playlist"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="TrackItem" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem2" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem3" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem4" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem5" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem6" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem7" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem8" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem9" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem10" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem11" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem12" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem13" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem14" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem15" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
-
-[node name="TrackItem16" parent="BonusPage/MusicPage/ScrollContainer_Playlist/VBoxContainer" instance=ExtResource("39_eu6ph")]
-layout_mode = 2
 
 [node name="VScrollBarEx" parent="BonusPage/MusicPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1

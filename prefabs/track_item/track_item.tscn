@@ -6,13 +6,14 @@
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="3_q4fwc"]
 [ext_resource type="PackedScene" uid="uid://cdnnwlov248c" path="res://prefabs/components/drag_filter.tscn" id="4_q4fwc"]
 
-[node name="TrackItem" type="TextureButton" node_paths=PackedStringArray("drag_filter")]
+[node name="TrackItem" type="TextureButton" node_paths=PackedStringArray("drag_filter", "label_title")]
 mouse_filter = 1
 texture_normal = ExtResource("1_ueqsu")
 texture_pressed = ExtResource("1_ueqsu")
 texture_hover = ExtResource("2_bic3u")
 script = ExtResource("3_bic3u")
 drag_filter = NodePath("DragFilter")
+label_title = NodePath("Label_Title")
 
 [node name="DragFilter" parent="." node_paths=PackedStringArray("target_object") instance=ExtResource("4_q4fwc")]
 target_object = NodePath("..")
@@ -21,8 +22,9 @@ target_object = NodePath("..")
 layout_mode = 0
 offset_left = 49.0
 offset_top = 14.0
-offset_right = 173.0
+offset_right = 462.0
 offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("3_q4fwc")
 theme_override_font_sizes/font_size = 30
 text = "歌曲名称"
+clip_text = true
