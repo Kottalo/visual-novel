@@ -169,3 +169,10 @@ layout_mode = 2
 
 [node name="SaveProfileCard11" parent="SaveGame/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="SaveGame"]
+layout_mode = 0
+offset_left = 2442.0
+offset_top = 116.0
+offset_right = 2452.0
+offset_bottom = 1327.0
