@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=17 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://kdb1r5x3d2o8" path="res://assets/ui/存读档案/存读档界面.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/save_game_page.gd" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://save_profiles/save_profile_card.tscn" id="6_ryrav"]
+[ext_resource type="Texture2D" uid="uid://bq4dne8l5a5qr" path="res://assets/ui/奇迹书/background.png" id="8_215e1"]
+[ext_resource type="Texture2D" uid="uid://c1nsptow73vv4" path="res://assets/ui/奇迹书/奇迹书.png" id="8_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://d1elj7yroe3b7" path="res://assets/ui/奇迹书/book.png" id="9_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://bulngn6a57phl" path="res://assets/ui/奇迹书/frame_1.png" id="10_80cx4"]
+[ext_resource type="Texture2D" uid="uid://bndrl2b5xlneq" path="res://assets/ui/奇迹书/things.png" id="11_7sc4i"]
+[ext_resource type="Texture2D" uid="uid://bjttrp8uahn8y" path="res://assets/ui/奇迹书/frame_3.png" id="11_e8heu"]
+[ext_resource type="Texture2D" uid="uid://bwdhggq2t0ahc" path="res://assets/ui/奇迹书/frame2.png" id="12_rvswv"]
+[ext_resource type="FontFile" uid="uid://dgn3iice41qn8" path="res://assets/fonts/瑞美加张清平硬笔楷书.ttf" id="13_boyg6"]
+[ext_resource type="Texture2D" uid="uid://boxp02ammaqij" path="res://assets/ui/奇迹书/frame_title.png" id="15_80cx4"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
 layout_mode = 3
@@ -106,6 +115,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [node name="SaveGamePage" type="Control" parent="." node_paths=PackedStringArray("scroll_container", "grid_container", "v_scrollbar")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,3 +186,98 @@ offset_left = 2442.0
 offset_top = 116.0
 offset_right = 2452.0
 offset_bottom = 1327.0
+
+[node name="BookPage" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect_Background" type="TextureRect" parent="BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_215e1")
+
+[node name="TextureRect_Book" type="TextureRect" parent="BookPage"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2112.0
+offset_bottom = 1440.0
+grow_horizontal = 0
+texture = ExtResource("9_7sc4i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BookPage"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 181.99998
+offset_right = 1391.2754
+offset_bottom = 1444.5757
+rotation = -0.075049154
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_separation = 6
+theme_override_fonts/normal_font = ExtResource("13_boyg6")
+theme_override_font_sizes/normal_font_size = 35
+text = "这是我们的故事
+我想起来了
+我要去做某些事"
+
+[node name="TextureRect_Foreground" type="TextureRect" parent="BookPage"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_7sc4i")
+
+[node name="TextureRect_Title" type="TextureRect" parent="BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1685.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_80cx4")
+
+[node name="TextureRect_Frame3" type="TextureRect" parent="BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_e8heu")
+
+[node name="TextureRect_Frame2" type="TextureRect" parent="BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_rvswv")
+
+[node name="TextureRect_Frame1" type="TextureRect" parent="BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_80cx4")
+
+[node name="Preview" type="TextureRect" parent="BookPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_j5wjh")
