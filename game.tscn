@@ -337,7 +337,89 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="VScrollBarEx" parent="BonusPage/TabPages/GalleryPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+layout_mode = 1
+offset_top = 116.0
+offset_bottom = 1188.0
+target_scroll_container = NodePath("../ScrollContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BonusPage/TabPages/GalleryPage"]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 73.0
+offset_right = 2367.0
+offset_bottom = 1184.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="BonusPage/TabPages/GalleryPage/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = -9
+theme_override_constants/v_separation = -10
+columns = 4
+
+[node name="GalleryCard" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard2" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard3" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard4" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard5" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard6" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard7" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard8" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard9" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard10" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard11" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard12" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard13" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard14" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard15" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard16" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard17" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard18" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard19" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard20" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
 [node name="Preview" type="TextureRect" parent="BonusPage/TabPages/GalleryPage"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -345,20 +427,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_eu6ph")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="BonusPage/TabPages/GalleryPage"]
-layout_mode = 0
-offset_left = 261.0
-offset_top = 73.0
-offset_right = 2316.0
-offset_bottom = 1184.0
-
-[node name="GridContainer" type="GridContainer" parent="BonusPage/TabPages/GalleryPage/ScrollContainer"]
-layout_mode = 2
-columns = 4
-
-[node name="GalleryCard" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
 
 [node name="CharacterPage" type="Control" parent="BonusPage/TabPages"]
 layout_mode = 1

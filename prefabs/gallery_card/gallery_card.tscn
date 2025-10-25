@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bonnjjxt11u8k" path="res://prefabs/components/drag_filter.gd" id="4_6oylf"]
 
 [node name="GalleryCard" type="TextureButton" node_paths=PackedStringArray("texture_rect_image")]
+mouse_filter = 1
 toggle_mode = true
 texture_pressed = ExtResource("1_egen2")
 texture_hover = ExtResource("2_jemxq")
