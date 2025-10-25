@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=47 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -26,7 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://cil2u80u3sj0p" path="res://prefabs/gallery_card/gallery_card.tscn" id="20_edr7y"]
 [ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="21_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://blachu13yjxr7" path="res://assets/ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png" id="21_kq12w"]
+[ext_resource type="Texture2D" uid="uid://pcnqicga1ur8" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_kanade.png" id="22_m28ev"]
 [ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="23_l1i01"]
+[ext_resource type="Texture2D" uid="uid://d3kgnpra63t6q" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_select.png" id="23_lwlx3"]
 [ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="25_r62pu"]
 [ext_resource type="Texture2D" uid="uid://dbxht1t3n4gtq" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_hover.png" id="27_xa8c5"]
 [ext_resource type="Texture2D" uid="uid://bcal14yrqfeet" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_click.png" id="28_5b14r"]
@@ -438,7 +440,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
+[node name="Preview" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -446,6 +449,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_kq12w")
+
+[node name="CharacterSelections" type="Control" parent="BonusPage/TabPages/CharacterPage"]
+anchors_preset = 0
+
+[node name="CharacterSelection" type="TextureRect" parent="BonusPage/TabPages/CharacterPage/CharacterSelections"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 96.0
+offset_right = 245.0
+offset_bottom = 249.0
+texture = ExtResource("22_m28ev")
+
+[node name="TextureRect" type="TextureRect" parent="BonusPage/TabPages/CharacterPage/CharacterSelections/CharacterSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -83.5
+offset_right = 83.5
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_lwlx3")
 
 [node name="MusicPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description")]
 visible = false
