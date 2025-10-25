@@ -8,6 +8,12 @@ var game: Game
 var clicked: bool
 var dragged: bool
 
+signal bonus_tab_index_changed
+var bonus_tab_index: int:
+	set(value):
+		bonus_tab_index = value
+		emit_signal("bonus_tab_index_changed")
+
 var selected_save_profile_index: int:
 	set(value):
 		selected_save_profile_index = value

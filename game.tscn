@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=39 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -33,7 +33,10 @@
 [ext_resource type="Texture2D" uid="uid://bh85a7p3e14cs" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_hover.png" id="34_aa0lp"]
 [ext_resource type="Texture2D" uid="uid://bfek3nnequevu" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_normal.png" id="35_iu0sx"]
 [ext_resource type="Texture2D" uid="uid://c43o2le44abf5" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_click.png" id="36_4v2jo"]
+[ext_resource type="PackedScene" uid="uid://cdx8bibh1j6e4" path="res://prefabs/bonus_tab_item/bonus_tab_item.tscn" id="36_aa0lp"]
+[ext_resource type="Texture2D" uid="uid://bvva0d38s1cqa" path="res://assets/ui/鉴赏内容/botton_cg.png" id="37_4v2jo"]
 [ext_resource type="Texture2D" uid="uid://mnmjup6twua7" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_hover.png" id="37_l1i01"]
+[ext_resource type="Texture2D" uid="uid://bd6e0ymjeplfj" path="res://assets/ui/鉴赏内容/botton_music.png" id="38_l1i01"]
 [ext_resource type="PackedScene" uid="uid://kqg6e5wwdgne" path="res://prefabs/track_item/track_item.tscn" id="39_eu6ph"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
@@ -307,6 +310,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GalleryPage" type="Control" parent="BonusPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterPage" type="Control" parent="BonusPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="MusicPage" type="Control" parent="BonusPage" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist")]
 layout_mode = 1
 anchors_preset = 15
@@ -424,16 +443,6 @@ texture_normal = ExtResource("35_iu0sx")
 texture_pressed = ExtResource("36_4v2jo")
 texture_hover = ExtResource("37_l1i01")
 
-[node name="Preview" type="TextureRect" parent="BonusPage/MusicPage"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("17_e8heu")
-
 [node name="ScrollContainer_Playlist" type="ScrollContainer" parent="BonusPage/MusicPage"]
 layout_mode = 0
 offset_left = 1911.0
@@ -452,3 +461,35 @@ layout_mode = 1
 offset_top = 116.0
 offset_bottom = 1186.0
 target_scroll_container = NodePath("../ScrollContainer_Playlist")
+
+[node name="Preview" type="TextureRect" parent="BonusPage/MusicPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_e8heu")
+
+[node name="HBoxContainer_Tabs" type="HBoxContainer" parent="BonusPage"]
+layout_mode = 0
+offset_left = 1838.0
+offset_top = 1268.0
+offset_right = 1958.0
+offset_bottom = 1311.0
+theme_override_constants/separation = 112
+
+[node name="BonusTabItem_Gallery" parent="BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
+layout_mode = 2
+target_tab = NodePath("../../GalleryPage")
+
+[node name="BonusTabItem_Character" parent="BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
+layout_mode = 2
+texture = ExtResource("37_4v2jo")
+target_tab = NodePath("../../CharacterPage")
+
+[node name="BonusTabItem_Music" parent="BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
+layout_mode = 2
+texture = ExtResource("38_l1i01")
+target_tab = NodePath("../../MusicPage")

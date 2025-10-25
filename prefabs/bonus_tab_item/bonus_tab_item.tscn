@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdx8bibh1j6e4"]
+
+[ext_resource type="Texture2D" uid="uid://bb0wqkfqcao81" path="res://assets/ui/鉴赏内容/botton_chr.png" id="1_wj5cv"]
+[ext_resource type="Texture2D" uid="uid://cjf78o7uhw0uw" path="res://assets/ui/鉴赏内容/click_deco.png" id="2_k06jo"]
+[ext_resource type="Script" uid="uid://1mo62ksp7417" path="res://prefabs/bonus_tab_item/bonus_tab_item.gd" id="2_xygy2"]
+[ext_resource type="Texture2D" uid="uid://cr6smjvptk4es" path="res://assets/ui/鉴赏内容/hover_deco.png" id="4_xygy2"]
+
+[node name="BonusTabItem" type="TextureRect" node_paths=PackedStringArray("selected_frame", "hover_hint")]
+texture = ExtResource("1_wj5cv")
+script = ExtResource("2_xygy2")
+selected_frame = NodePath("TextureRect_SelectedFrame")
+hover_hint = NodePath("TextureRect_HoverHint")
+
+[node name="TextureRect_SelectedFrame" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -110.0
+offset_top = -62.0
+offset_right = 243.0
+offset_bottom = 97.0
+texture = ExtResource("2_k06jo")
+
+[node name="TextureRect_HoverHint" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -24.0
+offset_right = 21.0
+offset_bottom = 54.0
+texture = ExtResource("4_xygy2")

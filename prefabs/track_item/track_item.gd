@@ -26,5 +26,4 @@ func _ready() -> void:
 	)
 
 func update() -> void:
-	button_pressed = false
 	button_pressed = selected
