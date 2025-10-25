@@ -20,6 +20,10 @@ func _ready() -> void:
 	)
 	AudioManager.track_index_changed.connect(update)
 	update()
+	button_up.connect(
+		func ():
+			update()
+	)
 
 func update() -> void:
 	button_pressed = false

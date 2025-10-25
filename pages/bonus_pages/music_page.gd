@@ -15,7 +15,7 @@ var audio_player: AudioStreamPlayer2D:
 	get:
 		return AudioManager.audio_player
 
-func _ready() -> void:	
+func _ready() -> void:
 	for music_data in AudioManager.playlist:
 		var track_item: TrackItem = track_item_scene.instantiate()
 		track_item.music_data = music_data
