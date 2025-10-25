@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=44 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dlm1m8jw4iygt" path="res://assets/ui/鉴赏内容/音乐鉴赏/album.png" id="18_e36ub"]
 [ext_resource type="Texture2D" uid="uid://dl0m5u1eiytd5" path="res://assets/ui/鉴赏内容/插画鉴赏/插画鉴赏.png" id="19_eu6ph"]
 [ext_resource type="Texture2D" uid="uid://d2hj5j33shnui" path="res://assets/ui/鉴赏内容/音乐鉴赏/background.png" id="19_hb5m1"]
+[ext_resource type="PackedScene" uid="uid://cil2u80u3sj0p" path="res://prefabs/gallery_card/gallery_card.tscn" id="20_edr7y"]
 [ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="21_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="23_l1i01"]
 [ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="25_r62pu"]
@@ -328,17 +329,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="BonusPage/GalleryPage"]
-layout_mode = 0
-offset_left = 266.0
-offset_top = 83.0
-offset_right = 2321.0
-offset_bottom = 1194.0
-
-[node name="GridContainer" type="GridContainer" parent="BonusPage/GalleryPage/ScrollContainer"]
-layout_mode = 2
-columns = 4
-
 [node name="Preview" type="TextureRect" parent="BonusPage/GalleryPage"]
 layout_mode = 1
 anchors_preset = 15
@@ -347,6 +337,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_eu6ph")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BonusPage/GalleryPage"]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 73.0
+offset_right = 2316.0
+offset_bottom = 1184.0
+
+[node name="GridContainer" type="GridContainer" parent="BonusPage/GalleryPage/ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="GalleryCard" parent="BonusPage/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
 
 [node name="CharacterPage" type="Control" parent="BonusPage"]
 layout_mode = 1
