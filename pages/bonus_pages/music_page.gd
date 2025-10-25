@@ -69,25 +69,26 @@ func _ready() -> void:
 		func (): progress_hovered = true
 	)
 	play_progress_container.mouse_exited.connect(
-		func ():
-			progress_hovered = false
-			button_pressed = false
+		func (): progress_hovered = false
 	)
 	play_progress_container.gui_input.connect(
 		func (event: InputEvent):
 			var ratio: float = event.position.x \
 			/ play_progress_container.size.x
-			if event is InputEventMouseMotion:
-				play_progress_line_ghost.set_progress(ratio)
-				if button_pressed:
-					AudioManager.set_track_position_by_ratio(ratio)
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT:
 					if event.is_pressed():
 						button_pressed = true
 						AudioManager.set_track_position_by_ratio(ratio)
-					if event.is_released():
-						button_pressed = false
+			
+			if event is InputEventMouseMotion:
+				if button_pressed:
+					AudioManager.set_track_position_by_ratio(ratio)
+					progress_hovered = false
+					progress_hint.global_position = play_progress_line.endpoint.global_position
+				else:
+					progress_hovered = true
+					play_progress_line_ghost.set_progress(ratio)
 	)
 	Main.bonus_tab_index_changed.connect(update_pause)
 	progress_hovered = false
@@ -104,17 +105,22 @@ func update_pause():
 		if not audio_player.playing:
 			audio_player.play()
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.is_released():
+				button_pressed = false
+
 func _physics_process(delta: float) -> void:
 	var progress_ratio = audio_player.get_playback_position() \
 	/ AudioManager.current_track.track.get_length()
 	play_progress_line.set_progress(progress_ratio)
+	
 	progress_hint.global_position = play_progress_line_ghost \
 	.endpoint.global_position \
 	if progress_hovered else \
 	play_progress_line.endpoint.global_position
-	if button_pressed:
-		progress_hint.global_position = play_progress_line.endpoint.global_position
-
+	
 func update_track_info() -> void:
 	label_title.text = AudioManager.current_track.title
 	richlabel_description.text = AudioManager.current_track.description
