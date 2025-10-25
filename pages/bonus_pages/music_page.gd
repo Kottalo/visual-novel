@@ -2,12 +2,6 @@ extends Control
 
 const PlayStatus = AudioManager.PlayStatus
 
-var progress_hovered: bool:
-	set(value):
-		progress_hovered = value
-		progress_hint.modulate.a = 1.0 if not progress_hovered else 0.6
-		play_progress_line_ghost.visible = progress_hovered
-
 @export var track_item_scene: PackedScene
 @export var play_progress_container: Control
 @export var play_progress_line: PlayProgressLine
@@ -25,12 +19,17 @@ var audio_player: AudioStreamPlayer2D:
 	get:
 		return AudioManager.audio_player
 
+var progress_hovered: bool:
+	set(value):
+		progress_hovered = value
+		progress_hint.modulate.a = 1.0 if not progress_hovered else 0.6
+		play_progress_line_ghost.visible = progress_hovered
+
 var button_pressed: bool:
 	set(value):
 		button_pressed = value
 		if button_pressed:
-			progress_hint.modulate.a = 1
-			play_progress_line_ghost.visible = false
+			progress_hovered = false
 
 func _ready() -> void:
 	for music_data in AudioManager.playlist:
@@ -76,12 +75,10 @@ func _ready() -> void:
 			var ratio: float = event.position.x \
 			/ play_progress_container.size.x
 			if event is InputEventMouseMotion:
-				
 				if button_pressed:
 					AudioManager.set_track_position_by_ratio(ratio)
 				else:
 					play_progress_line_ghost.set_progress(ratio)
-					
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT:
 					if event.is_pressed():
