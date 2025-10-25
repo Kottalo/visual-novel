@@ -28,7 +28,9 @@ var audio_player: AudioStreamPlayer2D:
 var button_pressed: bool:
 	set(value):
 		button_pressed = value
-		progress_hovered = not button_pressed
+		if button_pressed:
+			progress_hint.modulate.a = 1
+			play_progress_line_ghost.visible = false
 
 func _ready() -> void:
 	for music_data in AudioManager.playlist:
@@ -65,30 +67,31 @@ func _ready() -> void:
 		func (): progress_hovered = true
 	)
 	play_progress_container.mouse_exited.connect(
-		func (): progress_hovered = false
+		func ():
+			progress_hovered = false
+			button_pressed = false
 	)
 	play_progress_container.gui_input.connect(
 		func (event: InputEvent):
 			var ratio: float = event.position.x \
 			/ play_progress_container.size.x
 			if event is InputEventMouseMotion:
-				play_progress_line_ghost.set_progress(ratio)
+				
 				if button_pressed:
 					AudioManager.set_track_position_by_ratio(ratio)
+				else:
+					play_progress_line_ghost.set_progress(ratio)
 					
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT:
 					if event.is_pressed():
 						button_pressed = true
 						AudioManager.set_track_position_by_ratio(ratio)
+					if event.is_released():
+						button_pressed = false
 	)
 	progress_hovered = false
 	update_track_info()
-
-func _unhandled_input(event: InputEvent) -> void:
-	if button_pressed:
-		if event.is_released():
-			button_pressed = false
 
 func _physics_process(delta: float) -> void:
 	var progress_ratio = audio_player.get_playback_position() / audio_player.stream.get_length()
@@ -97,6 +100,8 @@ func _physics_process(delta: float) -> void:
 	.endpoint.global_position \
 	if progress_hovered else \
 	play_progress_line.endpoint.global_position
+	if button_pressed:
+		progress_hint.global_position = play_progress_line.endpoint.global_position
 
 func update_track_info() -> void:
 	label_title.text = AudioManager.current_track.title

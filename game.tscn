@@ -354,6 +354,7 @@ richlabel_description = NodePath("Labels/RichTextLabel_Description")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 
 [node name="TextureRect_Background" type="TextureRect" parent="BonusPage/MusicPage/Images"]
 layout_mode = 0
