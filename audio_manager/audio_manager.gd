@@ -40,5 +40,6 @@ func _ready() -> void:
 		func (): Main.track_index += 1
 	)
 	
-	
-	
+func set_track_position_by_ratio(ratio: float):
+	var target_position = audio_player.stream.get_length() * ratio
+	audio_player.play(target_position)

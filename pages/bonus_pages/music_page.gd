@@ -2,9 +2,16 @@ extends Control
 
 const PlayStatus = AudioManager.PlayStatus
 
+var progress_hovered: bool:
+	set(value):
+		progress_hovered = value
+		play_progress_line.hint_visible = not progress_hovered
+		play_progress_line_ghost.visible = progress_hovered
+
 @export var track_item_scene: PackedScene
 @export var play_progress_container: Control
-@export var play_progress_line: ColorRect
+@export var play_progress_line: PlayProgressLine
+@export var play_progress_line_ghost: PlayProgressLine
 @export var play_button: TextureButton
 @export var pause_button: TextureButton
 @export var next_button: TextureButton
@@ -48,12 +55,30 @@ func _ready() -> void:
 	previous_button.pressed.connect(
 		func (): AudioManager.track_index -= 1
 	)
-	
+	play_progress_container.mouse_entered.connect(
+		func (): progress_hovered = true
+	)
+	play_progress_container.mouse_exited.connect(
+		func (): progress_hovered = false
+	)
+	play_progress_container.gui_input.connect(
+		func (event: InputEvent):
+			var ratio: float = event.position.x \
+			/ play_progress_container.size.x
+			if event is InputEventMouseMotion:
+				if progress_hovered:
+					play_progress_line_ghost.set_progress(ratio)
+			if event is InputEventMouseButton:
+				if event.button_index == MOUSE_BUTTON_LEFT:
+					if event.is_pressed():
+						AudioManager.set_track_position_by_ratio(ratio)
+	)
+	progress_hovered = false
 	update_track_info()
 
 func _physics_process(delta: float) -> void:
-	play_progress_line.size.x = play_progress_container.size.x * \
-	audio_player.get_playback_position() / audio_player.stream.get_length()
+	var progress_ratio = audio_player.get_playback_position() / audio_player.stream.get_length()
+	play_progress_line.set_progress(progress_ratio)
 
 func update_track_info() -> void:
 	label_title.text = AudioManager.current_track.title
