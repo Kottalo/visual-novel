@@ -19,8 +19,14 @@ func _ready() -> void:
 	mouse_entered.connect(
 		func (): hovered = true
 	)
-	mouse_entered.connect(
+	mouse_exited.connect(
 		func (): hovered = false
+	)
+	gui_input.connect(
+		func (event: InputEvent):
+			if event is InputEventMouseButton:
+				if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+					Main.bonus_tab_index = get_index()
 	)
 	
 	hovered = false
