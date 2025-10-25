@@ -25,7 +25,6 @@ var track_index: int:
 		if track_index < 0: track_index = playlist.size() - 1
 		if track_index >= playlist.size(): track_index = 0
 		audio_player.stream = current_track.track
-		audio_player.play()
 		emit_signal("track_index_changed")
 
 var current_track: MusicData:
@@ -37,7 +36,9 @@ func _ready() -> void:
 	play_status = play_status
 	
 	audio_player.finished.connect(
-		func (): track_index += 1
+		func ():
+			track_index += 1
+			audio_player.play()
 	)
 	
 func set_track_position_by_ratio(ratio: float):

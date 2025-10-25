@@ -49,7 +49,6 @@ func _ready() -> void:
 					play_button.visible = true
 	)
 	AudioManager.track_index_changed.connect(update_track_info)
-	
 	play_button.pressed.connect(
 		func (): AudioManager.play_status = PlayStatus.PLAY
 	)
@@ -57,10 +56,14 @@ func _ready() -> void:
 		func (): AudioManager.play_status = PlayStatus.PAUSE
 	)
 	next_button.pressed.connect(
-		func (): AudioManager.track_index += 1
+		func ():
+			AudioManager.track_index += 1
+			audio_player.play()
 	)
 	previous_button.pressed.connect(
-		func (): AudioManager.track_index -= 1
+		func ():
+			AudioManager.track_index -= 1
+			audio_player.play()
 	)
 	play_progress_container.mouse_entered.connect(
 		func (): progress_hovered = true
@@ -75,10 +78,9 @@ func _ready() -> void:
 			var ratio: float = event.position.x \
 			/ play_progress_container.size.x
 			if event is InputEventMouseMotion:
+				play_progress_line_ghost.set_progress(ratio)
 				if button_pressed:
 					AudioManager.set_track_position_by_ratio(ratio)
-				else:
-					play_progress_line_ghost.set_progress(ratio)
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT:
 					if event.is_pressed():
@@ -87,11 +89,24 @@ func _ready() -> void:
 					if event.is_released():
 						button_pressed = false
 	)
+	Main.bonus_tab_index_changed.connect(update_pause)
 	progress_hovered = false
 	update_track_info()
+	update_pause()
+
+var music_tab_selected: bool:
+	get:
+		return Main.bonus_tab_index == get_index()
+
+func update_pause():
+	audio_player.stream_paused = not music_tab_selected
+	if music_tab_selected:
+		if not audio_player.playing:
+			audio_player.play()
 
 func _physics_process(delta: float) -> void:
-	var progress_ratio = audio_player.get_playback_position() / audio_player.stream.get_length()
+	var progress_ratio = audio_player.get_playback_position() \
+	/ AudioManager.current_track.track.get_length()
 	play_progress_line.set_progress(progress_ratio)
 	progress_hint.global_position = play_progress_line_ghost \
 	.endpoint.global_position \
