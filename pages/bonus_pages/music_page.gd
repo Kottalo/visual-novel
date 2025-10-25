@@ -10,6 +10,8 @@ const PlayStatus = AudioManager.PlayStatus
 @export var next_button: TextureButton
 @export var previous_button: TextureButton
 @export var vbox_playlist: VBoxContainer
+@export var label_title: Label
+@export var richlabel_description: RichTextLabel
 
 var audio_player: AudioStreamPlayer2D:
 	get:
@@ -32,6 +34,7 @@ func _ready() -> void:
 				PlayStatus.PAUSE:
 					play_button.visible = true
 	)
+	AudioManager.track_index_changed.connect(update_track_info)
 	
 	play_button.pressed.connect(
 		func (): AudioManager.play_status = PlayStatus.PLAY
@@ -45,7 +48,13 @@ func _ready() -> void:
 	previous_button.pressed.connect(
 		func (): AudioManager.track_index -= 1
 	)
+	
+	update_track_info()
 
 func _physics_process(delta: float) -> void:
 	play_progress_line.size.x = play_progress_container.size.x * \
 	audio_player.get_playback_position() / audio_player.stream.get_length()
+
+func update_track_info() -> void:
+	label_title.text = AudioManager.current_track.title
+	richlabel_description.text = AudioManager.current_track.description

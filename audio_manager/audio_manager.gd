@@ -24,9 +24,13 @@ var track_index: int:
 		track_index = value
 		if track_index < 0: track_index = playlist.size() - 1
 		if track_index >= playlist.size(): track_index = 0
-		audio_player.stream = playlist[track_index].track
+		audio_player.stream = current_track.track
 		audio_player.play()
 		emit_signal("track_index_changed")
+
+var current_track: MusicData:
+	get:
+		return playlist[track_index]
 
 func _ready() -> void:
 	track_index = 0
