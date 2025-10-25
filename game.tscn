@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=42 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://omnxih0ho37j" path="res://pages/bonus_pages/music_page.gd" id="17_x5p1p"]
 [ext_resource type="Texture2D" uid="uid://dlm1m8jw4iygt" path="res://assets/ui/鉴赏内容/音乐鉴赏/album.png" id="18_e36ub"]
 [ext_resource type="Texture2D" uid="uid://d2hj5j33shnui" path="res://assets/ui/鉴赏内容/音乐鉴赏/background.png" id="19_hb5m1"]
+[ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="21_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="23_l1i01"]
 [ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="25_r62pu"]
 [ext_resource type="Texture2D" uid="uid://dbxht1t3n4gtq" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_hover.png" id="27_xa8c5"]
@@ -328,7 +329,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MusicPage" type="Control" parent="BonusPage" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description")]
+[node name="MusicPage" type="Control" parent="BonusPage" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -340,6 +341,7 @@ track_item_scene = ExtResource("39_eu6ph")
 play_progress_container = NodePath("PlayProgressContainer")
 play_progress_line = NodePath("PlayProgressContainer/PlayProgressLine")
 play_progress_line_ghost = NodePath("PlayProgressContainer/PlayProgressLine_Ghost")
+progress_hint = NodePath("PlayProgressContainer/ProgressHint")
 play_button = NodePath("Buttons/TextureRect_PlayButton")
 pause_button = NodePath("Buttons/TextureRect_PauseButton")
 next_button = NodePath("Buttons/TextureRect_NextButton")
@@ -420,9 +422,34 @@ layout_mode = 1
 play_progress_container = NodePath("..")
 
 [node name="PlayProgressLine_Ghost" parent="BonusPage/MusicPage/PlayProgressContainer" node_paths=PackedStringArray("play_progress_container") instance=ExtResource("25_r62pu")]
-modulate = Color(1, 1, 1, 0.7490196)
+modulate = Color(1, 1, 1, 0.6117647)
 layout_mode = 1
+color = Color(0.23366994, 0.2219201, 0.26291704, 1)
 play_progress_container = NodePath("..")
+
+[node name="ProgressHint" type="Control" parent="BonusPage/MusicPage/PlayProgressContainer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureRect_ProgressHint" type="TextureRect" parent="BonusPage/MusicPage/PlayProgressContainer/ProgressHint"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -33.0
+offset_right = 31.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 33)
+texture = ExtResource("21_hb5m1")
 
 [node name="Buttons" type="Control" parent="BonusPage/MusicPage"]
 anchors_preset = 0
@@ -519,3 +546,5 @@ target_tab = NodePath("../../CharacterPage")
 layout_mode = 2
 texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../MusicPage")
+
+[editable path="BonusPage/MusicPage/PlayProgressContainer/PlayProgressLine_Ghost"]

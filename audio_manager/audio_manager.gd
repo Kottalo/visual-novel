@@ -37,7 +37,7 @@ func _ready() -> void:
 	play_status = play_status
 	
 	audio_player.finished.connect(
-		func (): Main.track_index += 1
+		func (): track_index += 1
 	)
 	
 func set_track_position_by_ratio(ratio: float):
