@@ -1,5 +1,177 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnu8yy8c7d3pj"]
+[gd_scene load_steps=22 format=3 uid="uid://bnu8yy8c7d3pj"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_mvhsb"]
+[ext_resource type="Texture2D" uid="uid://7f7buiecarfg" path="res://assets/characters/辉夜奏/身体/手放下.png" id="2_1gwoy"]
+[ext_resource type="Texture2D" uid="uid://cxcakvmx0e2m8" path="res://assets/characters/辉夜奏/嘴巴/不满开口.png" id="2_ft3qn"]
+[ext_resource type="Texture2D" uid="uid://csuvc7kv5hb46" path="res://assets/characters/辉夜奏/身体/指脑门.png" id="3_h0xcy"]
+[ext_resource type="Texture2D" uid="uid://bn4y8t10d022u" path="res://assets/characters/辉夜奏/嘴巴/微笑.png" id="3_wyla8"]
+[ext_resource type="Texture2D" uid="uid://cucd3r2bkkhle" path="res://assets/characters/辉夜奏/嘴巴/说话.png" id="4_6f3fb"]
+[ext_resource type="Texture2D" uid="uid://cx67bu6hkisaq" path="res://assets/characters/辉夜奏/身体/默认.png" id="4_wexej"]
+[ext_resource type="Texture2D" uid="uid://cenbwls1r47yc" path="res://assets/characters/辉夜奏/嘴巴/闭口.png" id="5_1gwoy"]
+[ext_resource type="Texture2D" uid="uid://dwhvx4ebeerhk" path="res://assets/characters/辉夜奏/眉毛/上挑.png" id="5_5bv4k"]
+[ext_resource type="Texture2D" uid="uid://bfke47565uf8f" path="res://assets/characters/辉夜奏/眉毛/悲伤.png" id="6_168op"]
+[ext_resource type="Texture2D" uid="uid://cy3vqq6234dpf" path="res://assets/characters/辉夜奏/眉毛/生气.png" id="7_dy8xg"]
+[ext_resource type="Texture2D" uid="uid://rhfvoif65ojw" path="res://assets/characters/辉夜奏/眉毛/疑惑.png" id="8_q6w8q"]
+[ext_resource type="Texture2D" uid="uid://dw08hn5jhrhm0" path="res://assets/characters/辉夜奏/眉毛/默认.png" id="9_u5ayi"]
+[ext_resource type="Texture2D" uid="uid://m6l2n14q3hrc" path="res://assets/characters/辉夜奏/眼睛/微眯.png" id="10_u5ayi"]
+[ext_resource type="Texture2D" uid="uid://m5uvxqxxsmia" path="res://assets/characters/辉夜奏/眼睛/悲伤.png" id="11_vdiis"]
+[ext_resource type="Texture2D" uid="uid://d0t70og73q6oi" path="res://assets/characters/辉夜奏/眼睛/眯眼.png" id="12_kn7nl"]
+[ext_resource type="Texture2D" uid="uid://c6xmoy2b15kh8" path="res://assets/characters/辉夜奏/眼睛/默认.png" id="13_h4psw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvhsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1gwoy")
+}],
+"loop": true,
+"name": &"手放下",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h0xcy")
+}],
+"loop": true,
+"name": &"指脑门",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wexej")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lre8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5bv4k")
+}],
+"loop": true,
+"name": &"上挑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_168op")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_dy8xg")
+}],
+"loop": true,
+"name": &"生气",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_q6w8q")
+}],
+"loop": true,
+"name": &"疑惑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_u5ayi")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awoev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_u5ayi")
+}],
+"loop": true,
+"name": &"微眯",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vdiis")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_kn7nl")
+}],
+"loop": true,
+"name": &"眯眼",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_h4psw")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0xcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ft3qn")
+}],
+"loop": true,
+"name": &"不满开口",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wyla8")
+}],
+"loop": true,
+"name": &"微笑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6f3fb")
+}],
+"loop": true,
+"name": &"说话",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1gwoy")
+}],
+"loop": true,
+"name": &"闭口",
+"speed": 5.0
+}]
 
 [node name="Character" instance=ExtResource("1_mvhsb")]
+
+[node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
+sprite_frames = SubResource("SpriteFrames_mvhsb")
+animation = &"手放下"
+
+[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
+sprite_frames = SubResource("SpriteFrames_lre8g")
+animation = &"生气"
+
+[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
+sprite_frames = SubResource("SpriteFrames_awoev")
+animation = &"悲伤"
+
+[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
+sprite_frames = SubResource("SpriteFrames_h0xcy")
+animation = &"不满开口"
