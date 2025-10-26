@@ -1,0 +1,163 @@
+[gd_scene load_steps=21 format=3 uid="uid://couiwje1dnllu"]
+
+[ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_8t5bo"]
+[ext_resource type="Texture2D" uid="uid://dh1omcrvc3hc4" path="res://assets/characters/葛城/身体/手抬起.png" id="2_i7yso"]
+[ext_resource type="Texture2D" uid="uid://da2c4myppc2uj" path="res://assets/characters/葛城/身体/手放下.png" id="3_8gf13"]
+[ext_resource type="Texture2D" uid="uid://dgrr4fcy8tme7" path="res://assets/characters/葛城/眉毛/上挑.png" id="4_mht02"]
+[ext_resource type="Texture2D" uid="uid://da5wcw3wp4sw4" path="res://assets/characters/葛城/眉毛/下挑.png" id="5_was16"]
+[ext_resource type="Texture2D" uid="uid://lqj25evxmmy7" path="res://assets/characters/葛城/眉毛/悲伤.png" id="6_rqx5r"]
+[ext_resource type="Texture2D" uid="uid://1fl2nsko78rb" path="res://assets/characters/葛城/眉毛/默认.png" id="7_rqx7q"]
+[ext_resource type="Texture2D" uid="uid://bbf1ecr5e5jhx" path="res://assets/characters/葛城/眼睛/微眯.png" id="8_qs3gh"]
+[ext_resource type="Texture2D" uid="uid://d3tpjyg2sohmx" path="res://assets/characters/葛城/眼睛/悲伤.png" id="9_xfhk7"]
+[ext_resource type="Texture2D" uid="uid://bpu33vn7m32k2" path="res://assets/characters/葛城/眼睛/眯眼.png" id="10_fq1es"]
+[ext_resource type="Texture2D" uid="uid://cwlnu2r3jbc5u" path="res://assets/characters/葛城/眼睛/默认.png" id="11_nhnn3"]
+[ext_resource type="Texture2D" uid="uid://d1jpif7fh2e31" path="res://assets/characters/葛城/嘴巴/说话.png" id="12_whde6"]
+[ext_resource type="Texture2D" uid="uid://dyh6saj0o6um8" path="res://assets/characters/葛城/嘴巴/闭口不满.png" id="13_m4mpf"]
+[ext_resource type="Texture2D" uid="uid://bswt6evv2adj7" path="res://assets/characters/葛城/嘴巴/闭口微笑.png" id="14_ijtpr"]
+[ext_resource type="Texture2D" uid="uid://pjndeufktnrt" path="res://assets/characters/葛城/嘴巴/露齿笑.png" id="15_jbeyg"]
+[ext_resource type="Texture2D" uid="uid://2vqni4m6gfwh" path="res://assets/characters/葛城/附加/脸红.png" id="16_m4mpf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dacpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i7yso")
+}],
+"loop": true,
+"name": &"手抬起",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8gf13")
+}],
+"loop": true,
+"name": &"手放下",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7yso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mht02")
+}],
+"loop": true,
+"name": &"上挑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_was16")
+}],
+"loop": true,
+"name": &"下挑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rqx5r")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_rqx7q")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whde6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qs3gh")
+}],
+"loop": true,
+"name": &"微眯",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xfhk7")
+}],
+"loop": true,
+"name": &"悲伤",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_fq1es")
+}],
+"loop": true,
+"name": &"眯眼",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_nhnn3")
+}],
+"loop": true,
+"name": &"默认",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qs3gh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_whde6")
+}],
+"loop": true,
+"name": &"说话",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_m4mpf")
+}],
+"loop": true,
+"name": &"闭口不满",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ijtpr")
+}],
+"loop": true,
+"name": &"闭口微笑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_jbeyg")
+}],
+"loop": true,
+"name": &"露齿笑",
+"speed": 5.0
+}]
+
+[node name="Character" instance=ExtResource("1_8t5bo")]
+
+[node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
+sprite_frames = SubResource("SpriteFrames_dacpq")
+animation = &"手放下"
+
+[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
+sprite_frames = SubResource("SpriteFrames_i7yso")
+animation = &"悲伤"
+
+[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
+sprite_frames = SubResource("SpriteFrames_whde6")
+animation = &"默认"
+
+[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
+sprite_frames = SubResource("SpriteFrames_qs3gh")
+animation = &"闭口微笑"
+
+[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
+texture = ExtResource("16_m4mpf")

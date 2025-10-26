@@ -26,6 +26,12 @@ var selected_save_profile_index: int:
 		selected_save_profile_index = value
 		emit_signal("save_profile_index_changed")
 
+signal character_selection_index_changed
+var character_selection_index: int:
+	set(value):
+		character_selection_index = value
+		emit_signal("character_selection_index_changed")
+
 var character_dict: Dictionary[String, Character]
 
 func _ready() -> void:

@@ -4,13 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://d3kgnpra63t6q" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_select.png" id="2_4303y"]
 [ext_resource type="Script" uid="uid://beghy6l0mwfw" path="res://prefabs/character_selection/character_selection.gd" id="2_bvhc2"]
 
-[node name="CharacterSelection" type="TextureRect"]
-offset_left = 92.0
-offset_top = 96.0
-offset_right = 245.0
-offset_bottom = 249.0
+[node name="CharacterSelection" type="TextureRect" node_paths=PackedStringArray("texture_rect_frame", "selection_frame")]
+anchors_preset = -1
+anchor_left = 0.030000001
+anchor_top = 0.053000003
+anchor_right = 0.030000001
+anchor_bottom = 0.053000003
+offset_left = -76.8
+offset_top = -76.32001
+offset_right = 76.2
+offset_bottom = 76.67999
+pivot_offset = Vector2(76.5, 76.5)
+mouse_filter = 2
 texture = ExtResource("1_se0ac")
 script = ExtResource("2_bvhc2")
+texture_rect_frame = NodePath("TextureRect_Frame")
+color_hovered = Color(1, 1, 1, 0.7019608)
+color_selected = Color(1, 1, 1, 1)
+selection_frame = NodePath("SelectionFrame")
 
 [node name="TextureRect_Frame" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,4 +36,21 @@ offset_right = 83.5
 offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_4303y")
+
+[node name="SelectionFrame" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -53.5
+offset_right = 53.5
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+pivot_offset = Vector2(53.5, 53.5)
