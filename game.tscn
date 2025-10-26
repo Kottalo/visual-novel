@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=63 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -58,6 +58,10 @@
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="37_r62pu"]
 [ext_resource type="Texture2D" uid="uid://bd6e0ymjeplfj" path="res://assets/ui/鉴赏内容/botton_music.png" id="38_l1i01"]
 [ext_resource type="PackedScene" uid="uid://kqg6e5wwdgne" path="res://prefabs/track_item/track_item.tscn" id="39_eu6ph"]
+[ext_resource type="Script" uid="uid://cnknlnqa5symr" path="res://pages/location_page.gd" id="59_3gvs5"]
+[ext_resource type="Texture2D" uid="uid://i1xh5r7t83vm" path="res://assets/ui/地点约会/地点约会.png" id="60_mc3al"]
+[ext_resource type="Texture2D" uid="uid://bq7mka2gy7hr7" path="res://assets/ui/地点约会/place_outline.png" id="61_bqa6y"]
+[ext_resource type="Texture2D" uid="uid://c2dsc25734sgs" path="res://assets/ui/地点约会/select_outline.png" id="62_du4n2"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
 layout_mode = 3
@@ -323,6 +327,7 @@ grow_vertical = 2
 texture = ExtResource("8_j5wjh")
 
 [node name="BonusPage" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -848,6 +853,125 @@ target_tab = NodePath("../../TabPages/CharacterPage")
 layout_mode = 2
 texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../TabPages/MusicPage")
+
+[node name="TravelPage" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("59_3gvs5")
+
+[node name="Preview" type="TextureRect" parent="TravelPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("60_mc3al")
+
+[node name="VBoxContainer_Selections" type="VBoxContainer" parent="TravelPage"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = -705.0
+offset_right = 1106.0
+offset_bottom = 2146.0
+size_flags_horizontal = 3
+
+[node name="PlaceSelection" type="TextureRect" parent="TravelPage/VBoxContainer_Selections"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("61_bqa6y")
+
+[node name="TextureRect_Image" type="TextureRect" parent="TravelPage/VBoxContainer_Selections/PlaceSelection"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_87ddb")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PlaceSelection2" type="TextureRect" parent="TravelPage/VBoxContainer_Selections"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("61_bqa6y")
+
+[node name="TextureRect_Image" type="TextureRect" parent="TravelPage/VBoxContainer_Selections/PlaceSelection2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_ib7ph")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PlaceSelection3" type="TextureRect" parent="TravelPage/VBoxContainer_Selections"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("61_bqa6y")
+
+[node name="TextureRect_Image" type="TextureRect" parent="TravelPage/VBoxContainer_Selections/PlaceSelection3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_vuohh")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PlaceSelection4" type="TextureRect" parent="TravelPage/VBoxContainer_Selections"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("61_bqa6y")
+
+[node name="TextureRect_Image" type="TextureRect" parent="TravelPage/VBoxContainer_Selections/PlaceSelection4"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_87ddb")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PlaceSelection5" type="TextureRect" parent="TravelPage/VBoxContainer_Selections"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("61_bqa6y")
+
+[node name="TextureRect_Image" type="TextureRect" parent="TravelPage/VBoxContainer_Selections/PlaceSelection5"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_ib7ph")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect_SelectFrame" type="TextureRect" parent="TravelPage"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 399.0
+offset_right = 1144.0
+offset_bottom = 1048.0
+texture = ExtResource("62_du4n2")
 
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Background"]
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Body"]
