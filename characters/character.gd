@@ -15,15 +15,37 @@ var character_data: CharacterData:
 	get:
 		return
 
+# This is for Character Bonus only
+signal bonus_part_index_dict_updated
+var bonus_part_index_dict: Dictionary[String, Dictionary]
+
 func _ready() -> void:
 	for body_part in body_parts:
-		body_part_dict[body_part.name] = body_part
+		var part_name = body_part.name
+		body_part_dict[part_name] = body_part
 		
+		bonus_part_index_dict[part_name] = {}
+		bonus_part_index_dict[part_name]["index"] = 0
+		bonus_part_index_dict[part_name]["options"] = \
+			Array(body_part_dict[part_name].sprite_frames.get_animation_names())
+	
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
 			if line.character == self.name:
 				Main.game.balloon.avatar.texture = get_avatar_image()
 	)
+
+func update_bonus_part_index(part_name: String, increment: int) -> void:
+	bonus_part_index_dict[part_name].index += increment
+	var index: int = bonus_part_index_dict[part_name].index
+	var options: Array = bonus_part_index_dict[part_name].options
+	if index < 0: bonus_part_index_dict[part_name].index = options.size() - 1
+	if index >= options.size(): bonus_part_index_dict[part_name].index = 0
+	var body_part: AnimatedSprite2D = body_part_dict[part_name]
+	index = bonus_part_index_dict[part_name].index
+	body_part.animation = bonus_part_index_dict[part_name].options[index]
+	Main.clear_connections(bonus_part_index_dict_updated)
+	bonus_part_index_dict_updated.emit()
 
 func get_avatar_image() -> AtlasTexture:
 	var atlas_texture = AtlasTexture.new()

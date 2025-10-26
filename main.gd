@@ -38,6 +38,10 @@ func _ready() -> void:
 	for character: Character in character_pool.get_children():
 		character_dict[character.name] = character
 
+func clear_connections(target_signal: Signal):
+	for connection in target_signal.get_connections():
+		target_signal.disconnect(connection.callable)
+
 #region Dialogue Commands
 func Character(character_name: String) -> Character:
 	return character_dict[character_name]
