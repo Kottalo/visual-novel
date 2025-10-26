@@ -8,7 +8,7 @@ extends Control
 @onready var original_y: float = vbox_selections.global_position.y
 
 var slide_tolerance: float = 200
-var slide_duration: float = 0.7
+var slide_duration: float = 0.2
 var start_y: float
 
 var selected_index: int:
@@ -47,21 +47,19 @@ func _input(event: InputEvent) -> void:
 			y_difference = event.global_position.y - start_y
 			y_difference = clamp(y_difference, -slide_tolerance, slide_tolerance)
 			vbox_selections.global_position.y = original_y + y_difference
+			print(y_difference)
 	if y_difference >= slide_tolerance:
-		button_pressed = false
-		await create_tween().tween_property(
-			vbox_selections, "position:y",
-			original_y + place_selection.size.y,
-			slide_duration
-		).finished
-		selected_index -= 1
+		slide_to_y(original_y + place_selection.size.y)
 	if y_difference <= -slide_tolerance:
-		button_pressed = false
-		await create_tween().tween_property(
-			vbox_selections, "position:y",
-			original_y - place_selection.size.y,
-			slide_duration
-		).finished
-		selected_index += 1
-	vbox_selections.global_position.y = original_y
+		slide_to_y(original_y - place_selection.size.y)
 	pass
+
+func slide_to_y(target_y: float) -> void:
+	button_pressed = false
+	await create_tween().tween_property(
+		vbox_selections, "position:y",
+		target_y,
+		slide_duration
+	).finished
+	selected_index += clamp(original_y - target_y, -1, 1)
+	vbox_selections.global_position.y = original_y
