@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=58 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -31,8 +31,10 @@
 [ext_resource type="Texture2D" uid="uid://62bxyitkn4pu" path="res://assets/ui/鉴赏内容/background_character.png" id="22_mljfx"]
 [ext_resource type="PackedScene" uid="uid://buso3d823ic3e" path="res://prefabs/character_selection/character_selection.tscn" id="22_t46w6"]
 [ext_resource type="Texture2D" uid="uid://c50l5bg7y00i2" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_changxia.png" id="23_0de7l"]
+[ext_resource type="Texture2D" uid="uid://bkcxemmhr8edw" path="res://assets/backgrounds/学校の音楽室（日中）.jpg" id="23_ib7ph"]
 [ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="23_l1i01"]
 [ext_resource type="Texture2D" uid="uid://b8jvafi4iuuey" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_yuluochen.png" id="24_87ddb"]
+[ext_resource type="Texture2D" uid="uid://bi5shx6k0xlyi" path="res://assets/backgrounds/田舎道２（日中）.jpg" id="24_vuohh"]
 [ext_resource type="Texture2D" uid="uid://bcqn2rjwt8m0p" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_gecheng.png" id="25_mljfx"]
 [ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="25_r62pu"]
 [ext_resource type="PackedScene" uid="uid://bnu8yy8c7d3pj" path="res://characters/instances/character_辉夜奏.tscn" id="27_tb2lt"]
@@ -441,7 +443,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_eu6ph")
 
-[node name="CharacterPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("character_pool")]
+[node name="CharacterPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("label_character_name", "background_pool", "character_pool")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -449,9 +451,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("21_v33yl")
+label_character_name = NodePath("Label_CharacterName")
+background_pool = NodePath("Backgrounds")
 character_pool = NodePath("Characters")
 
-[node name="TextureRect_Background" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
+[node name="Backgrounds" type="Control" parent="BonusPage/TabPages/CharacterPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="小卖屋" type="TextureRect" parent="BonusPage/TabPages/CharacterPage/Backgrounds"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -459,6 +471,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_87ddb")
+
+[node name="音乐室" type="TextureRect" parent="BonusPage/TabPages/CharacterPage/Backgrounds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_ib7ph")
+
+[node name="小镇道路" type="TextureRect" parent="BonusPage/TabPages/CharacterPage/Backgrounds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_vuohh")
 
 [node name="TextureRect_Foreground" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
 layout_mode = 1
@@ -541,7 +571,6 @@ visible = false
 visible = false
 
 [node name="Preview" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -549,6 +578,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_kq12w")
+
+[node name="Label_CharacterName" type="Label" parent="BonusPage/TabPages/CharacterPage"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 867.0
+offset_right = 381.0
+offset_bottom = 955.0
+theme_override_colors/font_color = Color(0.72156864, 0.6901961, 0.75686276, 1)
+theme_override_fonts/font = ExtResource("37_r62pu")
+theme_override_font_sizes/font_size = 60
+text = "辉夜奏"
+
+[node name="VBoxContainer_Options" type="VBoxContainer" parent="BonusPage/TabPages/CharacterPage"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="MusicPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description")]
 visible = false
