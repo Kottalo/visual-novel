@@ -48,7 +48,6 @@ func _input(event: InputEvent) -> void:
 			y_difference = clamp(y_difference, -slide_tolerance, slide_tolerance)
 			vbox_selections.global_position.y = original_y + y_difference
 	if y_difference >= slide_tolerance:
-		print("slide down")
 		button_pressed = false
 		await create_tween().tween_property(
 			vbox_selections, "position:y",
@@ -57,7 +56,6 @@ func _input(event: InputEvent) -> void:
 		).finished
 		selected_index -= 1
 	if y_difference <= -slide_tolerance:
-		print("slide up")
 		button_pressed = false
 		await create_tween().tween_property(
 			vbox_selections, "position:y",
