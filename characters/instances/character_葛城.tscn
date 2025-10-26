@@ -141,7 +141,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Character" instance=ExtResource("1_8t5bo")]
+[node name="葛城" instance=ExtResource("1_8t5bo")]
 
 [node name="SubViewportContainer" parent="." index="0"]
 offset_top = -1518.0

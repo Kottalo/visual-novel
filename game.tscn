@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=56 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
@@ -24,18 +24,25 @@
 [ext_resource type="Texture2D" uid="uid://dl0m5u1eiytd5" path="res://assets/ui/鉴赏内容/插画鉴赏/插画鉴赏.png" id="19_eu6ph"]
 [ext_resource type="Texture2D" uid="uid://d2hj5j33shnui" path="res://assets/ui/鉴赏内容/音乐鉴赏/background.png" id="19_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://cil2u80u3sj0p" path="res://prefabs/gallery_card/gallery_card.tscn" id="20_edr7y"]
+[ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="21_87ddb"]
 [ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="21_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://blachu13yjxr7" path="res://assets/ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png" id="21_kq12w"]
+[ext_resource type="Script" uid="uid://d2ex0eewal7fh" path="res://pages/bonus_pages/character_page.gd" id="21_v33yl"]
+[ext_resource type="Texture2D" uid="uid://62bxyitkn4pu" path="res://assets/ui/鉴赏内容/background_character.png" id="22_mljfx"]
 [ext_resource type="PackedScene" uid="uid://buso3d823ic3e" path="res://prefabs/character_selection/character_selection.tscn" id="22_t46w6"]
 [ext_resource type="Texture2D" uid="uid://c50l5bg7y00i2" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_changxia.png" id="23_0de7l"]
 [ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="23_l1i01"]
 [ext_resource type="Texture2D" uid="uid://b8jvafi4iuuey" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_yuluochen.png" id="24_87ddb"]
 [ext_resource type="Texture2D" uid="uid://bcqn2rjwt8m0p" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_gecheng.png" id="25_mljfx"]
 [ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="25_r62pu"]
+[ext_resource type="PackedScene" uid="uid://bnu8yy8c7d3pj" path="res://characters/instances/character_辉夜奏.tscn" id="27_tb2lt"]
 [ext_resource type="Texture2D" uid="uid://dbxht1t3n4gtq" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_hover.png" id="27_xa8c5"]
 [ext_resource type="Texture2D" uid="uid://bcal14yrqfeet" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_click.png" id="28_5b14r"]
+[ext_resource type="PackedScene" uid="uid://couiwje1dnllu" path="res://characters/instances/character_葛城.tscn" id="28_cfc7e"]
+[ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="29_gh0px"]
 [ext_resource type="Texture2D" uid="uid://cjpl5db37js54" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_normal.png" id="29_xfvwf"]
 [ext_resource type="Texture2D" uid="uid://q3rb8edm0k6b" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_click.png" id="30_dhpj7"]
+[ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="30_v33yl"]
 [ext_resource type="Texture2D" uid="uid://4cj4g5cwxqi" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_hover.png" id="31_7knny"]
 [ext_resource type="Texture2D" uid="uid://c8opaonxwcbeb" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_normal.png" id="32_082n1"]
 [ext_resource type="Texture2D" uid="uid://4pcmkkc7q3y4" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_click.png" id="33_xex6t"]
@@ -434,23 +441,34 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_eu6ph")
 
-[node name="CharacterPage" type="Control" parent="BonusPage/TabPages"]
+[node name="CharacterPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("character_pool")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("21_v33yl")
+character_pool = NodePath("Characters")
 
-[node name="Preview" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
-visible = false
+[node name="TextureRect_Background" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("21_kq12w")
+texture = ExtResource("21_87ddb")
+
+[node name="TextureRect_Foreground" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_mljfx")
+stretch_mode = 6
 
 [node name="CharacterSelections" type="Control" parent="BonusPage/TabPages/CharacterPage"]
 anchors_preset = 0
@@ -508,6 +526,29 @@ offset_bottom = 504.0
 texture = ExtResource("25_mljfx")
 
 [node name="Characters" type="Node2D" parent="BonusPage/TabPages/CharacterPage"]
+position = Vector2(1305, 1433)
+
+[node name="辉夜奏" parent="BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("27_tb2lt")]
+visible = false
+
+[node name="常夏" parent="BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("29_gh0px")]
+visible = false
+
+[node name="余洛琛" parent="BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("30_v33yl")]
+visible = false
+
+[node name="葛城" parent="BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("28_cfc7e")]
+visible = false
+
+[node name="Preview" type="TextureRect" parent="BonusPage/TabPages/CharacterPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_kq12w")
 
 [node name="MusicPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description")]
 visible = false

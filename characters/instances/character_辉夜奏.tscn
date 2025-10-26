@@ -158,7 +158,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Character" instance=ExtResource("1_mvhsb")]
+[node name="辉夜奏" instance=ExtResource("1_mvhsb")]
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
 sprite_frames = SubResource("SpriteFrames_mvhsb")
