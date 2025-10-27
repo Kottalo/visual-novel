@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfbap7mjsrewu"
-path="res://.godot/imported/sel_1.png-9fbe51513136cc0a62acafeff0fbb387.ctex"
+uid="uid://c2e0weiqe6em8"
+path="res://.godot/imported/sel_normal.png-7368e331485e26b5837ae3004bd6806a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/对话界面/sel_1.png"
-dest_files=["res://.godot/imported/sel_1.png-9fbe51513136cc0a62acafeff0fbb387.ctex"]
+source_file="res://assets/ui/对话界面/sel_normal.png"
+dest_files=["res://.godot/imported/sel_normal.png-7368e331485e26b5837ae3004bd6806a.ctex"]
 
 [params]
 

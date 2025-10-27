@@ -9,7 +9,7 @@ extends Control
 
 var current_character: Character:
 	get:
-		return character_pool.get_child(Main.character_selection_index)
+		return character_pool.get_child(Stage.character_selection_index)
 
 var background_index: int:
 	set(value):
@@ -23,7 +23,7 @@ var background_index: int:
 			background.visible = background.get_index() == background_index
 
 func _ready() -> void:
-	Main.character_selection_index_changed.connect(update_characters)
+	Stage.character_selection_index_changed.connect(update_characters)
 	
 	background_option.previous_button.pressed.connect(
 		func (): background_index -= 1

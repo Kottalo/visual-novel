@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctj8imd7y1gpj"]
+
+[ext_resource type="Script" uid="uid://dhckqb4wog1cn" path="res://scenes/stage/stage.gd" id="1_ecxui"]
+[ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="2_3kwj0"]
+[ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="3_a221a"]
+
+[node name="Stage" type="Node" node_paths=PackedStringArray("character_pool")]
+script = ExtResource("1_ecxui")
+character_pool = NodePath("Characters")
+
+[node name="Characters" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="余洛琛" parent="Characters" instance=ExtResource("2_3kwj0")]
+
+[node name="常夏" parent="Characters" instance=ExtResource("3_a221a")]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c65pxblv3888i"]
+[gd_scene load_steps=14 format=3 uid="uid://c65pxblv3888i"]
 
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://dialogue_manager/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="2_s2hpw"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="PackedScene" uid="uid://ft3erxxeesae" path="res://prefabs/dialogue_selection/dialogue_selection.tscn" id="4_j08cx"]
 [ext_resource type="Texture2D" uid="uid://rujid3trau57" path="res://assets/ui/对话界面/dialogue_box_noname.png" id="4_qsr3b"]
 [ext_resource type="Texture2D" uid="uid://8q4jt6eqfbr3" path="res://assets/ui/对话界面/dialogue_box.png" id="5_s0025"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="6_3vhth"]
@@ -83,6 +85,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
+[node name="Preview" type="TextureRect" parent="Balloon"]
+visible = false
+layout_mode = 0
+offset_right = 2560.0
+offset_bottom = 1440.0
+texture = ExtResource("2_s2hpw")
+
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 1
@@ -91,21 +100,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
+offset_left = -611.0
+offset_top = -259.0
+offset_right = 612.0
+offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-theme_override_constants/separation = 2
+theme_override_constants/separation = -19
 alignment = 1
 script = ExtResource("3_72ixx")
-response_template = NodePath("ResponseExample")
+response_template = NodePath("DialogueSelection")
 
-[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
+[node name="DialogueSelection" parent="Balloon/ResponsesMenu" instance=ExtResource("4_j08cx")]
 layout_mode = 2
-text = "Response example"
 
 [node name="Bg_DialogueBox" type="Control" parent="Balloon"]
 layout_mode = 1

@@ -10,7 +10,7 @@ var balloon: DialogueBalloon
 func _ready() -> void:
 	Pages.stage = self
 	
-	balloon = DialogueManager.show_dialogue_balloon(main_dialogue, "start", [Main])
+	balloon = DialogueManager.show_dialogue_balloon(main_dialogue, "start", [Stage])
 	
 	pass
 

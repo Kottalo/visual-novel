@@ -8,13 +8,12 @@ extends TextureRect
 
 var selected: bool:
 	get:
-		return Main.character_selection_index == get_index()
+		return Stage.character_selection_index == get_index()
 
 var hovered: bool:
 	set(value):
 		hovered = value
 		update()
-		
 
 func _ready() -> void:
 	selection_frame.mouse_entered.connect(
@@ -29,7 +28,7 @@ func _ready() -> void:
 				if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 					Main.character_selection_index = get_index()
 	)
-	Main.character_selection_index_changed.connect(update)
+	Stage.character_selection_index_changed.connect(update)
 	
 	update()
 
