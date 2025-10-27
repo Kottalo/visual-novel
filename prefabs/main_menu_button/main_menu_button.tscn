@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://lfcmnldfkrh"]
 
 [ext_resource type="Script" uid="uid://bqfqrsbb2ue0q" path="res://prefabs/main_menu_button/main_menu_button.gd" id="1_htbgh"]
-[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="2_jl38l"]
+[ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="2_htbgh"]
 [ext_resource type="Texture2D" uid="uid://dlhggpwbm5tov" path="res://assets/ui/开始游戏/hover_deco.png" id="3_c0fwr"]
 [ext_resource type="Texture2D" uid="uid://cgdomt8rxfhho" path="res://assets/ui/开始游戏/click_deco.png" id="4_g71bb"]
 
@@ -24,8 +24,7 @@ click_box = NodePath("ClickBox")
 layout_mode = 0
 offset_right = 85.0
 offset_bottom = 41.0
-theme_override_colors/font_color = Color(0.7539025, 0.7252355, 0.786306, 1)
-theme_override_fonts/font = ExtResource("2_jl38l")
+theme = ExtResource("2_htbgh")
 theme_override_font_sizes/font_size = 31
 text = "开始游戏"
 
