@@ -799,7 +799,6 @@ texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../TabPages/MusicPage")
 
 [node name="TravelPage" type="Control" parent="." node_paths=PackedStringArray("vbox_selections", "place_selection")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -807,7 +806,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("59_3gvs5")
-place_textures = Array[Texture2D]([ExtResource("21_87ddb"), ExtResource("23_ib7ph"), ExtResource("24_vuohh")])
 vbox_selections = NodePath("VBoxContainer_Selections")
 place_selection = NodePath("VBoxContainer_Selections/PlaceSelection")
 
@@ -864,15 +862,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("63_jo4nb")
 
-[node name="Preview" type="TextureRect" parent="TravelPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("60_mc3al")
-
 [node name="TipBar" type="TextureRect" parent="TravelPage"]
 layout_mode = 1
 anchors_preset = 5
@@ -900,6 +889,16 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 36
 text = "选择想要前往的地点"
 horizontal_alignment = 1
+
+[node name="Preview" type="TextureRect" parent="TravelPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("60_mc3al")
 
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Background"]
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Body"]

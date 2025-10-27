@@ -1,7 +1,6 @@
 class_name LocationPage
 extends Control
 
-@export var place_textures: Array[Texture2D]
 @export var vbox_selections: VBoxContainer
 @export var place_selection: Control
 
@@ -70,6 +69,7 @@ func update() -> void:
 	for selection: PlaceSelection in vbox_selections.get_children():
 		var offset_index = selection.get_index() - 2
 		var target_index = selected_index + offset_index
-		target_index %= place_textures.size()
-		selection.texture_rect_image.texture = place_textures[target_index]
+		target_index %= Stage.background_data_pool.size()
+		selection.texture_rect_image.texture = \
+			Stage.background_data_pool[target_index].texture
 	vbox_selections.global_position.y = original_y
