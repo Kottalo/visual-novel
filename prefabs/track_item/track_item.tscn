@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dbfnmuah3507l" path="res://assets/ui/鉴赏内容/音乐鉴赏/song_click.png" id="1_ueqsu"]
 [ext_resource type="Texture2D" uid="uid://bcjhevvrpbkve" path="res://assets/ui/鉴赏内容/音乐鉴赏/song_hover.png" id="2_bic3u"]
 [ext_resource type="Script" uid="uid://bg6fpa1i8irkg" path="res://prefabs/track_item/track_item.gd" id="3_bic3u"]
-[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="3_q4fwc"]
 [ext_resource type="PackedScene" uid="uid://cdnnwlov248c" path="res://prefabs/components/drag_filter.tscn" id="4_q4fwc"]
+[ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="5_q4fwc"]
 
 [node name="TrackItem" type="TextureButton" node_paths=PackedStringArray("drag_filter", "label_title")]
 mouse_filter = 1
@@ -24,7 +24,7 @@ offset_left = 49.0
 offset_top = 14.0
 offset_right = 462.0
 offset_bottom = 59.0
-theme_override_fonts/font = ExtResource("3_q4fwc")
+theme = ExtResource("5_q4fwc")
 theme_override_font_sizes/font_size = 30
 text = "歌曲名称"
 clip_text = true

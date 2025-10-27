@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cbsg1w1i7o3lo" path="res://assets/ui/存读档案/no_background.png" id="4_3cquv"]
 [ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="5_4wxwx"]
 [ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_mkcy0"]
-[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_0nu7h"]
+[ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="8_ocbxf"]
 
 [node name="SaveProfileCard" type="TextureRect" node_paths=PackedStringArray("texture_rect_preview", "drag_filter")]
 texture = ExtResource("1_ueu0p")
@@ -64,7 +64,6 @@ offset_left = 52.0
 offset_top = 367.0
 offset_right = 196.0
 offset_bottom = 420.0
-theme_override_colors/font_color = Color(0.72156864, 0.6901961, 0.75686276, 1)
-theme_override_fonts/font = ExtResource("7_0nu7h")
+theme = ExtResource("8_ocbxf")
 theme_override_font_sizes/font_size = 36
 text = "章节名称"
