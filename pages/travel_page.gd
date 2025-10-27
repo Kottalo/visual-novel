@@ -1,8 +1,9 @@
-class_name LocationPage
+class_name TravelPage
 extends Control
 
 @export var vbox_selections: VBoxContainer
 @export var place_selection: Control
+@export var texture_button_confirm: TextureButton
 
 @onready var original_y: float = vbox_selections.global_position.y
 
@@ -30,6 +31,8 @@ var button_pressed: bool
 var sliding: bool
 
 func _ready() -> void:
+	Pages.travel = self
+	
 	vbox_selections.gui_input.connect(
 		func (event: InputEvent):
 			if event is InputEventMouseButton:
@@ -37,6 +40,12 @@ func _ready() -> void:
 					button_pressed = true
 					start_y = event.global_position.y
 	)
+	texture_button_confirm.pressed.connect(
+		func ():
+			Stage.background_name = Stage.background_data_pool[selected_index].title
+			visible = false
+	)
+	
 	update()
 
 func _input(event: InputEvent) -> void:

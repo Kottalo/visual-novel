@@ -92,7 +92,8 @@ func _process(delta: float) -> void:
 	if not dialogue_line: return
 	
 	progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
-
+	
+	responses_menu.visible = responses_menu.get_child_count() > 0
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
@@ -218,6 +219,9 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
+	for item in responses_menu.get_children():
+		responses_menu.remove_child(item)
+		item.queue_free()
 	next(response.next_id)
 
 #endregion

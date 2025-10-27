@@ -22,6 +22,7 @@ func start() -> void:
 
 #region Dialogue Variables
 var position_name: String
+var background_name: String
 #endregion
 
 #region Dialogue Commands
@@ -46,4 +47,8 @@ func SetBackground(background_name: String) -> void:
 		0,
 		0.3
 	).finished
+
+func Travel() -> void:
+	Pages.travel.visible = true
+	await Pages.travel.visibility_changed
 #endregion

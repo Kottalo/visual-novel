@@ -27,7 +27,9 @@ do Character("余洛琛").MoveTo("LeftMost", 0.3)
 		do Stage.position_name = "RightMost"
 		=> move
 - 约会
-	余洛琛: You picked the second one.
+	do Travel()
+	do SetBackground(Stage.background_name)
+	=> loop
 - 返回 => start
 - 结束 => END
 余洛琛: For more information see the online documentation.

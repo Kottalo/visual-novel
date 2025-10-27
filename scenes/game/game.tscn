@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=70 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -61,10 +61,14 @@
 [ext_resource type="Texture2D" uid="uid://i1xh5r7t83vm" path="res://assets/ui/地点约会/地点约会.png" id="60_mc3al"]
 [ext_resource type="Texture2D" uid="uid://xrkqspeftm3" path="res://assets/ui/地点约会/background.png" id="60_ple6s"]
 [ext_resource type="PackedScene" uid="uid://okl3ot47mvah" path="res://prefabs/place_selection/place_selection.tscn" id="61_ra4rb"]
+[ext_resource type="Texture2D" uid="uid://dpy330u8ik3xq" path="res://assets/ui/地点约会/place_deco.png" id="61_rnb85"]
 [ext_resource type="Texture2D" uid="uid://c2dsc25734sgs" path="res://assets/ui/地点约会/select_outline.png" id="62_du4n2"]
 [ext_resource type="Texture2D" uid="uid://by8xnut5fcscc" path="res://assets/ui/地点约会/shadow.png" id="63_jo4nb"]
 [ext_resource type="Texture2D" uid="uid://cih8lehdp2fxt" path="res://assets/ui/地点约会/tip_background.png" id="65_jo4nb"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="66_56gn1"]
+[ext_resource type="Texture2D" uid="uid://c8s76ry77sao" path="res://assets/ui/地点约会/go_normal.png" id="67_84b8o"]
+[ext_resource type="Texture2D" uid="uid://bjidvkqunqtc5" path="res://assets/ui/地点约会/go_click.png" id="68_g2bdr"]
+[ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="69_864w3"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -798,9 +802,12 @@ layout_mode = 2
 texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../TabPages/MusicPage")
 
-[node name="TravelPage" type="Control" parent="." node_paths=PackedStringArray("vbox_selections", "place_selection")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="TravelPage" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm")]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -809,8 +816,9 @@ grow_vertical = 2
 script = ExtResource("59_3gvs5")
 vbox_selections = NodePath("VBoxContainer_Selections")
 place_selection = NodePath("VBoxContainer_Selections/PlaceSelection")
+texture_button_confirm = NodePath("TextureButton_Confirm")
 
-[node name="Background" type="TextureRect" parent="TravelPage"]
+[node name="Background" type="TextureRect" parent="CanvasLayer/TravelPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -820,7 +828,21 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("60_ple6s")
 
-[node name="VBoxContainer_Selections" type="VBoxContainer" parent="TravelPage"]
+[node name="Title" type="TextureRect" parent="CanvasLayer/TravelPage/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1440.0
+offset_top = 433.0
+offset_right = -295.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("61_rnb85")
+
+[node name="VBoxContainer_Selections" type="VBoxContainer" parent="CanvasLayer/TravelPage"]
 layout_mode = 0
 offset_left = 254.0
 offset_top = -705.0
@@ -829,22 +851,22 @@ offset_bottom = 2146.0
 size_flags_horizontal = 3
 mouse_filter = 0
 
-[node name="PlaceSelection" parent="TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection2" parent="TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection2" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection3" parent="TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection3" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection4" parent="TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection4" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection5" parent="TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection5" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="TextureRect_SelectFrame" type="TextureRect" parent="TravelPage"]
+[node name="TextureRect_SelectFrame" type="TextureRect" parent="CanvasLayer/TravelPage"]
 layout_mode = 0
 offset_left = 135.0
 offset_top = 399.0
@@ -853,7 +875,7 @@ offset_bottom = 1048.0
 mouse_filter = 2
 texture = ExtResource("62_du4n2")
 
-[node name="Foreground" type="TextureRect" parent="TravelPage"]
+[node name="Foreground" type="TextureRect" parent="CanvasLayer/TravelPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -863,7 +885,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("63_jo4nb")
 
-[node name="TipBar" type="TextureRect" parent="TravelPage"]
+[node name="TipBar" type="TextureRect" parent="CanvasLayer/TravelPage"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -876,7 +898,7 @@ grow_horizontal = 2
 mouse_filter = 2
 texture = ExtResource("65_jo4nb")
 
-[node name="Label" type="Label" parent="TravelPage/TipBar"]
+[node name="Label" type="Label" parent="CanvasLayer/TravelPage/TipBar"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -891,7 +913,33 @@ theme_override_font_sizes/font_size = 36
 text = "选择想要前往的地点"
 horizontal_alignment = 1
 
-[node name="Preview" type="TextureRect" parent="TravelPage"]
+[node name="Labels" type="Control" parent="CanvasLayer/TravelPage"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_PlaceTitle" type="Label" parent="CanvasLayer/TravelPage/Labels"]
+layout_mode = 0
+offset_left = 1443.0
+offset_top = 587.0
+offset_right = 1543.0
+offset_bottom = 660.0
+theme = ExtResource("66_56gn1")
+theme_override_font_sizes/font_size = 50
+text = "街道"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TravelPage/Labels"]
+layout_mode = 0
+offset_left = 1443.0
+offset_top = 699.0
+offset_right = 2282.0
+offset_bottom = 951.0
+theme = ExtResource("66_56gn1")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 31
+text = "场景简介"
+
+[node name="Preview" type="TextureRect" parent="CanvasLayer/TravelPage"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -900,6 +948,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("60_mc3al")
+
+[node name="TextureButton_Confirm" type="TextureButton" parent="CanvasLayer/TravelPage"]
+layout_mode = 0
+offset_left = 1706.0
+offset_top = 981.0
+offset_right = 1996.0
+offset_bottom = 1044.0
+texture_normal = ExtResource("67_84b8o")
+texture_pressed = ExtResource("68_g2bdr")
+texture_hover = ExtResource("69_864w3")
 
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Background"]
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Body"]

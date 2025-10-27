@@ -80,6 +80,20 @@ bg_common = NodePath("DialogueScreen/Bg_DialogueBox/Bg_Common")
 bg_character = NodePath("DialogueScreen/Bg_DialogueBox/Bg_Character")
 avatar = NodePath("DialogueScreen/Avatar")
 
+[node name="SceneContainer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogueSelection" parent="SceneContainer" instance=ExtResource("4_wd0lf")]
+layout_mode = 0
+offset_left = 669.0
+offset_top = 535.0
+offset_right = 1892.0
+offset_bottom = 682.0
+
 [node name="TextureRect_Background" type="TextureRect" parent="."]
 offset_right = 2560.0
 offset_bottom = 1440.0
@@ -242,10 +256,7 @@ size_flags_vertical = 8
 theme_override_constants/separation = -19
 alignment = 1
 script = ExtResource("3_jool8")
-response_template = NodePath("DialogueSelection")
-
-[node name="DialogueSelection" parent="DialogueScreen/ResponsesMenu" instance=ExtResource("4_wd0lf")]
-layout_mode = 2
+response_template = NodePath("../../SceneContainer/DialogueSelection")
 
 [node name="TextureRect_Blackscreen" type="ColorRect" parent="."]
 anchors_preset = 15
