@@ -17,7 +17,6 @@ var selected_index: int:
 		selected_index = value
 		
 		var index_difference = last_index - selected_index
-		
 		var target_y = original_y + (place_selection.size.y * index_difference)
 		await create_tween().tween_property(
 			vbox_selections, "position:y",
@@ -57,12 +56,11 @@ func _input(event: InputEvent) -> void:
 	if y_difference >= slide_tolerance:
 		selected_index -= 1
 		button_pressed = false
-		#slide_to_y(original_y + place_selection.size.y)
 	if y_difference <= -slide_tolerance:
 		selected_index += 1
 		button_pressed = false
-		#slide_to_y(original_y - place_selection.size.y)
-	pass
+	
+	#if event is Mouse
 
 func update() -> void:
 	for selection: PlaceSelection in vbox_selections.get_children():
