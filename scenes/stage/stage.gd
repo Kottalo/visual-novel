@@ -27,4 +27,23 @@ var position_name: String
 #region Dialogue Commands
 func Character(character_name: String) -> Character:
 	return character_dict[character_name]
+
+func SetBackground(background_name: String) -> void:
+	await create_tween().tween_property(
+		Pages.stage.texture_rect_blackscreen,
+		"scale:y",
+		1,
+		0.5
+	).finished
+	var target_background: Texture2D = background_data_pool.filter(
+		func (background: BackgroundData):
+			return background.title == background_name
+	).front().texture
+	Pages.stage.texture_rect_background.texture = target_background
+	await create_tween().tween_property(
+		Pages.stage.texture_rect_blackscreen,
+		"scale:y",
+		0,
+		0.3
+	).finished
 #endregion

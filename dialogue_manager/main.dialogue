@@ -1,9 +1,11 @@
 ~ start
-do wait(0.3)
+do wait(0.01)
 do Character("余洛琛").SetParts("Eyes:悲伤")
 do Character("余洛琛").FadeIn("Center", 1)
-余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。
 do Character("余洛琛").MoveTo("RightMost", 0.3)
+余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。
+do SetBackground("音乐室")
+do Character("余洛琛").MoveTo("LeftMost", 0.3)
 余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。[[你好|哈啰|早呀]]，我感到非常愉快。
 
 ~ loop
@@ -26,7 +28,7 @@ do Character("余洛琛").MoveTo("RightMost", 0.3)
 		=> move
 - 约会
 	余洛琛: You picked the second one.
-- 返回 => loop
+- 返回 => start
 - 结束 => END
 余洛琛: For more information see the online documentation.
 => END

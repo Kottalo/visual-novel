@@ -4,6 +4,8 @@ extends CanvasLayer
 
 @export var hbox_positions: HBoxContainer
 @export var character_image_pool: Node2D
+@export var texture_rect_background: TextureRect
+@export var texture_rect_blackscreen: ColorRect
 
 ## The action to use for advancing the dialogue
 @export var next_action: StringName = &"ui_accept"
@@ -28,7 +30,7 @@ var temporary_game_states: Array = []
 var is_waiting_for_input: bool = false
 
 ## See if we are running a long mutation and should hide the balloon
-var will_hide_balloon: bool = false
+var will_hide_dialogue_screen: bool = false
 
 ## A dictionary to store any ephemeral variables
 var locals: Dictionary = {}
@@ -57,7 +59,7 @@ var dialogue_line: DialogueLine:
 var mutation_cooldown: Timer = Timer.new()
 
 ## The base balloon anchor
-@onready var balloon: Control = %Balloon
+@onready var dialogue_screen: Control = %DialogueScreen
 
 ## The label showing the name of the currently speaking character
 @onready var character_label: RichTextLabel = %CharacterLabel
@@ -74,7 +76,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 func _ready() -> void:
 	Pages.stage = self
-	balloon.modulate.a = 0
+	dialogue_screen.modulate.a = 0
 	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -123,8 +125,8 @@ func apply_dialogue_line() -> void:
 
 	progress.hide()
 	is_waiting_for_input = false
-	balloon.focus_mode = Control.FOCUS_ALL
-	balloon.grab_focus()
+	dialogue_screen.focus_mode = Control.FOCUS_ALL
+	dialogue_screen.grab_focus()
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
@@ -133,8 +135,8 @@ func apply_dialogue_line() -> void:
 	bg_character.visible = not dialogue_line.character.is_empty()
 	avatar.visible = not dialogue_line.character.is_empty()
 	
-	if balloon.modulate.a != 1:
-		await create_tween().tween_property(balloon, "modulate:a", 1, 0.5).finished
+	if dialogue_screen.modulate.a != 1:
+		await create_tween().tween_property(dialogue_screen, "modulate:a", 1, 0.5).finished
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -143,8 +145,8 @@ func apply_dialogue_line() -> void:
 	responses_menu.responses = dialogue_line.responses
 
 	# Show our balloon
-	balloon.modulate.a = 1
-	will_hide_balloon = false
+	dialogue_screen.modulate.a = 1
+	will_hide_dialogue_screen = false
 
 	dialogue_label.show()
 	if not dialogue_line.text.is_empty():
@@ -159,7 +161,7 @@ func apply_dialogue_line() -> void:
 		#next(dialogue_line.next_id)
 		pass
 	elif dialogue_line.responses.size() > 0:
-		balloon.focus_mode = Control.FOCUS_NONE
+		dialogue_screen.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
 	elif dialogue_line.time != "":
 		var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
@@ -167,8 +169,8 @@ func apply_dialogue_line() -> void:
 		next(dialogue_line.next_id)
 	else:
 		is_waiting_for_input = true
-		balloon.focus_mode = Control.FOCUS_ALL
-		balloon.grab_focus()
+		dialogue_screen.focus_mode = Control.FOCUS_ALL
+		dialogue_screen.grab_focus()
 
 
 ## Go to the next line
@@ -180,16 +182,16 @@ func next(next_id: String) -> void:
 
 
 func _on_mutation_cooldown_timeout() -> void:
-	if will_hide_balloon:
-		will_hide_balloon = false
+	if will_hide_dialogue_screen:
+		will_hide_dialogue_screen = false
 		
-		await create_tween().tween_property(balloon, "modulate:a", 0, 0.5).finished
+		await create_tween().tween_property(dialogue_screen, "modulate:a", 0, 0.5).finished
 
 
 func _on_mutated(_mutation: Dictionary) -> void:
 	if not _mutation.is_inline:
 		is_waiting_for_input = false
-		will_hide_balloon = true
+		will_hide_dialogue_screen = true
 		mutation_cooldown.start(0.1)
 
 
@@ -211,12 +213,11 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		next(dialogue_line.next_id)
-	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
+	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == dialogue_screen:
 		next(dialogue_line.next_id)
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
-
 
 #endregion

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwnsxsn6pit1f"]
+[gd_scene load_steps=15 format=3 uid="uid://dwnsxsn6pit1f"]
 
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://pages/stage_page/stage_page.gd" id="1_wlgfe"]
+[ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="2_50ef6"]
 [ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="2_yetgv"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_jool8"]
 [ext_resource type="PackedScene" uid="uid://ft3erxxeesae" path="res://prefabs/dialogue_selection/dialogue_selection.tscn" id="4_wd0lf"]
@@ -68,16 +69,68 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_sqldi")
 
-[node name="StagePage" type="CanvasLayer" node_paths=PackedStringArray("hbox_positions", "character_image_pool", "bg_common", "bg_character", "avatar")]
+[node name="StagePage" type="CanvasLayer" node_paths=PackedStringArray("hbox_positions", "character_image_pool", "texture_rect_background", "texture_rect_blackscreen", "bg_common", "bg_character", "avatar")]
 layer = 100
 script = ExtResource("1_wlgfe")
-hbox_positions = NodePath("Balloon/HBoxContainer_Positions")
-character_image_pool = NodePath("Balloon/CharacterImages")
-bg_common = NodePath("Balloon/Bg_DialogueBox/Bg_Common")
-bg_character = NodePath("Balloon/Bg_DialogueBox/Bg_Character")
-avatar = NodePath("Balloon/Avatar")
+hbox_positions = NodePath("HBoxContainer_Positions")
+character_image_pool = NodePath("CharacterImages")
+texture_rect_background = NodePath("TextureRect_Background")
+texture_rect_blackscreen = NodePath("TextureRect_Blackscreen")
+bg_common = NodePath("DialogueScreen/Bg_DialogueBox/Bg_Common")
+bg_character = NodePath("DialogueScreen/Bg_DialogueBox/Bg_Character")
+avatar = NodePath("DialogueScreen/Avatar")
 
-[node name="Balloon" type="Control" parent="."]
+[node name="TextureRect_Background" type="TextureRect" parent="."]
+offset_right = 2560.0
+offset_bottom = 1440.0
+texture = ExtResource("2_50ef6")
+
+[node name="CharacterImages" type="Node2D" parent="."]
+
+[node name="HBoxContainer_Positions" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LeftMost" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/LeftMost"]
+layout_mode = 2
+
+[node name="Left" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Left"]
+layout_mode = 2
+
+[node name="Center" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Center"]
+layout_mode = 2
+
+[node name="Right" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Right"]
+layout_mode = 2
+
+[node name="RightMost" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/RightMost"]
+layout_mode = 2
+
+[node name="DialogueScreen" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -87,67 +140,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
-[node name="Preview2" type="TextureRect" parent="Balloon"]
+[node name="Preview" type="TextureRect" parent="DialogueScreen"]
 visible = false
 layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_yetgv")
 
-[node name="CharacterImages" type="Node2D" parent="Balloon"]
-
-[node name="HBoxContainer_Positions" type="HBoxContainer" parent="Balloon"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="LeftMost" type="CenterContainer" parent="Balloon/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="Balloon/HBoxContainer_Positions/LeftMost"]
-layout_mode = 2
-
-[node name="Left" type="CenterContainer" parent="Balloon/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="Balloon/HBoxContainer_Positions/Left"]
-layout_mode = 2
-
-[node name="Center" type="CenterContainer" parent="Balloon/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="Balloon/HBoxContainer_Positions/Center"]
-layout_mode = 2
-
-[node name="Right" type="CenterContainer" parent="Balloon/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="Balloon/HBoxContainer_Positions/Right"]
-layout_mode = 2
-
-[node name="RightMost" type="CenterContainer" parent="Balloon/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="Balloon/HBoxContainer_Positions/RightMost"]
-layout_mode = 2
-
-[node name="Preview" type="TextureRect" parent="Balloon"]
-visible = false
-layout_mode = 0
-offset_right = 2560.0
-offset_bottom = 1440.0
-texture = ExtResource("2_yetgv")
-
-[node name="Bg_DialogueBox" type="Control" parent="Balloon"]
+[node name="Bg_DialogueBox" type="Control" parent="DialogueScreen"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -155,7 +155,7 @@ anchor_bottom = 1.0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Bg_Common" type="TextureRect" parent="Balloon/Bg_DialogueBox"]
+[node name="Bg_Common" type="TextureRect" parent="DialogueScreen/Bg_DialogueBox"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -165,7 +165,7 @@ offset_right = 2560.0
 grow_vertical = 0
 texture = ExtResource("5_wyvu0")
 
-[node name="Bg_Character" type="TextureRect" parent="Balloon/Bg_DialogueBox"]
+[node name="Bg_Character" type="TextureRect" parent="DialogueScreen/Bg_DialogueBox"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -175,7 +175,7 @@ offset_right = 2560.0
 grow_vertical = 0
 texture = ExtResource("6_ra4hq")
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Bg_DialogueBox/Bg_Character"]
+[node name="CharacterLabel" type="RichTextLabel" parent="DialogueScreen/Bg_DialogueBox/Bg_Character"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 506.0
@@ -191,7 +191,7 @@ text = "余洛琛"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon" instance=ExtResource("8_cvq0y")]
+[node name="DialogueLabel" parent="DialogueScreen" instance=ExtResource("8_cvq0y")]
 unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
@@ -208,12 +208,12 @@ theme_override_fonts/normal_font = ExtResource("7_ke2v6")
 theme_override_font_sizes/normal_font_size = 40
 text = "文学社"
 
-[node name="Progress" type="Polygon2D" parent="Balloon"]
+[node name="Progress" type="Polygon2D" parent="DialogueScreen"]
 unique_name_in_owner = true
 position = Vector2(2306, 1337)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
-[node name="Avatar" type="TextureRect" parent="Balloon"]
+[node name="Avatar" type="TextureRect" parent="DialogueScreen"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -224,7 +224,7 @@ mouse_filter = 2
 expand_mode = 5
 stretch_mode = 4
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
+[node name="ResponsesMenu" type="VBoxContainer" parent="DialogueScreen" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -244,8 +244,17 @@ alignment = 1
 script = ExtResource("3_jool8")
 response_template = NodePath("DialogueSelection")
 
-[node name="DialogueSelection" parent="Balloon/ResponsesMenu" instance=ExtResource("4_wd0lf")]
+[node name="DialogueSelection" parent="DialogueScreen/ResponsesMenu" instance=ExtResource("4_wd0lf")]
 layout_mode = 2
 
-[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
-[connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[node name="TextureRect_Blackscreen" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+color = Color(0, 0, 0, 1)
+
+[connection signal="gui_input" from="DialogueScreen" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="DialogueScreen/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
