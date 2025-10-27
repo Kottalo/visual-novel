@@ -27,5 +27,4 @@ var position_name: String
 #region Dialogue Commands
 func Character(character_name: String) -> Character:
 	return character_dict[character_name]
-
 #endregion

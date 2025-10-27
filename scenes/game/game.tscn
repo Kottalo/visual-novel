@@ -294,106 +294,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GalleryPage" type="Control" parent="BonusPage/TabPages"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VScrollBarEx" parent="BonusPage/TabPages/GalleryPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
-layout_mode = 1
-offset_top = 116.0
-offset_bottom = 1188.0
-target_scroll_container = NodePath("../ScrollContainer")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="BonusPage/TabPages/GalleryPage"]
-layout_mode = 0
-offset_left = 261.0
-offset_top = 73.0
-offset_right = 2367.0
-offset_bottom = 1184.0
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-
-[node name="GridContainer" type="GridContainer" parent="BonusPage/TabPages/GalleryPage/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = -9
-theme_override_constants/v_separation = -10
-columns = 4
-
-[node name="GalleryCard" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard2" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard3" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard4" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard5" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard6" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard7" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard8" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard9" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard10" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard11" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard12" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard13" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard14" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard15" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard16" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard17" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard18" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard19" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard20" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="Preview" type="TextureRect" parent="BonusPage/TabPages/GalleryPage"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("19_eu6ph")
-
 [node name="CharacterPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("label_character_name", "background_pool", "character_pool", "body_part_options", "background_option")]
 visible = false
 layout_mode = 1
@@ -585,6 +485,106 @@ body_part = "Mouth"
 
 [node name="Label" parent="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Mouth" index="0"]
 text = "嘴巴"
+
+[node name="GalleryPage" type="Control" parent="BonusPage/TabPages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VScrollBarEx" parent="BonusPage/TabPages/GalleryPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+layout_mode = 1
+offset_top = 116.0
+offset_bottom = 1188.0
+target_scroll_container = NodePath("../ScrollContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BonusPage/TabPages/GalleryPage"]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 73.0
+offset_right = 2367.0
+offset_bottom = 1184.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="BonusPage/TabPages/GalleryPage/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = -9
+theme_override_constants/v_separation = -10
+columns = 4
+
+[node name="GalleryCard" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard2" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard3" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard4" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard5" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard6" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard7" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard8" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard9" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard10" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard11" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard12" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard13" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard14" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard15" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard16" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard17" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard18" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard19" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="GalleryCard20" parent="BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
+layout_mode = 2
+
+[node name="Preview" type="TextureRect" parent="BonusPage/TabPages/GalleryPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_eu6ph")
 
 [node name="MusicPage" type="Control" parent="BonusPage/TabPages" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description")]
 visible = false
@@ -784,14 +784,14 @@ offset_right = 1958.0
 offset_bottom = 1311.0
 theme_override_constants/separation = 112
 
-[node name="BonusTabItem_Gallery" parent="BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
-layout_mode = 2
-target_tab = NodePath("../../TabPages/GalleryPage")
-
 [node name="BonusTabItem_Character" parent="BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
 layout_mode = 2
-texture = ExtResource("37_4v2jo")
 target_tab = NodePath("../../TabPages/CharacterPage")
+
+[node name="BonusTabItem_Gallery" parent="BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
+layout_mode = 2
+texture = ExtResource("37_4v2jo")
+target_tab = NodePath("../../TabPages/GalleryPage")
 
 [node name="BonusTabItem_Music" parent="BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
 layout_mode = 2
@@ -799,6 +799,7 @@ texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../TabPages/MusicPage")
 
 [node name="TravelPage" type="Control" parent="." node_paths=PackedStringArray("vbox_selections", "place_selection")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

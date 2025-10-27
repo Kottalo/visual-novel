@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="3_1bvp3"]
 
-[node name="Main" type="Node" node_paths=PackedStringArray("character_pool")]
+[node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
-character_pool = NodePath("Characters")
 
 [node name="Characters" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
