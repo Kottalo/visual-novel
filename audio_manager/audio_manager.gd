@@ -5,19 +5,6 @@ enum PlayStatus { PLAY, PAUSE }
 @export var playlist: Array[MusicData]
 @export var audio_player: AudioStreamPlayer2D
 
-signal play_status_changed
-var play_status: PlayStatus = PlayStatus.PLAY:
-	set(value):
-		play_status = value
-		
-		match AudioManager.play_status:
-			PlayStatus.PLAY:
-				audio_player.stream_paused = false
-			PlayStatus.PAUSE:
-				audio_player.stream_paused = true
-		
-		emit_signal("play_status_changed")
-
 signal track_index_changed
 var track_index: int:
 	set(value):
@@ -25,7 +12,7 @@ var track_index: int:
 		if track_index < 0: track_index = playlist.size() - 1
 		if track_index >= playlist.size(): track_index = 0
 		audio_player.stream = current_track.track
-		emit_signal("track_index_changed")
+		track_index_changed.emit()
 
 var current_track: MusicData:
 	get:
@@ -33,7 +20,6 @@ var current_track: MusicData:
 
 func _ready() -> void:
 	track_index = 0
-	play_status = play_status
 	
 	audio_player.finished.connect(
 		func ():

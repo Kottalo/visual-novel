@@ -37,23 +37,12 @@ func _ready() -> void:
 		track_item.music_data = music_data
 		vbox_playlist.add_child(track_item)
 	
-	AudioManager.play_status_changed.connect(
-		func ():
-			play_button.visible = false
-			pause_button.visible = false
-			
-			match AudioManager.play_status:
-				PlayStatus.PLAY:
-					pause_button.visible = true
-				PlayStatus.PAUSE:
-					play_button.visible = true
-	)
 	AudioManager.track_index_changed.connect(update_track_info)
 	play_button.pressed.connect(
-		func (): AudioManager.play_status = PlayStatus.PLAY
+		func (): audio_player.stream_paused = false
 	)
 	pause_button.pressed.connect(
-		func (): AudioManager.play_status = PlayStatus.PAUSE
+		func (): audio_player.stream_paused = true
 	)
 	next_button.pressed.connect(
 		func ():
@@ -120,6 +109,9 @@ func _physics_process(delta: float) -> void:
 	.endpoint.global_position \
 	if progress_hovered else \
 	play_progress_line.endpoint.global_position
+	
+	pause_button.visible = audio_player.playing
+	play_button.visible = !audio_player.playing
 	
 func update_track_info() -> void:
 	label_title.text = AudioManager.current_track.title
