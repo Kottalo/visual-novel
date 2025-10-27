@@ -805,7 +805,7 @@ target_tab = NodePath("../../TabPages/MusicPage")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 101
 
-[node name="TravelPage" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm")]
+[node name="TravelPage" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -817,6 +817,8 @@ script = ExtResource("59_3gvs5")
 vbox_selections = NodePath("VBoxContainer_Selections")
 place_selection = NodePath("VBoxContainer_Selections/PlaceSelection")
 texture_button_confirm = NodePath("TextureButton_Confirm")
+label_place_title = NodePath("Labels/Label_PlaceTitle")
+rich_label_place_description = NodePath("Labels/RichTextLabel_PlaceDescription")
 
 [node name="Background" type="TextureRect" parent="CanvasLayer/TravelPage"]
 layout_mode = 1
@@ -928,7 +930,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 50
 text = "街道"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TravelPage/Labels"]
+[node name="RichTextLabel_PlaceDescription" type="RichTextLabel" parent="CanvasLayer/TravelPage/Labels"]
 layout_mode = 0
 offset_left = 1443.0
 offset_top = 699.0
