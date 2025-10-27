@@ -1,16 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctj8imd7y1gpj"]
+[gd_scene load_steps=13 format=3 uid="uid://ctj8imd7y1gpj"]
 
 [ext_resource type="Script" uid="uid://dhckqb4wog1cn" path="res://scenes/stage/stage.gd" id="1_ecxui"]
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="2_3kwj0"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_a221a"]
 [ext_resource type="PackedScene" uid="uid://dwnsxsn6pit1f" path="res://pages/stage_page/stage_page.tscn" id="3_0m8sx"]
 [ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="3_a221a"]
+[ext_resource type="Script" uid="uid://cv5xbdhucorap" path="res://scripts/background_data.gd" id="4_pf3bu"]
+[ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="5_kb6yy"]
+[ext_resource type="Texture2D" uid="uid://bkcxemmhr8edw" path="res://assets/backgrounds/学校の音楽室（日中）.jpg" id="6_uutle"]
+[ext_resource type="Texture2D" uid="uid://bi5shx6k0xlyi" path="res://assets/backgrounds/田舎道２（日中）.jpg" id="7_cwi0x"]
+
+[sub_resource type="Resource" id="Resource_lrsvv"]
+script = ExtResource("4_pf3bu")
+title = "公园小店"
+description = "就是那种公园里的小店"
+texture = ExtResource("5_kb6yy")
+metadata/_custom_type_script = "uid://cv5xbdhucorap"
+
+[sub_resource type="Resource" id="Resource_gygk3"]
+script = ExtResource("4_pf3bu")
+title = "音乐室"
+description = "学校里的音乐室"
+texture = ExtResource("6_uutle")
+metadata/_custom_type_script = "uid://cv5xbdhucorap"
+
+[sub_resource type="Resource" id="Resource_gf271"]
+script = ExtResource("4_pf3bu")
+title = "小镇道路"
+description = "很普通的小镇道路"
+texture = ExtResource("7_cwi0x")
+metadata/_custom_type_script = "uid://cv5xbdhucorap"
 
 [node name="Stage" type="Node" node_paths=PackedStringArray("character_pool")]
 script = ExtResource("1_ecxui")
 main_dialogue = ExtResource("2_a221a")
 character_pool = NodePath("Characters")
 stage_scene = ExtResource("3_0m8sx")
+background_data_pool = Array[ExtResource("4_pf3bu")]([SubResource("Resource_lrsvv"), SubResource("Resource_gygk3"), SubResource("Resource_gf271")])
 
 [node name="Characters" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)

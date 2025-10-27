@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dlwuxad1c584x"]
 
 [ext_resource type="Script" uid="uid://dm16uidvb5i2x" path="res://audio_manager/audio_manager.gd" id="1_j0p2n"]
-[ext_resource type="Script" uid="uid://dd5qtcvk5r731" path="res://music_data/music_data.gd" id="2_qhrnm"]
+[ext_resource type="Script" uid="uid://dd5qtcvk5r731" path="res://scripts/music_data.gd" id="2_qhrnm"]
 [ext_resource type="AudioStream" uid="uid://c4iurm62qedb6" path="res://assets/musics/One Step From Eden - Battle of Fire I.mp3" id="3_n2vnv"]
 [ext_resource type="AudioStream" uid="uid://bsdiw8mr3scgs" path="res://assets/musics/One Step From Eden - Neverending Song_ Violette's Theme.mp3" id="4_xydhd"]
 [ext_resource type="AudioStream" uid="uid://ct78sgbt2gm4g" path="res://assets/musics/One Step From Eden - Perpetual Motion_ Hazel's Theme.mp3" id="5_05x4o"]

@@ -87,6 +87,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
+[node name="Preview2" type="TextureRect" parent="Balloon"]
+visible = false
+layout_mode = 0
+offset_right = 2560.0
+offset_bottom = 1440.0
+texture = ExtResource("2_yetgv")
+
 [node name="CharacterImages" type="Node2D" parent="Balloon"]
 
 [node name="HBoxContainer_Positions" type="HBoxContainer" parent="Balloon"]
