@@ -7,8 +7,8 @@ extends Control
 
 @onready var original_y: float = vbox_selections.global_position.y
 
-var slide_tolerance: float = 200
-var slide_duration: float = 0.8
+var slide_tolerance: float = 300
+var slide_duration: float = 0.2
 var start_y: float
 
 var selected_index: int:
@@ -18,17 +18,17 @@ var selected_index: int:
 		
 		var index_difference = last_index - selected_index
 		var target_y = original_y + (place_selection.size.y * index_difference)
+		sliding = true
 		await create_tween().tween_property(
 			vbox_selections, "position:y",
 			target_y,
 			slide_duration
 		).finished
-		
+		sliding = false
 		update()
 
-var button_pressed: bool:
-	set(value):
-		button_pressed = value
+var button_pressed: bool
+var sliding: bool
 
 func _ready() -> void:
 	vbox_selections.gui_input.connect(
@@ -46,6 +46,12 @@ func _input(event: InputEvent) -> void:
 			if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
 				button_pressed = false
 				create_tween().tween_property(vbox_selections, "position:y", original_y, 0.3)
+		
+		if event.pressed and not sliding:
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP :
+				selected_index += 1
+			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				selected_index -= 1
 	
 	var y_difference: float
 	if button_pressed:
@@ -59,8 +65,6 @@ func _input(event: InputEvent) -> void:
 	if y_difference <= -slide_tolerance:
 		selected_index += 1
 		button_pressed = false
-	
-	#if event is Mouse
 
 func update() -> void:
 	for selection: PlaceSelection in vbox_selections.get_children():
