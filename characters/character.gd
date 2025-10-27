@@ -32,7 +32,7 @@ func _ready() -> void:
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
 			if line.character == self.name:
-				Pages.stage.balloon.avatar.texture = get_avatar_image()
+				Pages.stage.avatar.texture = get_avatar_image()
 	)
 
 func update_bonus_part_index(part_name: String, increment: int) -> void:

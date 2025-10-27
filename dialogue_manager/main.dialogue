@@ -1,6 +1,3 @@
-~ move
-
-
 ~ start
 
 do Character("余洛琛").SetParts("Eyes:悲伤")
@@ -8,17 +5,32 @@ do Character("余洛琛").FadeIn("Center", 1)
 余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。
 do Character("余洛琛").MoveTo("RightMost", 0.3)
 余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。[[你好|哈啰|早呀]]，我感到非常愉快。
+
+~ loop
 余洛琛: 你今天过得如何 [do Character("余洛琛").SetOptionals("眼镜,问号")]
 - 移动
 	- 左端
-		do Character("余洛琛").MoveTo("")
+		do Stage.position_name = "LeftMost"
+		=> move
 	- 左边
+		do Stage.position_name = "Left"
+		=> move
 	- 中央
+		do Stage.position_name = "Center"
+		=> move
 	- 右边
+		do Stage.position_name = "Right"
+		=> move
 	- 右端
+		do Stage.position_name = "RightMost"
+		=> move
 - 约会
 	余洛琛: You picked the second one.
-- 返回 => start
+- 返回 => loop
 - 结束 => END
 余洛琛: For more information see the online documentation.
 => END
+
+~ move
+do Character("余洛琛").MoveTo(Stage.position_name)
+=> loop

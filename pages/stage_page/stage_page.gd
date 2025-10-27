@@ -1,6 +1,9 @@
-class_name DialogueBalloon
+class_name StagePage
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
+
+@export var hbox_positions: HBoxContainer
+@export var character_image_pool: Node2D
 
 ## The action to use for advancing the dialogue
 @export var next_action: StringName = &"ui_accept"
@@ -9,7 +12,7 @@ extends CanvasLayer
 @export var skip_action: StringName = &"ui_cancel"
 
 ## A sound player for voice lines (if they exist).
-@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+#@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 @export var bg_common: TextureRect
 @export var bg_character: TextureRect
@@ -31,6 +34,11 @@ var will_hide_balloon: bool = false
 var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
+
+func get_position_by_name(position_name: String) -> Vector2:
+	var position_node: Control = hbox_positions.get_node(position_name + "/CenterPoint")
+	
+	return position_node.global_position
 
 ## The current line
 var dialogue_line: DialogueLine:
@@ -65,6 +73,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 func _ready() -> void:
+	Pages.stage = self
 	balloon.modulate.a = 0
 	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
@@ -144,10 +153,11 @@ func apply_dialogue_line() -> void:
 
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
-		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
-		audio_stream_player.play()
-		await audio_stream_player.finished
-		next(dialogue_line.next_id)
+		#audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
+		#audio_stream_player.play()
+		#await audio_stream_player.finished
+		#next(dialogue_line.next_id)
+		pass
 	elif dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()

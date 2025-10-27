@@ -1,11 +1,9 @@
-[gd_scene load_steps=68 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=66 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
-[ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/main.dialogue" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://kdb1r5x3d2o8" path="res://assets/ui/存读档案/存读档界面.png" id="5_7jktm"]
-[ext_resource type="Script" uid="uid://c7rhwb20fni43" path="res://pages/stage_page.gd" id="5_avmo2"]
 [ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/save_game_page.gd" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://save_profiles/save_profile_card.tscn" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bq4dne8l5a5qr" path="res://assets/ui/奇迹书/background.png" id="8_215e1"]
@@ -107,64 +105,6 @@ offset_top = -142.0
 offset_right = 168.0
 offset_bottom = -142.0
 grow_vertical = 0
-
-[node name="StagePage" type="Control" parent="." node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_avmo2")
-main_dialogue = ExtResource("2_7jktm")
-hbox_positions = NodePath("HBoxContainer_Positions")
-character_image_pool = NodePath("CharacterImages")
-
-[node name="CharacterImages" type="Node2D" parent="StagePage"]
-
-[node name="HBoxContainer_Positions" type="HBoxContainer" parent="StagePage"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="LeftMost" type="CenterContainer" parent="StagePage/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/HBoxContainer_Positions/LeftMost"]
-layout_mode = 2
-
-[node name="Left" type="CenterContainer" parent="StagePage/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/HBoxContainer_Positions/Left"]
-layout_mode = 2
-
-[node name="Center" type="CenterContainer" parent="StagePage/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/HBoxContainer_Positions/Center"]
-layout_mode = 2
-
-[node name="Right" type="CenterContainer" parent="StagePage/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/HBoxContainer_Positions/Right"]
-layout_mode = 2
-
-[node name="RightMost" type="CenterContainer" parent="StagePage/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/HBoxContainer_Positions/RightMost"]
-layout_mode = 2
 
 [node name="SaveGamePage" type="Control" parent="."]
 visible = false
