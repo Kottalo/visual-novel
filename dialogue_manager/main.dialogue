@@ -1,5 +1,5 @@
 ~ start
-
+do wait(0.3)
 do Character("余洛琛").SetParts("Eyes:悲伤")
 do Character("余洛琛").FadeIn("Center", 1)
 余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。
