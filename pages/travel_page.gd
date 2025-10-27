@@ -8,17 +8,24 @@ extends Control
 @onready var original_y: float = vbox_selections.global_position.y
 
 var slide_tolerance: float = 200
-var slide_duration: float = 0.2
+var slide_duration: float = 0.8
 var start_y: float
 
 var selected_index: int:
 	set(value):
+		var last_index = selected_index
 		selected_index = value
-		for selection: PlaceSelection in vbox_selections.get_children():
-			var offset_index = selection.get_index() - 2
-			var target_index = selected_index + offset_index
-			target_index %= place_textures.size()
-			selection.texture_rect_image.texture = place_textures[target_index]
+		
+		var index_difference = last_index - selected_index
+		
+		var target_y = original_y + (place_selection.size.y * index_difference)
+		await create_tween().tween_property(
+			vbox_selections, "position:y",
+			target_y,
+			slide_duration
+		).finished
+		
+		update()
 
 var button_pressed: bool:
 	set(value):
@@ -32,7 +39,7 @@ func _ready() -> void:
 					button_pressed = true
 					start_y = event.global_position.y
 	)
-	selected_index = 0
+	update()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -47,19 +54,20 @@ func _input(event: InputEvent) -> void:
 			y_difference = event.global_position.y - start_y
 			y_difference = clamp(y_difference, -slide_tolerance, slide_tolerance)
 			vbox_selections.global_position.y = original_y + y_difference
-			print(y_difference)
 	if y_difference >= slide_tolerance:
-		slide_to_y(original_y + place_selection.size.y)
+		selected_index -= 1
+		button_pressed = false
+		#slide_to_y(original_y + place_selection.size.y)
 	if y_difference <= -slide_tolerance:
-		slide_to_y(original_y - place_selection.size.y)
+		selected_index += 1
+		button_pressed = false
+		#slide_to_y(original_y - place_selection.size.y)
 	pass
 
-func slide_to_y(target_y: float) -> void:
-	button_pressed = false
-	await create_tween().tween_property(
-		vbox_selections, "position:y",
-		target_y,
-		slide_duration
-	).finished
-	selected_index += clamp(original_y - target_y, -1, 1)
+func update() -> void:
+	for selection: PlaceSelection in vbox_selections.get_children():
+		var offset_index = selection.get_index() - 2
+		var target_index = selected_index + offset_index
+		target_index %= place_textures.size()
+		selection.texture_rect_image.texture = place_textures[target_index]
 	vbox_selections.global_position.y = original_y
