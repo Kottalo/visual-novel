@@ -11,8 +11,6 @@ extends Node2D
 var body_part_dict: Dictionary[String, AnimatedSprite2D]
 var character_image: Node2D
 
-var stage_page: StagePage = Pages.stage
-
 var character_data: CharacterData:
 	get:
 		return
@@ -34,7 +32,7 @@ func _ready() -> void:
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
 			if line.character == self.name:
-				stage_page.balloon.avatar.texture = get_avatar_image()
+				Pages.stage.balloon.avatar.texture = get_avatar_image()
 	)
 
 func update_bonus_part_index(part_name: String, increment: int) -> void:
@@ -66,8 +64,8 @@ func FadeIn(position_name: String, duration: float = 0) -> void:
 	character_sprite.position.y -= character_sprite.get_rect().size.y / 2 \
 	* character_image.scale.y
 	character_image.modulate.a = 0
-	stage_page.character_image_pool.add_child(character_image)
-	character_image.global_position = stage_page.get_position_by_name(position_name)
+	Pages.stage.character_image_pool.add_child(character_image)
+	character_image.global_position = Pages.stage.get_position_by_name(position_name)
 	await create_tween().tween_property(character_image, "modulate:a", 1, duration).finished
 
 func FadeOut(duration: float = 0) -> void:
@@ -75,7 +73,7 @@ func FadeOut(duration: float = 0) -> void:
 	character_image.queue_free()
 
 func MoveTo(position_name: String, duration: float = 0.5) -> void:
-	var target_position: Vector2 = stage_page.get_position_by_name(position_name)
+	var target_position: Vector2 = Pages.stage.get_position_by_name(position_name)
 	await create_tween().tween_property(character_image, "global_position", target_position, duration).finished
 
 # Example: SetParts("Body:校服,Eye:悲伤")
