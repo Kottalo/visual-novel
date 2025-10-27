@@ -68,7 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://cih8lehdp2fxt" path="res://assets/ui/地点约会/tip_background.png" id="65_jo4nb"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="66_56gn1"]
 
-[node name="Game" type="Control" node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
+[node name="Game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,9 +76,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2o6t")
-main_dialogue = ExtResource("2_7jktm")
-hbox_positions = NodePath("StagePage/HBoxContainer_Positions")
-character_image_pool = NodePath("StagePage/CharacterImages")
 
 [node name="MainMenu" type="Control" parent="."]
 visible = false
@@ -111,7 +108,7 @@ offset_right = 168.0
 offset_bottom = -142.0
 grow_vertical = 0
 
-[node name="StagePage" type="Control" parent="."]
+[node name="StagePage" type="Control" parent="." node_paths=PackedStringArray("hbox_positions", "character_image_pool")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,6 +116,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_avmo2")
+main_dialogue = ExtResource("2_7jktm")
+hbox_positions = NodePath("HBoxContainer_Positions")
+character_image_pool = NodePath("CharacterImages")
 
 [node name="CharacterImages" type="Node2D" parent="StagePage"]
 
