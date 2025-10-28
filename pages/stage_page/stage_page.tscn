@@ -277,6 +277,7 @@ theme_override_constants/separation = 6
 
 [node name="DialogueButton_Skip" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
+toggle_button = true
 
 [node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Skip" index="1"]
 offset_left = -15.0
@@ -284,6 +285,7 @@ offset_right = 17.0
 
 [node name="DialogueButton_Auto" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
+toggle_button = true
 
 [node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Auto" index="1"]
 texture = ExtResource("11_tx5oi")
@@ -344,6 +346,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1e-05)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [connection signal="gui_input" from="DialogueScreen" to="." method="_on_balloon_gui_input"]

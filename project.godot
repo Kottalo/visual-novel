@@ -85,9 +85,11 @@ runtime/balloon_path="res://dialogue_manager/balloon.tscn"
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
-window/size/mode=3
+window/size/initial_position_type=0
+window/size/initial_position=Vector2i(111, 111)
+window/size/window_width_override=1200
+window/size/window_height_override=600
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
