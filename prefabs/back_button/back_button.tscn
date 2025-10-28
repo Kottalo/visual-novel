@@ -6,10 +6,12 @@
 [ext_resource type="Script" uid="uid://dmeq1sti8h621" path="res://prefabs/back_button/back_button.gd" id="4_76biy"]
 
 [node name="BackButton" type="TextureButton"]
-offset_left = 97.0
-offset_top = 1260.0
-offset_right = 153.0
-offset_bottom = 1331.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -71.0
+offset_right = 56.0
+grow_vertical = 0
 texture_normal = ExtResource("1_g7y5y")
 texture_pressed = ExtResource("2_76biy")
 texture_hover = ExtResource("3_fp8xw")

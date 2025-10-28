@@ -1,6 +1,8 @@
 class_name MainMenuButton
 extends Control
 
+signal clicked
+
 @export var texture_hover: TextureRect
 @export var texture_click: TextureRect
 @export var click_box: Control
@@ -15,6 +17,7 @@ func _ready() -> void:
 	click_box.mouse_exited.connect(
 		func ():
 			texture_hover.visible = false
+			texture_click.visible = false
 	)
 	
 	click_box.gui_input.connect(
@@ -23,4 +26,7 @@ func _ready() -> void:
 				if event.button_index == MOUSE_BUTTON_LEFT:
 					if event.is_pressed():
 						texture_click.visible = true
+					if event.is_released():
+						clicked.emit()
+						texture_click.visible = false
 	)

@@ -6,15 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cgdomt8rxfhho" path="res://assets/ui/开始游戏/click_deco.png" id="4_g71bb"]
 
 [sub_resource type="FontVariation" id="FontVariation_fc0e3"]
-spacing_glyph = 4
+spacing_glyph = 6
 
 [node name="MainMenuButton" type="Control" node_paths=PackedStringArray("texture_hover", "texture_click", "click_box")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1152.0
-offset_top = 760.0
-offset_right = 1152.0
-offset_bottom = 760.0
 script = ExtResource("1_htbgh")
 texture_hover = NodePath("TextureRect_Hover")
 texture_click = NodePath("TextureRect_Click")
@@ -22,45 +18,45 @@ click_box = NodePath("ClickBox")
 
 [node name="Label_Chinese" type="Label" parent="."]
 layout_mode = 0
-offset_right = 85.0
-offset_bottom = 41.0
+offset_top = -15.0
+offset_right = 160.0
+offset_bottom = 44.0
 theme = ExtResource("2_htbgh")
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 40
 text = "开始游戏"
 
 [node name="Label_English" type="Label" parent="."]
 layout_mode = 0
-offset_left = 2.0
+offset_left = 1.0
 offset_top = 40.0
-offset_right = 97.0
-offset_bottom = 54.0
-theme_override_colors/font_color = Color(0.27450982, 0.26666668, 0.29411766, 1)
+offset_right = 107.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0.29803923, 0.28627452, 0.33333334, 1)
 theme_override_fonts/font = SubResource("FontVariation_fc0e3")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "Start Game"
 
 [node name="TextureRect_Hover" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = -26.0
-offset_top = -4.0
-offset_right = 28.0
-offset_bottom = 52.159996
+offset_left = -39.0
+offset_top = -21.0
+offset_right = 36.0
+offset_bottom = 57.0
 texture = ExtResource("3_c0fwr")
-expand_mode = 1
 
 [node name="TextureRect_Click" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = -64.0
-offset_top = -32.0
-offset_right = 195.7547
-offset_bottom = 85.0
+offset_left = -94.0
+offset_top = -59.0
+offset_right = 259.0
+offset_bottom = 100.0
 texture = ExtResource("4_g71bb")
-expand_mode = 1
 
 [node name="ClickBox" type="Control" parent="."]
 anchors_preset = 0
-offset_top = 7.0
-offset_right = 126.0
-offset_bottom = 56.0
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 162.0
+offset_bottom = 41.0
