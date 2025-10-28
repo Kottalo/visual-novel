@@ -1128,15 +1128,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_80cx4")
 
-[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_j5wjh")
-
 [node name="BackButton" parent="Layer_StagePages/StagePages/BookPage" node_paths=PackedStringArray("target_control") instance=ExtResource("74_bf22m")]
 layout_mode = 0
 anchors_preset = 0
@@ -1148,6 +1139,16 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 target_control = NodePath("..")
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_j5wjh")
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Bonus"]
