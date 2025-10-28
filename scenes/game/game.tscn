@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=81 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -76,6 +76,10 @@
 [ext_resource type="Texture2D" uid="uid://bjidvkqunqtc5" path="res://assets/ui/地点约会/go_click.png" id="68_g2bdr"]
 [ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="69_864w3"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="74_bf22m"]
+[ext_resource type="Texture2D" uid="uid://dp2co1ram00wk" path="res://assets/ui/历史记录/历史记录.png" id="77_gsju6"]
+[ext_resource type="Script" uid="uid://y8nqj7elth0k" path="res://pages/log_page.gd" id="77_yegcf"]
+[ext_resource type="Texture2D" uid="uid://8778p7eby2v4" path="res://assets/ui/历史记录/divide_line.png" id="79_472nx"]
+[ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="80_hqxe5"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("page_container", "layer_stage_pages", "stage_page_container")]
 layout_mode = 3
@@ -1022,7 +1026,6 @@ theme_override_font_sizes/normal_font_size = 31
 text = "场景简介"
 
 [node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/TravelPage"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1149,6 +1152,79 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_j5wjh")
+
+[node name="LogPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("log_line", "divider", "vbox_log_lines")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("77_yegcf")
+log_line = NodePath("PrefabContainer/LogLine")
+divider = NodePath("PrefabContainer/Divider")
+vbox_log_lines = NodePath("ScrollContainer/MarginContainer/VBoxContainer_LogLines")
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/LogPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("77_gsju6")
+
+[node name="PrefabContainer" type="Control" parent="Layer_StagePages/StagePages/LogPage"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LogLine" parent="Layer_StagePages/StagePages/LogPage/PrefabContainer" instance=ExtResource("80_hqxe5")]
+layout_mode = 0
+
+[node name="Divider" type="TextureRect" parent="Layer_StagePages/StagePages/LogPage/PrefabContainer"]
+layout_mode = 0
+texture = ExtResource("79_472nx")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Layer_StagePages/StagePages/LogPage"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 105.0
+offset_right = 2397.0
+offset_bottom = 1354.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Layer_StagePages/StagePages/LogPage/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+
+[node name="VBoxContainer_LogLines" type="VBoxContainer" parent="Layer_StagePages/StagePages/LogPage/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Divider" type="TextureRect" parent="Layer_StagePages/StagePages/LogPage/ScrollContainer/MarginContainer/VBoxContainer_LogLines"]
+layout_mode = 2
+texture = ExtResource("79_472nx")
+
+[node name="VScrollBarEx" parent="Layer_StagePages/StagePages/LogPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+layout_mode = 1
+offset_top = 116.0
+target_scroll_container = NodePath("../ScrollContainer")
+
+[node name="BackButton" parent="Layer_StagePages/StagePages/LogPage" node_paths=PackedStringArray("target_control") instance=ExtResource("74_bf22m")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 97.0
+offset_top = 1260.0
+offset_right = 153.0
+offset_bottom = 1331.0
+grow_vertical = 1
+target_control = NodePath("..")
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Bonus"]

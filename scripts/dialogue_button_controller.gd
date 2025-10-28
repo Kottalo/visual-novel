@@ -24,16 +24,15 @@ func _ready() -> void:
 	button_save.clicked.connect(
 		func ():
 			Pages.profile.profile_mode = ProfileMode.SAVE
-			Pages.profile.visible = true
+			Pages.profile.show()
 	)
 	button_load.clicked.connect(
 		func ():
 			Pages.profile.profile_mode = ProfileMode.LOAD
-			Pages.profile.visible = true
+			Pages.profile.show()
 	)
 	button_log.clicked.connect(
-		func ():
-			pass
+		func (): Pages.log.show()
 	)
 	button_set.clicked.connect(
 		func ():
@@ -44,7 +43,7 @@ func _ready() -> void:
 			pass
 	)
 	button_book.clicked.connect(
-		func (): Pages.book.visible = true
+		func (): Pages.book.show()
 	)
 	button_title.clicked.connect(
 		func ():

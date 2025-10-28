@@ -1,6 +1,6 @@
 extends Node
 
-@export var main_dialogue: Resource
+@export var main_dialogue: DialogueResource
 @export var character_pool: Node2D
 @export var stage_scene: PackedScene
 @export var background_data_pool: Array[BackgroundData]

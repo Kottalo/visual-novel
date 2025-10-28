@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct727m5c0373a"]
+
+[ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="1_0rosg"]
+[ext_resource type="Script" uid="uid://cx7f2r42rodwo" path="res://prefabs/log_line/log_line.gd" id="1_ii567"]
+[ext_resource type="Texture2D" uid="uid://bmx4du2qawwm1" path="res://assets/ui/历史记录/menu_replay.png" id="2_ii567"]
+[ext_resource type="Texture2D" uid="uid://btm780k1cufya" path="res://assets/ui/历史记录/menu_star.png" id="3_aexk2"]
+
+[node name="LogLine" type="MarginContainer" node_paths=PackedStringArray("vbox_character_info", "label_character_name", "rich_label_dialogue_text")]
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+script = ExtResource("1_ii567")
+vbox_character_info = NodePath("HBoxContainer/VBoxContainer_CharacterInfo")
+label_character_name = NodePath("HBoxContainer/VBoxContainer_CharacterInfo/Label_CharacterName")
+rich_label_dialogue_text = NodePath("HBoxContainer/RichTextLabel_DialogueText")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer_CharacterInfo" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label_CharacterName" type="Label" parent="HBoxContainer/VBoxContainer_CharacterInfo"]
+layout_mode = 2
+theme = ExtResource("1_0rosg")
+theme_override_colors/font_color = Color(0.5647059, 0.4745098, 0.6666667, 1)
+theme_override_font_sizes/font_size = 40
+text = "余洛琛"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer_CharacterInfo"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer_CharacterInfo/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ii567")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer_CharacterInfo/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_aexk2")
+
+[node name="RichTextLabel_DialogueText" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_0rosg")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "文本内容"
+fit_content = true
+scroll_active = false
