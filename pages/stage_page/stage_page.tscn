@@ -268,8 +268,17 @@ offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_yetgv")
 
-[node name="DialogueButtonController" type="Node" parent="DialogueScreen"]
+[node name="DialogueButtonController" type="Node" parent="DialogueScreen" node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_phone", "button_book", "button_title")]
 script = ExtResource("10_lqv2x")
+button_skip = NodePath("../HBoxContainer_Buttons/DialogueButton_Skip")
+button_auto = NodePath("../HBoxContainer_Buttons/DialogueButton_Auto")
+button_save = NodePath("../HBoxContainer_Buttons/DialogueButton_Save")
+button_load = NodePath("../HBoxContainer_Buttons/DialogueButton_Load")
+button_log = NodePath("../HBoxContainer_Buttons/DialogueButton_Log")
+button_set = NodePath("../HBoxContainer_Buttons/DialogueButton_Set")
+button_phone = NodePath("../HBoxContainer_Buttons/DialogueButton_Phone")
+button_book = NodePath("../HBoxContainer_Buttons/DialogueButton_Book")
+button_title = NodePath("../HBoxContainer_Buttons/DialogueButton_Title")
 
 [node name="HBoxContainer_Buttons" type="HBoxContainer" parent="DialogueScreen"]
 layout_mode = 0

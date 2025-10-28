@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv3nd1gusfy8i"]
+
+[ext_resource type="Texture2D" uid="uid://dw8h3d2d60euo" path="res://assets/ui/通用/back_normal.png" id="1_g7y5y"]
+[ext_resource type="Texture2D" uid="uid://bgsdaqnxi1jk0" path="res://assets/ui/通用/back_click.png" id="2_76biy"]
+[ext_resource type="Texture2D" uid="uid://cmyix3eaouuuy" path="res://assets/ui/通用/back_hover.png" id="3_fp8xw"]
+[ext_resource type="Script" uid="uid://dmeq1sti8h621" path="res://prefabs/back_button/back_button.gd" id="4_76biy"]
+
+[node name="BackButton" type="TextureButton"]
+offset_left = 97.0
+offset_top = 1260.0
+offset_right = 153.0
+offset_bottom = 1331.0
+texture_normal = ExtResource("1_g7y5y")
+texture_pressed = ExtResource("2_76biy")
+texture_hover = ExtResource("3_fp8xw")
+script = ExtResource("4_76biy")

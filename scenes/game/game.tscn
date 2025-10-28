@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=72 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -70,6 +70,7 @@
 [ext_resource type="Texture2D" uid="uid://c8s76ry77sao" path="res://assets/ui/地点约会/go_normal.png" id="67_84b8o"]
 [ext_resource type="Texture2D" uid="uid://bjidvkqunqtc5" path="res://assets/ui/地点约会/go_click.png" id="68_g2bdr"]
 [ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="69_864w3"]
+[ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="74_bf22m"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -642,7 +643,6 @@ target_tab = NodePath("../../TabPages/MusicPage")
 layer = 101
 
 [node name="ProfilePage" type="Control" parent="Layer_StagePages"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -709,6 +709,14 @@ anchor_top = 0.081
 anchor_bottom = 0.081
 offset_bottom = 1210.36
 target_scroll_container = NodePath("../ScrollContainer")
+
+[node name="BackButton" parent="Layer_StagePages/ProfilePage" node_paths=PackedStringArray("target_control") instance=ExtResource("74_bf22m")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 56.0
+offset_bottom = 71.0
+target_control = NodePath("..")
 
 [node name="TravelPage" type="Control" parent="Layer_StagePages" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
 visible = false
@@ -962,6 +970,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_j5wjh")
+
+[node name="BackButton" parent="Layer_StagePages/BookPage" node_paths=PackedStringArray("target_control") instance=ExtResource("74_bf22m")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 56.0
+offset_bottom = 71.0
+target_control = NodePath("..")
 
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Background"]
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Body"]
