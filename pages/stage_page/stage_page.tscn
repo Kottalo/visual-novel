@@ -267,7 +267,9 @@ offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_yetgv")
 
-[node name="HBoxContainerButtons" type="HBoxContainer" parent="DialogueScreen"]
+[node name="DialogueButtonController" type="Node" parent="DialogueScreen"]
+
+[node name="HBoxContainer_Buttons" type="HBoxContainer" parent="DialogueScreen"]
 layout_mode = 0
 offset_left = 915.0
 offset_top = 1331.0
@@ -275,68 +277,68 @@ offset_right = 1647.0
 offset_bottom = 1420.0
 theme_override_constants/separation = 6
 
-[node name="DialogueButton_Skip" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Skip" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 toggle_button = true
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Skip" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip" index="1"]
 offset_left = -15.0
 offset_right = 17.0
 
-[node name="DialogueButton_Auto" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Auto" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 toggle_button = true
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Auto" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto" index="1"]
 texture = ExtResource("11_tx5oi")
 
-[node name="DialogueButton_Save" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Save" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Save" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save" index="1"]
 offset_left = -15.0
 offset_right = 17.0
 texture = ExtResource("12_50is1")
 
-[node name="DialogueButton_Load" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Load" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Load" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load" index="1"]
 offset_left = -15.0
 offset_right = 17.0
 texture = ExtResource("13_pjj4j")
 
-[node name="DialogueButton_Log" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Log" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Log" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log" index="1"]
 texture = ExtResource("14_ri6cy")
 
-[node name="DialogueButton_Set" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Set" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Set" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set" index="1"]
 texture = ExtResource("15_ii14q")
 
-[node name="DialogueButton_Phone" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Phone" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Phone" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone" index="1"]
 offset_left = -15.0
 offset_top = -68.0
 offset_right = 17.0
 texture = ExtResource("16_lqv2x")
 
-[node name="DialogueButton_Book" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Book" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Book" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book" index="1"]
 texture = ExtResource("17_4x5c0")
 
-[node name="DialogueButton_Title" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Title" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Title" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title" index="1"]
 texture = ExtResource("18_p0t85")
 
 [node name="TextureRect_Blackscreen" type="ColorRect" parent="."]
@@ -352,12 +354,12 @@ color = Color(0, 0, 0, 1)
 [connection signal="gui_input" from="DialogueScreen" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="DialogueScreen/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
 
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Skip"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Auto"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Save"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Load"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Log"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Set"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Phone"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Book"]
-[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Title"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title"]

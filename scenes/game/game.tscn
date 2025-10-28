@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=71 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -60,6 +60,7 @@
 [ext_resource type="Script" uid="uid://cnknlnqa5symr" path="res://pages/travel_page.gd" id="59_3gvs5"]
 [ext_resource type="Texture2D" uid="uid://i1xh5r7t83vm" path="res://assets/ui/地点约会/地点约会.png" id="60_mc3al"]
 [ext_resource type="Texture2D" uid="uid://xrkqspeftm3" path="res://assets/ui/地点约会/background.png" id="60_ple6s"]
+[ext_resource type="Script" uid="uid://dohllb8k33wi2" path="res://pages/book_page.gd" id="61_g2bdr"]
 [ext_resource type="PackedScene" uid="uid://okl3ot47mvah" path="res://prefabs/place_selection/place_selection.tscn" id="61_ra4rb"]
 [ext_resource type="Texture2D" uid="uid://dpy330u8ik3xq" path="res://assets/ui/地点约会/place_deco.png" id="61_rnb85"]
 [ext_resource type="Texture2D" uid="uid://c2dsc25734sgs" path="res://assets/ui/地点约会/select_outline.png" id="62_du4n2"]
@@ -109,171 +110,6 @@ offset_top = -142.0
 offset_right = 168.0
 offset_bottom = -142.0
 grow_vertical = 0
-
-[node name="SaveGamePage" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("5_eow3j")
-
-[node name="Preview" type="TextureRect" parent="SaveGamePage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_7jktm")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="SaveGamePage"]
-layout_mode = 0
-offset_left = 596.0
-offset_top = 104.0
-offset_right = 2353.0
-offset_bottom = 1331.0
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-
-[node name="GridContainer" type="GridContainer" parent="SaveGamePage/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 22
-theme_override_constants/v_separation = 42
-columns = 3
-
-[node name="SaveProfileCard" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard2" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard3" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard4" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard5" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard6" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard7" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard8" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard9" parent="SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="VScrollBarEx" parent="SaveGamePage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
-layout_mode = 1
-anchor_top = 0.081
-anchor_bottom = 0.081
-offset_bottom = 1210.36
-target_scroll_container = NodePath("../ScrollContainer")
-
-[node name="BookPage" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect_Background" type="TextureRect" parent="BookPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_215e1")
-
-[node name="TextureRect_Book" type="TextureRect" parent="BookPage"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -2112.0
-offset_bottom = 1440.0
-grow_horizontal = 0
-texture = ExtResource("9_7sc4i")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="BookPage"]
-layout_mode = 0
-offset_left = 645.0
-offset_top = 181.99998
-offset_right = 1391.2754
-offset_bottom = 1444.5757
-rotation = -0.075049154
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/paragraph_separation = 6
-theme_override_fonts/normal_font = ExtResource("13_boyg6")
-theme_override_font_sizes/normal_font_size = 35
-text = "这是我们的故事
-我想起来了
-我要去做某些事"
-
-[node name="TextureRect_Foreground" type="TextureRect" parent="BookPage"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("11_7sc4i")
-
-[node name="TextureRect_Title" type="TextureRect" parent="BookPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1685.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("15_80cx4")
-
-[node name="TextureRect_Frame3" type="TextureRect" parent="BookPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("11_e8heu")
-
-[node name="TextureRect_Frame2" type="TextureRect" parent="BookPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_rvswv")
-
-[node name="TextureRect_Frame1" type="TextureRect" parent="BookPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("10_80cx4")
-
-[node name="Preview" type="TextureRect" parent="BookPage"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_j5wjh")
 
 [node name="BonusPage" type="Control" parent="."]
 visible = false
@@ -802,10 +638,79 @@ layout_mode = 2
 texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../TabPages/MusicPage")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Layer_StagePages" type="CanvasLayer" parent="."]
 layer = 101
 
-[node name="TravelPage" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
+[node name="SaveGamePage" type="Control" parent="Layer_StagePages"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("5_eow3j")
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/SaveGamePage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7jktm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Layer_StagePages/SaveGamePage"]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 104.0
+offset_right = 2353.0
+offset_bottom = 1331.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Layer_StagePages/SaveGamePage/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 42
+columns = 3
+
+[node name="SaveProfileCard" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard2" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard3" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard4" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard5" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard6" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard7" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard8" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="SaveProfileCard9" parent="Layer_StagePages/SaveGamePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="VScrollBarEx" parent="Layer_StagePages/SaveGamePage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+layout_mode = 1
+anchor_top = 0.081
+anchor_bottom = 0.081
+offset_bottom = 1210.36
+target_scroll_container = NodePath("../ScrollContainer")
+
+[node name="TravelPage" type="Control" parent="Layer_StagePages" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -820,7 +725,7 @@ texture_button_confirm = NodePath("TextureButton_Confirm")
 label_place_title = NodePath("Labels/Label_PlaceTitle")
 rich_label_place_description = NodePath("Labels/RichTextLabel_PlaceDescription")
 
-[node name="Background" type="TextureRect" parent="CanvasLayer/TravelPage"]
+[node name="Background" type="TextureRect" parent="Layer_StagePages/TravelPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -830,7 +735,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("60_ple6s")
 
-[node name="Title" type="TextureRect" parent="CanvasLayer/TravelPage/Background"]
+[node name="Title" type="TextureRect" parent="Layer_StagePages/TravelPage/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -844,7 +749,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("61_rnb85")
 
-[node name="VBoxContainer_Selections" type="VBoxContainer" parent="CanvasLayer/TravelPage"]
+[node name="VBoxContainer_Selections" type="VBoxContainer" parent="Layer_StagePages/TravelPage"]
 layout_mode = 0
 offset_left = 254.0
 offset_top = -705.0
@@ -853,22 +758,22 @@ offset_bottom = 2146.0
 size_flags_horizontal = 3
 mouse_filter = 0
 
-[node name="PlaceSelection" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection" parent="Layer_StagePages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection2" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection2" parent="Layer_StagePages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection3" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection3" parent="Layer_StagePages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection4" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection4" parent="Layer_StagePages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection5" parent="CanvasLayer/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection5" parent="Layer_StagePages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="TextureRect_SelectFrame" type="TextureRect" parent="CanvasLayer/TravelPage"]
+[node name="TextureRect_SelectFrame" type="TextureRect" parent="Layer_StagePages/TravelPage"]
 layout_mode = 0
 offset_left = 135.0
 offset_top = 399.0
@@ -877,7 +782,7 @@ offset_bottom = 1048.0
 mouse_filter = 2
 texture = ExtResource("62_du4n2")
 
-[node name="Foreground" type="TextureRect" parent="CanvasLayer/TravelPage"]
+[node name="Foreground" type="TextureRect" parent="Layer_StagePages/TravelPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -887,7 +792,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("63_jo4nb")
 
-[node name="TipBar" type="TextureRect" parent="CanvasLayer/TravelPage"]
+[node name="TipBar" type="TextureRect" parent="Layer_StagePages/TravelPage"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -900,7 +805,7 @@ grow_horizontal = 2
 mouse_filter = 2
 texture = ExtResource("65_jo4nb")
 
-[node name="Label" type="Label" parent="CanvasLayer/TravelPage/TipBar"]
+[node name="Label" type="Label" parent="Layer_StagePages/TravelPage/TipBar"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -915,12 +820,12 @@ theme_override_font_sizes/font_size = 36
 text = "选择想要前往的地点"
 horizontal_alignment = 1
 
-[node name="Labels" type="Control" parent="CanvasLayer/TravelPage"]
+[node name="Labels" type="Control" parent="Layer_StagePages/TravelPage"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label_PlaceTitle" type="Label" parent="CanvasLayer/TravelPage/Labels"]
+[node name="Label_PlaceTitle" type="Label" parent="Layer_StagePages/TravelPage/Labels"]
 layout_mode = 0
 offset_left = 1443.0
 offset_top = 587.0
@@ -930,7 +835,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 50
 text = "街道"
 
-[node name="RichTextLabel_PlaceDescription" type="RichTextLabel" parent="CanvasLayer/TravelPage/Labels"]
+[node name="RichTextLabel_PlaceDescription" type="RichTextLabel" parent="Layer_StagePages/TravelPage/Labels"]
 layout_mode = 0
 offset_left = 1443.0
 offset_top = 699.0
@@ -941,7 +846,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 31
 text = "场景简介"
 
-[node name="Preview" type="TextureRect" parent="CanvasLayer/TravelPage"]
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/TravelPage"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -951,7 +856,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("60_mc3al")
 
-[node name="TextureButton_Confirm" type="TextureButton" parent="CanvasLayer/TravelPage"]
+[node name="TextureButton_Confirm" type="TextureButton" parent="Layer_StagePages/TravelPage"]
 layout_mode = 0
 offset_left = 1706.0
 offset_top = 981.0
@@ -960,6 +865,103 @@ offset_bottom = 1044.0
 texture_normal = ExtResource("67_84b8o")
 texture_pressed = ExtResource("68_g2bdr")
 texture_hover = ExtResource("69_864w3")
+
+[node name="BookPage" type="Control" parent="Layer_StagePages"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("61_g2bdr")
+
+[node name="TextureRect_Background" type="TextureRect" parent="Layer_StagePages/BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_215e1")
+
+[node name="TextureRect_Book" type="TextureRect" parent="Layer_StagePages/BookPage"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2112.0
+offset_bottom = 1440.0
+grow_horizontal = 0
+texture = ExtResource("9_7sc4i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layer_StagePages/BookPage"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 181.99998
+offset_right = 1391.2754
+offset_bottom = 1444.5757
+rotation = -0.075049154
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_separation = 6
+theme_override_fonts/normal_font = ExtResource("13_boyg6")
+theme_override_font_sizes/normal_font_size = 35
+text = "这是我们的故事
+我想起来了
+我要去做某些事"
+
+[node name="TextureRect_Foreground" type="TextureRect" parent="Layer_StagePages/BookPage"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_7sc4i")
+
+[node name="TextureRect_Title" type="TextureRect" parent="Layer_StagePages/BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1685.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_80cx4")
+
+[node name="TextureRect_Frame3" type="TextureRect" parent="Layer_StagePages/BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_e8heu")
+
+[node name="TextureRect_Frame2" type="TextureRect" parent="Layer_StagePages/BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_rvswv")
+
+[node name="TextureRect_Frame1" type="TextureRect" parent="Layer_StagePages/BookPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_80cx4")
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/BookPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_j5wjh")
 
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Background"]
 [editable path="BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Body"]
