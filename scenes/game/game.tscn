@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://c5tfa7c7bgv1b" path="res://pages/main_menu.gd" id="2_gsju6"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://b4525m6mkwbjf" path="res://assets/ui/开始游戏/标题界面.png" id="4_tcv87"]
 [ext_resource type="Script" uid="uid://2scs52fpvg75" path="res://pages/bonus_page.gd" id="5_3f8qr"]
@@ -19,7 +20,6 @@
 [ext_resource type="FontFile" uid="uid://dgn3iice41qn8" path="res://assets/fonts/瑞美加张清平硬笔楷书.ttf" id="13_boyg6"]
 [ext_resource type="Texture2D" uid="uid://boxp02ammaqij" path="res://assets/ui/奇迹书/frame_title.png" id="15_80cx4"]
 [ext_resource type="Texture2D" uid="uid://bhp4hq27rc641" path="res://assets/ui/鉴赏内容/音乐鉴赏/音乐鉴赏.png" id="17_e8heu"]
-[ext_resource type="Texture2D" uid="uid://bgg21fij7tmh4" path="res://assets/ui/鉴赏内容/background_full.png" id="17_rvswv"]
 [ext_resource type="Script" uid="uid://omnxih0ho37j" path="res://pages/bonus_pages/music_page.gd" id="17_x5p1p"]
 [ext_resource type="Texture2D" uid="uid://dlm1m8jw4iygt" path="res://assets/ui/鉴赏内容/音乐鉴赏/album.png" id="18_e36ub"]
 [ext_resource type="Texture2D" uid="uid://dl0m5u1eiytd5" path="res://assets/ui/鉴赏内容/插画鉴赏/插画鉴赏.png" id="19_eu6ph"]
@@ -77,7 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="69_864w3"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="74_bf22m"]
 
-[node name="Game" type="Control" node_paths=PackedStringArray("page_container", "layer_stage_pages", "stage_page_container", "button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
+[node name="Game" type="Control" node_paths=PackedStringArray("page_container", "layer_stage_pages", "stage_page_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,12 +88,6 @@ script = ExtResource("1_e2o6t")
 page_container = NodePath("Pages")
 layer_stage_pages = NodePath("Layer_StagePages")
 stage_page_container = NodePath("Layer_StagePages/StagePages")
-button_start = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Start")
-button_load = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Load")
-button_bonus = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Bonus")
-button_book = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Book")
-button_setting = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Setting")
-button_quit = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Quit")
 
 [node name="Pages" type="Control" parent="."]
 layout_mode = 1
@@ -103,13 +97,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenu" type="Control" parent="Pages"]
+[node name="MainMenu" type="Control" parent="Pages" node_paths=PackedStringArray("button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_gsju6")
+button_start = NodePath("Buttons/MainMenuButton_Start")
+button_load = NodePath("Buttons/MainMenuButton_Load")
+button_bonus = NodePath("Buttons/MainMenuButton_Bonus")
+button_book = NodePath("Buttons/MainMenuButton_Book")
+button_setting = NodePath("Buttons/MainMenuButton_Setting")
+button_quit = NodePath("Buttons/MainMenuButton_Quit")
 
 [node name="Background" type="TextureRect" parent="Pages/MainMenu"]
 layout_mode = 1
@@ -223,11 +224,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_3f8qr")
 
-[node name="TextureRect_Background" type="TextureRect" parent="Pages/BonusPage"]
+[node name="ColorRect" type="ColorRect" parent="Pages/BonusPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="TextureRect" parent="Pages/BonusPage"]
 layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
-texture = ExtResource("17_rvswv")
+mouse_filter = 0
+texture = ExtResource("48_5dkr6")
 
 [node name="TabPages" type="Control" parent="Pages/BonusPage"]
 layout_mode = 1
