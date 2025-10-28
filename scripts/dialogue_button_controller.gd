@@ -21,13 +21,13 @@ func _ready() -> void:
 	)
 	button_save.clicked.connect(
 		func ():
-			pass
-	)
-	button_save.clicked.connect(
-		func ():
-			pass
+			Pages.profile.visible = true
 	)
 	button_load.clicked.connect(
+		func ():
+			Pages.profile.visible = true
+	)
+	button_log.clicked.connect(
 		func ():
 			pass
 	)
