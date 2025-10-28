@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwnsxsn6pit1f"]
+[gd_scene load_steps=24 format=3 uid="uid://dwnsxsn6pit1f"]
 
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://pages/stage_page/stage_page.gd" id="1_wlgfe"]
 [ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="2_50ef6"]
@@ -9,6 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://8q4jt6eqfbr3" path="res://assets/ui/对话界面/dialogue_box.png" id="6_ra4hq"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_ke2v6"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="8_cvq0y"]
+[ext_resource type="PackedScene" uid="uid://ojfoyxcslkhd" path="res://prefabs/dialogue_button/dialogue_button.tscn" id="10_7jxs1"]
+[ext_resource type="Texture2D" uid="uid://bvj5howg3ndy2" path="res://assets/ui/对话界面/menu_auto.png" id="11_tx5oi"]
+[ext_resource type="Texture2D" uid="uid://cggqn5bgqsn6a" path="res://assets/ui/对话界面/menu_save.png" id="12_50is1"]
+[ext_resource type="Texture2D" uid="uid://cr3y7fbwlfvtd" path="res://assets/ui/对话界面/menu_load.png" id="13_pjj4j"]
+[ext_resource type="Texture2D" uid="uid://cwbqu8q3q5pt8" path="res://assets/ui/对话界面/menu_log.png" id="14_ri6cy"]
+[ext_resource type="Texture2D" uid="uid://q03lfcdqrodr" path="res://assets/ui/对话界面/menu_set.png" id="15_ii14q"]
+[ext_resource type="Texture2D" uid="uid://c5o5yj7qu7ic5" path="res://assets/ui/对话界面/menu_phone.png" id="16_lqv2x"]
+[ext_resource type="Texture2D" uid="uid://cm2mbq2xdcqkf" path="res://assets/ui/对话界面/menu_book.png" id="17_4x5c0"]
+[ext_resource type="Texture2D" uid="uid://bnptfgpypwbn4" path="res://assets/ui/对话界面/menu_title.png" id="18_p0t85"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j08cx"]
 bg_color = Color(0, 0, 0, 1)
@@ -154,13 +163,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
-[node name="Preview" type="TextureRect" parent="DialogueScreen"]
-visible = false
-layout_mode = 0
-offset_right = 2560.0
-offset_bottom = 1440.0
-texture = ExtResource("2_yetgv")
-
 [node name="Bg_DialogueBox" type="Control" parent="DialogueScreen"]
 layout_mode = 1
 anchors_preset = 2
@@ -258,6 +260,83 @@ alignment = 1
 script = ExtResource("3_jool8")
 response_template = NodePath("../../SceneContainer/DialogueSelection")
 
+[node name="Preview" type="TextureRect" parent="DialogueScreen"]
+visible = false
+layout_mode = 0
+offset_right = 2560.0
+offset_bottom = 1440.0
+texture = ExtResource("2_yetgv")
+
+[node name="HBoxContainerButtons" type="HBoxContainer" parent="DialogueScreen"]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 1331.0
+offset_right = 1647.0
+offset_bottom = 1420.0
+theme_override_constants/separation = 6
+
+[node name="DialogueButton_Skip" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Skip" index="1"]
+offset_left = -15.0
+offset_right = 17.0
+
+[node name="DialogueButton_Auto" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Auto" index="1"]
+texture = ExtResource("11_tx5oi")
+
+[node name="DialogueButton_Save" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Save" index="1"]
+offset_left = -15.0
+offset_right = 17.0
+texture = ExtResource("12_50is1")
+
+[node name="DialogueButton_Load" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Load" index="1"]
+offset_left = -15.0
+offset_right = 17.0
+texture = ExtResource("13_pjj4j")
+
+[node name="DialogueButton_Log" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Log" index="1"]
+texture = ExtResource("14_ri6cy")
+
+[node name="DialogueButton_Set" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Set" index="1"]
+texture = ExtResource("15_ii14q")
+
+[node name="DialogueButton_Phone" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Phone" index="1"]
+offset_left = -15.0
+offset_top = -68.0
+offset_right = 17.0
+texture = ExtResource("16_lqv2x")
+
+[node name="DialogueButton_Book" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Book" index="1"]
+texture = ExtResource("17_4x5c0")
+
+[node name="DialogueButton_Title" parent="DialogueScreen/HBoxContainerButtons" instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="DialogueScreen/HBoxContainerButtons/DialogueButton_Title" index="1"]
+texture = ExtResource("18_p0t85")
+
 [node name="TextureRect_Blackscreen" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -269,3 +348,13 @@ color = Color(0, 0, 0, 1)
 
 [connection signal="gui_input" from="DialogueScreen" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="DialogueScreen/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Skip"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Auto"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Save"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Load"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Log"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Set"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Phone"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Book"]
+[editable path="DialogueScreen/HBoxContainerButtons/DialogueButton_Title"]

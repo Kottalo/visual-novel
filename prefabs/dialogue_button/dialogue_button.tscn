@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://ojfoyxcslkhd"]
+
+[ext_resource type="Texture2D" uid="uid://d1bqawxs7ufb" path="res://assets/ui/对话界面/menu_select.png" id="1_b2dtw"]
+[ext_resource type="Script" uid="uid://db3one1avbq5b" path="res://prefabs/dialogue_button/dialogue_button.gd" id="2_4cn42"]
+[ext_resource type="Texture2D" uid="uid://bokqhrkwjgvac" path="res://assets/ui/对话界面/menu_skip.png" id="2_mst00"]
+
+[node name="DialogueButton" type="TextureRect"]
+offset_right = 76.0
+offset_bottom = 89.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+texture = ExtResource("1_b2dtw")
+script = ExtResource("2_4cn42")
+
+[node name="ClickRect" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 68.0
+offset_bottom = 81.0
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -66.0
+offset_right = 16.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_mst00")
