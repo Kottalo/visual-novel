@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dwnsxsn6pit1f"]
+[gd_scene load_steps=25 format=3 uid="uid://dwnsxsn6pit1f"]
 
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://pages/stage_page/stage_page.gd" id="1_wlgfe"]
 [ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="2_50ef6"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_ke2v6"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="8_cvq0y"]
 [ext_resource type="PackedScene" uid="uid://ojfoyxcslkhd" path="res://prefabs/dialogue_button/dialogue_button.tscn" id="10_7jxs1"]
+[ext_resource type="Script" uid="uid://dtnp35i10ike1" path="res://scripts/dialogue_button_controller.gd" id="10_lqv2x"]
 [ext_resource type="Texture2D" uid="uid://bvj5howg3ndy2" path="res://assets/ui/对话界面/menu_auto.png" id="11_tx5oi"]
 [ext_resource type="Texture2D" uid="uid://cggqn5bgqsn6a" path="res://assets/ui/对话界面/menu_save.png" id="12_50is1"]
 [ext_resource type="Texture2D" uid="uid://cr3y7fbwlfvtd" path="res://assets/ui/对话界面/menu_load.png" id="13_pjj4j"]
@@ -268,6 +269,7 @@ offset_bottom = 1440.0
 texture = ExtResource("2_yetgv")
 
 [node name="DialogueButtonController" type="Node" parent="DialogueScreen"]
+script = ExtResource("10_lqv2x")
 
 [node name="HBoxContainer_Buttons" type="HBoxContainer" parent="DialogueScreen"]
 layout_mode = 0
