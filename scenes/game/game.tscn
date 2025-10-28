@@ -1,9 +1,10 @@
-[gd_scene load_steps=76 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=77 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://b4525m6mkwbjf" path="res://assets/ui/开始游戏/标题界面.png" id="4_tcv87"]
+[ext_resource type="Script" uid="uid://2scs52fpvg75" path="res://pages/bonus_page.gd" id="5_3f8qr"]
 [ext_resource type="Texture2D" uid="uid://kdb1r5x3d2o8" path="res://assets/ui/存读档案/存读档界面.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/profile_page.gd" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://save_profiles/save_profile_card.tscn" id="6_ryrav"]
@@ -76,7 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="69_864w3"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="74_bf22m"]
 
-[node name="Game" type="Control" node_paths=PackedStringArray("page_container", "layer_stage_pages", "stage_page_container")]
+[node name="Game" type="Control" node_paths=PackedStringArray("page_container", "layer_stage_pages", "stage_page_container", "button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,6 +88,12 @@ script = ExtResource("1_e2o6t")
 page_container = NodePath("Pages")
 layer_stage_pages = NodePath("Layer_StagePages")
 stage_page_container = NodePath("Layer_StagePages/StagePages")
+button_start = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Start")
+button_load = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Load")
+button_bonus = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Bonus")
+button_book = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Book")
+button_setting = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Setting")
+button_quit = NodePath("Pages/MainMenu/Buttons/MainMenuButton_Quit")
 
 [node name="Pages" type="Control" parent="."]
 layout_mode = 1
@@ -214,6 +221,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_3f8qr")
 
 [node name="TextureRect_Background" type="TextureRect" parent="Pages/BonusPage"]
 layout_mode = 0
@@ -732,6 +740,18 @@ target_tab = NodePath("../../TabPages/GalleryPage")
 layout_mode = 2
 texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../TabPages/MusicPage")
+
+[node name="BackButton" parent="Pages/BonusPage" node_paths=PackedStringArray("target_control") instance=ExtResource("74_bf22m")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 97.0
+offset_top = 1260.0
+offset_right = 153.0
+offset_bottom = 1331.0
+grow_vertical = 1
+target_control = NodePath("..")
 
 [node name="Layer_StagePages" type="CanvasLayer" parent="."]
 layer = 101

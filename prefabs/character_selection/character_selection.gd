@@ -26,7 +26,7 @@ func _ready() -> void:
 		func (event: InputEvent):
 			if event is InputEventMouseButton:
 				if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-					Main.character_selection_index = get_index()
+					Stage.character_selection_index = get_index()
 	)
 	Stage.character_selection_index_changed.connect(update)
 	
