@@ -13,6 +13,8 @@ var page_index: int:
 	set(value):
 		page_index = value
 		
+		line = null
+		
 		for child in vbox_page.get_children():
 			vbox_page.remove_child(child)
 			child.queue_free()
@@ -53,7 +55,5 @@ func _ready() -> void:
 	)
 	visibility_changed.connect(
 		func ():
-			line = null
-			if visible:
-				page_index = 0
+			if visible: page_index = 0
 	)
