@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=91 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://2scs52fpvg75" path="res://pages/bonus_page.gd" id="5_3f8qr"]
 [ext_resource type="Texture2D" uid="uid://kdb1r5x3d2o8" path="res://assets/ui/存读档案/存读档界面.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/profile_page.gd" id="5_eow3j"]
+[ext_resource type="Texture2D" uid="uid://cbxom0bv4rm5s" path="res://assets/ui/开始游戏/logo_normal.png" id="5_y28t1"]
 [ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://save_profiles/save_profile_card.tscn" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bq4dne8l5a5qr" path="res://assets/ui/奇迹书/background.png" id="8_215e1"]
 [ext_resource type="Texture2D" uid="uid://c1nsptow73vv4" path="res://assets/ui/奇迹书/奇迹书.png" id="8_j5wjh"]
@@ -136,16 +137,18 @@ texture = ExtResource("2_e2o6t")
 expand_mode = 5
 stretch_mode = 6
 
-[node name="Preview" type="TextureRect" parent="Pages/MainMenu"]
-visible = false
+[node name="Logo" type="TextureRect" parent="Pages/MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 658.0
+offset_top = 752.0
+offset_right = -658.0
+offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tcv87")
-expand_mode = 5
+texture = ExtResource("5_y28t1")
 stretch_mode = 6
 
 [node name="Buttons" type="Control" parent="Pages/MainMenu"]
@@ -226,6 +229,18 @@ text = "退出游戏"
 
 [node name="Label_English" parent="Pages/MainMenu/Buttons/MainMenuButton_Quit" index="1"]
 text = "Exit Game"
+
+[node name="Preview" type="TextureRect" parent="Pages/MainMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tcv87")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="BonusPage" type="Control" parent="Pages"]
 visible = false
