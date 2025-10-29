@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvjh3vvfwdkdd"]
+
+[ext_resource type="FontFile" uid="uid://dgn3iice41qn8" path="res://assets/fonts/瑞美加张清平硬笔楷书.ttf" id="1_qvpu1"]
+[ext_resource type="Script" uid="uid://d3ilhx5rq1w1e" path="res://prefabs/paragraph/paragraph.gd" id="2_px35a"]
+
+[node name="Paragraph" type="RichTextLabel"]
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 7
+theme_override_constants/paragraph_separation = 7
+theme_override_fonts/normal_font = ExtResource("1_qvpu1")
+theme_override_font_sizes/normal_font_size = 35
+text = "这是我们的故事
+我想起来了
+我要去做某些事"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_px35a")

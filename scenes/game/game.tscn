@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=89 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -73,12 +73,20 @@
 [ext_resource type="Texture2D" uid="uid://cih8lehdp2fxt" path="res://assets/ui/地点约会/tip_background.png" id="65_jo4nb"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="66_56gn1"]
 [ext_resource type="Texture2D" uid="uid://c8s76ry77sao" path="res://assets/ui/地点约会/go_normal.png" id="67_84b8o"]
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="68_al1mh"]
 [ext_resource type="Texture2D" uid="uid://bjidvkqunqtc5" path="res://assets/ui/地点约会/go_click.png" id="68_g2bdr"]
 [ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="69_864w3"]
+[ext_resource type="Resource" uid="uid://dpdvuxgwg6q0l" path="res://dialogue_manager/dialogues/page_1.dialogue" id="69_qtnwx"]
+[ext_resource type="Resource" uid="uid://6r2qa0nsp5do" path="res://dialogue_manager/dialogues/page_2.dialogue" id="70_nnbq1"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="71_ev1tq"]
+[ext_resource type="PackedScene" uid="uid://cnrtv0v2fr2pd" path="res://prefabs/paragraph_container/paragraph_container.tscn" id="72_qtnwx"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="74_bf22m"]
 [ext_resource type="Texture2D" uid="uid://dp2co1ram00wk" path="res://assets/ui/历史记录/历史记录.png" id="77_gsju6"]
+[ext_resource type="Texture2D" uid="uid://drhik2gxhcajv" path="res://assets/ui/奇迹书/page_normal.png" id="77_shuhp"]
 [ext_resource type="Script" uid="uid://y8nqj7elth0k" path="res://pages/log_page.gd" id="77_yegcf"]
+[ext_resource type="Texture2D" uid="uid://c7hk72qolj6il" path="res://assets/ui/奇迹书/page_click.png" id="78_ev1tq"]
 [ext_resource type="Texture2D" uid="uid://8778p7eby2v4" path="res://assets/ui/历史记录/divide_line.png" id="79_472nx"]
+[ext_resource type="Texture2D" uid="uid://74ecblh737xd" path="res://assets/ui/奇迹书/page_hover.png" id="79_17607"]
 [ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="80_hqxe5"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("page_container", "layer_stage_pages", "stage_page_container")]
@@ -770,7 +778,6 @@ target_control = NodePath("..")
 
 [node name="Layer_StagePages" type="CanvasLayer" parent="."]
 layer = 101
-visible = false
 
 [node name="Background" type="TextureRect" parent="Layer_StagePages"]
 offset_right = 2560.0
@@ -1044,8 +1051,7 @@ texture_normal = ExtResource("67_84b8o")
 texture_pressed = ExtResource("68_g2bdr")
 texture_hover = ExtResource("69_864w3")
 
-[node name="BookPage" type="Control" parent="Layer_StagePages/StagePages"]
-visible = false
+[node name="BookPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1053,6 +1059,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("61_g2bdr")
+dialogue_label = NodePath("PrefabContainer/DialogueLabel")
+pages = Array[ExtResource("68_al1mh")]([ExtResource("69_qtnwx"), ExtResource("70_nnbq1")])
+vbox_page = NodePath("VBoxContainer_Page")
+button_previous = NodePath("TextureButton_Previous")
+button_next = NodePath("TextureButton_Next")
+paragraph_container = NodePath("PrefabContainer/ParagraphContainer")
 
 [node name="TextureRect_Background" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
 layout_mode = 1
@@ -1072,21 +1084,6 @@ offset_left = -2112.0
 offset_bottom = 1440.0
 grow_horizontal = 0
 texture = ExtResource("9_7sc4i")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Layer_StagePages/StagePages/BookPage"]
-layout_mode = 0
-offset_left = 645.0
-offset_top = 181.99998
-offset_right = 1391.2754
-offset_bottom = 1444.5757
-rotation = -0.075049154
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/paragraph_separation = 6
-theme_override_fonts/normal_font = ExtResource("13_boyg6")
-theme_override_font_sizes/normal_font_size = 35
-text = "这是我们的故事
-我想起来了
-我要去做某些事"
 
 [node name="TextureRect_Foreground" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
 layout_mode = 0
@@ -1131,6 +1128,50 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_80cx4")
 
+[node name="PrefabContainer" type="Control" parent="Layer_StagePages/StagePages/BookPage"]
+visible = false
+anchors_preset = 0
+offset_right = 267.0
+offset_bottom = 140.0
+
+[node name="DialogueLabel" type="RichTextLabel" parent="Layer_StagePages/StagePages/BookPage/PrefabContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 7
+theme_override_constants/paragraph_separation = 7
+theme_override_fonts/normal_font = ExtResource("13_boyg6")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "这是我们的故事
+我想起来了
+我要去做某些事"
+fit_content = true
+script = ExtResource("71_ev1tq")
+seconds_per_step = 0.1
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+metadata/_custom_type_script = "uid://g32um0mltv5d"
+
+[node name="ParagraphContainer" parent="Layer_StagePages/StagePages/BookPage/PrefabContainer" instance=ExtResource("72_qtnwx")]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 181.99998
+offset_right = 1442.0
+offset_bottom = 181.99998
+
+[node name="VBoxContainer_Page" type="VBoxContainer" parent="Layer_StagePages/StagePages/BookPage"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 181.99998
+offset_right = 1442.6052
+offset_bottom = 1258.6079
+rotation = -0.075049154
+theme_override_constants/separation = 0
+
 [node name="BackButton" parent="Layer_StagePages/StagePages/BookPage" node_paths=PackedStringArray("target_control") instance=ExtResource("74_bf22m")]
 layout_mode = 0
 anchors_preset = 0
@@ -1152,6 +1193,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_j5wjh")
+
+[node name="TextureButton_Previous" type="TextureButton" parent="Layer_StagePages/StagePages/BookPage"]
+layout_mode = 0
+offset_left = 1358.0
+offset_top = 1240.0
+offset_right = 1575.0
+offset_bottom = 1323.0
+texture_normal = ExtResource("77_shuhp")
+texture_pressed = ExtResource("78_ev1tq")
+texture_hover = ExtResource("79_17607")
+
+[node name="Label" type="Label" parent="Layer_StagePages/StagePages/BookPage/TextureButton_Previous"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -19.5
+offset_right = 38.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("66_56gn1")
+theme_override_font_sizes/font_size = 26
+text = "上一页"
+
+[node name="TextureButton_Next" type="TextureButton" parent="Layer_StagePages/StagePages/BookPage"]
+layout_mode = 0
+offset_left = 1748.0
+offset_top = 1240.0
+offset_right = 1965.0
+offset_bottom = 1323.0
+texture_normal = ExtResource("77_shuhp")
+texture_pressed = ExtResource("78_ev1tq")
+texture_hover = ExtResource("79_17607")
+
+[node name="Label" type="Label" parent="Layer_StagePages/StagePages/BookPage/TextureButton_Next"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -19.5
+offset_right = 38.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("66_56gn1")
+theme_override_font_sizes/font_size = 26
+text = "下一页"
 
 [node name="LogPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("log_line", "divider", "vbox_log_lines")]
 visible = false
