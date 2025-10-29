@@ -8,6 +8,7 @@ extends Control
 @export var button_next: TextureButton
 @export var paragraph_container: ParagraphContainer
 @export var buttons: Control
+@export var reply_color: Color
 
 var page_index: int:
 	set(value):
@@ -37,6 +38,8 @@ func write() -> void:
 		if line.character == "L":
 			container.box_left.add_child(label)
 		else:
+			label.remove_theme_color_override("default_color")
+			label.add_theme_color_override("default_color", reply_color)
 			container.box_right.add_child(label)
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		label.dialogue_line = line

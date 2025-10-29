@@ -1085,6 +1085,7 @@ button_previous = NodePath("Buttons/TextureButton_Previous")
 button_next = NodePath("Buttons/TextureButton_Next")
 paragraph_container = NodePath("PrefabContainer/ParagraphContainer")
 buttons = NodePath("Buttons")
+reply_color = Color(0.24705882, 0.21568628, 0.76862746, 1)
 
 [node name="TextureRect_Background" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
 layout_mode = 1
