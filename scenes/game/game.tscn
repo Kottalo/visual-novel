@@ -1034,15 +1034,6 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 31
 text = "场景简介"
 
-[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/TravelPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("60_mc3al")
-
 [node name="TextureButton_Confirm" type="TextureButton" parent="Layer_StagePages/StagePages/TravelPage"]
 layout_mode = 0
 offset_left = 1706.0
@@ -1052,6 +1043,16 @@ offset_bottom = 1044.0
 texture_normal = ExtResource("67_84b8o")
 texture_pressed = ExtResource("68_g2bdr")
 texture_hover = ExtResource("69_864w3")
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/TravelPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("60_mc3al")
 
 [node name="BookPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container", "buttons")]
 visible = false

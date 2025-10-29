@@ -26,6 +26,7 @@ var page_index: int:
 var line: DialogueLine
 
 func write() -> void:
+	if not visible: return
 	buttons.visible = true
 	line = await pages[page_index].get_next_dialogue_line(line.next_id if line else "start")
 	if line:

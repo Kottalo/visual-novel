@@ -30,7 +30,6 @@ do Character("余洛琛").MoveTo("LeftMost", 0.3)
 	do Travel()
 	do SetBackground(Stage.background_name)
 	=> loop
-- 返回 => start
 - 结束 => END
 余洛琛: For more information see the online documentation.
 => END

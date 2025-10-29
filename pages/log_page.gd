@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
+			if Pages.book.visible: return
 			insert_line(line.character, line.text)
 	)
 
