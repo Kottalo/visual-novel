@@ -7,13 +7,27 @@ extends Control
 @export var button_previous: TextureButton
 @export var button_next: TextureButton
 @export var paragraph_container: ParagraphContainer
+@export var buttons: Control
 
+var page_index: int:
+	set(value):
+		page_index = value
+		
+		for child in vbox_page.get_children():
+			vbox_page.remove_child(child)
+			child.queue_free()
+		
+		button_previous.visible = page_index > 0
+		button_next.visible = page_index < pages.size() - 1
+		
+		await write()
 var line: DialogueLine
 
 func write() -> void:
-	line = await pages[0].get_next_dialogue_line(line.next_id if line else "start")
-	print(line)
+	buttons.visible = true
+	line = await pages[page_index].get_next_dialogue_line(line.next_id if line else "start")
 	if line:
+		buttons.visible = false
 		var label = dialogue_label.duplicate()
 		var container = paragraph_container.duplicate()
 		vbox_page.add_child(container)
@@ -32,12 +46,14 @@ func _ready() -> void:
 	Pages.book = self
 	
 	button_previous.pressed.connect(
-		func ():
-			pass
+		func (): page_index -= 1
 	)
 	button_next.pressed.connect(
-		func ():
-			pass
+		func (): page_index += 1
 	)
-	
-	await write()
+	visibility_changed.connect(
+		func ():
+			line = null
+			if visible:
+				page_index = 0
+	)

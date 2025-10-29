@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=90 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -78,6 +78,7 @@
 [ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="69_864w3"]
 [ext_resource type="Resource" uid="uid://dpdvuxgwg6q0l" path="res://dialogue_manager/dialogues/page_1.dialogue" id="69_qtnwx"]
 [ext_resource type="Resource" uid="uid://6r2qa0nsp5do" path="res://dialogue_manager/dialogues/page_2.dialogue" id="70_nnbq1"]
+[ext_resource type="Resource" uid="uid://cju4pdtxrrfdn" path="res://dialogue_manager/dialogues/page_3.dialogue" id="71_adpcj"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="71_ev1tq"]
 [ext_resource type="PackedScene" uid="uid://cnrtv0v2fr2pd" path="res://prefabs/paragraph_container/paragraph_container.tscn" id="72_qtnwx"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="74_bf22m"]
@@ -778,6 +779,7 @@ target_control = NodePath("..")
 
 [node name="Layer_StagePages" type="CanvasLayer" parent="."]
 layer = 101
+visible = false
 
 [node name="Background" type="TextureRect" parent="Layer_StagePages"]
 offset_right = 2560.0
@@ -1051,7 +1053,8 @@ texture_normal = ExtResource("67_84b8o")
 texture_pressed = ExtResource("68_g2bdr")
 texture_hover = ExtResource("69_864w3")
 
-[node name="BookPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container")]
+[node name="BookPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container", "buttons")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1060,11 +1063,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("61_g2bdr")
 dialogue_label = NodePath("PrefabContainer/DialogueLabel")
-pages = Array[ExtResource("68_al1mh")]([ExtResource("69_qtnwx"), ExtResource("70_nnbq1")])
+pages = Array[ExtResource("68_al1mh")]([ExtResource("69_qtnwx"), ExtResource("70_nnbq1"), ExtResource("71_adpcj")])
 vbox_page = NodePath("VBoxContainer_Page")
-button_previous = NodePath("TextureButton_Previous")
-button_next = NodePath("TextureButton_Next")
+button_previous = NodePath("Buttons/TextureButton_Previous")
+button_next = NodePath("Buttons/TextureButton_Next")
 paragraph_container = NodePath("PrefabContainer/ParagraphContainer")
+buttons = NodePath("Buttons")
 
 [node name="TextureRect_Background" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
 layout_mode = 1
@@ -1184,17 +1188,12 @@ offset_bottom = 1331.0
 grow_vertical = 1
 target_control = NodePath("..")
 
-[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_j5wjh")
+[node name="Buttons" type="Control" parent="Layer_StagePages/StagePages/BookPage"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="TextureButton_Previous" type="TextureButton" parent="Layer_StagePages/StagePages/BookPage"]
+[node name="TextureButton_Previous" type="TextureButton" parent="Layer_StagePages/StagePages/BookPage/Buttons"]
 layout_mode = 0
 offset_left = 1358.0
 offset_top = 1240.0
@@ -1204,7 +1203,7 @@ texture_normal = ExtResource("77_shuhp")
 texture_pressed = ExtResource("78_ev1tq")
 texture_hover = ExtResource("79_17607")
 
-[node name="Label" type="Label" parent="Layer_StagePages/StagePages/BookPage/TextureButton_Previous"]
+[node name="Label" type="Label" parent="Layer_StagePages/StagePages/BookPage/Buttons/TextureButton_Previous"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1221,7 +1220,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 26
 text = "上一页"
 
-[node name="TextureButton_Next" type="TextureButton" parent="Layer_StagePages/StagePages/BookPage"]
+[node name="TextureButton_Next" type="TextureButton" parent="Layer_StagePages/StagePages/BookPage/Buttons"]
 layout_mode = 0
 offset_left = 1748.0
 offset_top = 1240.0
@@ -1231,7 +1230,7 @@ texture_normal = ExtResource("77_shuhp")
 texture_pressed = ExtResource("78_ev1tq")
 texture_hover = ExtResource("79_17607")
 
-[node name="Label" type="Label" parent="Layer_StagePages/StagePages/BookPage/TextureButton_Next"]
+[node name="Label" type="Label" parent="Layer_StagePages/StagePages/BookPage/Buttons/TextureButton_Next"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1247,6 +1246,16 @@ grow_vertical = 2
 theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 26
 text = "下一页"
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/BookPage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_j5wjh")
 
 [node name="LogPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("log_line", "divider", "vbox_log_lines")]
 visible = false
