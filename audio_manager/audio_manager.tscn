@@ -1,10 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlwuxad1c584x"]
+[gd_scene load_steps=11 format=3 uid="uid://dlwuxad1c584x"]
 
 [ext_resource type="Script" uid="uid://dm16uidvb5i2x" path="res://audio_manager/audio_manager.gd" id="1_j0p2n"]
 [ext_resource type="Script" uid="uid://dd5qtcvk5r731" path="res://scripts/music_data.gd" id="2_qhrnm"]
 [ext_resource type="AudioStream" uid="uid://c4iurm62qedb6" path="res://assets/musics/One Step From Eden - Battle of Fire I.mp3" id="3_n2vnv"]
+[ext_resource type="AudioStream" uid="uid://cufi58bsisb2v" path="res://assets/musics/凝雪馥语.mp3" id="3_xydhd"]
 [ext_resource type="AudioStream" uid="uid://bsdiw8mr3scgs" path="res://assets/musics/One Step From Eden - Neverending Song_ Violette's Theme.mp3" id="4_xydhd"]
 [ext_resource type="AudioStream" uid="uid://ct78sgbt2gm4g" path="res://assets/musics/One Step From Eden - Perpetual Motion_ Hazel's Theme.mp3" id="5_05x4o"]
+
+[sub_resource type="Resource" id="Resource_05x4o"]
+script = ExtResource("2_qhrnm")
+title = "凝雪馥语"
+description = "主题曲"
+track = ExtResource("3_xydhd")
+metadata/_custom_type_script = "uid://dd5qtcvk5r731"
 
 [sub_resource type="Resource" id="Resource_36jdj"]
 script = ExtResource("2_qhrnm")
@@ -27,9 +35,8 @@ description = "我挺喜欢这首的"
 track = ExtResource("5_05x4o")
 metadata/_custom_type_script = "uid://dd5qtcvk5r731"
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("audio_player")]
+[node name="AudioManager" type="Node"]
 script = ExtResource("1_j0p2n")
-playlist = Array[ExtResource("2_qhrnm")]([SubResource("Resource_36jdj"), SubResource("Resource_xfvwf"), SubResource("Resource_dhpj7")])
-audio_player = NodePath("AudioStreamPlayer2D")
+playlist = Array[ExtResource("2_qhrnm")]([SubResource("Resource_05x4o"), SubResource("Resource_36jdj"), SubResource("Resource_xfvwf"), SubResource("Resource_dhpj7")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

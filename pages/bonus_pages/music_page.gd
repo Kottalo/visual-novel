@@ -1,7 +1,5 @@
 extends Control
 
-const PlayStatus = AudioManager.PlayStatus
-
 @export var track_item_scene: PackedScene
 @export var play_progress_container: Control
 @export var play_progress_line: PlayProgressLine
@@ -17,7 +15,7 @@ const PlayStatus = AudioManager.PlayStatus
 
 var audio_player: AudioStreamPlayer2D:
 	get:
-		return AudioManager.audio_player
+		return AudioManager.audio_player_bonus
 
 var progress_hovered: bool:
 	set(value):
