@@ -12,6 +12,8 @@ extends Control
 @export var vbox_playlist: VBoxContainer
 @export var label_title: Label
 @export var richlabel_description: RichTextLabel
+@export var label_current_time: Label
+@export var label_total_time: Label
 
 var audio_player: AudioStreamPlayer2D:
 	get:
@@ -111,6 +113,18 @@ func _physics_process(delta: float) -> void:
 	pause_button.visible = audio_player.playing
 	play_button.visible = !audio_player.playing
 	
+	update_time_label(label_current_time, 
+		AudioManager.audio_player_bonus.get_playback_position()
+	)
+	
 func update_track_info() -> void:
 	label_title.text = AudioManager.current_track.title
 	richlabel_description.text = AudioManager.current_track.description
+	update_time_label(label_total_time, 
+		AudioManager.current_track.track.get_length()
+	)
+
+func update_time_label(label: Label, total_second: float) -> void:
+	var minutes = total_second / 60
+	var seconds = int(total_second) % 60
+	label.text = "%02d:%02d" % [minutes, seconds]

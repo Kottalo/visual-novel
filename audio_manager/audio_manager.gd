@@ -1,7 +1,11 @@
 extends Node
 
 @export var playlist: Array[MusicData]
+@export var audio_player_music: AudioStreamPlayer2D
+@export var audio_player_sound: AudioStreamPlayer2D
+@export var audio_player_voice: AudioStreamPlayer2D
 @export var audio_player_bonus: AudioStreamPlayer2D
+
 
 signal track_index_changed
 var track_index: int:

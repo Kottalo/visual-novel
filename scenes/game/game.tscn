@@ -568,7 +568,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_eu6ph")
 
-[node name="MusicPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description")]
+[node name="MusicPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description", "label_current_time", "label_total_time")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -589,6 +589,8 @@ previous_button = NodePath("Buttons/TextureRect_PreviousButton")
 vbox_playlist = NodePath("ScrollContainer_Playlist/VBoxContainer_Playlist")
 label_title = NodePath("Labels/Label_Title")
 richlabel_description = NodePath("Labels/RichTextLabel_Description")
+label_current_time = NodePath("Time/Label_CurrentTime")
+label_total_time = NodePath("Time/Label_TotalTime")
 
 [node name="Images" type="Control" parent="Pages/BonusPage/TabPages/MusicPage"]
 anchors_preset = 0
@@ -757,6 +759,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_e8heu")
+
+[node name="Time" type="Control" parent="Pages/BonusPage/TabPages/MusicPage"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_CurrentTime" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 1159.0
+offset_right = 148.0
+offset_bottom = 1189.0
+theme = ExtResource("66_56gn1")
+theme_override_font_sizes/font_size = 20
+text = "02:13"
+
+[node name="Label" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 1159.0
+offset_right = 205.0
+offset_bottom = 1189.0
+theme = ExtResource("66_56gn1")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Label_TotalTime" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 1159.0
+offset_right = 220.0
+offset_bottom = 1189.0
+theme = ExtResource("66_56gn1")
+theme_override_font_sizes/font_size = 20
+text = "04:13"
 
 [node name="HBoxContainer_Tabs" type="HBoxContainer" parent="Pages/BonusPage"]
 layout_mode = 0

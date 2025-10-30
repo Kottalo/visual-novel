@@ -35,8 +35,18 @@ description = "我挺喜欢这首的"
 track = ExtResource("5_05x4o")
 metadata/_custom_type_script = "uid://dd5qtcvk5r731"
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("audio_player_music", "audio_player_sound", "audio_player_voice", "audio_player_bonus")]
 script = ExtResource("1_j0p2n")
 playlist = Array[ExtResource("2_qhrnm")]([SubResource("Resource_05x4o"), SubResource("Resource_36jdj"), SubResource("Resource_xfvwf"), SubResource("Resource_dhpj7")])
+audio_player_music = NodePath("AudioPlayer_Music")
+audio_player_sound = NodePath("AudioPlayer_Sound")
+audio_player_voice = NodePath("AudioPlayer_Voice")
+audio_player_bonus = NodePath("AudioPlayer_Bonus")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioPlayer_Music" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioPlayer_Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioPlayer_Voice" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioPlayer_Bonus" type="AudioStreamPlayer2D" parent="."]
