@@ -6,7 +6,6 @@ extends Node
 @export var audio_player_voice: AudioStreamPlayer2D
 @export var audio_player_bonus: AudioStreamPlayer2D
 
-
 signal track_index_changed
 var track_index: int:
 	set(value):
