@@ -23,6 +23,8 @@ var background_index: int:
 			background.visible = background.get_index() == background_index
 
 func _ready() -> void:
+	Pages.character = self
+	
 	Stage.character_selection_index_changed.connect(update_characters)
 	
 	background_option.previous_button.pressed.connect(

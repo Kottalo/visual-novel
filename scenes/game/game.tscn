@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=92 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="23_l1i01"]
 [ext_resource type="Texture2D" uid="uid://b8jvafi4iuuey" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_yuluochen.png" id="24_87ddb"]
 [ext_resource type="Texture2D" uid="uid://bi5shx6k0xlyi" path="res://assets/backgrounds/田舎道２（日中）.jpg" id="24_vuohh"]
+[ext_resource type="Script" uid="uid://bg15vxvu5533s" path="res://pages/gallery_page.gd" id="25_2e3yn"]
 [ext_resource type="Texture2D" uid="uid://bcqn2rjwt8m0p" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_gecheng.png" id="25_mljfx"]
 [ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="25_r62pu"]
 [ext_resource type="PackedScene" uid="uid://bnu8yy8c7d3pj" path="res://characters/instances/character_辉夜奏.tscn" id="27_tb2lt"]
@@ -476,6 +477,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("25_2e3yn")
 
 [node name="VScrollBarEx" parent="Pages/BonusPage/TabPages/GalleryPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1
