@@ -2,7 +2,6 @@ extends Node
 
 @export var main_dialogue: DialogueResource
 @export var character_pool: Node2D
-@export var stage_scene: PackedScene
 @export var background_data_pool: Array[BackgroundData]
 
 signal character_selection_index_changed
@@ -18,7 +17,8 @@ func _ready() -> void:
 		character_dict[character.name] = character
 
 func start() -> void:
-	DialogueManager.show_dialogue_balloon_scene(stage_scene, main_dialogue, "start", [Stage])
+	Pages.current_page = Pages.stage
+	Pages.stage.start(main_dialogue, "start", [Stage])
 
 #region Dialogue Variables
 var position_name: String

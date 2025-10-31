@@ -1,9 +1,10 @@
 extends TextureButton
 
-@export var target_control: Control
-
 func _ready() -> void:
 	pressed.connect(
 		func ():
-			target_control.visible = false
+			if Pages.stage.visible:
+				get_parent().visible = false
+			else:
+				Pages.current_page = Pages.main_menu
 	)

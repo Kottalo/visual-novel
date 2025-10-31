@@ -51,7 +51,10 @@ var dialogue_line: DialogueLine:
 			apply_dialogue_line()
 		else:
 			# The dialogue has finished so close the balloon
-			queue_free()
+			for character in character_image_pool.get_children():
+				character_image_pool.remove_child(character)
+				character.queue_free()
+			Pages.current_page = Pages.main_menu
 	get:
 		return dialogue_line
 
@@ -112,6 +115,7 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
+	visible = true
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource

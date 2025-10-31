@@ -18,15 +18,15 @@ func _ready() -> void:
 	button_load.clicked.connect(
 		func ():
 			Pages.profile.profile_mode = ProfilePage.ProfileMode.LOAD
-			Pages.profile.show()
+			Pages.current_page = Pages.profile
 	)
 	button_bonus.clicked.connect(
 		func ():
-			Pages.bonus.show()
+			Pages.current_page = Pages.bonus
 	)
 	button_book.clicked.connect(
 		func ():
-			Pages.book.show()
+			Pages.current_page = Pages.book
 	)
 	button_setting.clicked.connect(
 		func (): pass

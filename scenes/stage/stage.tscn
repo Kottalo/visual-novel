@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctj8imd7y1gpj"]
+[gd_scene load_steps=12 format=3 uid="uid://ctj8imd7y1gpj"]
 
 [ext_resource type="Script" uid="uid://dhckqb4wog1cn" path="res://scenes/stage/stage.gd" id="1_ecxui"]
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="2_3kwj0"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/dialogues/main.dialogue" id="2_a221a"]
-[ext_resource type="PackedScene" uid="uid://dwnsxsn6pit1f" path="res://pages/stage_page/stage_page.tscn" id="3_0m8sx"]
 [ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="3_a221a"]
 [ext_resource type="Script" uid="uid://cv5xbdhucorap" path="res://scripts/background_data.gd" id="4_pf3bu"]
 [ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="5_kb6yy"]
@@ -35,7 +34,6 @@ metadata/_custom_type_script = "uid://cv5xbdhucorap"
 script = ExtResource("1_ecxui")
 main_dialogue = ExtResource("2_a221a")
 character_pool = NodePath("Characters")
-stage_scene = ExtResource("3_0m8sx")
 background_data_pool = Array[ExtResource("4_pf3bu")]([SubResource("Resource_lrsvv"), SubResource("Resource_gygk3"), SubResource("Resource_gf271")])
 
 [node name="Characters" type="Node2D" parent="."]
