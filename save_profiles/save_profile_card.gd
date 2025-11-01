@@ -26,7 +26,14 @@ func _ready() -> void:
 		func ():
 			Main.selected_save_profile_index = get_index()
 			if Main.profile_mode == Main.ProfileMode.SAVE:
-				texture_rect_preview.texture = Pages.stage.subviewport.get_texture()
+				var texture = Pages.stage.subviewport.get_texture()
+				texture.resize(470, 265, Image.INTERPOLATE_NEAREST)
+				var resized = ImageTexture.create_from_image(texture)
+				var index = get_index()
+				if not Main.save_data.profiles.has(index):
+					Main.save_data.profiles[index] = ProfileData.new()
+				Main.save_data.profiles[index].preview = resized
+				ResourceSaver.save(Main.save_data)
 	)
 	
 	Main.save_profile_index_changed.connect(
