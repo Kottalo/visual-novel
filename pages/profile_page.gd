@@ -1,16 +1,15 @@
 class_name ProfilePage
 extends Control
 
-enum ProfileMode { LOAD, SAVE }
-
+@export var profile_card: SaveProfileCard
 @export var title_load: TextureRect
 @export var title_save: TextureRect
 
-var profile_mode: ProfileMode:
-	set(value):
-		profile_mode = value
-		title_load.visible = profile_mode == ProfileMode.LOAD
-		title_save.visible = profile_mode == ProfileMode.SAVE
-
 func _ready() -> void:
 	Pages.profile = self
+	
+	visibility_changed.connect(
+		func ():
+			title_load.visible = Main.profile_mode == Main.ProfileMode.LOAD
+			title_save.visible = Main.profile_mode == Main.ProfileMode.SAVE
+	)

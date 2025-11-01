@@ -1,7 +1,8 @@
 class_name StagePage
-extends CanvasLayer
+extends Control
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+@export var subviewport: SubViewport
 @export var hbox_positions: HBoxContainer
 @export var character_image_pool: Node2D
 @export var texture_rect_background: TextureRect

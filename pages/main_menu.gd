@@ -17,7 +17,7 @@ func _ready() -> void:
 	)
 	button_load.clicked.connect(
 		func ():
-			Pages.profile.profile_mode = ProfilePage.ProfileMode.LOAD
+			Main.profile_mode = Main.ProfileMode.LOAD
 			Pages.current_page = Pages.profile
 	)
 	button_bonus.clicked.connect(

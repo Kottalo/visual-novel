@@ -79,54 +79,39 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_sqldi")
 
-[node name="StagePage" type="SubViewportContainer" node_paths=PackedStringArray("subviewport", "hbox_positions", "character_image_pool", "texture_rect_background", "texture_rect_blackscreen", "bg_common", "bg_character", "avatar")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-script = ExtResource("1_wlgfe")
-subviewport = NodePath("SubViewport")
-hbox_positions = NodePath("SubViewport/CanvasLayer/HBoxContainer_Positions")
-character_image_pool = NodePath("SubViewport/CanvasLayer/CharacterImages")
-texture_rect_background = NodePath("SubViewport/CanvasLayer/TextureRect_Background")
-texture_rect_blackscreen = NodePath("SubViewport/CanvasLayer/TextureRect_Blackscreen")
-bg_common = NodePath("SubViewport/CanvasLayer/DialogueScreen/Bg_DialogueBox/Bg_Common")
-bg_character = NodePath("SubViewport/CanvasLayer/DialogueScreen/Bg_DialogueBox/Bg_Character")
-avatar = NodePath("SubViewport/CanvasLayer/DialogueScreen/Avatar")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(2560, 1440)
-render_target_update_mode = 4
-
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+[node name="StagePage" type="CanvasLayer" node_paths=PackedStringArray("hbox_positions", "character_image_pool", "texture_rect_background", "texture_rect_blackscreen", "bg_common", "bg_character", "avatar")]
 layer = 100
+script = ExtResource("1_wlgfe")
+hbox_positions = NodePath("HBoxContainer_Positions")
+character_image_pool = NodePath("CharacterImages")
+texture_rect_background = NodePath("TextureRect_Background")
+texture_rect_blackscreen = NodePath("TextureRect_Blackscreen")
+bg_common = NodePath("DialogueScreen/Bg_DialogueBox/Bg_Common")
+bg_character = NodePath("DialogueScreen/Bg_DialogueBox/Bg_Character")
+avatar = NodePath("DialogueScreen/Avatar")
 
-[node name="SceneContainer" type="Control" parent="SubViewport/CanvasLayer"]
+[node name="SceneContainer" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DialogueSelection" parent="SubViewport/CanvasLayer/SceneContainer" instance=ExtResource("4_wd0lf")]
+[node name="DialogueSelection" parent="SceneContainer" instance=ExtResource("4_wd0lf")]
 layout_mode = 0
 offset_left = 669.0
 offset_top = 535.0
 offset_right = 1892.0
 offset_bottom = 682.0
 
-[node name="TextureRect_Background" type="TextureRect" parent="SubViewport/CanvasLayer"]
+[node name="TextureRect_Background" type="TextureRect" parent="."]
 offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_50ef6")
 
-[node name="CharacterImages" type="Node2D" parent="SubViewport/CanvasLayer"]
+[node name="CharacterImages" type="Node2D" parent="."]
 
-[node name="HBoxContainer_Positions" type="HBoxContainer" parent="SubViewport/CanvasLayer"]
+[node name="HBoxContainer_Positions" type="HBoxContainer" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -134,42 +119,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LeftMost" type="CenterContainer" parent="SubViewport/CanvasLayer/HBoxContainer_Positions"]
+[node name="LeftMost" type="CenterContainer" parent="HBoxContainer_Positions"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="SubViewport/CanvasLayer/HBoxContainer_Positions/LeftMost"]
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/LeftMost"]
 layout_mode = 2
 
-[node name="Left" type="CenterContainer" parent="SubViewport/CanvasLayer/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="SubViewport/CanvasLayer/HBoxContainer_Positions/Left"]
-layout_mode = 2
-
-[node name="Center" type="CenterContainer" parent="SubViewport/CanvasLayer/HBoxContainer_Positions"]
+[node name="Left" type="CenterContainer" parent="HBoxContainer_Positions"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="SubViewport/CanvasLayer/HBoxContainer_Positions/Center"]
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Left"]
 layout_mode = 2
 
-[node name="Right" type="CenterContainer" parent="SubViewport/CanvasLayer/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="SubViewport/CanvasLayer/HBoxContainer_Positions/Right"]
-layout_mode = 2
-
-[node name="RightMost" type="CenterContainer" parent="SubViewport/CanvasLayer/HBoxContainer_Positions"]
+[node name="Center" type="CenterContainer" parent="HBoxContainer_Positions"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="SubViewport/CanvasLayer/HBoxContainer_Positions/RightMost"]
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Center"]
 layout_mode = 2
 
-[node name="DialogueScreen" type="Control" parent="SubViewport/CanvasLayer"]
+[node name="Right" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/Right"]
+layout_mode = 2
+
+[node name="RightMost" type="CenterContainer" parent="HBoxContainer_Positions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="HBoxContainer_Positions/RightMost"]
+layout_mode = 2
+
+[node name="DialogueScreen" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -179,7 +164,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
-[node name="Bg_DialogueBox" type="Control" parent="SubViewport/CanvasLayer/DialogueScreen"]
+[node name="Bg_DialogueBox" type="Control" parent="DialogueScreen"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -187,7 +172,7 @@ anchor_bottom = 1.0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Bg_Common" type="TextureRect" parent="SubViewport/CanvasLayer/DialogueScreen/Bg_DialogueBox"]
+[node name="Bg_Common" type="TextureRect" parent="DialogueScreen/Bg_DialogueBox"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -197,7 +182,7 @@ offset_right = 2560.0
 grow_vertical = 0
 texture = ExtResource("5_wyvu0")
 
-[node name="Bg_Character" type="TextureRect" parent="SubViewport/CanvasLayer/DialogueScreen/Bg_DialogueBox"]
+[node name="Bg_Character" type="TextureRect" parent="DialogueScreen/Bg_DialogueBox"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -207,7 +192,7 @@ offset_right = 2560.0
 grow_vertical = 0
 texture = ExtResource("6_ra4hq")
 
-[node name="CharacterLabel" type="RichTextLabel" parent="SubViewport/CanvasLayer/DialogueScreen/Bg_DialogueBox/Bg_Character"]
+[node name="CharacterLabel" type="RichTextLabel" parent="DialogueScreen/Bg_DialogueBox/Bg_Character"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 506.0
@@ -223,7 +208,7 @@ text = "余洛琛"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="SubViewport/CanvasLayer/DialogueScreen" instance=ExtResource("8_cvq0y")]
+[node name="DialogueLabel" parent="DialogueScreen" instance=ExtResource("8_cvq0y")]
 unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
@@ -240,12 +225,12 @@ theme_override_fonts/normal_font = ExtResource("7_ke2v6")
 theme_override_font_sizes/normal_font_size = 40
 text = "文学社"
 
-[node name="Progress" type="Polygon2D" parent="SubViewport/CanvasLayer/DialogueScreen"]
+[node name="Progress" type="Polygon2D" parent="DialogueScreen"]
 unique_name_in_owner = true
 position = Vector2(2306, 1337)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
-[node name="Avatar" type="TextureRect" parent="SubViewport/CanvasLayer/DialogueScreen"]
+[node name="Avatar" type="TextureRect" parent="DialogueScreen"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -256,7 +241,7 @@ mouse_filter = 2
 expand_mode = 5
 stretch_mode = 4
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="SubViewport/CanvasLayer/DialogueScreen" node_paths=PackedStringArray("response_template")]
+[node name="ResponsesMenu" type="VBoxContainer" parent="DialogueScreen" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -276,14 +261,14 @@ alignment = 1
 script = ExtResource("3_jool8")
 response_template = NodePath("../../SceneContainer/DialogueSelection")
 
-[node name="Preview" type="TextureRect" parent="SubViewport/CanvasLayer/DialogueScreen"]
+[node name="Preview" type="TextureRect" parent="DialogueScreen"]
 visible = false
 layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_yetgv")
 
-[node name="DialogueButtonController" type="Node" parent="SubViewport/CanvasLayer/DialogueScreen" node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_phone", "button_book", "button_title")]
+[node name="DialogueButtonController" type="Node" parent="DialogueScreen" node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_phone", "button_book", "button_title")]
 script = ExtResource("10_lqv2x")
 button_skip = NodePath("../HBoxContainer_Buttons/DialogueButton_Skip")
 button_auto = NodePath("../HBoxContainer_Buttons/DialogueButton_Auto")
@@ -295,7 +280,7 @@ button_phone = NodePath("../HBoxContainer_Buttons/DialogueButton_Phone")
 button_book = NodePath("../HBoxContainer_Buttons/DialogueButton_Book")
 button_title = NodePath("../HBoxContainer_Buttons/DialogueButton_Title")
 
-[node name="HBoxContainer_Buttons" type="HBoxContainer" parent="SubViewport/CanvasLayer/DialogueScreen"]
+[node name="HBoxContainer_Buttons" type="HBoxContainer" parent="DialogueScreen"]
 layout_mode = 0
 offset_left = 915.0
 offset_top = 1331.0
@@ -303,71 +288,71 @@ offset_right = 1647.0
 offset_bottom = 1420.0
 theme_override_constants/separation = 6
 
-[node name="DialogueButton_Skip" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Skip" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 toggle_button = true
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip" index="1"]
 offset_left = -15.0
 offset_right = 17.0
 
-[node name="DialogueButton_Auto" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Auto" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 toggle_button = true
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto" index="1"]
 texture = ExtResource("11_tx5oi")
 
-[node name="DialogueButton_Save" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Save" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save" index="1"]
 offset_left = -15.0
 offset_right = 17.0
 texture = ExtResource("12_50is1")
 
-[node name="DialogueButton_Load" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Load" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load" index="1"]
 offset_left = -15.0
 offset_right = 17.0
 texture = ExtResource("13_pjj4j")
 
-[node name="DialogueButton_Log" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Log" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log" index="1"]
 texture = ExtResource("14_ri6cy")
 
-[node name="DialogueButton_Set" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Set" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set" index="1"]
 texture = ExtResource("15_ii14q")
 
-[node name="DialogueButton_Phone" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Phone" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone" index="1"]
 offset_left = -15.0
 offset_top = -68.0
 offset_right = 17.0
 texture = ExtResource("16_lqv2x")
 
-[node name="DialogueButton_Book" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Book" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book" index="1"]
 texture = ExtResource("17_4x5c0")
 
-[node name="DialogueButton_Title" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Title" parent="DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title" index="1"]
+[node name="Icon" parent="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title" index="1"]
 texture = ExtResource("18_p0t85")
 
-[node name="TextureRect_Blackscreen" type="ColorRect" parent="SubViewport/CanvasLayer"]
+[node name="TextureRect_Blackscreen" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -377,15 +362,15 @@ scale = Vector2(1, 1e-05)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="gui_input" from="SubViewport/CanvasLayer/DialogueScreen" to="SubViewport/CanvasLayer" method="_on_balloon_gui_input"]
-[connection signal="response_selected" from="SubViewport/CanvasLayer/DialogueScreen/ResponsesMenu" to="SubViewport/CanvasLayer" method="_on_responses_menu_response_selected"]
+[connection signal="gui_input" from="DialogueScreen" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="DialogueScreen/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
 
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book"]
-[editable path="SubViewport/CanvasLayer/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book"]
+[editable path="DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title"]

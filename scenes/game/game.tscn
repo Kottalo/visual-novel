@@ -872,6 +872,11 @@ script = ExtResource("5_eow3j")
 title_load = NodePath("Titles/Title_Load")
 title_save = NodePath("Titles/Title_Save")
 
+[node name="PrefabContainer" type="Control" parent="Layer_StagePages/StagePages/ProfilePage"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Titles" type="Control" parent="Layer_StagePages/StagePages/ProfilePage"]
 anchors_preset = 0
 offset_left = 96.0
@@ -909,46 +914,12 @@ columns = 3
 [node name="SaveProfileCard" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
 layout_mode = 2
 
-[node name="SaveProfileCard2" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard3" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard4" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard5" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard6" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard7" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard8" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
-[node name="SaveProfileCard9" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
 [node name="VScrollBarEx" parent="Layer_StagePages/StagePages/ProfilePage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1
 anchor_top = 0.081
 anchor_bottom = 0.081
 offset_bottom = 1210.36
 target_scroll_container = NodePath("../ScrollContainer")
-
-[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/ProfilePage"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_7jktm")
 
 [node name="BackButton" parent="Layer_StagePages/StagePages/ProfilePage" instance=ExtResource("74_bf22m")]
 layout_mode = 0
@@ -960,6 +931,16 @@ offset_top = 1260.0
 offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/ProfilePage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7jktm")
 
 [node name="TravelPage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
 visible = false
@@ -1395,6 +1376,7 @@ grow_vertical = 1
 
 [node name="StagePage" parent="." instance=ExtResource("92_dadqe")]
 visible = false
+layout_mode = 1
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Bonus"]

@@ -1,7 +1,5 @@
 extends Node
 
-const ProfileMode = ProfilePage.ProfileMode
-
 @export var button_skip: DialogueButton
 @export var button_auto: DialogueButton
 @export var button_save: DialogueButton
@@ -23,12 +21,12 @@ func _ready() -> void:
 	)
 	button_save.clicked.connect(
 		func ():
-			Pages.profile.profile_mode = ProfileMode.SAVE
+			Main.profile_mode = Main.ProfileMode.SAVE
 			Pages.profile.show()
 	)
 	button_load.clicked.connect(
 		func ():
-			Pages.profile.profile_mode = ProfileMode.LOAD
+			Main.profile_mode = Main.ProfileMode.LOAD
 			Pages.profile.show()
 	)
 	button_log.clicked.connect(

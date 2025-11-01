@@ -1,10 +1,16 @@
 extends Node
 
+enum ProfileMode { LOAD, SAVE }
+
 var save_data: SaveData
 var game: Game
 
 var clicked: bool
 var dragged: bool
+
+var profile_mode: ProfileMode:
+	set(value):
+		profile_mode = value
 
 signal bonus_tab_index_changed
 var bonus_tab_index: int:
