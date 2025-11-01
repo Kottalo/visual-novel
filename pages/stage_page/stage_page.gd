@@ -2,6 +2,8 @@ class_name StagePage
 extends Control
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+@export var dialogue_screen: Control
+@export var responses_menu: DialogueResponsesMenu
 @export var subviewport: SubViewport
 @export var hbox_positions: HBoxContainer
 @export var character_image_pool: Node2D
@@ -62,17 +64,11 @@ var dialogue_line: DialogueLine:
 ## A cooldown timer for delaying the balloon hide when encountering a mutation.
 var mutation_cooldown: Timer = Timer.new()
 
-## The base balloon anchor
-@onready var dialogue_screen: Control = %DialogueScreen
-
 ## The label showing the name of the currently speaking character
 @onready var character_label: RichTextLabel = %CharacterLabel
 
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
-
-## The menu of responses
-@onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
@@ -90,6 +86,9 @@ func _ready() -> void:
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
+	
+	dialogue_screen.gui_input.connect(_on_dialogue_screen_gui_input)
+	responses_menu.response_selected.connect(_on_responses_menu_response_selected)
 
 
 func _process(delta: float) -> void:
@@ -200,8 +199,7 @@ func _on_mutated(_mutation: Dictionary) -> void:
 		will_hide_dialogue_screen = true
 		mutation_cooldown.start(0.1)
 
-
-func _on_balloon_gui_input(event: InputEvent) -> void:
+func _on_dialogue_screen_gui_input(event: InputEvent) -> void:
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()

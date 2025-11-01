@@ -23,7 +23,10 @@ func _ready() -> void:
 			hovered = false
 	)
 	drag_filter.execute.connect(
-		func (): Main.selected_save_profile_index = get_index()
+		func ():
+			Main.selected_save_profile_index = get_index()
+			if Main.profile_mode == Main.ProfileMode.SAVE:
+				texture_rect_preview.texture = Pages.stage.subviewport.get_texture()
 	)
 	
 	Main.save_profile_index_changed.connect(
