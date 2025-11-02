@@ -1,4 +1,4 @@
-class_name SaveProfileCard
+class_name ProfileCard
 extends TextureRect
 
 @export var texture_rect_preview: TextureRect
@@ -27,13 +27,14 @@ func _ready() -> void:
 			Main.selected_save_profile_index = get_index()
 			if Main.profile_mode == Main.ProfileMode.SAVE:
 				var texture = Pages.stage.subviewport.get_texture()
-				texture.resize(470, 265, Image.INTERPOLATE_NEAREST)
-				var resized = ImageTexture.create_from_image(texture)
+				var image = texture.get_image()
+				image.resize(470, 265, Image.INTERPOLATE_NEAREST)
+				var resized_texture = ImageTexture.create_from_image(image)
 				var index = get_index()
-				if not Main.save_data.profiles.has(index):
-					Main.save_data.profiles[index] = ProfileData.new()
-				Main.save_data.profiles[index].preview = resized
-				ResourceSaver.save(Main.save_data)
+				if not Main.save_data.profiles[index]:
+					Main.save_data.profiles.insert(index, ProfileData.new())
+				Main.save_data.profiles[index].preview = resized_texture
+				ResourceSaver.save(Main.save_data, Main.file_path)
 	)
 	
 	Main.save_profile_index_changed.connect(

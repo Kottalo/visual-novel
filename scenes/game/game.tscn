@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://kdb1r5x3d2o8" path="res://assets/ui/存读档案/存读档界面.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/profile_page.gd" id="5_eow3j"]
 [ext_resource type="Texture2D" uid="uid://cbxom0bv4rm5s" path="res://assets/ui/开始游戏/logo_normal.png" id="5_y28t1"]
-[ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://save_profiles/save_profile_card.tscn" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://prefabs/profile_card/profile_card.tscn" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bq4dne8l5a5qr" path="res://assets/ui/奇迹书/background.png" id="8_215e1"]
 [ext_resource type="Texture2D" uid="uid://c1nsptow73vv4" path="res://assets/ui/奇迹书/奇迹书.png" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="8_klri6"]
@@ -859,7 +859,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProfilePage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("title_load", "title_save")]
+[node name="ProfilePage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("profile_card_model", "title_load", "title_save", "profile_card_pool")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -869,13 +869,23 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("5_eow3j")
+profile_card_model = NodePath("PrefabContainer/SaveProfileCard")
 title_load = NodePath("Titles/Title_Load")
 title_save = NodePath("Titles/Title_Save")
+profile_card_pool = NodePath("ScrollContainer/GridContainer_ProfileCards")
 
 [node name="PrefabContainer" type="Control" parent="Layer_StagePages/StagePages/ProfilePage"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="SaveProfileCard" parent="Layer_StagePages/StagePages/ProfilePage/PrefabContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 104.0
+offset_right = 1167.0
+offset_bottom = 573.0
 
 [node name="Titles" type="Control" parent="Layer_StagePages/StagePages/ProfilePage"]
 anchors_preset = 0
@@ -905,14 +915,11 @@ offset_bottom = 1331.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="GridContainer" type="GridContainer" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer"]
+[node name="GridContainer_ProfileCards" type="GridContainer" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 22
 theme_override_constants/v_separation = 42
 columns = 3
-
-[node name="SaveProfileCard" parent="Layer_StagePages/StagePages/ProfilePage/ScrollContainer/GridContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
 
 [node name="VScrollBarEx" parent="Layer_StagePages/StagePages/ProfilePage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1

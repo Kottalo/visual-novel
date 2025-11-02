@@ -2,7 +2,8 @@ extends Node
 
 enum ProfileMode { LOAD, SAVE }
 
-var save_data: SaveData
+var save_data: SaveData = SaveData.new()
+var file_path = "user://save_data.tres"
 var game: Game
 
 var clicked: bool
@@ -30,6 +31,15 @@ var selected_save_profile_index: int:
 		selected_save_profile_index = value
 		emit_signal("save_profile_index_changed")
 
-func clear_connections(target_signal: Signal):
+func _ready() -> void:
+	if FileAccess.file_exists(file_path):
+		save_data = load(file_path)
+
+func clear_connections(target_signal: Signal) -> void:
 	for connection in target_signal.get_connections():
 		target_signal.disconnect(connection.callable)
+
+func clear_children(container: Node) -> void:
+	for child in container.get_children():
+		container.remove_child(child)
+		child.queue_free()
