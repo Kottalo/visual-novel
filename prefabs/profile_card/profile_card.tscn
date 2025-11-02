@@ -9,12 +9,15 @@
 [ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_mkcy0"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="8_ocbxf"]
 
-[node name="SaveProfileCard" type="TextureRect" node_paths=PackedStringArray("texture_rect_preview", "drag_filter")]
+[node name="SaveProfileCard" type="TextureRect" node_paths=PackedStringArray("texture_rect_preview", "drag_filter", "label_index", "label_chapter", "label_chapter_title")]
 texture = ExtResource("1_ueu0p")
 stretch_mode = 4
 script = ExtResource("2_ocbxf")
 texture_rect_preview = NodePath("TextureRect_Preview")
 drag_filter = NodePath("DragFilter")
+label_index = NodePath("TextureRect_Index/Label_Index")
+label_chapter = NodePath("Label_Chapter")
+label_chapter_title = NodePath("Label_ChapterTitle")
 
 [node name="DragFilter" parent="." node_paths=PackedStringArray("target_object") instance=ExtResource("3_ocbxf")]
 target_object = NodePath("..")

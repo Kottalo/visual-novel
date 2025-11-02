@@ -23,5 +23,6 @@ func update() -> void:
 		var profile_card: ProfileCard = profile_card_model.duplicate()
 		profile_card.texture_rect_preview.texture = profile.preview
 		profile_card_pool.add_child(profile_card)
+		profile_card.label_index.text = "NO.%02d" % [profile_card.get_index() + 1]
 	if Main.profile_mode == Main.ProfileMode.SAVE:
 		profile_card_pool.add_child(profile_card_model.duplicate())

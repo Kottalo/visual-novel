@@ -3,6 +3,9 @@ extends TextureRect
 
 @export var texture_rect_preview: TextureRect
 @export var drag_filter: DragFilter
+@export var label_index: Label
+@export var label_chapter: Label
+@export var label_chapter_title: Label
 
 var hovered: bool:
 	set(value):
@@ -26,8 +29,8 @@ func _ready() -> void:
 		func ():
 			Main.selected_save_profile_index = get_index()
 			if Main.profile_mode == Main.ProfileMode.SAVE:
-				var texture = Pages.stage.subviewport.get_texture()
-				var image = texture.get_image()
+				var _texture = Pages.stage.subviewport.get_texture()
+				var image = _texture.get_image()
 				image.resize(470, 265, Image.INTERPOLATE_NEAREST)
 				var resized_texture = ImageTexture.create_from_image(image)
 				var index = get_index()
@@ -35,6 +38,10 @@ func _ready() -> void:
 					Main.save_data.profiles.insert(index, ProfileData.new())
 				Main.save_data.profiles[index].preview = resized_texture
 				ResourceSaver.save(Main.save_data, Main.file_path)
+				Pages.profile.update()
+			
+			if Main.profile_mode == Main.ProfileMode.LOAD:
+				pass
 	)
 	
 	Main.save_profile_index_changed.connect(
@@ -48,7 +55,7 @@ func update():
 	if selected:
 		var c: float = 9.5
 		modulate = Color(c, c, c)
-		var p_c: float = 0.18
+		var p_c: float = 0.16
 		texture_rect_preview.modulate = Color(p_c, p_c, p_c)
 	else:
 		if hovered:
