@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkcxemmhr8edw"
-path="res://.godot/imported/学校の音楽室（日中）.jpg-23d9ad7a389d563a9a9301fa510633be.ctex"
+uid="uid://kl525kbqxus5"
+path="res://.godot/imported/CG3-正常嬉水.jpg-82e43d7713701de19a0eed34529eea3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/学校の音楽室（日中）.jpg"
-dest_files=["res://.godot/imported/学校の音楽室（日中）.jpg-23d9ad7a389d563a9a9301fa510633be.ctex"]
+source_file="res://assets/gallery/CG3/CG3-正常嬉水.jpg"
+dest_files=["res://.godot/imported/CG3-正常嬉水.jpg-82e43d7713701de19a0eed34529eea3c.ctex"]
 
 [params]
 

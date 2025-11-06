@@ -1,15 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7xfltd6tr6pr"]
+[gd_scene load_steps=2 format=3 uid="uid://b7xfltd6tr6pr"]
 
 [ext_resource type="Script" uid="uid://uvfs6xgqqg1r" path="res://scenes/main/main.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="3_1bvp3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
-
-[node name="Characters" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-
-[node name="余洛琛" parent="Characters" instance=ExtResource("2_h2yge")]
-
-[node name="常夏" parent="Characters" instance=ExtResource("3_1bvp3")]

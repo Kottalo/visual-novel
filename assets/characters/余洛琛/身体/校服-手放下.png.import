@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi5shx6k0xlyi"
-path="res://.godot/imported/田舎道２（日中）.jpg-c405d4e423360f1db926e844d0eb8951.ctex"
+uid="uid://bg15knqlq0mgi"
+path="res://.godot/imported/校服-手放下.png-7808e2d2bb97960c8df79ae99477618b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/田舎道２（日中）.jpg"
-dest_files=["res://.godot/imported/田舎道２（日中）.jpg-c405d4e423360f1db926e844d0eb8951.ctex"]
+source_file="res://assets/characters/余洛琛/身体/校服-手放下.png"
+dest_files=["res://.godot/imported/校服-手放下.png-7808e2d2bb97960c8df79ae99477618b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx1elu6gkspva"
-path="res://.godot/imported/公園の売店（日中）.jpg-e55127bcd961cac6565cbd528408acde.ctex"
+uid="uid://cktf858isohy6"
+path="res://.godot/imported/CG3-小余害羞.jpg-d3541e2a287b0e166121191b9d98414c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/公園の売店（日中）.jpg"
-dest_files=["res://.godot/imported/公園の売店（日中）.jpg-e55127bcd961cac6565cbd528408acde.ctex"]
+source_file="res://assets/gallery/CG3/CG3-小余害羞.jpg"
+dest_files=["res://.godot/imported/CG3-小余害羞.jpg-d3541e2a287b0e166121191b9d98414c.ctex"]
 
 [params]
 
