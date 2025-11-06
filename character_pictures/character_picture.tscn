@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhsofntp53q16"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4wad"]
+animations = []
+
+[node name="CharacterPicture" type="Node2D"]
+
+[node name="Sprite2D_Background" type="Sprite2D" parent="."]
+position = Vector2(1286, 708)
+scale = Vector2(0.665, 0.665)
+
+[node name="AnimatedSprite2D_Options" type="AnimatedSprite2D" parent="Sprite2D_Background"]
+sprite_frames = SubResource("SpriteFrames_o4wad")
+animation = &""
