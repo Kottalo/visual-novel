@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfsvgwh7isgg"
-path="res://.godot/imported/常服.png-bc4f77ddd334c74f36d08d0e97ca1e7a.ctex"
+uid="uid://v7wc641eqgk"
+path="res://.godot/imported/举食指.png-24c26b0e3a33bb9f5f00c2fc46677ef9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/余洛琛/身体/常服.png"
-dest_files=["res://.godot/imported/常服.png-bc4f77ddd334c74f36d08d0e97ca1e7a.ctex"]
+source_file="res://assets/characters/常夏/身体/举食指.png"
+dest_files=["res://.godot/imported/举食指.png-24c26b0e3a33bb9f5f00c2fc46677ef9.ctex"]
 
 [params]
 

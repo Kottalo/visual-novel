@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://epoa2vri5tau"
-path="res://.godot/imported/校服.png-4aa20b3462f19773a726e8088d9f6f81.ctex"
+uid="uid://cmmcydphopsem"
+path="res://.godot/imported/举手掌.png-1c4a4be698a9d2c9cb2f5912b632609c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/余洛琛/身体/校服.png"
-dest_files=["res://.godot/imported/校服.png-4aa20b3462f19773a726e8088d9f6f81.ctex"]
+source_file="res://assets/characters/常夏/身体/举手掌.png"
+dest_files=["res://.godot/imported/举手掌.png-1c4a4be698a9d2c9cb2f5912b632609c.ctex"]
 
 [params]
 

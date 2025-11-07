@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lisv5uubn5jh"
-path="res://.godot/imported/默认.png-48d8059925cb9eaaae762d0cf7b7a6cb.ctex"
+uid="uid://byyyiupc7lgab"
+path="res://.godot/imported/常服-手放下.png-0e31606deb7eb1c9cc3a843da8aa506c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/常夏/身体/默认.png"
-dest_files=["res://.godot/imported/默认.png-48d8059925cb9eaaae762d0cf7b7a6cb.ctex"]
+source_file="res://assets/characters/余洛琛/身体/常服-手放下.png"
+dest_files=["res://.godot/imported/常服-手放下.png-0e31606deb7eb1c9cc3a843da8aa506c.ctex"]
 
 [params]
 

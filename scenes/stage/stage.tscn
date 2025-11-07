@@ -1,27 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctj8imd7y1gpj"]
+[gd_scene load_steps=14 format=3 uid="uid://ctj8imd7y1gpj"]
 
 [ext_resource type="Script" uid="uid://dhckqb4wog1cn" path="res://scenes/stage/stage.gd" id="1_ecxui"]
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="2_3kwj0"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/dialogues/main.dialogue" id="2_a221a"]
 [ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="3_a221a"]
+[ext_resource type="Texture2D" uid="uid://db874sc67otee" path="res://assets/backgrounds/1泳池-下午.jpg" id="4_ljyi0"]
 [ext_resource type="Script" uid="uid://cv5xbdhucorap" path="res://scripts/background_data.gd" id="4_pf3bu"]
+[ext_resource type="Texture2D" uid="uid://deou7di47gbt6" path="res://assets/backgrounds/2同兴里-下午.jpg" id="5_kb6yy"]
+[ext_resource type="Texture2D" uid="uid://hcxrsojlc3po" path="res://assets/backgrounds/3操场-下.jpg" id="6_uutle"]
+[ext_resource type="PackedScene" uid="uid://couiwje1dnllu" path="res://characters/instances/character_葛城.tscn" id="9_uutle"]
+[ext_resource type="PackedScene" uid="uid://bnu8yy8c7d3pj" path="res://characters/instances/character_辉夜奏.tscn" id="10_cwi0x"]
 
 [sub_resource type="Resource" id="Resource_lrsvv"]
 script = ExtResource("4_pf3bu")
 title = "公园小店"
 description = "就是那种公园里的小店"
+texture = ExtResource("4_ljyi0")
 metadata/_custom_type_script = "uid://cv5xbdhucorap"
 
 [sub_resource type="Resource" id="Resource_gygk3"]
 script = ExtResource("4_pf3bu")
 title = "音乐室"
 description = "学校里的音乐室"
+texture = ExtResource("5_kb6yy")
 metadata/_custom_type_script = "uid://cv5xbdhucorap"
 
 [sub_resource type="Resource" id="Resource_gf271"]
 script = ExtResource("4_pf3bu")
 title = "小镇道路"
 description = "很普通的小镇道路"
+texture = ExtResource("6_uutle")
 metadata/_custom_type_script = "uid://cv5xbdhucorap"
 
 [node name="Stage" type="Node" node_paths=PackedStringArray("character_pool")]
@@ -36,3 +44,7 @@ modulate = Color(1, 1, 1, 0)
 [node name="余洛琛" parent="Characters" instance=ExtResource("2_3kwj0")]
 
 [node name="常夏" parent="Characters" instance=ExtResource("3_a221a")]
+
+[node name="葛城" parent="Characters" instance=ExtResource("9_uutle")]
+
+[node name="辉夜奏" parent="Characters" instance=ExtResource("10_cwi0x")]

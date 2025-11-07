@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=92 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -26,17 +26,14 @@
 [ext_resource type="Texture2D" uid="uid://dl0m5u1eiytd5" path="res://assets/ui/鉴赏内容/插画鉴赏/插画鉴赏.png" id="19_eu6ph"]
 [ext_resource type="Texture2D" uid="uid://d2hj5j33shnui" path="res://assets/ui/鉴赏内容/音乐鉴赏/background.png" id="19_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://cil2u80u3sj0p" path="res://prefabs/gallery_card/gallery_card.tscn" id="20_edr7y"]
-[ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="21_87ddb"]
 [ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="21_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://blachu13yjxr7" path="res://assets/ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png" id="21_kq12w"]
 [ext_resource type="Script" uid="uid://d2ex0eewal7fh" path="res://pages/bonus_pages/character_page.gd" id="21_v33yl"]
 [ext_resource type="Texture2D" uid="uid://62bxyitkn4pu" path="res://assets/ui/鉴赏内容/background_character.png" id="22_mljfx"]
 [ext_resource type="PackedScene" uid="uid://buso3d823ic3e" path="res://prefabs/character_selection/character_selection.tscn" id="22_t46w6"]
 [ext_resource type="Texture2D" uid="uid://c50l5bg7y00i2" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_changxia.png" id="23_0de7l"]
-[ext_resource type="Texture2D" uid="uid://bkcxemmhr8edw" path="res://assets/backgrounds/学校の音楽室（日中）.jpg" id="23_ib7ph"]
 [ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="23_l1i01"]
 [ext_resource type="Texture2D" uid="uid://b8jvafi4iuuey" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_yuluochen.png" id="24_87ddb"]
-[ext_resource type="Texture2D" uid="uid://bi5shx6k0xlyi" path="res://assets/backgrounds/田舎道２（日中）.jpg" id="24_vuohh"]
 [ext_resource type="Script" uid="uid://bg15vxvu5533s" path="res://pages/gallery_page.gd" id="25_2e3yn"]
 [ext_resource type="Texture2D" uid="uid://bcqn2rjwt8m0p" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_gecheng.png" id="25_mljfx"]
 [ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="25_r62pu"]
@@ -312,7 +309,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("21_87ddb")
 
 [node name="音乐室" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage/Backgrounds"]
 layout_mode = 1
@@ -321,7 +317,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_ib7ph")
 
 [node name="小镇道路" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage/Backgrounds"]
 layout_mode = 1
@@ -330,7 +325,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("24_vuohh")
 
 [node name="TextureRect_Foreground" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage"]
 layout_mode = 1
@@ -837,6 +831,7 @@ grow_vertical = 1
 
 [node name="Layer_StagePages" type="CanvasLayer" parent="."]
 layer = 101
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Layer_StagePages"]
 anchors_preset = 15
@@ -1383,6 +1378,7 @@ offset_bottom = 1331.0
 grow_vertical = 1
 
 [node name="PhonePage" type="Control" parent="Layer_StagePages/StagePages"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

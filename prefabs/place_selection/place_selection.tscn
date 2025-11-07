@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://okl3ot47mvah"]
 
 [ext_resource type="Texture2D" uid="uid://bq7mka2gy7hr7" path="res://assets/ui/地点约会/place_outline.png" id="1_2yb27"]
-[ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="2_m77lu"]
 [ext_resource type="Script" uid="uid://c126co3y1clpo" path="res://prefabs/place_selection/place_selection.gd" id="2_pgumf"]
+[ext_resource type="Texture2D" uid="uid://db874sc67otee" path="res://assets/backgrounds/1泳池-下午.jpg" id="3_m77lu"]
 
 [node name="PlaceSelection" type="TextureRect" node_paths=PackedStringArray("texture_rect_image")]
 z_index = 1
@@ -19,6 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_m77lu")
+texture = ExtResource("3_m77lu")
 expand_mode = 1
 stretch_mode = 6

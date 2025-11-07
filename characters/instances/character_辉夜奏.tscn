@@ -170,7 +170,7 @@ animation = &"生气"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
 sprite_frames = SubResource("SpriteFrames_awoev")
-animation = &"悲伤"
+animation = &"眯眼"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
 sprite_frames = SubResource("SpriteFrames_h0xcy")

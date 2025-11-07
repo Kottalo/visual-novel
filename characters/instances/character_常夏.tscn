@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://crtfb3f3rs7b1"]
+[gd_scene load_steps=26 format=3 uid="uid://crtfb3f3rs7b1"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_1d4w3"]
-[ext_resource type="Texture2D" uid="uid://lisv5uubn5jh" path="res://assets/characters/常夏/身体/默认.png" id="2_ejj1m"]
+[ext_resource type="Texture2D" uid="uid://cmmcydphopsem" path="res://assets/characters/常夏/身体/举手掌.png" id="2_cmy8o"]
+[ext_resource type="Texture2D" uid="uid://v7wc641eqgk" path="res://assets/characters/常夏/身体/举食指.png" id="3_p5ym6"]
 [ext_resource type="Texture2D" uid="uid://cle0p6n6k3st0" path="res://assets/characters/常夏/眉毛/上挑.png" id="3_qlwf8"]
+[ext_resource type="Texture2D" uid="uid://3y5w3d1ep58t" path="res://assets/characters/常夏/身体/叉腰.png" id="4_h7f86"]
 [ext_resource type="Texture2D" uid="uid://ddgrrd3oc1bep" path="res://assets/characters/常夏/眉毛/悲伤.png" id="4_w0vi7"]
 [ext_resource type="Texture2D" uid="uid://c1qsto14pybo7" path="res://assets/characters/常夏/眉毛/生气.png" id="5_ewne5"]
 [ext_resource type="Texture2D" uid="uid://bqdki4vpcap75" path="res://assets/characters/常夏/眉毛/认真.png" id="6_wta5g"]
@@ -24,10 +26,26 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ejj1m")
+"texture": ExtResource("2_cmy8o")
 }],
 "loop": true,
-"name": &"默认",
+"name": &"举手掌",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p5ym6")
+}],
+"loop": true,
+"name": &"举食指",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h7f86")
+}],
+"loop": true,
+"name": &"叉腰",
 "speed": 5.0
 }]
 
@@ -172,7 +190,7 @@ animations = [{
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
 sprite_frames = SubResource("SpriteFrames_mflfp")
-animation = &"默认"
+animation = &"举食指"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
 sprite_frames = SubResource("SpriteFrames_mpe7f")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=25 format=3 uid="uid://dwnsxsn6pit1f"]
 
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://pages/stage_page/stage_page.gd" id="1_wlgfe"]
-[ext_resource type="Texture2D" uid="uid://cx1elu6gkspva" path="res://assets/backgrounds/公園の売店（日中）.jpg" id="2_50ef6"]
 [ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="2_yetgv"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_jool8"]
+[ext_resource type="Texture2D" uid="uid://reggb0dey3tm" path="res://assets/backgrounds/2同兴里-白天.jpg" id="3_lqv2x"]
 [ext_resource type="PackedScene" uid="uid://ft3erxxeesae" path="res://prefabs/dialogue_selection/dialogue_selection.tscn" id="4_wd0lf"]
 [ext_resource type="Texture2D" uid="uid://rujid3trau57" path="res://assets/ui/对话界面/dialogue_box_noname.png" id="5_wyvu0"]
 [ext_resource type="Texture2D" uid="uid://8q4jt6eqfbr3" path="res://assets/ui/对话界面/dialogue_box.png" id="6_ra4hq"]
@@ -124,7 +124,9 @@ offset_bottom = 682.0
 [node name="TextureRect_Background" type="TextureRect" parent="SubViewport/CanvasLayer"]
 offset_right = 2560.0
 offset_bottom = 1440.0
-texture = ExtResource("2_50ef6")
+texture = ExtResource("3_lqv2x")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="CharacterImages" type="Node2D" parent="SubViewport/CanvasLayer"]
 
