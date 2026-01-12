@@ -29,7 +29,7 @@ var background_name: String
 func Character(character_name: String) -> Character:
 	return character_dict[character_name]
 
-func SetBackground(background_name: String) -> void:
+func SetBackground(background_name: String, variation_name: String) -> void:
 	await create_tween().tween_property(
 		Pages.stage.texture_rect_blackscreen,
 		"scale:y",
@@ -39,7 +39,7 @@ func SetBackground(background_name: String) -> void:
 	var target_background: Texture2D = background_data_pool.filter(
 		func (background: BackgroundData):
 			return background.title == background_name
-	).front().texture
+	).front().variations[variation_name]
 	Pages.stage.texture_rect_background.texture = target_background
 	await create_tween().tween_property(
 		Pages.stage.texture_rect_blackscreen,

@@ -4,7 +4,7 @@ do Character("余洛琛").SetParts("Eyes:悲伤")
 do Character("余洛琛").FadeIn("Center", 1)
 do Character("余洛琛").MoveTo("RightMost", 0.3)
 余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。
-do SetBackground("音乐室")
+do SetBackground("教室", "白天")
 do Character("余洛琛").MoveTo("LeftMost", 0.3)
 余洛琛: [[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。我感到非常愉快。[[你好|哈啰|早呀]]，我感到非常愉快。我感到非常愉快。我感到非常愉快。
 

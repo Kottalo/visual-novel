@@ -1,43 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlwuxad1c584x"]
+[gd_scene load_steps=5 format=3 uid="uid://dlwuxad1c584x"]
 
 [ext_resource type="Script" uid="uid://dm16uidvb5i2x" path="res://audio_manager/audio_manager.gd" id="1_j0p2n"]
-[ext_resource type="Script" uid="uid://dd5qtcvk5r731" path="res://scripts/music_data.gd" id="2_qhrnm"]
-[ext_resource type="AudioStream" uid="uid://c4iurm62qedb6" path="res://assets/musics/One Step From Eden - Battle of Fire I.mp3" id="3_n2vnv"]
-[ext_resource type="AudioStream" uid="uid://cufi58bsisb2v" path="res://assets/musics/凝雪馥语.mp3" id="3_xydhd"]
-[ext_resource type="AudioStream" uid="uid://bsdiw8mr3scgs" path="res://assets/musics/One Step From Eden - Neverending Song_ Violette's Theme.mp3" id="4_xydhd"]
-[ext_resource type="AudioStream" uid="uid://ct78sgbt2gm4g" path="res://assets/musics/One Step From Eden - Perpetual Motion_ Hazel's Theme.mp3" id="5_05x4o"]
-
-[sub_resource type="Resource" id="Resource_05x4o"]
-script = ExtResource("2_qhrnm")
-title = "凝雪馥语"
-description = "主题曲"
-track = ExtResource("3_xydhd")
-metadata/_custom_type_script = "uid://dd5qtcvk5r731"
-
-[sub_resource type="Resource" id="Resource_36jdj"]
-script = ExtResource("2_qhrnm")
-title = "Battle of Fire I"
-description = "是我挺喜欢的一首战斗曲，非常好听"
-track = ExtResource("3_n2vnv")
-metadata/_custom_type_script = "uid://dd5qtcvk5r731"
-
-[sub_resource type="Resource" id="Resource_xfvwf"]
-script = ExtResource("2_qhrnm")
-title = "Neverending Song"
-description = "这歌燃了，角色曲非常个性化"
-track = ExtResource("4_xydhd")
-metadata/_custom_type_script = "uid://dd5qtcvk5r731"
-
-[sub_resource type="Resource" id="Resource_dhpj7"]
-script = ExtResource("2_qhrnm")
-title = "Perpetual Motion"
-description = "我挺喜欢这首的"
-track = ExtResource("5_05x4o")
-metadata/_custom_type_script = "uid://dd5qtcvk5r731"
+[ext_resource type="Script" uid="uid://dd5qtcvk5r731" path="res://data/_models/music_data.gd" id="2_qhrnm"]
+[ext_resource type="Resource" uid="uid://bscr1rj1i7xmw" path="res://data/musics/1.tres" id="3_n2vnv"]
+[ext_resource type="Resource" uid="uid://bw6mujweotjus" path="res://data/musics/2.tres" id="4_xydhd"]
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("audio_player_music", "audio_player_sound", "audio_player_voice", "audio_player_bonus")]
 script = ExtResource("1_j0p2n")
-playlist = Array[ExtResource("2_qhrnm")]([SubResource("Resource_05x4o"), SubResource("Resource_36jdj"), SubResource("Resource_xfvwf"), SubResource("Resource_dhpj7")])
+playlist = Array[ExtResource("2_qhrnm")]([ExtResource("3_n2vnv"), ExtResource("4_xydhd")])
 audio_player_music = NodePath("AudioPlayer_Music")
 audio_player_sound = NodePath("AudioPlayer_Sound")
 audio_player_voice = NodePath("AudioPlayer_Voice")
