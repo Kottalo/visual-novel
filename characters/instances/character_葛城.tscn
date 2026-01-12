@@ -156,15 +156,15 @@ animation = &"手放下"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
 sprite_frames = SubResource("SpriteFrames_i7yso")
-animation = &"悲伤"
+animation = &"上挑"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
 sprite_frames = SubResource("SpriteFrames_whde6")
-animation = &"默认"
+animation = &"眯眼"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
 sprite_frames = SubResource("SpriteFrames_qs3gh")
-animation = &"闭口微笑"
+animation = &"说话"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
 texture = ExtResource("16_m4mpf")

@@ -29,12 +29,13 @@ var background_name: String
 func Character(character_name: String) -> Character:
 	return character_dict[character_name]
 
-func SetBackground(background_name: String, variation_name: String) -> void:
+func SetBackground(background_name: String, variation_name: String,
+	out_time: float = 0, in_time: float = 0) -> void:
 	await create_tween().tween_property(
 		Pages.stage.texture_rect_blackscreen,
-		"scale:y",
+		"modulate:a",
 		1,
-		0.5
+		out_time
 	).finished
 	var target_background: Texture2D = background_data_pool.filter(
 		func (background: BackgroundData):
@@ -43,9 +44,9 @@ func SetBackground(background_name: String, variation_name: String) -> void:
 	Pages.stage.texture_rect_background.texture = target_background
 	await create_tween().tween_property(
 		Pages.stage.texture_rect_blackscreen,
-		"scale:y",
+		"modulate:a",
 		0,
-		0.3
+		in_time
 	).finished
 
 func Travel() -> void:

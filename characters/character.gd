@@ -1,10 +1,10 @@
+@tool
 class_name Character
 extends Node2D
 
 @export var subviewport: SubViewport
 @export var avatar_frame: Control
 
-@export var body_node: AnimatedSprite2D
 @export var body_parts: Array[AnimatedSprite2D]
 @export var optionals_pool: Node2D
 
@@ -20,6 +20,8 @@ signal bonus_part_index_dict_updated
 var bonus_part_index_dict: Dictionary[String, Dictionary]
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	for body_part in body_parts:
 		var part_name = body_part.name
 		body_part_dict[part_name] = body_part
@@ -53,6 +55,14 @@ func get_avatar_image() -> AtlasTexture:
 	atlas_texture.region = avatar_frame.get_rect()
 	
 	return atlas_texture
+
+@export_tool_button("Print SetParts") var print_set_parts_button = print_set_parts
+
+func print_set_parts() -> void:
+	var part_texts = []
+	for part in body_parts:
+		part_texts.append("%s:%s" % [part.name, part.animation])
+	print("""Character("%s").SetParts("%s")""" % [name, ",".join(part_texts)])
 
 #region Dialogue Commands
 
