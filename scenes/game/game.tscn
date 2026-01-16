@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=98 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -88,9 +88,15 @@
 [ext_resource type="Texture2D" uid="uid://8778p7eby2v4" path="res://assets/ui/历史记录/divide_line.png" id="79_472nx"]
 [ext_resource type="Texture2D" uid="uid://74ecblh737xd" path="res://assets/ui/奇迹书/page_hover.png" id="79_17607"]
 [ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="80_hqxe5"]
+[ext_resource type="PackedScene" uid="uid://btkall20t660f" path="res://prefabs/phone_icon/phone_icon.tscn" id="91_dadqe"]
 [ext_resource type="PackedScene" uid="uid://dwnsxsn6pit1f" path="res://pages/stage_page/stage_page.tscn" id="92_dadqe"]
+[ext_resource type="Texture2D" uid="uid://bvs2xcuwuc67f" path="res://assets/ui/手机界面/ico_message.png" id="92_mhl8n"]
 [ext_resource type="Texture2D" uid="uid://buk2g6xctxqaj" path="res://assets/ui/手机界面/phone.png" id="92_xj5di"]
+[ext_resource type="Texture2D" uid="uid://xdfemgucgx0x" path="res://assets/ui/手机界面/ico_image.png" id="93_5xmm2"]
 [ext_resource type="Texture2D" uid="uid://bv0fkx2mkc10g" path="res://assets/ui/手机界面/screen_image.png" id="93_7s1vt"]
+[ext_resource type="Texture2D" uid="uid://bvf8bn2lhtjat" path="res://assets/ui/手机界面/ico_music.png" id="94_aggdw"]
+[ext_resource type="Texture2D" uid="uid://ciudxu8yrrbgu" path="res://assets/ui/手机界面/ico_book.png" id="95_7128n"]
+[ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
 
 [node name="Game" type="Control" node_paths=PackedStringArray("main_pages", "page_container", "layer_stage_pages", "stage_page", "stage_page_container")]
 layout_mode = 3
@@ -115,6 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainMenu" type="Control" parent="Pages" node_paths=PackedStringArray("button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -831,7 +838,6 @@ grow_vertical = 1
 
 [node name="Layer_StagePages" type="CanvasLayer" parent="."]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Layer_StagePages"]
 anchors_preset = 15
@@ -1378,7 +1384,6 @@ offset_bottom = 1331.0
 grow_vertical = 1
 
 [node name="PhonePage" type="Control" parent="Layer_StagePages/StagePages"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1393,9 +1398,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1179.0
+offset_left = -1167.0
 offset_top = -1429.0
-offset_right = -186.0
+offset_right = -174.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("92_xj5di")
@@ -1414,6 +1419,42 @@ offset_bottom = 715.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("93_7s1vt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layer_StagePages/StagePages/PhonePage/Phone"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 1158.0
+offset_right = 763.0
+offset_bottom = 1288.0
+theme_override_constants/separation = 25
+
+[node name="PhoneIcon_Message" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+layout_mode = 2
+icon = ExtResource("92_mhl8n")
+title = "信息"
+
+[node name="PhoneIcon_Photo" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+layout_mode = 2
+icon = ExtResource("93_5xmm2")
+title = "相册"
+
+[node name="PhoneIcon_Music" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+layout_mode = 2
+icon = ExtResource("94_aggdw")
+title = "音乐"
+
+[node name="PhoneIcon_Book" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+layout_mode = 2
+icon = ExtResource("95_7128n")
+title = "奇迹书"
+
+[node name="Preview" type="TextureRect" parent="Layer_StagePages/StagePages/PhonePage"]
+visible = false
+modulate = Color(1, 1, 1, 0.22745098)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("96_5xmm2")
 
 [node name="StagePage" parent="." instance=ExtResource("92_dadqe")]
 visible = false
