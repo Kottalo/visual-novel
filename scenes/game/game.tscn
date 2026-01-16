@@ -838,6 +838,7 @@ grow_vertical = 1
 
 [node name="Layer_StagePages" type="CanvasLayer" parent="."]
 layer = 101
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Layer_StagePages"]
 anchors_preset = 15
@@ -1384,6 +1385,7 @@ offset_bottom = 1331.0
 grow_vertical = 1
 
 [node name="PhonePage" type="Control" parent="Layer_StagePages/StagePages"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1429,21 +1431,25 @@ offset_bottom = 1288.0
 theme_override_constants/separation = 25
 
 [node name="PhoneIcon_Message" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("92_mhl8n")
 title = "信息"
 
 [node name="PhoneIcon_Photo" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("93_5xmm2")
 title = "相册"
 
 [node name="PhoneIcon_Music" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("94_aggdw")
 title = "音乐"
 
 [node name="PhoneIcon_Book" parent="Layer_StagePages/StagePages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("95_7128n")
 title = "奇迹书"

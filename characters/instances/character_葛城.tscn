@@ -1,27 +1,27 @@
 [gd_scene load_steps=21 format=3 uid="uid://couiwje1dnllu"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_8t5bo"]
-[ext_resource type="Texture2D" uid="uid://dh1omcrvc3hc4" path="res://assets/characters/葛城/身体/手抬起.png" id="2_i7yso"]
-[ext_resource type="Texture2D" uid="uid://da2c4myppc2uj" path="res://assets/characters/葛城/身体/手放下.png" id="3_8gf13"]
-[ext_resource type="Texture2D" uid="uid://dgrr4fcy8tme7" path="res://assets/characters/葛城/眉毛/上挑.png" id="4_mht02"]
-[ext_resource type="Texture2D" uid="uid://da5wcw3wp4sw4" path="res://assets/characters/葛城/眉毛/下挑.png" id="5_was16"]
-[ext_resource type="Texture2D" uid="uid://lqj25evxmmy7" path="res://assets/characters/葛城/眉毛/悲伤.png" id="6_rqx5r"]
-[ext_resource type="Texture2D" uid="uid://1fl2nsko78rb" path="res://assets/characters/葛城/眉毛/默认.png" id="7_rqx7q"]
-[ext_resource type="Texture2D" uid="uid://bbf1ecr5e5jhx" path="res://assets/characters/葛城/眼睛/微眯.png" id="8_qs3gh"]
-[ext_resource type="Texture2D" uid="uid://d3tpjyg2sohmx" path="res://assets/characters/葛城/眼睛/悲伤.png" id="9_xfhk7"]
-[ext_resource type="Texture2D" uid="uid://bpu33vn7m32k2" path="res://assets/characters/葛城/眼睛/眯眼.png" id="10_fq1es"]
-[ext_resource type="Texture2D" uid="uid://cwlnu2r3jbc5u" path="res://assets/characters/葛城/眼睛/默认.png" id="11_nhnn3"]
-[ext_resource type="Texture2D" uid="uid://d1jpif7fh2e31" path="res://assets/characters/葛城/嘴巴/说话.png" id="12_whde6"]
-[ext_resource type="Texture2D" uid="uid://dyh6saj0o6um8" path="res://assets/characters/葛城/嘴巴/闭口不满.png" id="13_m4mpf"]
-[ext_resource type="Texture2D" uid="uid://bswt6evv2adj7" path="res://assets/characters/葛城/嘴巴/闭口微笑.png" id="14_ijtpr"]
-[ext_resource type="Texture2D" uid="uid://pjndeufktnrt" path="res://assets/characters/葛城/嘴巴/露齿笑.png" id="15_jbeyg"]
-[ext_resource type="Texture2D" uid="uid://2vqni4m6gfwh" path="res://assets/characters/葛城/附加/脸红.png" id="16_m4mpf"]
+[ext_resource type="Texture2D" uid="uid://cnlxqjvcts1rw" path="res://assets/sprites/characters.sprites/葛城/身体/手抬起.tres" id="2_m4mpf"]
+[ext_resource type="Texture2D" uid="uid://cm4r2830g287s" path="res://assets/sprites/characters.sprites/葛城/身体/手放下.tres" id="3_ijtpr"]
+[ext_resource type="Texture2D" uid="uid://dmglmtt6p0kto" path="res://assets/sprites/characters.sprites/葛城/眉毛/上挑.tres" id="4_jbeyg"]
+[ext_resource type="Texture2D" uid="uid://onemgouce6g4" path="res://assets/sprites/characters.sprites/葛城/眉毛/下挑.tres" id="5_xm650"]
+[ext_resource type="Texture2D" uid="uid://b86kt6baompj" path="res://assets/sprites/characters.sprites/葛城/眉毛/悲伤.tres" id="6_6hyrk"]
+[ext_resource type="Texture2D" uid="uid://2rnv72k7r0v8" path="res://assets/sprites/characters.sprites/葛城/眉毛/默认.tres" id="7_33gpk"]
+[ext_resource type="Texture2D" uid="uid://c4qb8qclwwxco" path="res://assets/sprites/characters.sprites/葛城/眼睛/微眯.tres" id="8_xfoea"]
+[ext_resource type="Texture2D" uid="uid://bsdkt6ba51twy" path="res://assets/sprites/characters.sprites/葛城/眼睛/悲伤.tres" id="9_kxphj"]
+[ext_resource type="Texture2D" uid="uid://u1igrg3utjqn" path="res://assets/sprites/characters.sprites/葛城/眼睛/眯眼.tres" id="10_1p7vq"]
+[ext_resource type="Texture2D" uid="uid://cnq1pe2ujqgty" path="res://assets/sprites/characters.sprites/葛城/眼睛/默认.tres" id="11_as12d"]
+[ext_resource type="Texture2D" uid="uid://b1ip7be357bsm" path="res://assets/sprites/characters.sprites/葛城/嘴巴/说话.tres" id="12_o1vgr"]
+[ext_resource type="Texture2D" uid="uid://cgbxcp8fjv07i" path="res://assets/sprites/characters.sprites/葛城/嘴巴/闭口不满.tres" id="13_2gk8n"]
+[ext_resource type="Texture2D" uid="uid://4gxsbteke0ni" path="res://assets/sprites/characters.sprites/葛城/嘴巴/闭口微笑.tres" id="14_fkvvl"]
+[ext_resource type="Texture2D" uid="uid://dtuqvvg2wsyep" path="res://assets/sprites/characters.sprites/葛城/嘴巴/露齿笑.tres" id="15_yy802"]
+[ext_resource type="Texture2D" uid="uid://8hlsc7bh3k6n" path="res://assets/sprites/characters.sprites/葛城/附加/脸红.tres" id="16_wyfxs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dacpq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_i7yso")
+"texture": ExtResource("2_m4mpf")
 }],
 "loop": true,
 "name": &"手抬起",
@@ -29,7 +29,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8gf13")
+"texture": ExtResource("3_ijtpr")
 }],
 "loop": true,
 "name": &"手放下",
@@ -40,7 +40,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_mht02")
+"texture": ExtResource("4_jbeyg")
 }],
 "loop": true,
 "name": &"上挑",
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_was16")
+"texture": ExtResource("5_xm650")
 }],
 "loop": true,
 "name": &"下挑",
@@ -56,7 +56,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_rqx5r")
+"texture": ExtResource("6_6hyrk")
 }],
 "loop": true,
 "name": &"悲伤",
@@ -64,7 +64,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_rqx7q")
+"texture": ExtResource("7_33gpk")
 }],
 "loop": true,
 "name": &"默认",
@@ -75,7 +75,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_qs3gh")
+"texture": ExtResource("8_xfoea")
 }],
 "loop": true,
 "name": &"微眯",
@@ -83,7 +83,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_xfhk7")
+"texture": ExtResource("9_kxphj")
 }],
 "loop": true,
 "name": &"悲伤",
@@ -91,7 +91,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_fq1es")
+"texture": ExtResource("10_1p7vq")
 }],
 "loop": true,
 "name": &"眯眼",
@@ -99,7 +99,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_nhnn3")
+"texture": ExtResource("11_as12d")
 }],
 "loop": true,
 "name": &"默认",
@@ -110,7 +110,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_whde6")
+"texture": ExtResource("12_o1vgr")
 }],
 "loop": true,
 "name": &"说话",
@@ -118,7 +118,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_m4mpf")
+"texture": ExtResource("13_2gk8n")
 }],
 "loop": true,
 "name": &"闭口不满",
@@ -126,7 +126,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_ijtpr")
+"texture": ExtResource("14_fkvvl")
 }],
 "loop": true,
 "name": &"闭口微笑",
@@ -134,7 +134,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_jbeyg")
+"texture": ExtResource("15_yy802")
 }],
 "loop": true,
 "name": &"露齿笑",
@@ -156,15 +156,15 @@ animation = &"手放下"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
 sprite_frames = SubResource("SpriteFrames_i7yso")
-animation = &"上挑"
+animation = &"默认"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
 sprite_frames = SubResource("SpriteFrames_whde6")
-animation = &"眯眼"
+animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
 sprite_frames = SubResource("SpriteFrames_qs3gh")
 animation = &"说话"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
-texture = ExtResource("16_m4mpf")
+texture = ExtResource("16_wyfxs")
