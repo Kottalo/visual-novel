@@ -19,5 +19,6 @@ func _ready() -> void:
 	
 	phone_icon_photo.clicked.connect(
 		func ():
-			pass
+			hide()
+			Main.game.switch_page("BonusPage")
 	)
