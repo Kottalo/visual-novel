@@ -29,7 +29,7 @@ func _ready() -> void:
 		func ():
 			Main.selected_save_profile_index = get_index()
 			if Main.profile_mode == Main.ProfileMode.SAVE:
-				var _texture = Pages.stage.subviewport.get_texture()
+				var _texture = Game.stage_page.subviewport.get_texture()
 				var image = _texture.get_image()
 				image.resize(470, 265, Image.INTERPOLATE_NEAREST)
 				var resized_texture = ImageTexture.create_from_image(image)
@@ -38,7 +38,7 @@ func _ready() -> void:
 					Main.save_data.profiles.insert(index, ProfileData.new())
 				Main.save_data.profiles[index].preview = resized_texture
 				ResourceSaver.save(Main.save_data, Main.file_path)
-				Pages.profile.update()
+				Game.profile_page.update()
 			
 			if Main.profile_mode == Main.ProfileMode.LOAD:
 				pass

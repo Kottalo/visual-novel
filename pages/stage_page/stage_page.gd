@@ -1,5 +1,5 @@
 class_name StagePage
-extends Control
+extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 @export var dialogue_screen: Control
@@ -57,7 +57,8 @@ var dialogue_line: DialogueLine:
 			for character in character_image_pool.get_children():
 				character_image_pool.remove_child(character)
 				character.queue_free()
-			Pages.current_page = Pages.main_menu
+			hide()
+			Game.main_menu.show()
 	get:
 		return dialogue_line
 
@@ -75,7 +76,6 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 func _ready() -> void:
-	Pages.stage = self
 	dialogue_screen.modulate.a = 0
 	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)

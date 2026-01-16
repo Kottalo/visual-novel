@@ -17,8 +17,9 @@ func _ready() -> void:
 		character_dict[character.name] = character
 
 func start() -> void:
-	Pages.current_page = Pages.stage
-	Pages.stage.start(main_dialogue, "start", [Stage])
+	Game.hide_all_pages()
+	Game.stage_page.show()
+	Game.stage_page.start(main_dialogue, "start", [Stage])
 
 #region Dialogue Variables
 var position_name: String
@@ -32,7 +33,7 @@ func Character(character_name: String) -> Character:
 func SetBackground(background_name: String, variation_name: String,
 	out_time: float = 0, in_time: float = 0) -> void:
 	await create_tween().tween_property(
-		Pages.stage.texture_rect_blackscreen,
+		Game.stage_page.texture_rect_blackscreen,
 		"modulate:a",
 		1,
 		out_time
@@ -41,15 +42,15 @@ func SetBackground(background_name: String, variation_name: String,
 		func (background: BackgroundData):
 			return background.title == background_name
 	).front().variations[variation_name]
-	Pages.stage.texture_rect_background.texture = target_background
+	Game.stage_page.texture_rect_background.texture = target_background
 	await create_tween().tween_property(
-		Pages.stage.texture_rect_blackscreen,
+		Game.stage_page.texture_rect_blackscreen,
 		"modulate:a",
 		0,
 		in_time
 	).finished
 
 func Travel() -> void:
-	Pages.travel.visible = true
-	await Pages.travel.visibility_changed
+	Game.travel_page.visible = true
+	await Game.travel_page.visibility_changed
 #endregion

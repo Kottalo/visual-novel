@@ -3,8 +3,9 @@ extends TextureButton
 func _ready() -> void:
 	pressed.connect(
 		func ():
-			if Pages.stage.visible:
+			if Game.stage_page.visible:
 				get_parent().visible = false
 			else:
-				Pages.current_page = Pages.main_menu
+				Game.hide_all_pages()
+				Game.main_menu.show()
 	)

@@ -1,5 +1,5 @@
 class_name BookPage
-extends Control
+extends CanvasLayer
 
 @export var dialogue_label: DialogueLabel
 @export var pages: Array[DialogueResource]
@@ -49,8 +49,6 @@ func write() -> void:
 		write()
 
 func _ready() -> void:
-	Pages.book = self
-	
 	button_previous.pressed.connect(
 		func (): page_index -= 1
 	)

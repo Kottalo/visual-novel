@@ -4,7 +4,6 @@ enum ProfileMode { LOAD, SAVE }
 
 var save_data: SaveData = SaveData.new()
 var file_path = "user://save_data.tres"
-var game: Game
 
 var clicked: bool
 var dragged: bool

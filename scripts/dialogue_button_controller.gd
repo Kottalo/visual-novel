@@ -22,25 +22,25 @@ func _ready() -> void:
 	button_save.clicked.connect(
 		func ():
 			Main.profile_mode = Main.ProfileMode.SAVE
-			Pages.profile.show()
+			Game.profile_page.show()
 	)
 	button_load.clicked.connect(
 		func ():
 			Main.profile_mode = Main.ProfileMode.LOAD
-			Pages.profile.show()
+			Game.profile_page.show()
 	)
 	button_log.clicked.connect(
-		func (): Pages.log.show()
+		func (): Game.log_page.show()
 	)
 	button_set.clicked.connect(
 		func ():
 			pass
 	)
 	button_phone.clicked.connect(
-		func (): Pages.phone.show()
+		func (): Game.phone_page.show()
 	)
 	button_book.clicked.connect(
-		func (): Pages.book.show()
+		func (): Game.book_page.show()
 	)
 	button_title.clicked.connect(
 		func ():

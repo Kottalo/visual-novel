@@ -1,5 +1,5 @@
 class_name PhonePage
-extends Control
+extends CanvasLayer
 
 @export var background: Control
 @export var phone_icon_message: PhoneIcon
@@ -8,8 +8,6 @@ extends Control
 @export var phone_icon_book: PhoneIcon
 
 func _ready() -> void:
-	Pages.phone = self
-	
 	background.gui_input.connect(
 		func (event: InputEvent):
 			if event is InputEventMouseButton:

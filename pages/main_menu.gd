@@ -1,5 +1,5 @@
 class_name MainMenu
-extends Control
+extends CanvasLayer
 
 @export var button_start: MainMenuButton
 @export var button_load: MainMenuButton
@@ -9,8 +9,6 @@ extends Control
 @export var button_quit: MainMenuButton
 
 func _ready() -> void:
-	Pages.main_menu = self
-
 	button_start.clicked.connect(
 		func ():
 			Stage.start()
@@ -18,15 +16,17 @@ func _ready() -> void:
 	button_load.clicked.connect(
 		func ():
 			Main.profile_mode = Main.ProfileMode.LOAD
-			Pages.current_page = Pages.profile
+			hide()
+			Game.profile_page.show()
 	)
 	button_bonus.clicked.connect(
 		func ():
-			Pages.current_page = Pages.bonus
+			hide()
+			Game.bonus_page.show()
 	)
 	button_book.clicked.connect(
 		func ():
-			Pages.current_page = Pages.book
+			Game.book_page.show()
 	)
 	button_setting.clicked.connect(
 		func (): pass

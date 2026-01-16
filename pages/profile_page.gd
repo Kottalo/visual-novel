@@ -1,14 +1,12 @@
 class_name ProfilePage
-extends Control
+extends CanvasLayer
 
 @export var profile_card_model: ProfileCard
 @export var title_load: TextureRect
 @export var title_save: TextureRect
 @export var profile_card_pool: GridContainer
 
-func _ready() -> void:
-	Pages.profile = self
-	
+func _ready() -> void:	
 	visibility_changed.connect(
 		func ():
 			title_load.visible = Main.profile_mode == Main.ProfileMode.LOAD

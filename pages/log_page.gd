@@ -1,16 +1,14 @@
 class_name LogPage
-extends Control
+extends CanvasLayer
 
 @export var log_line: LogLine
 @export var divider: TextureRect
 @export var vbox_log_lines: VBoxContainer
 
 func _ready() -> void:
-	Pages.log = self
-	
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
-			if Pages.book.visible: return
+			if Game.book_page.visible: return
 			insert_line(line.character, line.text)
 	)
 

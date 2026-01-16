@@ -1,5 +1,5 @@
 class_name TravelPage
-extends Control
+extends CanvasLayer
 
 @export var vbox_selections: VBoxContainer
 @export var place_selection: Control
@@ -39,8 +39,6 @@ var button_pressed: bool
 var sliding: bool
 
 func _ready() -> void:
-	Pages.travel = self
-	
 	vbox_selections.gui_input.connect(
 		func (event: InputEvent):
 			if event is InputEventMouseButton:

@@ -24,7 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="visual-novel"
-run/main_scene="res://scenes/game/game.tscn"
+run/main_scene="uid://nixyr2xle2qo"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -33,8 +33,8 @@ config/icon="res://icon.svg"
 Main="*res://scenes/main/main.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 AudioManager="*res://audio_manager/audio_manager.tscn"
-Pages="*res://pages/pages.gd"
 Stage="*res://scenes/stage/stage.tscn"
+Game="*res://scenes/game/game.tscn"
 
 [dialogic]
 

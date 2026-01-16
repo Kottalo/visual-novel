@@ -1,28 +1,20 @@
-class_name Game
-extends Control
+extends Node
 
-@export var main_pages: Array[Node]
-@export var page_container: Control
-@export var layer_stage_pages: CanvasLayer
-@export var stage_page: CanvasLayer
-@export var stage_page_container: Control
-@export var stage_page_background: Control
+@export var page_pool: Node
 
-@export var phone_page: Control
+@export var main_menu: MainMenu
+@export var bonus_page: BonusPage
+@export var stage_page: StagePage
+@export var profile_page: ProfilePage
+@export var travel_page: TravelPage
+@export var book_page: BookPage
+@export var log_page: LogPage
+@export var phone_page: PhonePage
 
 func _ready() -> void:
-	Main.game = self
-	
-	for page: Control in stage_page_container.get_children():
-		page.visibility_changed.connect(
-			func ():
-				layer_stage_pages.visible = page.visible
-		)
-	
-	phone_page.visibility_changed.connect(
-		func (): stage_page_background.visible = not phone_page.visible
-	)
+	hide_all_pages()
+	main_menu.show()
 
-func switch_page(page_name: String) -> void:
-	for page: Control in page_container.get_children():
-		page.visible = page.name == page_name
+func hide_all_pages() -> void:
+	for page: CanvasLayer in page_pool.get_children():
+		page.visible = false
