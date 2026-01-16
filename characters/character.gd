@@ -4,6 +4,7 @@ extends Node2D
 
 @export var subviewport: SubViewport
 @export var avatar_frame: Control
+@export var texture_rect_avatar: TextureRect
 
 @export var body_parts: Array[AnimatedSprite2D]
 @export var optionals_pool: Node2D
@@ -21,6 +22,8 @@ var bonus_part_index_dict: Dictionary[String, Dictionary]
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	
+	texture_rect_avatar.visible = false
 	
 	for body_part in body_parts:
 		var part_name = body_part.name

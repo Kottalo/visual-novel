@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://couiwje1dnllu"]
+[gd_scene load_steps=23 format=3 uid="uid://couiwje1dnllu"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_8t5bo"]
 [ext_resource type="Texture2D" uid="uid://cnlxqjvcts1rw" path="res://assets/sprites/characters.sprites/葛城/身体/手抬起.tres" id="2_m4mpf"]
@@ -141,6 +141,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_m4mpf"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijtpr"]
+resource_local_to_scene = true
+atlas = SubResource("ViewportTexture_m4mpf")
+region = Rect2(204.88013, 89.8569, 504.6975, 488.4169)
+
 [node name="葛城" instance=ExtResource("1_8t5bo")]
 
 [node name="SubViewportContainer" parent="." index="0"]
@@ -168,3 +176,7 @@ animation = &"说话"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
 texture = ExtResource("16_wyfxs")
+
+[node name="TextureRect_Avatar" parent="." index="1"]
+visible = true
+texture = SubResource("AtlasTexture_ijtpr")

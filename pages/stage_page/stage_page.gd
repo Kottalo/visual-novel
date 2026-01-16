@@ -136,9 +136,14 @@ func apply_dialogue_line() -> void:
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
 	
+	var character_name = dialogue_line.character
 	bg_common.visible = dialogue_line.character.is_empty()
 	bg_character.visible = not dialogue_line.character.is_empty()
-	avatar.visible = not dialogue_line.character.is_empty()
+	if Stage.character_dict.has(character_name):
+		avatar.texture = Stage.character_dict[character_name].texture_rect_avatar.texture
+		avatar.visible = true
+	else:
+		avatar.visible = false
 	
 	if dialogue_screen.modulate.a != 1:
 		await create_tween().tween_property(dialogue_screen, "modulate:a", 1, 0.5).finished

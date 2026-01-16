@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://crtfb3f3rs7b1"]
+[gd_scene load_steps=28 format=3 uid="uid://crtfb3f3rs7b1"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_1d4w3"]
 [ext_resource type="Texture2D" uid="uid://b3qpnd5exitjk" path="res://assets/sprites/characters.sprites/常夏/身体/举手掌.tres" id="2_cmy8o"]
@@ -186,6 +186,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_cmy8o"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5ym6"]
+resource_local_to_scene = true
+atlas = SubResource("ViewportTexture_cmy8o")
+region = Rect2(221.16089, 0, 561.6792, 527.8349)
+
 [node name="常夏" instance=ExtResource("1_1d4w3")]
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
@@ -207,3 +215,6 @@ animation = &"笑开口"
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
 visible = false
 texture = ExtResource("21_hdqmv")
+
+[node name="TextureRect_Avatar" parent="." index="1"]
+texture = SubResource("AtlasTexture_p5ym6")

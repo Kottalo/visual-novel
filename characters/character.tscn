@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpa5d8jlrcd16"]
+[gd_scene load_steps=4 format=3 uid="uid://bpa5d8jlrcd16"]
 
 [ext_resource type="Script" uid="uid://di7qgo24s04cu" path="res://characters/character.gd" id="1_e3kty"]
 
-[node name="Character" type="Node2D" node_paths=PackedStringArray("subviewport", "avatar_frame", "body_node", "body_parts", "optionals_pool", "eyebrows_node", "eyes_node", "mouth_node")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_54qew"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqr4u"]
+resource_local_to_scene = true
+atlas = SubResource("ViewportTexture_54qew")
+
+[node name="Character" type="Node2D" node_paths=PackedStringArray("subviewport", "avatar_frame", "texture_rect_avatar", "body_parts", "optionals_pool")]
 script = ExtResource("1_e3kty")
 subviewport = NodePath("SubViewportContainer/SubViewport")
 avatar_frame = NodePath("SubViewportContainer/SubViewport/AvatarFrame")
-body_node = NodePath("SubViewportContainer/SubViewport/Body")
+texture_rect_avatar = NodePath("TextureRect_Avatar")
 body_parts = [NodePath("SubViewportContainer/SubViewport/Body"), NodePath("SubViewportContainer/SubViewport/Body/Eyebrows"), NodePath("SubViewportContainer/SubViewport/Body/Eyes"), NodePath("SubViewportContainer/SubViewport/Body/Mouth")]
 optionals_pool = NodePath("SubViewportContainer/SubViewport/Body/Optionals")
-eyebrows_node = NodePath("SubViewportContainer/SubViewport/Body/Eyebrows")
-eyes_node = NodePath("SubViewportContainer/SubViewport/Body/Eyes")
-mouth_node = NodePath("SubViewportContainer/SubViewport/Body/Mouth")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_left = -477.0
@@ -48,3 +52,12 @@ offset_left = 0.04798889
 offset_top = 0.4449997
 offset_right = 0.2399292
 offset_bottom = 0.4699707
+
+[node name="TextureRect_Avatar" type="TextureRect" parent="."]
+offset_left = 740.0
+offset_top = -1029.0
+offset_right = 1328.0
+offset_bottom = -404.0
+texture = SubResource("AtlasTexture_qqr4u")
+expand_mode = 5
+stretch_mode = 6

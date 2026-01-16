@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bnu8yy8c7d3pj"]
+[gd_scene load_steps=25 format=3 uid="uid://bnu8yy8c7d3pj"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_mvhsb"]
 [ext_resource type="Texture2D" uid="uid://b3o6uan6n6ps6" path="res://assets/sprites/characters.sprites/辉夜奏/身体/手放下.tres" id="2_vdiis"]
@@ -159,9 +159,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_vdiis"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn7nl"]
+resource_local_to_scene = true
+atlas = SubResource("ViewportTexture_vdiis")
+region = Rect2(213.02051, 0, 561.67944, 511.55426)
+
 [node name="辉夜奏" instance=ExtResource("1_mvhsb")]
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
+position = Vector2(499, 1130)
 sprite_frames = SubResource("SpriteFrames_mvhsb")
 animation = &"默认"
 
@@ -180,3 +189,6 @@ animation = &"闭口"
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
 visible = false
 texture = ExtResource("18_mchy6")
+
+[node name="TextureRect_Avatar" parent="." index="1"]
+texture = SubResource("AtlasTexture_kn7nl")

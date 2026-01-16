@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvwwuqgnvc672"]
+[gd_scene load_steps=30 format=3 uid="uid://dvwwuqgnvc672"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_pac1f"]
 [ext_resource type="Texture2D" uid="uid://xab5gw8j5c0q" path="res://assets/sprites/characters.sprites/余洛琛/身体/常服-手举起.tres" id="2_h3wkl"]
@@ -188,6 +188,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_h3wkl"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpavb"]
+resource_local_to_scene = true
+atlas = SubResource("ViewportTexture_h3wkl")
+region = Rect2(270.00244, 14.997192, 415.1543, 447.7154)
+
 [node name="余洛琛" instance=ExtResource("1_pac1f")]
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
@@ -223,3 +231,6 @@ offset_left = -108.95201
 offset_top = -12.555
 offset_right = 88.23993
 offset_bottom = 167.46997
+
+[node name="TextureRect_Avatar" parent="." index="1"]
+texture = SubResource("AtlasTexture_lpavb")
