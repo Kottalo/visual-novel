@@ -6,6 +6,9 @@ extends Control
 @export var layer_stage_pages: CanvasLayer
 @export var stage_page: CanvasLayer
 @export var stage_page_container: Control
+@export var stage_page_background: Control
+
+@export var phone_page: Control
 
 func _ready() -> void:
 	Main.game = self
@@ -15,6 +18,10 @@ func _ready() -> void:
 			func ():
 				layer_stage_pages.visible = page.visible
 		)
+	
+	phone_page.visibility_changed.connect(
+		func (): stage_page_background.visible = not phone_page.visible
+	)
 
 func switch_page(page_name: String) -> void:
 	for page: Control in page_container.get_children():

@@ -37,8 +37,7 @@ func _ready() -> void:
 			pass
 	)
 	button_phone.clicked.connect(
-		func ():
-			pass
+		func (): Pages.phone.show()
 	)
 	button_book.clicked.connect(
 		func (): Pages.book.show()

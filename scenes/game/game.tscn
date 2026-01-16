@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=100 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -88,6 +88,7 @@
 [ext_resource type="Texture2D" uid="uid://8778p7eby2v4" path="res://assets/ui/历史记录/divide_line.png" id="79_472nx"]
 [ext_resource type="Texture2D" uid="uid://74ecblh737xd" path="res://assets/ui/奇迹书/page_hover.png" id="79_17607"]
 [ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="80_hqxe5"]
+[ext_resource type="Script" uid="uid://cxoi0upsselr" path="res://pages/phone_page.gd" id="89_aggdw"]
 [ext_resource type="PackedScene" uid="uid://btkall20t660f" path="res://prefabs/phone_icon/phone_icon.tscn" id="91_dadqe"]
 [ext_resource type="PackedScene" uid="uid://dwnsxsn6pit1f" path="res://pages/stage_page/stage_page.tscn" id="92_dadqe"]
 [ext_resource type="Texture2D" uid="uid://bvs2xcuwuc67f" path="res://assets/ui/手机界面/ico_message.png" id="92_mhl8n"]
@@ -98,7 +99,10 @@
 [ext_resource type="Texture2D" uid="uid://ciudxu8yrrbgu" path="res://assets/ui/手机界面/ico_book.png" id="95_7128n"]
 [ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
 
-[node name="Game" type="Control" node_paths=PackedStringArray("main_pages", "page_container", "layer_stage_pages", "stage_page", "stage_page_container")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
+bg_color = Color(1, 1, 1, 0.3137255)
+
+[node name="Game" type="Control" node_paths=PackedStringArray("main_pages", "page_container", "layer_stage_pages", "stage_page", "stage_page_container", "stage_page_background", "phone_page")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,6 +115,8 @@ page_container = NodePath("Pages")
 layer_stage_pages = NodePath("Layer_StagePages")
 stage_page = NodePath("StagePage")
 stage_page_container = NodePath("Layer_StagePages/StagePages")
+stage_page_background = NodePath("Layer_StagePages/Background")
+phone_page = NodePath("Layer_StagePages/StagePages/PhonePage")
 
 [node name="Pages" type="Control" parent="."]
 layout_mode = 1
@@ -839,7 +845,16 @@ grow_vertical = 1
 layer = 101
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Layer_StagePages"]
+[node name="Background" type="Control" parent="Layer_StagePages"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Layer_StagePages/Background"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -847,7 +862,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Background" type="TextureRect" parent="Layer_StagePages"]
+[node name="Background" type="TextureRect" parent="Layer_StagePages/Background"]
+layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
@@ -1383,7 +1399,7 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="PhonePage" type="Control" parent="Layer_StagePages/StagePages"]
+[node name="PhonePage" type="Control" parent="Layer_StagePages/StagePages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1391,6 +1407,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("89_aggdw")
+background = NodePath("Background")
+phone_icon_message = NodePath("Phone/HBoxContainer/PhoneIcon_Message")
+phone_icon_photo = NodePath("Phone/HBoxContainer/PhoneIcon_Photo")
+phone_icon_music = NodePath("Phone/HBoxContainer/PhoneIcon_Music")
+phone_icon_book = NodePath("Phone/HBoxContainer/PhoneIcon_Book")
+
+[node name="Background" type="Panel" parent="Layer_StagePages/StagePages/PhonePage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aggdw")
 
 [node name="Phone" type="TextureRect" parent="Layer_StagePages/StagePages/PhonePage"]
 layout_mode = 1
@@ -1462,7 +1493,6 @@ offset_bottom = 40.0
 texture = ExtResource("96_5xmm2")
 
 [node name="StagePage" parent="." instance=ExtResource("92_dadqe")]
-visible = false
 layout_mode = 1
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]

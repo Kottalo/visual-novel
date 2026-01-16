@@ -14,6 +14,7 @@ var character: CharacterPage
 var gallery: GalleryPage
 var music: MusicData
 var log: LogPage
+var phone: PhonePage
 
 var current_page: Node:
 	set(value):
