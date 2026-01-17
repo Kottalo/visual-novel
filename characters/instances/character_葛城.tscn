@@ -1,21 +1,21 @@
 [gd_scene load_steps=23 format=3 uid="uid://couiwje1dnllu"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_8t5bo"]
-[ext_resource type="Texture2D" uid="uid://cnlxqjvcts1rw" path="res://assets/sprites/characters.sprites/葛城/身体/手抬起.tres" id="2_m4mpf"]
-[ext_resource type="Texture2D" uid="uid://cm4r2830g287s" path="res://assets/sprites/characters.sprites/葛城/身体/手放下.tres" id="3_ijtpr"]
-[ext_resource type="Texture2D" uid="uid://dmglmtt6p0kto" path="res://assets/sprites/characters.sprites/葛城/眉毛/上挑.tres" id="4_jbeyg"]
-[ext_resource type="Texture2D" uid="uid://onemgouce6g4" path="res://assets/sprites/characters.sprites/葛城/眉毛/下挑.tres" id="5_xm650"]
-[ext_resource type="Texture2D" uid="uid://b86kt6baompj" path="res://assets/sprites/characters.sprites/葛城/眉毛/悲伤.tres" id="6_6hyrk"]
-[ext_resource type="Texture2D" uid="uid://2rnv72k7r0v8" path="res://assets/sprites/characters.sprites/葛城/眉毛/默认.tres" id="7_33gpk"]
-[ext_resource type="Texture2D" uid="uid://c4qb8qclwwxco" path="res://assets/sprites/characters.sprites/葛城/眼睛/微眯.tres" id="8_xfoea"]
-[ext_resource type="Texture2D" uid="uid://bsdkt6ba51twy" path="res://assets/sprites/characters.sprites/葛城/眼睛/悲伤.tres" id="9_kxphj"]
-[ext_resource type="Texture2D" uid="uid://u1igrg3utjqn" path="res://assets/sprites/characters.sprites/葛城/眼睛/眯眼.tres" id="10_1p7vq"]
-[ext_resource type="Texture2D" uid="uid://cnq1pe2ujqgty" path="res://assets/sprites/characters.sprites/葛城/眼睛/默认.tres" id="11_as12d"]
-[ext_resource type="Texture2D" uid="uid://b1ip7be357bsm" path="res://assets/sprites/characters.sprites/葛城/嘴巴/说话.tres" id="12_o1vgr"]
-[ext_resource type="Texture2D" uid="uid://cgbxcp8fjv07i" path="res://assets/sprites/characters.sprites/葛城/嘴巴/闭口不满.tres" id="13_2gk8n"]
-[ext_resource type="Texture2D" uid="uid://4gxsbteke0ni" path="res://assets/sprites/characters.sprites/葛城/嘴巴/闭口微笑.tres" id="14_fkvvl"]
-[ext_resource type="Texture2D" uid="uid://dtuqvvg2wsyep" path="res://assets/sprites/characters.sprites/葛城/嘴巴/露齿笑.tres" id="15_yy802"]
-[ext_resource type="Texture2D" uid="uid://8hlsc7bh3k6n" path="res://assets/sprites/characters.sprites/葛城/附加/脸红.tres" id="16_wyfxs"]
+[ext_resource type="Texture2D" uid="uid://cnlxqjvcts1rw" path="res://assets/sprites/characters/characters.sprites/葛城/身体/手抬起.tres" id="2_m4mpf"]
+[ext_resource type="Texture2D" uid="uid://cm4r2830g287s" path="res://assets/sprites/characters/characters.sprites/葛城/身体/手放下.tres" id="3_ijtpr"]
+[ext_resource type="Texture2D" uid="uid://dmglmtt6p0kto" path="res://assets/sprites/characters/characters.sprites/葛城/眉毛/上挑.tres" id="4_jbeyg"]
+[ext_resource type="Texture2D" uid="uid://onemgouce6g4" path="res://assets/sprites/characters/characters.sprites/葛城/眉毛/下挑.tres" id="5_xm650"]
+[ext_resource type="Texture2D" uid="uid://b86kt6baompj" path="res://assets/sprites/characters/characters.sprites/葛城/眉毛/悲伤.tres" id="6_6hyrk"]
+[ext_resource type="Texture2D" uid="uid://2rnv72k7r0v8" path="res://assets/sprites/characters/characters.sprites/葛城/眉毛/默认.tres" id="7_33gpk"]
+[ext_resource type="Texture2D" uid="uid://c4qb8qclwwxco" path="res://assets/sprites/characters/characters.sprites/葛城/眼睛/微眯.tres" id="8_xfoea"]
+[ext_resource type="Texture2D" uid="uid://bsdkt6ba51twy" path="res://assets/sprites/characters/characters.sprites/葛城/眼睛/悲伤.tres" id="9_kxphj"]
+[ext_resource type="Texture2D" uid="uid://u1igrg3utjqn" path="res://assets/sprites/characters/characters.sprites/葛城/眼睛/眯眼.tres" id="10_1p7vq"]
+[ext_resource type="Texture2D" uid="uid://cnq1pe2ujqgty" path="res://assets/sprites/characters/characters.sprites/葛城/眼睛/默认.tres" id="11_as12d"]
+[ext_resource type="Texture2D" uid="uid://b1ip7be357bsm" path="res://assets/sprites/characters/characters.sprites/葛城/嘴巴/说话.tres" id="12_o1vgr"]
+[ext_resource type="Texture2D" uid="uid://cgbxcp8fjv07i" path="res://assets/sprites/characters/characters.sprites/葛城/嘴巴/闭口不满.tres" id="13_2gk8n"]
+[ext_resource type="Texture2D" uid="uid://4gxsbteke0ni" path="res://assets/sprites/characters/characters.sprites/葛城/嘴巴/闭口微笑.tres" id="14_fkvvl"]
+[ext_resource type="Texture2D" uid="uid://dtuqvvg2wsyep" path="res://assets/sprites/characters/characters.sprites/葛城/嘴巴/露齿笑.tres" id="15_yy802"]
+[ext_resource type="Texture2D" uid="uid://8hlsc7bh3k6n" path="res://assets/sprites/characters/characters.sprites/葛城/附加/脸红.tres" id="16_wyfxs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dacpq"]
 animations = [{
@@ -178,5 +178,4 @@ animation = &"说话"
 texture = ExtResource("16_wyfxs")
 
 [node name="TextureRect_Avatar" parent="." index="1"]
-visible = true
 texture = SubResource("AtlasTexture_ijtpr")
