@@ -6,20 +6,21 @@
 [ext_resource type="Script" uid="uid://p3w881071rcv" path="res://prefabs/gallery_card/gallery_card.gd" id="3_jemxq"]
 [ext_resource type="Script" uid="uid://bonnjjxt11u8k" path="res://prefabs/components/drag_filter.gd" id="4_6oylf"]
 
-[node name="GalleryCard" type="TextureButton" node_paths=PackedStringArray("texture_rect_image")]
+[node name="GalleryCard" type="TextureButton" node_paths=PackedStringArray("texture_rect_base", "texture_rect_variation")]
 mouse_filter = 1
 toggle_mode = true
 texture_pressed = ExtResource("1_egen2")
 texture_hover = ExtResource("2_jemxq")
 script = ExtResource("3_jemxq")
-texture_rect_image = NodePath("TextureRect_Image")
+texture_rect_base = NodePath("TextureRect_Base")
+texture_rect_variation = NodePath("TextureRect_Variation")
 
 [node name="DragFilter" type="Node" parent="." node_paths=PackedStringArray("target_object")]
 script = ExtResource("4_6oylf")
 target_object = NodePath("..")
 metadata/_custom_type_script = "uid://bonnjjxt11u8k"
 
-[node name="TextureRect_Image" type="TextureRect" parent="."]
+[node name="TextureRect_Base" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,3 +34,22 @@ offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_6oylf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect_Variation" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.5
+offset_top = -135.0
+offset_right = 240.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6oylf")
+expand_mode = 1
+stretch_mode = 6

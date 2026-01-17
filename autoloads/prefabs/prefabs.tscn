@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3mw18jmvgpcx"]
+
+[ext_resource type="Script" uid="uid://b5rk64rcej4gh" path="res://autoloads/prefabs/prefabs.gd" id="1_404k7"]
+[ext_resource type="PackedScene" uid="uid://cil2u80u3sj0p" path="res://prefabs/gallery_card/gallery_card.tscn" id="2_lljyl"]
+
+[node name="Prefabs" type="Node"]
+script = ExtResource("1_404k7")
+gallery_card = ExtResource("2_lljyl")

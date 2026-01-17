@@ -3,6 +3,7 @@ extends Node
 @export var main_dialogue: DialogueResource
 @export var character_pool: Node2D
 @export var background_data_pool: Array[BackgroundData]
+@export var gallery_data_pool: Array[GalleryData]
 
 signal character_selection_index_changed
 var character_selection_index: int:

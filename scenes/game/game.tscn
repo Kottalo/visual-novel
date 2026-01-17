@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=99 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://dlm1m8jw4iygt" path="res://assets/ui/鉴赏内容/音乐鉴赏/album.png" id="18_e36ub"]
 [ext_resource type="Texture2D" uid="uid://dl0m5u1eiytd5" path="res://assets/ui/鉴赏内容/插画鉴赏/插画鉴赏.png" id="19_eu6ph"]
 [ext_resource type="Texture2D" uid="uid://d2hj5j33shnui" path="res://assets/ui/鉴赏内容/音乐鉴赏/background.png" id="19_hb5m1"]
-[ext_resource type="PackedScene" uid="uid://cil2u80u3sj0p" path="res://prefabs/gallery_card/gallery_card.tscn" id="20_edr7y"]
 [ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="21_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://blachu13yjxr7" path="res://assets/ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png" id="21_kq12w"]
 [ext_resource type="Script" uid="uid://d2ex0eewal7fh" path="res://pages/bonus_pages/character_page.gd" id="21_v33yl"]
@@ -430,7 +429,7 @@ body_part = "Mouth"
 [node name="Label" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Mouth" index="0"]
 text = "嘴巴"
 
-[node name="GalleryPage" type="Control" parent="Pages/BonusPage/TabPages"]
+[node name="GalleryPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("gallery_card_pool")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -439,6 +438,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_2e3yn")
+gallery_card_pool = NodePath("ScrollContainer/GalleryCardPool")
 
 [node name="VScrollBarEx" parent="Pages/BonusPage/TabPages/GalleryPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1
@@ -455,71 +455,11 @@ offset_bottom = 1184.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="GridContainer" type="GridContainer" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer"]
+[node name="GalleryCardPool" type="GridContainer" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = -9
 theme_override_constants/v_separation = -10
 columns = 4
-
-[node name="GalleryCard" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard2" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard3" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard4" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard5" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard6" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard7" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard8" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard9" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard10" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard11" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard12" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard13" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard14" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard15" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard16" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard17" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard18" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard19" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
-
-[node name="GalleryCard20" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer/GridContainer" instance=ExtResource("20_edr7y")]
-layout_mode = 2
 
 [node name="Preview" type="TextureRect" parent="Pages/BonusPage/TabPages/GalleryPage"]
 visible = false

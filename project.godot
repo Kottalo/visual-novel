@@ -35,6 +35,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 AudioManager="*res://audio_manager/audio_manager.tscn"
 Stage="*res://scenes/stage/stage.tscn"
 Game="*res://scenes/game/game.tscn"
+Prefabs="*res://autoloads/prefabs/prefabs.tscn"
 
 [dialogic]
 
