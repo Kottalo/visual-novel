@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cex6vtiiqrr6c"
-path="res://.godot/imported/CG01（差分）-疑惑说话.png-98d68e3693fca61cc226204f0d62c15f.ctex"
+uid="uid://f45da54e3aqr"
+path="res://.godot/imported/CG04-正常说话.png-d4c2fa13c767067403b04e2cefcb850a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG1/CG01（差分）-疑惑说话.png"
-dest_files=["res://.godot/imported/CG01（差分）-疑惑说话.png-98d68e3693fca61cc226204f0d62c15f.ctex"]
+source_file="res://assets/gallery/CG4/CG04-正常说话.png"
+dest_files=["res://.godot/imported/CG04-正常说话.png-d4c2fa13c767067403b04e2cefcb850a.ctex"]
 
 [params]
 

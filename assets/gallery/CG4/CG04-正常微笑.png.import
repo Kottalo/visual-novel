@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1iwmnbtvuckh"
-path="res://.godot/imported/CG02-（享受食物、无眼镜）.png-0039679320037a083649458afcbf8c5e.ctex"
+uid="uid://dx3t7mc3q2y1y"
+path="res://.godot/imported/CG04-正常微笑.png-d30cd73a1c6cf397a847181a3011336b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG2/CG02-（享受食物、无眼镜）.png"
-dest_files=["res://.godot/imported/CG02-（享受食物、无眼镜）.png-0039679320037a083649458afcbf8c5e.ctex"]
+source_file="res://assets/gallery/CG4/CG04-正常微笑.png"
+dest_files=["res://.godot/imported/CG04-正常微笑.png-d30cd73a1c6cf397a847181a3011336b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dutj1k85c1mv6"
-path="res://.godot/imported/CG02-（有问题吗）.png-ee642eee2e1acc5b9b246e1ec61eeb73.ctex"
+uid="uid://nmaop8tlw2g8"
+path="res://.godot/imported/CG01-害羞撇嘴.png-8b3a48ef115f5793b820e6ba7ac44801.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG2/CG02-（有问题吗）.png"
-dest_files=["res://.godot/imported/CG02-（有问题吗）.png-ee642eee2e1acc5b9b246e1ec61eeb73.ctex"]
+source_file="res://assets/gallery/CG1/CG01-害羞撇嘴.png"
+dest_files=["res://.godot/imported/CG01-害羞撇嘴.png-8b3a48ef115f5793b820e6ba7ac44801.ctex"]
 
 [params]
 

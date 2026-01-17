@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f45da54e3aqr"
-path="res://.godot/imported/CG04-（正常说话）.png-0ba7c106fcaf9b3ebeba95db70d2e385.ctex"
+uid="uid://cex6vtiiqrr6c"
+path="res://.godot/imported/CG01-疑惑说话.png-7d65d86b182f1ada73bdf50f78a6becc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG4/CG04-（正常说话）.png"
-dest_files=["res://.godot/imported/CG04-（正常说话）.png-0ba7c106fcaf9b3ebeba95db70d2e385.ctex"]
+source_file="res://assets/gallery/CG1/CG01-疑惑说话.png"
+dest_files=["res://.godot/imported/CG01-疑惑说话.png-7d65d86b182f1ada73bdf50f78a6becc.ctex"]
 
 [params]
 

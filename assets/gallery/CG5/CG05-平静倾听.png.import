@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsunq7vynaoit"
-path="res://.godot/imported/CG04-（害羞责备、说话）.png-86ec709605946d73463f80adb1884fee.ctex"
+uid="uid://dlf7yrvgf4837"
+path="res://.godot/imported/CG05-平静倾听.png-b44fd3c138670cab5503e2e07925e92d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG4/CG04-（害羞责备、说话）.png"
-dest_files=["res://.godot/imported/CG04-（害羞责备、说话）.png-86ec709605946d73463f80adb1884fee.ctex"]
+source_file="res://assets/gallery/CG5/CG05-平静倾听.png"
+dest_files=["res://.godot/imported/CG05-平静倾听.png-b44fd3c138670cab5503e2e07925e92d.ctex"]
 
 [params]
 

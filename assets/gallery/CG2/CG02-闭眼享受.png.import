@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlf7yrvgf4837"
-path="res://.godot/imported/CG05-（平静倾听）.png-ab8d3f957ca1b74eb2d77bfb518f75d6.ctex"
+uid="uid://dntq4t04315de"
+path="res://.godot/imported/CG02-闭眼享受.png-a20610273f70e1596f2f48edc9b4cd32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG5/CG05-（平静倾听）.png"
-dest_files=["res://.godot/imported/CG05-（平静倾听）.png-ab8d3f957ca1b74eb2d77bfb518f75d6.ctex"]
+source_file="res://assets/gallery/CG2/CG02-闭眼享受.png"
+dest_files=["res://.godot/imported/CG02-闭眼享受.png-a20610273f70e1596f2f48edc9b4cd32.ctex"]
 
 [params]
 

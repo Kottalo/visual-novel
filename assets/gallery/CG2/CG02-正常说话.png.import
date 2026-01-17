@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dshyqr4kelvjc"
-path="res://.godot/imported/CG01（差分）-脸红微笑.png-f01ac0f87280893f456cc3916f6fdc76.ctex"
+uid="uid://3iddofmcew83"
+path="res://.godot/imported/CG02-正常说话.png-d91d45bd06596cdd34aab60617be522a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG1/CG01（差分）-脸红微笑.png"
-dest_files=["res://.godot/imported/CG01（差分）-脸红微笑.png-f01ac0f87280893f456cc3916f6fdc76.ctex"]
+source_file="res://assets/gallery/CG2/CG02-正常说话.png"
+dest_files=["res://.godot/imported/CG02-正常说话.png-d91d45bd06596cdd34aab60617be522a.ctex"]
 
 [params]
 

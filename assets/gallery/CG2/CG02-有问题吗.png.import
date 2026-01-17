@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3uirox3efpdv"
-path="res://.godot/imported/CG01（差分）-吃惊.png-f71a11eed3ffe2c75b4eca07004152fc.ctex"
+uid="uid://dutj1k85c1mv6"
+path="res://.godot/imported/CG02-有问题吗.png-ea3e66f421b1c07bd5bed967c10a4489.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gallery/CG1/CG01（差分）-吃惊.png"
-dest_files=["res://.godot/imported/CG01（差分）-吃惊.png-f71a11eed3ffe2c75b4eca07004152fc.ctex"]
+source_file="res://assets/gallery/CG2/CG02-有问题吗.png"
+dest_files=["res://.godot/imported/CG02-有问题吗.png-ea3e66f421b1c07bd5bed967c10a4489.ctex"]
 
 [params]
 
