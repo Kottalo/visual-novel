@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=100 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -88,6 +88,7 @@
 [ext_resource type="Texture2D" uid="uid://74ecblh737xd" path="res://assets/ui/奇迹书/page_hover.png" id="79_17607"]
 [ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="80_hqxe5"]
 [ext_resource type="Script" uid="uid://cxoi0upsselr" path="res://pages/phone_page.gd" id="89_aggdw"]
+[ext_resource type="Texture2D" uid="uid://cgovigajnmwml" path="res://assets/ui/手机界面/chat/screen_background.png" id="91_aggdw"]
 [ext_resource type="PackedScene" uid="uid://btkall20t660f" path="res://prefabs/phone_icon/phone_icon.tscn" id="91_dadqe"]
 [ext_resource type="PackedScene" uid="uid://dwnsxsn6pit1f" path="res://pages/stage_page/stage_page.tscn" id="92_dadqe"]
 [ext_resource type="Texture2D" uid="uid://bvs2xcuwuc67f" path="res://assets/ui/手机界面/ico_message.png" id="92_mhl8n"]
@@ -1222,13 +1223,16 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book")]
+[node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "message_text_pool")]
 script = ExtResource("89_aggdw")
+phone_background = ExtResource("93_7s1vt")
+chat_background = ExtResource("91_aggdw")
 background = NodePath("Background")
-phone_icon_message = NodePath("Phone/HBoxContainer/PhoneIcon_Message")
-phone_icon_photo = NodePath("Phone/HBoxContainer/PhoneIcon_Photo")
-phone_icon_music = NodePath("Phone/HBoxContainer/PhoneIcon_Music")
-phone_icon_book = NodePath("Phone/HBoxContainer/PhoneIcon_Book")
+phone_icon_message = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Message")
+phone_icon_photo = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Photo")
+phone_icon_music = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Music")
+phone_icon_book = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Book")
+message_text_pool = NodePath("Phone/Chat/ScrollContainer/MessageTextPool")
 
 [node name="Background" type="Panel" parent="Pages/PhonePage"]
 anchors_preset = 15
@@ -1267,37 +1271,81 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("93_7s1vt")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pages/PhonePage/Phone"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pages/PhonePage/Phone/Wallpaper"]
 layout_mode = 0
-offset_left = 229.0
-offset_top = 1158.0
-offset_right = 763.0
-offset_bottom = 1288.0
+offset_left = 70.0
+offset_top = 1055.0
+offset_right = 667.0
+offset_bottom = 1185.0
 theme_override_constants/separation = 25
 
-[node name="PhoneIcon_Message" parent="Pages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Message" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("92_mhl8n")
 title = "信息"
 
-[node name="PhoneIcon_Photo" parent="Pages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Photo" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("93_5xmm2")
 title = "相册"
 
-[node name="PhoneIcon_Music" parent="Pages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Music" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("94_aggdw")
 title = "音乐"
 
-[node name="PhoneIcon_Book" parent="Pages/PhonePage/Phone/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Book" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("95_7128n")
 title = "奇迹书"
+
+[node name="Chat" type="TextureRect" parent="Pages/PhonePage/Phone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.5
+offset_top = -611.5
+offset_right = 392.5
+offset_bottom = 715.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("91_aggdw")
+
+[node name="Label_Name" type="Label" parent="Pages/PhonePage/Phone/Chat"]
+modulate = Color(0.29709297, 0.29709294, 0.2970929, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 97.0
+offset_right = 96.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "角色名称"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/PhonePage/Phone/Chat"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 205.0
+offset_right = 702.0
+offset_bottom = 1213.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MessageTextPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
 
 [node name="Preview" type="TextureRect" parent="Pages/PhonePage"]
 visible = false

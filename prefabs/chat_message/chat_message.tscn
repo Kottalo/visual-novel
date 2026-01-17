@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1bq2ju2hboho"]
+
+[ext_resource type="Material" uid="uid://bot51sfk03r6a" path="res://shaders/circle_material.tres" id="1_8fcmd"]
+[ext_resource type="Script" uid="uid://c1ckx6g7xrm4n" path="res://prefabs/chat_message/chat_message.gd" id="1_afdii"]
+[ext_resource type="Texture2D" uid="uid://bwu51yjuuyst4" path="res://assets/ui/语音收藏/chr_ge.png" id="2_afdii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdcii"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="ChatMessage" type="HBoxContainer" node_paths=PackedStringArray("avatar_left", "avatar_right", "bubble", "message_text")]
+size_flags_horizontal = 0
+theme_override_constants/separation = 12
+script = ExtResource("1_afdii")
+self_bubble_color = Color(0.67058825, 0.654902, 0.7764706, 1)
+avatar_left = NodePath("Avatar_Left")
+avatar_right = NodePath("Avatar_Right")
+bubble = NodePath("Bubble")
+message_text = NodePath("Bubble/MarginContainer/MessageText")
+
+[node name="Avatar_Left" type="TextureRect" parent="."]
+material = ExtResource("1_8fcmd")
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_afdii")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Bubble" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wdcii")
+
+[node name="MarginContainer" type="MarginContainer" parent="Bubble"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MessageText" type="RichTextLabel" parent="Bubble/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "aaa"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Avatar_Right" type="TextureRect" parent="."]
+material = ExtResource("1_8fcmd")
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_afdii")
+expand_mode = 1
+stretch_mode = 6
