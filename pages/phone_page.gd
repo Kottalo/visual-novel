@@ -17,6 +17,14 @@ func _ready() -> void:
 	
 	phone_icon_photo.clicked.connect(
 		func ():
-			hide()
-			Main.game.switch_page("BonusPage")
+			Game.bonus_page.show()
+			Game.bonus_page.layer = 2
+			Main.bonus_tab_index = 1
+	)
+	
+	phone_icon_music.clicked.connect(
+		func ():
+			Game.bonus_page.show()
+			Game.bonus_page.layer = 2
+			Main.bonus_tab_index = 2
 	)

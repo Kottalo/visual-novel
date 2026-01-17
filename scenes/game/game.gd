@@ -17,4 +17,5 @@ func _ready() -> void:
 
 func hide_all_pages() -> void:
 	for page: CanvasLayer in page_pool.get_children():
+		page.layer = 1
 		page.visible = false

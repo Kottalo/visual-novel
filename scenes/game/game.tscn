@@ -1307,7 +1307,6 @@ offset_bottom = 1331.0
 grow_vertical = 1
 
 [node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book")]
-visible = false
 script = ExtResource("89_aggdw")
 background = NodePath("Background")
 phone_icon_message = NodePath("Phone/HBoxContainer/PhoneIcon_Message")
@@ -1334,6 +1333,7 @@ offset_top = -1429.0
 offset_right = -174.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 texture = ExtResource("92_xj5di")
 
 [node name="Wallpaper" type="TextureRect" parent="Pages/PhonePage/Phone"]
