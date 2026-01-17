@@ -265,7 +265,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CharacterPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("label_character_name", "background_pool", "character_pool", "body_part_options", "background_option")]
+[node name="CharacterPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -275,36 +275,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("21_v33yl")
 label_character_name = NodePath("Label_CharacterName")
-background_pool = NodePath("Backgrounds")
+background = NodePath("Background")
 character_pool = NodePath("Characters")
 body_part_options = [NodePath("VBoxContainer_Options/CharacterOption_Body"), NodePath("VBoxContainer_Options/CharacterOption_Eyebrows"), NodePath("VBoxContainer_Options/CharacterOption_Eyes"), NodePath("VBoxContainer_Options/CharacterOption_Mouth")]
 background_option = NodePath("VBoxContainer_Options/CharacterOption_Background")
 
-[node name="Backgrounds" type="Control" parent="Pages/BonusPage/TabPages/CharacterPage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="小卖屋" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage/Backgrounds"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="音乐室" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage/Backgrounds"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="小镇道路" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage/Backgrounds"]
+[node name="Background" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

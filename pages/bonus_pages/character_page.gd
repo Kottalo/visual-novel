@@ -2,7 +2,7 @@ class_name CharacterPage
 extends Control
 
 @export var label_character_name: Label
-@export var background_pool: Control
+@export var background: TextureRect
 @export var character_pool: Node2D
 @export var body_part_options: Array[CharacterOption]
 @export var background_option: CharacterOption
@@ -14,13 +14,11 @@ var current_character: Character:
 var background_index: int:
 	set(value):
 		background_index = value
-		var background_count = background_pool.get_child_count()
-		if background_index >= background_count: background_index = 0
-		if background_index < 0: background_index = background_count - 1
-		background_option.option_name = \
-			background_pool.get_child(background_index).name
-		for background: Control in background_pool.get_children():
-			background.visible = background.get_index() == background_index
+		var background_count = Stage.background_data_pool.size()
+		background_index = posmod(background_index, background_count)
+		var background_data = Stage.background_data_pool[background_index]
+		background_option.option_name = background_data.title
+		background.texture = background_data.texture
 
 func _ready() -> void:
 	Stage.character_selection_index_changed.connect(update_characters)
