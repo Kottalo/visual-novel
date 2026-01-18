@@ -11,6 +11,7 @@ extends CanvasLayer
 @export var phone_icon_book: PhoneIcon
 
 @export var message_text_pool: Control
+@export var reply_selection_pool: Control
 
 func _ready() -> void:
 	background.gui_input.connect(

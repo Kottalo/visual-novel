@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8npbo41hms2w"]
+
+[ext_resource type="StyleBox" uid="uid://db6semkjsurbl" path="res://themes/style_boxes/bubble.tres" id="1_anm8c"]
+[ext_resource type="Theme" uid="uid://b6wigi5ow3raq" path="res://themes/chat_theme.tres" id="2_hx05g"]
+[ext_resource type="Script" uid="uid://caemdgm222eii" path="res://prefabs/reply_selection/reply_selection.gd" id="2_jusj8"]
+
+[node name="ReplySelection" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_anm8c")
+script = ExtResource("2_jusj8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_hx05g")
+
+[node name="ReplyText" type="RichTextLabel" parent="MarginContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme = ExtResource("2_hx05g")
+text = "我们"
+fit_content = true

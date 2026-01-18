@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=103 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -100,6 +100,7 @@
 [ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
 [ext_resource type="StyleBox" uid="uid://db6semkjsurbl" path="res://themes/style_boxes/bubble.tres" id="98_7128n"]
 [ext_resource type="Theme" uid="uid://b6wigi5ow3raq" path="res://themes/chat_theme.tres" id="99_5ei0k"]
+[ext_resource type="PackedScene" uid="uid://b8npbo41hms2w" path="res://prefabs/reply_selection/reply_selection.tscn" id="100_wdcii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
@@ -1225,7 +1226,7 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "message_text_pool")]
+[node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "message_text_pool", "reply_selection_pool")]
 script = ExtResource("89_aggdw")
 phone_background = ExtResource("93_7s1vt")
 chat_background = ExtResource("91_aggdw")
@@ -1235,6 +1236,7 @@ phone_icon_photo = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Photo")
 phone_icon_music = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Music")
 phone_icon_book = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Book")
 message_text_pool = NodePath("Phone/Chat/ScrollContainer/MessageTextPool")
+reply_selection_pool = NodePath("Phone/Chat/ReplySelectionPool")
 
 [node name="Background" type="Panel" parent="Pages/PhonePage"]
 anchors_preset = 15
@@ -1368,6 +1370,27 @@ theme = ExtResource("99_5ei0k")
 text = "我们"
 fit_content = true
 
+[node name="ReplySelectionPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -238.0
+offset_right = 613.0
+offset_bottom = -170.0
+grow_vertical = 0
+alignment = 2
+
+[node name="ReplySelection" parent="Pages/PhonePage/Phone/Chat/ReplySelectionPool" instance=ExtResource("100_wdcii")]
+layout_mode = 2
+
+[node name="ReplyText" parent="Pages/PhonePage/Phone/Chat/ReplySelectionPool/ReplySelection/MarginContainer" index="0"]
+text = "我们你妹你妹我们你妹你妹我们你妹你妹我们你妹你妹我们你妹你妹我们你妹你妹"
+
+[node name="ReplySelection2" parent="Pages/PhonePage/Phone/Chat/ReplySelectionPool" instance=ExtResource("100_wdcii")]
+layout_mode = 2
+
 [node name="Preview" type="TextureRect" parent="Pages/PhonePage"]
 visible = false
 modulate = Color(1, 1, 1, 0.22745098)
@@ -1386,3 +1409,4 @@ texture = ExtResource("96_5xmm2")
 [editable path="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Eyes"]
 [editable path="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Mouth"]
 [editable path="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer/PlayProgressLine_Ghost"]
+[editable path="Pages/PhonePage/Phone/Chat/ReplySelectionPool/ReplySelection"]
