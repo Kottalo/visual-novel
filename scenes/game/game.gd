@@ -14,6 +14,10 @@ extends Node
 func _ready() -> void:
 	hide_all_pages()
 	main_menu.show()
+	
+	bonus_page.music_page.audio_player.play()
+	
+	stage_page.visibility_changed.connect(bonus_page.music_page.update_pause)
 
 func hide_all_pages() -> void:
 	for page: CanvasLayer in page_pool.get_children():

@@ -44,5 +44,6 @@ func _ready() -> void:
 	)
 	button_title.clicked.connect(
 		func ():
-			pass
+			Game.hide_all_pages()
+			Game.main_menu.show()
 	)

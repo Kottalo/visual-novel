@@ -73,7 +73,7 @@ func _ready() -> void:
 			Main.bonus_tab_index = 2
 	)
 	
-	phone_icon_music.clicked.connect(
+	phone_icon_book.clicked.connect(
 		func ():
 			Game.book_page.show()
 			Game.book_page.layer = 2

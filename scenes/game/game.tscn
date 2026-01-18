@@ -243,9 +243,10 @@ texture = ExtResource("4_tcv87")
 expand_mode = 5
 stretch_mode = 6
 
-[node name="BonusPage" type="CanvasLayer" parent="Pages"]
+[node name="BonusPage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("music_page")]
 visible = false
 script = ExtResource("5_3f8qr")
+music_page = NodePath("TabPages/MusicPage")
 
 [node name="ColorRect" type="ColorRect" parent="Pages/BonusPage"]
 anchors_preset = 15

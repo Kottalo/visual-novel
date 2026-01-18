@@ -1,3 +1,4 @@
+class_name MusicPage
 extends Control
 
 @export var track_item_scene: PackedScene
@@ -32,6 +33,8 @@ var button_pressed: bool:
 			progress_hovered = false
 
 func _ready() -> void:
+	visibility_changed.connect(update_pause)
+	
 	for music_data in AudioManager.playlist:
 		var track_item: TrackItem = track_item_scene.instantiate()
 		track_item.music_data = music_data
@@ -89,10 +92,11 @@ var music_tab_selected: bool:
 		return Main.bonus_tab_index == get_index()
 
 func update_pause():
-	audio_player.stream_paused = not music_tab_selected
-	if music_tab_selected:
-		if not audio_player.playing:
-			audio_player.play()
+	#audio_player.stream_paused = not music_tab_selected
+	audio_player.stream_paused = Game.stage_page.visible
+	#if music_tab_selected:
+		#if not audio_player.playing:
+			#audio_player.play()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

@@ -1,2 +1,4 @@
 class_name BonusPage
 extends CanvasLayer
+
+@export var music_page: MusicPage
