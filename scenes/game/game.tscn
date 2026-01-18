@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=103 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -88,6 +88,7 @@
 [ext_resource type="Texture2D" uid="uid://74ecblh737xd" path="res://assets/ui/奇迹书/page_hover.png" id="79_17607"]
 [ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="80_hqxe5"]
 [ext_resource type="Script" uid="uid://cxoi0upsselr" path="res://pages/phone_page.gd" id="89_aggdw"]
+[ext_resource type="Resource" uid="uid://bpyjoodw7rgic" path="res://dialogue_manager/dialogues/chat.dialogue" id="90_md0bp"]
 [ext_resource type="Texture2D" uid="uid://cgovigajnmwml" path="res://assets/ui/手机界面/chat/screen_background.png" id="91_aggdw"]
 [ext_resource type="PackedScene" uid="uid://btkall20t660f" path="res://prefabs/phone_icon/phone_icon.tscn" id="91_dadqe"]
 [ext_resource type="PackedScene" uid="uid://dwnsxsn6pit1f" path="res://pages/stage_page/stage_page.tscn" id="92_dadqe"]
@@ -1227,6 +1228,7 @@ grow_vertical = 1
 
 [node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "message_text_pool", "reply_selection_pool")]
 script = ExtResource("89_aggdw")
+dialogue = ExtResource("90_md0bp")
 phone_background = ExtResource("93_7s1vt")
 chat_background = ExtResource("91_aggdw")
 background = NodePath("Background")
@@ -1234,8 +1236,8 @@ phone_icon_message = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Message")
 phone_icon_photo = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Photo")
 phone_icon_music = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Music")
 phone_icon_book = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Book")
-message_text_pool = NodePath("Phone/Chat/ScrollContainer/MessageTextPool")
-reply_selection_pool = NodePath("Phone/Chat/ReplySelectionPool")
+message_text_pool = NodePath("Phone/Chat/VBoxContainer/ScrollContainer/MessageTextPool")
+reply_selection_pool = NodePath("Phone/Chat/VBoxContainer/ReplySelectionPool")
 
 [node name="Background" type="Panel" parent="Pages/PhonePage"]
 anchors_preset = 15
@@ -1336,50 +1338,44 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
 text = "角色名称"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Pages/PhonePage/Phone/Chat"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 205.0
-offset_right = 702.0
-offset_bottom = 1213.0
+offset_left = 55.0
+offset_top = 211.0
+offset_right = 697.0
+offset_bottom = 1261.0
+theme_override_constants/separation = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="MessageTextPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/ScrollContainer"]
+[node name="MessageTextPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="ReplyBox" type="PanelContainer" parent="Pages/PhonePage/Phone/Chat"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 1179.0
-offset_right = 616.0
-offset_bottom = 1247.0
+[node name="ReplySelectionPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ReplyBox" type="PanelContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
 theme_override_styles/panel = ExtResource("98_7128n")
 
-[node name="MarginContainer" type="MarginContainer" parent="Pages/PhonePage/Phone/Chat/ReplyBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox"]
 layout_mode = 2
 theme = ExtResource("99_5ei0k")
 
-[node name="ReplyText" type="RichTextLabel" parent="Pages/PhonePage/Phone/Chat/ReplyBox/MarginContainer"]
+[node name="ReplyText" type="RichTextLabel" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox/MarginContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme = ExtResource("99_5ei0k")
 text = "我们"
 fit_content = true
-
-[node name="ReplySelectionPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 74.0
-offset_top = -170.0
-offset_right = 613.0
-offset_bottom = -170.0
-grow_vertical = 0
-alignment = 2
 
 [node name="Preview" type="TextureRect" parent="Pages/PhonePage"]
 visible = false
