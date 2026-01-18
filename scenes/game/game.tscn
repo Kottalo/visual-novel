@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=104 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -101,6 +101,7 @@
 [ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
 [ext_resource type="StyleBox" uid="uid://db6semkjsurbl" path="res://themes/style_boxes/bubble.tres" id="98_7128n"]
 [ext_resource type="Theme" uid="uid://b6wigi5ow3raq" path="res://themes/chat_theme.tres" id="99_5ei0k"]
+[ext_resource type="Texture2D" uid="uid://dwendkelvabpn" path="res://assets/ui/手机界面/chat/left-arrow.png" id="101_dr31o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
@@ -1226,18 +1227,19 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "message_text_pool", "reply_selection_pool")]
+[node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("chat_node", "background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "chat_message_pool", "reply_selection_pool", "back_button")]
 script = ExtResource("89_aggdw")
 dialogue = ExtResource("90_md0bp")
 phone_background = ExtResource("93_7s1vt")
-chat_background = ExtResource("91_aggdw")
+chat_node = NodePath("Phone/Chat")
 background = NodePath("Background")
 phone_icon_message = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Message")
 phone_icon_photo = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Photo")
 phone_icon_music = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Music")
 phone_icon_book = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Book")
-message_text_pool = NodePath("Phone/Chat/VBoxContainer/ScrollContainer/MessageTextPool")
+chat_message_pool = NodePath("Phone/Chat/VBoxContainer/ScrollContainer/ChatMessagePool")
 reply_selection_pool = NodePath("Phone/Chat/VBoxContainer/ReplySelectionPool")
+back_button = NodePath("Phone/Chat/BackButton")
 
 [node name="Background" type="Panel" parent="Pages/PhonePage"]
 anchors_preset = 15
@@ -1352,7 +1354,7 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="MessageTextPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ScrollContainer"]
+[node name="ChatMessagePool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
@@ -1376,6 +1378,19 @@ layout_mode = 2
 theme = ExtResource("99_5ei0k")
 text = "我们"
 fit_content = true
+
+[node name="BackButton" type="TextureButton" parent="Pages/PhonePage/Phone/Chat"]
+layout_mode = 0
+offset_left = 604.0
+offset_top = 65.0
+offset_right = 698.0
+offset_bottom = 159.0
+focus_mode = 0
+texture_normal = ExtResource("101_dr31o")
+texture_pressed = ExtResource("101_dr31o")
+texture_hover = ExtResource("101_dr31o")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="Preview" type="TextureRect" parent="Pages/PhonePage"]
 visible = false
