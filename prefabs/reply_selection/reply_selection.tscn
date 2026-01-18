@@ -4,17 +4,35 @@
 [ext_resource type="Theme" uid="uid://b6wigi5ow3raq" path="res://themes/chat_theme.tres" id="2_hx05g"]
 [ext_resource type="Script" uid="uid://caemdgm222eii" path="res://prefabs/reply_selection/reply_selection.gd" id="2_jusj8"]
 
-[node name="ReplySelection" type="PanelContainer"]
+[node name="ReplySelection" type="PanelContainer" node_paths=PackedStringArray("reply_text", "hover_shade", "select_shade")]
+self_modulate = Color(0.6156863, 0.6, 0.73333335, 1)
+clip_children = 2
 theme_override_styles/panel = ExtResource("1_anm8c")
 script = ExtResource("2_jusj8")
+reply_text = NodePath("MarginContainer/ReplyText")
+hover_shade = NodePath("HoverShade")
+select_shade = NodePath("SelectShade")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("2_hx05g")
 
 [node name="ReplyText" type="RichTextLabel" parent="MarginContainer"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("2_hx05g")
 text = "我们"
 fit_content = true
+
+[node name="HoverShade" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0.27450982)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SelectShade" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0.27450982)
+layout_mode = 2
+mouse_filter = 2
