@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene load_steps=102 format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -98,6 +98,8 @@
 [ext_resource type="Texture2D" uid="uid://bvf8bn2lhtjat" path="res://assets/ui/手机界面/ico_music.png" id="94_aggdw"]
 [ext_resource type="Texture2D" uid="uid://ciudxu8yrrbgu" path="res://assets/ui/手机界面/ico_book.png" id="95_7128n"]
 [ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
+[ext_resource type="StyleBox" uid="uid://db6semkjsurbl" path="res://themes/style_boxes/bubble.tres" id="98_7128n"]
+[ext_resource type="Theme" uid="uid://b6wigi5ow3raq" path="res://themes/chat_theme.tres" id="99_5ei0k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
@@ -1346,6 +1348,25 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
+
+[node name="ReplyBox" type="PanelContainer" parent="Pages/PhonePage/Phone/Chat"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 1179.0
+offset_right = 616.0
+offset_bottom = 1247.0
+theme_override_styles/panel = ExtResource("98_7128n")
+
+[node name="MarginContainer" type="MarginContainer" parent="Pages/PhonePage/Phone/Chat/ReplyBox"]
+layout_mode = 2
+theme = ExtResource("99_5ei0k")
+
+[node name="ReplyText" type="RichTextLabel" parent="Pages/PhonePage/Phone/Chat/ReplyBox/MarginContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme = ExtResource("99_5ei0k")
+text = "我们"
+fit_content = true
 
 [node name="Preview" type="TextureRect" parent="Pages/PhonePage"]
 visible = false
