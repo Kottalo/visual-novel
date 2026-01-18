@@ -73,6 +73,12 @@ func _ready() -> void:
 			Main.bonus_tab_index = 2
 	)
 	
+	phone_icon_music.clicked.connect(
+		func ():
+			Game.book_page.show()
+			Game.book_page.layer = 2
+	)
+	
 	dialogue_line = await dialogue.get_next_dialogue_line("start")
 	
 

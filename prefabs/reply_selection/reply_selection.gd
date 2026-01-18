@@ -29,6 +29,9 @@ func _ready() -> void:
 			if event is InputEventMouseButton:
 				if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 					Game.phone_page.clear_reply_selections()
-					
+					var message: ChatMessage = Prefabs.chat_message.instantiate()
+					Game.phone_page.chat_message_pool.add_child(message)
+					message.sender_type = Enums.SenderType.SELF
+					message.message_text.text = reply_text.text
 					Game.phone_page.get_next_line(next_id)
 	)
