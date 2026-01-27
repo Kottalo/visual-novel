@@ -2,6 +2,11 @@ class_name StagePage
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+@export var autoplay_pause_time: float = 1
+@export var normal_step_rate: float = 0.02
+@export var skip_step_rate: float = 0.01
+@export var auto_step_rate: float = 0.1
+
 @export var dialogue_screen: Control
 @export var responses_menu: DialogueResponsesMenu
 @export var subviewport: SubViewport
@@ -22,6 +27,26 @@ extends CanvasLayer
 @export var bg_common: TextureRect
 @export var bg_character: TextureRect
 @export var avatar: TextureRect
+
+var skip: bool = false:
+	set(value):
+		skip = value
+		update_step_rate()
+
+var autoplay: bool = false:
+	set(value):
+		autoplay = value
+		update_step_rate()
+
+func update_step_rate() -> void:
+	var rate = auto_step_rate if autoplay else normal_step_rate
+	rate = skip_step_rate if skip else rate
+	
+	dialogue_label.seconds_per_step = rate
+	
+	if is_waiting_for_input:
+		if autoplay or skip:
+			Game.stage_page.go_next()
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -66,13 +91,13 @@ var dialogue_line: DialogueLine:
 var mutation_cooldown: Timer = Timer.new()
 
 ## The label showing the name of the currently speaking character
-@onready var character_label: RichTextLabel = %CharacterLabel
+@export var character_label: RichTextLabel
 
 ## The label showing the currently spoken dialogue
-@onready var dialogue_label: DialogueLabel = %DialogueLabel
+@export var dialogue_label: DialogueLabel
 
 ## Indicator to show that player can progress dialogue.
-@onready var progress: Polygon2D = %Progress
+@export var progress: Polygon2D
 
 
 func _ready() -> void:
@@ -173,6 +198,10 @@ func apply_dialogue_line() -> void:
 	elif dialogue_line.responses.size() > 0:
 		dialogue_screen.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
+	elif autoplay or skip:
+		if not skip:
+			await get_tree().create_timer(autoplay_pause_time).timeout
+		go_next()
 	elif dialogue_line.time != "":
 		var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
@@ -182,6 +211,8 @@ func apply_dialogue_line() -> void:
 		dialogue_screen.focus_mode = Control.FOCUS_ALL
 		dialogue_screen.grab_focus()
 
+func go_next() -> void:
+	next(dialogue_line.next_id)
 
 ## Go to the next line
 func next(next_id: String) -> void:

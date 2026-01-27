@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ojfoyxcslkhd"]
+[gd_scene format=3 uid="uid://ojfoyxcslkhd"]
 
 [ext_resource type="Texture2D" uid="uid://d1bqawxs7ufb" path="res://assets/ui/对话界面/menu_select.png" id="1_b2dtw"]
 [ext_resource type="Script" uid="uid://db3one1avbq5b" path="res://prefabs/dialogue_button/dialogue_button.gd" id="2_4cn42"]
 [ext_resource type="Texture2D" uid="uid://bokqhrkwjgvac" path="res://assets/ui/对话界面/menu_skip.png" id="2_mst00"]
 
-[node name="DialogueButton" type="TextureRect" node_paths=PackedStringArray("select_frame", "icon", "click_rect")]
+[node name="DialogueButton" type="TextureRect" unique_id=1310080083 node_paths=PackedStringArray("select_frame", "icon", "click_rect")]
 offset_right = 76.0
 offset_bottom = 89.0
 mouse_filter = 2
@@ -14,7 +14,7 @@ select_frame = NodePath(".")
 icon = NodePath("Icon")
 click_rect = NodePath("ClickRect")
 
-[node name="ClickRect" type="Control" parent="."]
+[node name="ClickRect" type="Control" parent="." unique_id=90132889]
 anchors_preset = 0
 offset_left = 9.0
 offset_top = 9.0
@@ -22,7 +22,7 @@ offset_right = 68.0
 offset_bottom = 81.0
 mouse_filter = 2
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="Icon" type="TextureRect" parent="." unique_id=1758427880]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

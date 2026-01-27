@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dwnsxsn6pit1f"]
+[gd_scene format=3 uid="uid://dwnsxsn6pit1f"]
 
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://pages/stage_page/stage_page.gd" id="1_wlgfe"]
 [ext_resource type="Texture2D" uid="uid://cy2yu4heea3sk" path="res://assets/ui/对话界面/对话界面.png" id="2_yetgv"]
@@ -79,7 +79,7 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_sqldi")
 
-[node name="StagePage" type="CanvasLayer" node_paths=PackedStringArray("dialogue_screen", "responses_menu", "subviewport", "hbox_positions", "character_image_pool", "texture_rect_background", "texture_rect_blackscreen", "bg_common", "bg_character", "avatar")]
+[node name="StagePage" type="CanvasLayer" unique_id=547424691 node_paths=PackedStringArray("dialogue_screen", "responses_menu", "subviewport", "hbox_positions", "character_image_pool", "texture_rect_background", "texture_rect_blackscreen", "bg_common", "bg_character", "avatar", "character_label", "dialogue_label", "progress")]
 layer = 100
 script = ExtResource("1_wlgfe")
 dialogue_screen = NodePath("StagePage/SubViewport/DialogueScreen")
@@ -92,8 +92,11 @@ texture_rect_blackscreen = NodePath("StagePage/SubViewport/TextureRect_Blackscre
 bg_common = NodePath("StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Common")
 bg_character = NodePath("StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Character")
 avatar = NodePath("StagePage/SubViewport/DialogueScreen/Avatar")
+character_label = NodePath("StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Character/CharacterLabel")
+dialogue_label = NodePath("StagePage/SubViewport/DialogueScreen/DialogueLabel")
+progress = NodePath("StagePage/SubViewport/DialogueScreen/Progress")
 
-[node name="StagePage" type="SubViewportContainer" parent="."]
+[node name="StagePage" type="SubViewportContainer" parent="." unique_id=1454457358]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -101,35 +104,35 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="StagePage"]
+[node name="SubViewport" type="SubViewport" parent="StagePage" unique_id=144366116]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(2560, 1440)
 render_target_update_mode = 4
 
-[node name="SceneContainer" type="Control" parent="StagePage/SubViewport"]
+[node name="SceneContainer" type="Control" parent="StagePage/SubViewport" unique_id=1145592]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DialogueSelection" parent="StagePage/SubViewport/SceneContainer" instance=ExtResource("4_wd0lf")]
+[node name="DialogueSelection" parent="StagePage/SubViewport/SceneContainer" unique_id=129240634 instance=ExtResource("4_wd0lf")]
 layout_mode = 0
 offset_left = 669.0
 offset_top = 535.0
 offset_right = 1892.0
 offset_bottom = 682.0
 
-[node name="TextureRect_Background" type="TextureRect" parent="StagePage/SubViewport"]
+[node name="TextureRect_Background" type="TextureRect" parent="StagePage/SubViewport" unique_id=1394197653]
 offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("3_lqv2x")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="CharacterImages" type="Node2D" parent="StagePage/SubViewport"]
+[node name="CharacterImages" type="Node2D" parent="StagePage/SubViewport" unique_id=19264594]
 
-[node name="HBoxContainer_Positions" type="HBoxContainer" parent="StagePage/SubViewport"]
+[node name="HBoxContainer_Positions" type="HBoxContainer" parent="StagePage/SubViewport" unique_id=1663383264]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -137,42 +140,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LeftMost" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions"]
+[node name="LeftMost" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=774944302]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/LeftMost"]
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/LeftMost" unique_id=2054177225]
 layout_mode = 2
 
-[node name="Left" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Left"]
-layout_mode = 2
-
-[node name="Center" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions"]
+[node name="Left" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=1134200764]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Center"]
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Left" unique_id=946482615]
 layout_mode = 2
 
-[node name="Right" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Right"]
-layout_mode = 2
-
-[node name="RightMost" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions"]
+[node name="Center" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=2004570200]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/RightMost"]
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Center" unique_id=1244112783]
 layout_mode = 2
 
-[node name="DialogueScreen" type="Control" parent="StagePage/SubViewport"]
+[node name="Right" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=152013508]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Right" unique_id=627323666]
+layout_mode = 2
+
+[node name="RightMost" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=471927817]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/RightMost" unique_id=2100089452]
+layout_mode = 2
+
+[node name="DialogueScreen" type="Control" parent="StagePage/SubViewport" unique_id=1066749812]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,7 +184,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
-[node name="Bg_DialogueBox" type="Control" parent="StagePage/SubViewport/DialogueScreen"]
+[node name="Bg_DialogueBox" type="Control" parent="StagePage/SubViewport/DialogueScreen" unique_id=1193722480]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -189,7 +192,7 @@ anchor_bottom = 1.0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Bg_Common" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox"]
+[node name="Bg_Common" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox" unique_id=1721980369]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -199,7 +202,7 @@ offset_right = 2560.0
 grow_vertical = 0
 texture = ExtResource("5_wyvu0")
 
-[node name="Bg_Character" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox"]
+[node name="Bg_Character" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox" unique_id=761864671]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -209,7 +212,7 @@ offset_right = 2560.0
 grow_vertical = 0
 texture = ExtResource("6_ra4hq")
 
-[node name="CharacterLabel" type="RichTextLabel" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Character"]
+[node name="CharacterLabel" type="RichTextLabel" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Character" unique_id=1734914496]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 506.0
@@ -225,7 +228,7 @@ text = "余洛琛"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="StagePage/SubViewport/DialogueScreen" instance=ExtResource("8_cvq0y")]
+[node name="DialogueLabel" parent="StagePage/SubViewport/DialogueScreen" unique_id=442996839 instance=ExtResource("8_cvq0y")]
 unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
@@ -241,13 +244,14 @@ theme_override_colors/default_color = Color(0.92941177, 0.9019608, 0.9607843, 1)
 theme_override_fonts/normal_font = ExtResource("7_ke2v6")
 theme_override_font_sizes/normal_font_size = 40
 text = "文学社"
+pause_at_characters = ""
 
-[node name="Progress" type="Polygon2D" parent="StagePage/SubViewport/DialogueScreen"]
+[node name="Progress" type="Polygon2D" parent="StagePage/SubViewport/DialogueScreen" unique_id=97073002]
 unique_name_in_owner = true
 position = Vector2(2306, 1337)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
-[node name="Avatar" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen"]
+[node name="Avatar" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen" unique_id=1701687384]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -258,7 +262,7 @@ mouse_filter = 2
 expand_mode = 5
 stretch_mode = 6
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="StagePage/SubViewport/DialogueScreen" node_paths=PackedStringArray("response_template")]
+[node name="ResponsesMenu" type="VBoxContainer" parent="StagePage/SubViewport/DialogueScreen" unique_id=1848378009 node_paths=PackedStringArray("response_template")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -277,14 +281,14 @@ alignment = 1
 script = ExtResource("3_jool8")
 response_template = NodePath("../../SceneContainer/DialogueSelection")
 
-[node name="Preview" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen"]
+[node name="Preview" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen" unique_id=1694271716]
 visible = false
 layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_yetgv")
 
-[node name="DialogueButtonController" type="Node" parent="StagePage/SubViewport/DialogueScreen" node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_phone", "button_book", "button_title")]
+[node name="DialogueButtonController" type="Node" parent="StagePage/SubViewport/DialogueScreen" unique_id=1781078644 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_phone", "button_book", "button_title")]
 script = ExtResource("10_lqv2x")
 button_skip = NodePath("../HBoxContainer_Buttons/DialogueButton_Skip")
 button_auto = NodePath("../HBoxContainer_Buttons/DialogueButton_Auto")
@@ -296,7 +300,7 @@ button_phone = NodePath("../HBoxContainer_Buttons/DialogueButton_Phone")
 button_book = NodePath("../HBoxContainer_Buttons/DialogueButton_Book")
 button_title = NodePath("../HBoxContainer_Buttons/DialogueButton_Title")
 
-[node name="HBoxContainer_Buttons" type="HBoxContainer" parent="StagePage/SubViewport/DialogueScreen"]
+[node name="HBoxContainer_Buttons" type="HBoxContainer" parent="StagePage/SubViewport/DialogueScreen" unique_id=2120074705]
 layout_mode = 0
 offset_left = 915.0
 offset_top = 1331.0
@@ -304,71 +308,71 @@ offset_right = 1647.0
 offset_bottom = 1420.0
 theme_override_constants/separation = 6
 
-[node name="DialogueButton_Skip" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Skip" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=717129467 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 toggle_button = true
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Skip" index="1" unique_id=1758427880]
 offset_left = -15.0
 offset_right = 17.0
 
-[node name="DialogueButton_Auto" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Auto" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=492983354 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 toggle_button = true
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Auto" index="1" unique_id=1758427880]
 texture = ExtResource("11_tx5oi")
 
-[node name="DialogueButton_Save" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Save" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=1987230586 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Save" index="1" unique_id=1758427880]
 offset_left = -15.0
 offset_right = 17.0
 texture = ExtResource("12_50is1")
 
-[node name="DialogueButton_Load" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Load" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=1391655335 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load" index="1" unique_id=1758427880]
 offset_left = -15.0
 offset_right = 17.0
 texture = ExtResource("13_pjj4j")
 
-[node name="DialogueButton_Log" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Log" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=1330438700 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log" index="1" unique_id=1758427880]
 texture = ExtResource("14_ri6cy")
 
-[node name="DialogueButton_Set" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Set" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=1903119149 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set" index="1" unique_id=1758427880]
 texture = ExtResource("15_ii14q")
 
-[node name="DialogueButton_Phone" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Phone" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=538227529 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone" index="1" unique_id=1758427880]
 offset_left = -15.0
 offset_top = -68.0
 offset_right = 17.0
 texture = ExtResource("16_lqv2x")
 
-[node name="DialogueButton_Book" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Book" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=1504173714 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book" index="1" unique_id=1758427880]
 texture = ExtResource("17_4x5c0")
 
-[node name="DialogueButton_Title" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" instance=ExtResource("10_7jxs1")]
+[node name="DialogueButton_Title" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=1703431268 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
 
-[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title" index="1"]
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title" index="1" unique_id=1758427880]
 texture = ExtResource("18_p0t85")
 
-[node name="TextureRect_Blackscreen" type="ColorRect" parent="StagePage/SubViewport"]
+[node name="TextureRect_Blackscreen" type="ColorRect" parent="StagePage/SubViewport" unique_id=1839957560]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0

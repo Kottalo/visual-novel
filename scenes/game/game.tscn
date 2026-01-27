@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://bu5abqoi5ei5j"]
+[gd_scene format=3 uid="uid://bu5abqoi5ei5j"]
 
 [ext_resource type="Script" uid="uid://bgckygupi53v2" path="res://scenes/game/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_e2o6t"]
@@ -106,7 +106,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
 
-[node name="Game" type="Node" node_paths=PackedStringArray("page_pool", "main_menu", "bonus_page", "stage_page", "profile_page", "travel_page", "book_page", "log_page", "phone_page")]
+[node name="Game" type="Node" unique_id=533485796 node_paths=PackedStringArray("page_pool", "main_menu", "bonus_page", "stage_page", "profile_page", "travel_page", "book_page", "log_page", "phone_page")]
 script = ExtResource("1_e2o6t")
 page_pool = NodePath("Pages")
 main_menu = NodePath("Pages/MainMenu")
@@ -118,9 +118,9 @@ book_page = NodePath("Pages/BookPage")
 log_page = NodePath("Pages/LogPage")
 phone_page = NodePath("Pages/PhonePage")
 
-[node name="Pages" type="Node" parent="."]
+[node name="Pages" type="Node" parent="." unique_id=461717146]
 
-[node name="MainMenu" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
+[node name="MainMenu" type="CanvasLayer" parent="Pages" unique_id=1940827298 node_paths=PackedStringArray("button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
 script = ExtResource("2_gsju6")
 button_start = NodePath("Buttons/MainMenuButton_Start")
 button_load = NodePath("Buttons/MainMenuButton_Load")
@@ -129,7 +129,7 @@ button_book = NodePath("Buttons/MainMenuButton_Book")
 button_setting = NodePath("Buttons/MainMenuButton_Setting")
 button_quit = NodePath("Buttons/MainMenuButton_Quit")
 
-[node name="Background" type="TextureRect" parent="Pages/MainMenu"]
+[node name="Background" type="TextureRect" parent="Pages/MainMenu" unique_id=24738213]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -139,7 +139,7 @@ texture = ExtResource("2_e2o6t")
 expand_mode = 5
 stretch_mode = 6
 
-[node name="Logo" type="TextureRect" parent="Pages/MainMenu"]
+[node name="Logo" type="TextureRect" parent="Pages/MainMenu" unique_id=1853977778]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -152,7 +152,7 @@ grow_vertical = 2
 texture = ExtResource("5_y28t1")
 stretch_mode = 6
 
-[node name="Buttons" type="Control" parent="Pages/MainMenu"]
+[node name="Buttons" type="Control" parent="Pages/MainMenu" unique_id=1813491481]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 280.0
@@ -160,14 +160,14 @@ offset_top = 1240.0
 offset_right = 320.0
 offset_bottom = 1280.0
 
-[node name="MainMenuButton_Start" parent="Pages/MainMenu/Buttons" instance=ExtResource("4_fc0e3")]
+[node name="MainMenuButton_Start" parent="Pages/MainMenu/Buttons" unique_id=525781687 instance=ExtResource("4_fc0e3")]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 29.0
 offset_right = 36.0
 offset_bottom = 29.0
 
-[node name="MainMenuButton_Load" parent="Pages/MainMenu/Buttons" instance=ExtResource("4_fc0e3")]
+[node name="MainMenuButton_Load" parent="Pages/MainMenu/Buttons" unique_id=630297949 instance=ExtResource("4_fc0e3")]
 layout_mode = 0
 offset_left = 389.0
 offset_top = 29.0
@@ -180,7 +180,7 @@ text = "读取档案"
 [node name="Label_English" parent="Pages/MainMenu/Buttons/MainMenuButton_Load" index="1"]
 text = "Load Game"
 
-[node name="MainMenuButton_Bonus" parent="Pages/MainMenu/Buttons" instance=ExtResource("4_fc0e3")]
+[node name="MainMenuButton_Bonus" parent="Pages/MainMenu/Buttons" unique_id=1775569358 instance=ExtResource("4_fc0e3")]
 layout_mode = 0
 offset_left = 743.0
 offset_top = 29.0
@@ -193,7 +193,7 @@ text = "特别鉴赏"
 [node name="Label_English" parent="Pages/MainMenu/Buttons/MainMenuButton_Bonus" index="1"]
 text = "Special Gallery"
 
-[node name="MainMenuButton_Book" parent="Pages/MainMenu/Buttons" instance=ExtResource("4_fc0e3")]
+[node name="MainMenuButton_Book" parent="Pages/MainMenu/Buttons" unique_id=623977196 instance=ExtResource("4_fc0e3")]
 layout_mode = 0
 offset_left = 1098.0
 offset_top = 29.0
@@ -206,7 +206,7 @@ text = "奇迹书"
 [node name="Label_English" parent="Pages/MainMenu/Buttons/MainMenuButton_Book" index="1"]
 text = "Miracle Book"
 
-[node name="MainMenuButton_Setting" parent="Pages/MainMenu/Buttons" instance=ExtResource("4_fc0e3")]
+[node name="MainMenuButton_Setting" parent="Pages/MainMenu/Buttons" unique_id=519565014 instance=ExtResource("4_fc0e3")]
 layout_mode = 0
 offset_left = 1448.0
 offset_top = 29.0
@@ -219,7 +219,7 @@ text = "系统设置"
 [node name="Label_English" parent="Pages/MainMenu/Buttons/MainMenuButton_Setting" index="1"]
 text = "Options"
 
-[node name="MainMenuButton_Quit" parent="Pages/MainMenu/Buttons" instance=ExtResource("4_fc0e3")]
+[node name="MainMenuButton_Quit" parent="Pages/MainMenu/Buttons" unique_id=119579571 instance=ExtResource("4_fc0e3")]
 layout_mode = 0
 offset_left = 1801.0
 offset_top = 29.0
@@ -232,7 +232,7 @@ text = "退出游戏"
 [node name="Label_English" parent="Pages/MainMenu/Buttons/MainMenuButton_Quit" index="1"]
 text = "Exit Game"
 
-[node name="Preview" type="TextureRect" parent="Pages/MainMenu"]
+[node name="Preview" type="TextureRect" parent="Pages/MainMenu" unique_id=1834987233]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -243,12 +243,12 @@ texture = ExtResource("4_tcv87")
 expand_mode = 5
 stretch_mode = 6
 
-[node name="BonusPage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("music_page")]
+[node name="BonusPage" type="CanvasLayer" parent="Pages" unique_id=1025324806 node_paths=PackedStringArray("music_page")]
 visible = false
 script = ExtResource("5_3f8qr")
 music_page = NodePath("TabPages/MusicPage")
 
-[node name="ColorRect" type="ColorRect" parent="Pages/BonusPage"]
+[node name="ColorRect" type="ColorRect" parent="Pages/BonusPage" unique_id=2049343991]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -256,13 +256,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Background" type="TextureRect" parent="Pages/BonusPage"]
+[node name="Background" type="TextureRect" parent="Pages/BonusPage" unique_id=2051672653]
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
 texture = ExtResource("48_5dkr6")
 
-[node name="TabPages" type="Control" parent="Pages/BonusPage"]
+[node name="TabPages" type="Control" parent="Pages/BonusPage" unique_id=701786141]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -270,7 +270,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CharacterPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option")]
+[node name="CharacterPage" type="Control" parent="Pages/BonusPage/TabPages" unique_id=1543878511 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -285,7 +285,7 @@ character_pool = NodePath("Characters")
 body_part_options = [NodePath("VBoxContainer_Options/CharacterOption_Body"), NodePath("VBoxContainer_Options/CharacterOption_Eyebrows"), NodePath("VBoxContainer_Options/CharacterOption_Eyes"), NodePath("VBoxContainer_Options/CharacterOption_Mouth")]
 background_option = NodePath("VBoxContainer_Options/CharacterOption_Background")
 
-[node name="Background" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage"]
+[node name="Background" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage" unique_id=609926831]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -293,7 +293,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect_Foreground" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage"]
+[node name="TextureRect_Foreground" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage" unique_id=819170168]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -303,11 +303,11 @@ grow_vertical = 2
 texture = ExtResource("22_mljfx")
 stretch_mode = 6
 
-[node name="CharacterSelections" type="Control" parent="Pages/BonusPage/TabPages/CharacterPage"]
+[node name="CharacterSelections" type="Control" parent="Pages/BonusPage/TabPages/CharacterPage" unique_id=1457469626]
 anchors_preset = 0
 mouse_filter = 1
 
-[node name="CharacterSelection" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" instance=ExtResource("22_t46w6")]
+[node name="CharacterSelection" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" unique_id=362060181 instance=ExtResource("22_t46w6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -319,7 +319,7 @@ offset_top = 96.0
 offset_right = 245.0
 offset_bottom = 249.0
 
-[node name="CharacterSelection2" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" instance=ExtResource("22_t46w6")]
+[node name="CharacterSelection2" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" unique_id=419496334 instance=ExtResource("22_t46w6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -332,7 +332,7 @@ offset_right = 330.0
 offset_bottom = 334.0
 texture = ExtResource("23_0de7l")
 
-[node name="CharacterSelection3" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" instance=ExtResource("22_t46w6")]
+[node name="CharacterSelection3" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" unique_id=126227441 instance=ExtResource("22_t46w6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -345,7 +345,7 @@ offset_right = 245.0
 offset_bottom = 419.0
 texture = ExtResource("24_87ddb")
 
-[node name="CharacterSelection4" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" instance=ExtResource("22_t46w6")]
+[node name="CharacterSelection4" parent="Pages/BonusPage/TabPages/CharacterPage/CharacterSelections" unique_id=1332708285 instance=ExtResource("22_t46w6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -358,22 +358,22 @@ offset_right = 330.0
 offset_bottom = 504.0
 texture = ExtResource("25_mljfx")
 
-[node name="Characters" type="Node2D" parent="Pages/BonusPage/TabPages/CharacterPage"]
+[node name="Characters" type="Node2D" parent="Pages/BonusPage/TabPages/CharacterPage" unique_id=1596235226]
 position = Vector2(1305, 1433)
 
-[node name="辉夜奏" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("27_tb2lt")]
+[node name="辉夜奏" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" unique_id=371997225 instance=ExtResource("27_tb2lt")]
 visible = false
 
-[node name="常夏" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("29_gh0px")]
+[node name="常夏" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" unique_id=270356817 instance=ExtResource("29_gh0px")]
 visible = false
 
-[node name="余洛琛" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("30_v33yl")]
+[node name="余洛琛" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" unique_id=246944791 instance=ExtResource("30_v33yl")]
 visible = false
 
-[node name="葛城" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" instance=ExtResource("28_cfc7e")]
+[node name="葛城" parent="Pages/BonusPage/TabPages/CharacterPage/Characters" unique_id=1803207169 instance=ExtResource("28_cfc7e")]
 visible = false
 
-[node name="Preview" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage"]
+[node name="Preview" type="TextureRect" parent="Pages/BonusPage/TabPages/CharacterPage" unique_id=1874822772]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -383,7 +383,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_kq12w")
 
-[node name="Label_CharacterName" type="Label" parent="Pages/BonusPage/TabPages/CharacterPage"]
+[node name="Label_CharacterName" type="Label" parent="Pages/BonusPage/TabPages/CharacterPage" unique_id=2049992210]
 layout_mode = 0
 offset_left = 201.0
 offset_top = 867.0
@@ -394,48 +394,48 @@ theme_override_fonts/font = ExtResource("37_r62pu")
 theme_override_font_sizes/font_size = 60
 text = "辉夜奏"
 
-[node name="VBoxContainer_Options" type="VBoxContainer" parent="Pages/BonusPage/TabPages/CharacterPage"]
+[node name="VBoxContainer_Options" type="VBoxContainer" parent="Pages/BonusPage/TabPages/CharacterPage" unique_id=1505995830]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 983.0
 offset_right = 557.0
 offset_bottom = 1237.0
 
-[node name="CharacterOption_Background" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" instance=ExtResource("36_vuohh")]
+[node name="CharacterOption_Background" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" unique_id=672220231 instance=ExtResource("36_vuohh")]
 layout_mode = 2
 
 [node name="Label" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Background" index="0"]
 text = "背景"
 
-[node name="CharacterOption_Body" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" instance=ExtResource("36_vuohh")]
+[node name="CharacterOption_Body" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" unique_id=755815622 instance=ExtResource("36_vuohh")]
 layout_mode = 2
 body_part = "Body"
 
 [node name="Label" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Body" index="0"]
 text = "身体"
 
-[node name="CharacterOption_Eyebrows" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" instance=ExtResource("36_vuohh")]
+[node name="CharacterOption_Eyebrows" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" unique_id=932211763 instance=ExtResource("36_vuohh")]
 layout_mode = 2
 body_part = "Eyebrows"
 
 [node name="Label" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Eyebrows" index="0"]
 text = "眉毛"
 
-[node name="CharacterOption_Eyes" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" instance=ExtResource("36_vuohh")]
+[node name="CharacterOption_Eyes" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" unique_id=1558787643 instance=ExtResource("36_vuohh")]
 layout_mode = 2
 body_part = "Eyes"
 
 [node name="Label" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Eyes" index="0"]
 text = "眼睛"
 
-[node name="CharacterOption_Mouth" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" instance=ExtResource("36_vuohh")]
+[node name="CharacterOption_Mouth" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options" unique_id=1674788403 instance=ExtResource("36_vuohh")]
 layout_mode = 2
 body_part = "Mouth"
 
 [node name="Label" parent="Pages/BonusPage/TabPages/CharacterPage/VBoxContainer_Options/CharacterOption_Mouth" index="0"]
 text = "嘴巴"
 
-[node name="GalleryPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("gallery_card_pool")]
+[node name="GalleryPage" type="Control" parent="Pages/BonusPage/TabPages" unique_id=184465551 node_paths=PackedStringArray("gallery_card_pool")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -446,13 +446,13 @@ grow_vertical = 2
 script = ExtResource("25_2e3yn")
 gallery_card_pool = NodePath("ScrollContainer/GalleryCardPool")
 
-[node name="VScrollBarEx" parent="Pages/BonusPage/TabPages/GalleryPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+[node name="VScrollBarEx" parent="Pages/BonusPage/TabPages/GalleryPage" unique_id=318275615 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1
 offset_top = 116.0
 offset_bottom = 1188.0
 target_scroll_container = NodePath("../ScrollContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Pages/BonusPage/TabPages/GalleryPage"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/BonusPage/TabPages/GalleryPage" unique_id=1355476718]
 layout_mode = 0
 offset_left = 261.0
 offset_top = 73.0
@@ -461,13 +461,13 @@ offset_bottom = 1184.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="GalleryCardPool" type="GridContainer" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer"]
+[node name="GalleryCardPool" type="GridContainer" parent="Pages/BonusPage/TabPages/GalleryPage/ScrollContainer" unique_id=687629203]
 layout_mode = 2
 theme_override_constants/h_separation = -9
 theme_override_constants/v_separation = -10
 columns = 4
 
-[node name="Preview" type="TextureRect" parent="Pages/BonusPage/TabPages/GalleryPage"]
+[node name="Preview" type="TextureRect" parent="Pages/BonusPage/TabPages/GalleryPage" unique_id=448425907]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -477,7 +477,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_eu6ph")
 
-[node name="MusicPage" type="Control" parent="Pages/BonusPage/TabPages" node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description", "label_current_time", "label_total_time")]
+[node name="MusicPage" type="Control" parent="Pages/BonusPage/TabPages" unique_id=337252668 node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description", "label_current_time", "label_total_time")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -501,27 +501,27 @@ richlabel_description = NodePath("Labels/RichTextLabel_Description")
 label_current_time = NodePath("Time/Label_CurrentTime")
 label_total_time = NodePath("Time/Label_TotalTime")
 
-[node name="Images" type="Control" parent="Pages/BonusPage/TabPages/MusicPage"]
+[node name="Images" type="Control" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=1234190654]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 1
 
-[node name="TextureRect_Panel" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/Images"]
+[node name="TextureRect_Panel" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/Images" unique_id=1045129781]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 1882.0
 offset_bottom = 1264.0
 texture = ExtResource("19_hb5m1")
 
-[node name="TextureRect_Disc" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/Images"]
+[node name="TextureRect_Disc" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/Images" unique_id=1611909515]
 layout_mode = 0
 offset_top = 121.0
 offset_right = 855.0
 offset_bottom = 1091.0
 texture = ExtResource("18_e36ub")
 
-[node name="TextureRect_InfoDecoration" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/Images"]
+[node name="TextureRect_InfoDecoration" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/Images" unique_id=1980429553]
 layout_mode = 0
 offset_left = 889.0
 offset_top = 227.0
@@ -529,12 +529,12 @@ offset_right = 1678.0
 offset_bottom = 432.0
 texture = ExtResource("23_l1i01")
 
-[node name="Labels" type="Control" parent="Pages/BonusPage/TabPages/MusicPage"]
+[node name="Labels" type="Control" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=2131403177]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label_Title" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Labels"]
+[node name="Label_Title" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Labels" unique_id=52577947]
 layout_mode = 0
 offset_left = 891.0
 offset_top = 235.0
@@ -544,7 +544,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 44
 text = "歌曲名称"
 
-[node name="RichTextLabel_Description" type="RichTextLabel" parent="Pages/BonusPage/TabPages/MusicPage/Labels"]
+[node name="RichTextLabel_Description" type="RichTextLabel" parent="Pages/BonusPage/TabPages/MusicPage/Labels" unique_id=594685614]
 layout_mode = 0
 offset_left = 894.0
 offset_top = 445.0
@@ -554,24 +554,24 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/normal_font_size = 31
 text = "歌曲简介歌曲简介歌曲简介歌曲简介歌曲简介歌曲简介歌曲简介"
 
-[node name="PlayProgressContainer" type="Control" parent="Pages/BonusPage/TabPages/MusicPage"]
+[node name="PlayProgressContainer" type="Control" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=1193619348]
 layout_mode = 1
 anchors_preset = 0
 offset_top = 1094.0
 offset_right = 1866.5
 offset_bottom = 1117.0
 
-[node name="PlayProgressLine" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer" node_paths=PackedStringArray("play_progress_container") instance=ExtResource("25_r62pu")]
+[node name="PlayProgressLine" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer" unique_id=1991808540 node_paths=PackedStringArray("play_progress_container") instance=ExtResource("25_r62pu")]
 layout_mode = 1
 play_progress_container = NodePath("..")
 
-[node name="PlayProgressLine_Ghost" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer" node_paths=PackedStringArray("play_progress_container") instance=ExtResource("25_r62pu")]
+[node name="PlayProgressLine_Ghost" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer" unique_id=632895747 node_paths=PackedStringArray("play_progress_container") instance=ExtResource("25_r62pu")]
 modulate = Color(1, 1, 1, 0.6117647)
 layout_mode = 1
 color = Color(0.23366994, 0.2219201, 0.26291704, 1)
 play_progress_container = NodePath("..")
 
-[node name="ProgressHint" type="Control" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer"]
+[node name="ProgressHint" type="Control" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer" unique_id=1634518805]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -579,7 +579,7 @@ anchor_bottom = 0.5
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="TextureRect_ProgressHint" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer/ProgressHint"]
+[node name="TextureRect_ProgressHint" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage/PlayProgressContainer/ProgressHint" unique_id=1015273099]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -595,12 +595,12 @@ grow_vertical = 2
 pivot_offset = Vector2(32, 33)
 texture = ExtResource("21_hb5m1")
 
-[node name="Buttons" type="Control" parent="Pages/BonusPage/TabPages/MusicPage"]
+[node name="Buttons" type="Control" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=1518239335]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect_PlayButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons"]
+[node name="TextureRect_PlayButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons" unique_id=1500450302]
 layout_mode = 0
 offset_left = 855.0
 offset_top = 1139.0
@@ -610,7 +610,7 @@ texture_normal = ExtResource("27_xa8c5")
 texture_pressed = ExtResource("28_5b14r")
 texture_hover = ExtResource("27_xa8c5")
 
-[node name="TextureRect_PauseButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons"]
+[node name="TextureRect_PauseButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons" unique_id=1515501231]
 layout_mode = 0
 offset_left = 855.0
 offset_top = 1139.0
@@ -620,7 +620,7 @@ texture_normal = ExtResource("29_xfvwf")
 texture_pressed = ExtResource("30_dhpj7")
 texture_hover = ExtResource("31_7knny")
 
-[node name="TextureRect_NextButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons"]
+[node name="TextureRect_NextButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons" unique_id=1424346877]
 layout_mode = 0
 offset_left = 975.0
 offset_top = 1162.0
@@ -630,7 +630,7 @@ texture_normal = ExtResource("32_082n1")
 texture_pressed = ExtResource("33_xex6t")
 texture_hover = ExtResource("34_aa0lp")
 
-[node name="TextureRect_PreviousButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons"]
+[node name="TextureRect_PreviousButton" type="TextureButton" parent="Pages/BonusPage/TabPages/MusicPage/Buttons" unique_id=2030733224]
 layout_mode = 0
 offset_left = 784.0
 offset_top = 1162.0
@@ -640,7 +640,7 @@ texture_normal = ExtResource("35_iu0sx")
 texture_pressed = ExtResource("36_4v2jo")
 texture_hover = ExtResource("37_l1i01")
 
-[node name="ScrollContainer_Playlist" type="ScrollContainer" parent="Pages/BonusPage/TabPages/MusicPage"]
+[node name="ScrollContainer_Playlist" type="ScrollContainer" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=332169672]
 layout_mode = 0
 offset_left = 1911.0
 offset_top = 108.0
@@ -649,17 +649,17 @@ offset_bottom = 1203.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer_Playlist" type="VBoxContainer" parent="Pages/BonusPage/TabPages/MusicPage/ScrollContainer_Playlist"]
+[node name="VBoxContainer_Playlist" type="VBoxContainer" parent="Pages/BonusPage/TabPages/MusicPage/ScrollContainer_Playlist" unique_id=1577742866]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VScrollBarEx" parent="Pages/BonusPage/TabPages/MusicPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+[node name="VScrollBarEx" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=645530254 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 layout_mode = 1
 offset_top = 116.0
 offset_bottom = 1186.0
 target_scroll_container = NodePath("../ScrollContainer_Playlist")
 
-[node name="Preview" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage"]
+[node name="Preview" type="TextureRect" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=384524558]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -669,12 +669,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_e8heu")
 
-[node name="Time" type="Control" parent="Pages/BonusPage/TabPages/MusicPage"]
+[node name="Time" type="Control" parent="Pages/BonusPage/TabPages/MusicPage" unique_id=1172562567]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label_CurrentTime" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time"]
+[node name="Label_CurrentTime" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time" unique_id=564422464]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 1159.0
@@ -684,7 +684,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 20
 text = "02:13"
 
-[node name="Label" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time"]
+[node name="Label" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time" unique_id=2060661935]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 1159.0
@@ -694,7 +694,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 20
 text = "/"
 
-[node name="Label_TotalTime" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time"]
+[node name="Label_TotalTime" type="Label" parent="Pages/BonusPage/TabPages/MusicPage/Time" unique_id=1514192012]
 layout_mode = 0
 offset_left = 169.0
 offset_top = 1159.0
@@ -704,28 +704,28 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 20
 text = "04:13"
 
-[node name="HBoxContainer_Tabs" type="HBoxContainer" parent="Pages/BonusPage"]
+[node name="HBoxContainer_Tabs" type="HBoxContainer" parent="Pages/BonusPage" unique_id=1124518454]
 offset_left = 1838.0
 offset_top = 1268.0
 offset_right = 1958.0
 offset_bottom = 1311.0
 theme_override_constants/separation = 112
 
-[node name="BonusTabItem_Character" parent="Pages/BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
+[node name="BonusTabItem_Character" parent="Pages/BonusPage/HBoxContainer_Tabs" unique_id=1896118008 node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
 layout_mode = 2
 target_tab = NodePath("../../TabPages/CharacterPage")
 
-[node name="BonusTabItem_Gallery" parent="Pages/BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
+[node name="BonusTabItem_Gallery" parent="Pages/BonusPage/HBoxContainer_Tabs" unique_id=2073185599 node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
 layout_mode = 2
 texture = ExtResource("37_4v2jo")
 target_tab = NodePath("../../TabPages/GalleryPage")
 
-[node name="BonusTabItem_Music" parent="Pages/BonusPage/HBoxContainer_Tabs" node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
+[node name="BonusTabItem_Music" parent="Pages/BonusPage/HBoxContainer_Tabs" unique_id=1542797552 node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
 layout_mode = 2
 texture = ExtResource("38_l1i01")
 target_tab = NodePath("../../TabPages/MusicPage")
 
-[node name="BackButton" parent="Pages/BonusPage" instance=ExtResource("74_bf22m")]
+[node name="BackButton" parent="Pages/BonusPage" unique_id=1292181598 instance=ExtResource("74_bf22m")]
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -735,10 +735,10 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="StagePage" parent="Pages" instance=ExtResource("92_dadqe")]
+[node name="StagePage" parent="Pages" unique_id=2061072662 instance=ExtResource("92_dadqe")]
 layer = 1
 
-[node name="ProfilePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("profile_card_model", "title_load", "title_save", "profile_card_pool")]
+[node name="ProfilePage" type="CanvasLayer" parent="Pages" unique_id=1748374715 node_paths=PackedStringArray("profile_card_model", "title_load", "title_save", "profile_card_pool")]
 visible = false
 script = ExtResource("5_eow3j")
 profile_card_model = NodePath("PrefabContainer/SaveProfileCard")
@@ -746,27 +746,27 @@ title_load = NodePath("Titles/Title_Load")
 title_save = NodePath("Titles/Title_Save")
 profile_card_pool = NodePath("ScrollContainer/GridContainer_ProfileCards")
 
-[node name="Background" type="TextureRect" parent="Pages/ProfilePage"]
+[node name="Background" type="TextureRect" parent="Pages/ProfilePage" unique_id=1443687794]
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
 texture = ExtResource("48_5dkr6")
 
-[node name="PrefabContainer" type="Control" parent="Pages/ProfilePage"]
+[node name="PrefabContainer" type="Control" parent="Pages/ProfilePage" unique_id=1690055481]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="SaveProfileCard" parent="Pages/ProfilePage/PrefabContainer" instance=ExtResource("6_ryrav")]
+[node name="SaveProfileCard" parent="Pages/ProfilePage/PrefabContainer" unique_id=13721419 instance=ExtResource("6_ryrav")]
 layout_mode = 0
 offset_left = 596.0
 offset_top = 104.0
 offset_right = 1167.0
 offset_bottom = 573.0
 
-[node name="Titles" type="Control" parent="Pages/ProfilePage"]
+[node name="Titles" type="Control" parent="Pages/ProfilePage" unique_id=646121194]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 96.0
@@ -774,19 +774,19 @@ offset_top = 81.0
 offset_right = 136.0
 offset_bottom = 121.0
 
-[node name="Title_Load" type="TextureRect" parent="Pages/ProfilePage/Titles"]
+[node name="Title_Load" type="TextureRect" parent="Pages/ProfilePage/Titles" unique_id=1641525100]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("50_bf22m")
 
-[node name="Title_Save" type="TextureRect" parent="Pages/ProfilePage/Titles"]
+[node name="Title_Save" type="TextureRect" parent="Pages/ProfilePage/Titles" unique_id=1624659652]
 layout_mode = 0
 offset_right = 446.0
 offset_bottom = 255.0
 texture = ExtResource("51_tcv87")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Pages/ProfilePage"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/ProfilePage" unique_id=866857203]
 offset_left = 596.0
 offset_top = 104.0
 offset_right = 2353.0
@@ -794,19 +794,19 @@ offset_bottom = 1331.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="GridContainer_ProfileCards" type="GridContainer" parent="Pages/ProfilePage/ScrollContainer"]
+[node name="GridContainer_ProfileCards" type="GridContainer" parent="Pages/ProfilePage/ScrollContainer" unique_id=465045380]
 layout_mode = 2
 theme_override_constants/h_separation = 22
 theme_override_constants/v_separation = 42
 columns = 3
 
-[node name="VScrollBarEx" parent="Pages/ProfilePage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+[node name="VScrollBarEx" parent="Pages/ProfilePage" unique_id=935053527 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 anchor_top = 0.081
 anchor_bottom = 0.081
 offset_bottom = 1210.36
 target_scroll_container = NodePath("../ScrollContainer")
 
-[node name="BackButton" parent="Pages/ProfilePage" instance=ExtResource("74_bf22m")]
+[node name="BackButton" parent="Pages/ProfilePage" unique_id=684690598 instance=ExtResource("74_bf22m")]
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -816,7 +816,7 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="Preview" type="TextureRect" parent="Pages/ProfilePage"]
+[node name="Preview" type="TextureRect" parent="Pages/ProfilePage" unique_id=348484007]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -825,7 +825,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_7jktm")
 
-[node name="TravelPage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
+[node name="TravelPage" type="CanvasLayer" parent="Pages" unique_id=1633687531 node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
 visible = false
 script = ExtResource("59_3gvs5")
 vbox_selections = NodePath("VBoxContainer_Selections")
@@ -834,7 +834,7 @@ texture_button_confirm = NodePath("TextureButton_Confirm")
 label_place_title = NodePath("Labels/Label_PlaceTitle")
 rich_label_place_description = NodePath("Labels/RichTextLabel_PlaceDescription")
 
-[node name="Background" type="TextureRect" parent="Pages/TravelPage"]
+[node name="Background" type="TextureRect" parent="Pages/TravelPage" unique_id=529655191]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -843,7 +843,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("60_ple6s")
 
-[node name="Title" type="TextureRect" parent="Pages/TravelPage/Background"]
+[node name="Title" type="TextureRect" parent="Pages/TravelPage/Background" unique_id=1027759245]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -857,7 +857,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("61_rnb85")
 
-[node name="VBoxContainer_Selections" type="VBoxContainer" parent="Pages/TravelPage"]
+[node name="VBoxContainer_Selections" type="VBoxContainer" parent="Pages/TravelPage" unique_id=1659533441]
 offset_left = 254.0
 offset_top = -705.0
 offset_right = 1106.0
@@ -865,22 +865,22 @@ offset_bottom = 2146.0
 size_flags_horizontal = 3
 mouse_filter = 0
 
-[node name="PlaceSelection" parent="Pages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection" parent="Pages/TravelPage/VBoxContainer_Selections" unique_id=967329502 instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection2" parent="Pages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection2" parent="Pages/TravelPage/VBoxContainer_Selections" unique_id=57609414 instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection3" parent="Pages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection3" parent="Pages/TravelPage/VBoxContainer_Selections" unique_id=48754115 instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection4" parent="Pages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection4" parent="Pages/TravelPage/VBoxContainer_Selections" unique_id=1104914983 instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="PlaceSelection5" parent="Pages/TravelPage/VBoxContainer_Selections" instance=ExtResource("61_ra4rb")]
+[node name="PlaceSelection5" parent="Pages/TravelPage/VBoxContainer_Selections" unique_id=1625367744 instance=ExtResource("61_ra4rb")]
 layout_mode = 2
 
-[node name="TextureRect_SelectFrame" type="TextureRect" parent="Pages/TravelPage"]
+[node name="TextureRect_SelectFrame" type="TextureRect" parent="Pages/TravelPage" unique_id=241787818]
 offset_left = 135.0
 offset_top = 399.0
 offset_right = 1144.0
@@ -888,7 +888,7 @@ offset_bottom = 1048.0
 mouse_filter = 2
 texture = ExtResource("62_du4n2")
 
-[node name="Foreground" type="TextureRect" parent="Pages/TravelPage"]
+[node name="Foreground" type="TextureRect" parent="Pages/TravelPage" unique_id=1528298818]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -897,7 +897,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("63_jo4nb")
 
-[node name="TipBar" type="TextureRect" parent="Pages/TravelPage"]
+[node name="TipBar" type="TextureRect" parent="Pages/TravelPage" unique_id=1560367900]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -909,7 +909,7 @@ grow_horizontal = 2
 mouse_filter = 2
 texture = ExtResource("65_jo4nb")
 
-[node name="Label" type="Label" parent="Pages/TravelPage/TipBar"]
+[node name="Label" type="Label" parent="Pages/TravelPage/TipBar" unique_id=1352419247]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -924,13 +924,13 @@ theme_override_font_sizes/font_size = 36
 text = "选择想要前往的地点"
 horizontal_alignment = 1
 
-[node name="Labels" type="Control" parent="Pages/TravelPage"]
+[node name="Labels" type="Control" parent="Pages/TravelPage" unique_id=394829990]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label_PlaceTitle" type="Label" parent="Pages/TravelPage/Labels"]
+[node name="Label_PlaceTitle" type="Label" parent="Pages/TravelPage/Labels" unique_id=160175969]
 layout_mode = 0
 offset_left = 1443.0
 offset_top = 587.0
@@ -940,7 +940,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 50
 text = "街道"
 
-[node name="RichTextLabel_PlaceDescription" type="RichTextLabel" parent="Pages/TravelPage/Labels"]
+[node name="RichTextLabel_PlaceDescription" type="RichTextLabel" parent="Pages/TravelPage/Labels" unique_id=2039177552]
 layout_mode = 0
 offset_left = 1443.0
 offset_top = 699.0
@@ -951,7 +951,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 31
 text = "场景简介"
 
-[node name="TextureButton_Confirm" type="TextureButton" parent="Pages/TravelPage"]
+[node name="TextureButton_Confirm" type="TextureButton" parent="Pages/TravelPage" unique_id=2019435619]
 offset_left = 1706.0
 offset_top = 981.0
 offset_right = 1996.0
@@ -960,7 +960,7 @@ texture_normal = ExtResource("67_84b8o")
 texture_pressed = ExtResource("68_g2bdr")
 texture_hover = ExtResource("69_864w3")
 
-[node name="Preview" type="TextureRect" parent="Pages/TravelPage"]
+[node name="Preview" type="TextureRect" parent="Pages/TravelPage" unique_id=395734993]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -969,7 +969,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("60_mc3al")
 
-[node name="BookPage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container", "buttons")]
+[node name="BookPage" type="CanvasLayer" parent="Pages" unique_id=1710572226 node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container", "buttons")]
 visible = false
 script = ExtResource("61_g2bdr")
 dialogue_label = NodePath("PrefabContainer/DialogueLabel")
@@ -981,7 +981,7 @@ paragraph_container = NodePath("PrefabContainer/ParagraphContainer")
 buttons = NodePath("Buttons")
 reply_color = Color(0.24705882, 0.21568628, 0.76862746, 1)
 
-[node name="TextureRect_Background" type="TextureRect" parent="Pages/BookPage"]
+[node name="TextureRect_Background" type="TextureRect" parent="Pages/BookPage" unique_id=916269889]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -989,7 +989,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_215e1")
 
-[node name="TextureRect_Book" type="TextureRect" parent="Pages/BookPage"]
+[node name="TextureRect_Book" type="TextureRect" parent="Pages/BookPage" unique_id=1216521264]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -998,12 +998,12 @@ offset_bottom = 1440.0
 grow_horizontal = 0
 texture = ExtResource("9_7sc4i")
 
-[node name="TextureRect_Foreground" type="TextureRect" parent="Pages/BookPage"]
+[node name="TextureRect_Foreground" type="TextureRect" parent="Pages/BookPage" unique_id=297462104]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("11_7sc4i")
 
-[node name="TextureRect_Title" type="TextureRect" parent="Pages/BookPage"]
+[node name="TextureRect_Title" type="TextureRect" parent="Pages/BookPage" unique_id=1925134415]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1012,7 +1012,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_80cx4")
 
-[node name="TextureRect_Frame3" type="TextureRect" parent="Pages/BookPage"]
+[node name="TextureRect_Frame3" type="TextureRect" parent="Pages/BookPage" unique_id=1970593494]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1020,7 +1020,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_e8heu")
 
-[node name="TextureRect_Frame2" type="TextureRect" parent="Pages/BookPage"]
+[node name="TextureRect_Frame2" type="TextureRect" parent="Pages/BookPage" unique_id=1123919527]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1028,7 +1028,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_rvswv")
 
-[node name="TextureRect_Frame1" type="TextureRect" parent="Pages/BookPage"]
+[node name="TextureRect_Frame1" type="TextureRect" parent="Pages/BookPage" unique_id=2009793384]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1036,14 +1036,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_80cx4")
 
-[node name="PrefabContainer" type="Control" parent="Pages/BookPage"]
+[node name="PrefabContainer" type="Control" parent="Pages/BookPage" unique_id=1681069389]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 267.0
 offset_bottom = 140.0
 
-[node name="DialogueLabel" type="RichTextLabel" parent="Pages/BookPage/PrefabContainer"]
+[node name="DialogueLabel" type="RichTextLabel" parent="Pages/BookPage/PrefabContainer" unique_id=2024721596]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1065,14 +1065,14 @@ seconds_per_step = 0.1
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_custom_type_script = "uid://g32um0mltv5d"
 
-[node name="ParagraphContainer" parent="Pages/BookPage/PrefabContainer" instance=ExtResource("72_qtnwx")]
+[node name="ParagraphContainer" parent="Pages/BookPage/PrefabContainer" unique_id=716824557 instance=ExtResource("72_qtnwx")]
 layout_mode = 0
 offset_left = 642.0
 offset_top = 181.99998
 offset_right = 1442.0
 offset_bottom = 181.99998
 
-[node name="VBoxContainer_Page" type="VBoxContainer" parent="Pages/BookPage"]
+[node name="VBoxContainer_Page" type="VBoxContainer" parent="Pages/BookPage" unique_id=1491244443]
 offset_left = 642.0
 offset_top = 181.99998
 offset_right = 1442.6052
@@ -1080,7 +1080,7 @@ offset_bottom = 1258.6079
 rotation = -0.075049154
 theme_override_constants/separation = 0
 
-[node name="BackButton" parent="Pages/BookPage" instance=ExtResource("74_bf22m")]
+[node name="BackButton" parent="Pages/BookPage" unique_id=1507991779 instance=ExtResource("74_bf22m")]
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -1090,13 +1090,13 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="Buttons" type="Control" parent="Pages/BookPage"]
+[node name="Buttons" type="Control" parent="Pages/BookPage" unique_id=116637666]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton_Previous" type="TextureButton" parent="Pages/BookPage/Buttons"]
+[node name="TextureButton_Previous" type="TextureButton" parent="Pages/BookPage/Buttons" unique_id=1628399598]
 layout_mode = 0
 offset_left = 1358.0
 offset_top = 1240.0
@@ -1106,7 +1106,7 @@ texture_normal = ExtResource("77_shuhp")
 texture_pressed = ExtResource("78_ev1tq")
 texture_hover = ExtResource("79_17607")
 
-[node name="Label" type="Label" parent="Pages/BookPage/Buttons/TextureButton_Previous"]
+[node name="Label" type="Label" parent="Pages/BookPage/Buttons/TextureButton_Previous" unique_id=2120564057]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1123,7 +1123,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 26
 text = "上一页"
 
-[node name="TextureButton_Next" type="TextureButton" parent="Pages/BookPage/Buttons"]
+[node name="TextureButton_Next" type="TextureButton" parent="Pages/BookPage/Buttons" unique_id=2001087314]
 layout_mode = 0
 offset_left = 1748.0
 offset_top = 1240.0
@@ -1133,7 +1133,7 @@ texture_normal = ExtResource("77_shuhp")
 texture_pressed = ExtResource("78_ev1tq")
 texture_hover = ExtResource("79_17607")
 
-[node name="Label" type="Label" parent="Pages/BookPage/Buttons/TextureButton_Next"]
+[node name="Label" type="Label" parent="Pages/BookPage/Buttons/TextureButton_Next" unique_id=865066724]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1150,7 +1150,7 @@ theme = ExtResource("66_56gn1")
 theme_override_font_sizes/font_size = 26
 text = "下一页"
 
-[node name="Preview" type="TextureRect" parent="Pages/BookPage"]
+[node name="Preview" type="TextureRect" parent="Pages/BookPage" unique_id=567803660]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -1159,20 +1159,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_j5wjh")
 
-[node name="LogPage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("log_line", "divider", "vbox_log_lines")]
+[node name="LogPage" type="CanvasLayer" parent="Pages" unique_id=259113775 node_paths=PackedStringArray("log_line", "divider", "vbox_log_lines")]
 visible = false
 script = ExtResource("77_yegcf")
 log_line = NodePath("PrefabContainer/LogLine")
 divider = NodePath("PrefabContainer/Divider")
 vbox_log_lines = NodePath("ScrollContainer/MarginContainer/VBoxContainer_LogLines")
 
-[node name="Background" type="TextureRect" parent="Pages/LogPage"]
+[node name="Background" type="TextureRect" parent="Pages/LogPage" unique_id=1834759313]
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
 texture = ExtResource("48_5dkr6")
 
-[node name="Preview" type="TextureRect" parent="Pages/LogPage"]
+[node name="Preview" type="TextureRect" parent="Pages/LogPage" unique_id=1910504212]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -1181,21 +1181,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("77_gsju6")
 
-[node name="PrefabContainer" type="Control" parent="Pages/LogPage"]
+[node name="PrefabContainer" type="Control" parent="Pages/LogPage" unique_id=1975510497]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="LogLine" parent="Pages/LogPage/PrefabContainer" instance=ExtResource("80_hqxe5")]
+[node name="LogLine" parent="Pages/LogPage/PrefabContainer" unique_id=744648116 instance=ExtResource("80_hqxe5")]
 layout_mode = 0
 
-[node name="Divider" type="TextureRect" parent="Pages/LogPage/PrefabContainer"]
+[node name="Divider" type="TextureRect" parent="Pages/LogPage/PrefabContainer" unique_id=872920142]
 layout_mode = 0
 texture = ExtResource("79_472nx")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Pages/LogPage"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/LogPage" unique_id=746801059]
 offset_left = 576.0
 offset_top = 105.0
 offset_right = 2397.0
@@ -1203,22 +1203,22 @@ offset_bottom = 1354.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Pages/LogPage/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Pages/LogPage/ScrollContainer" unique_id=2112093472]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 
-[node name="VBoxContainer_LogLines" type="VBoxContainer" parent="Pages/LogPage/ScrollContainer/MarginContainer"]
+[node name="VBoxContainer_LogLines" type="VBoxContainer" parent="Pages/LogPage/ScrollContainer/MarginContainer" unique_id=1140919227]
 layout_mode = 2
 
-[node name="Divider" type="TextureRect" parent="Pages/LogPage/ScrollContainer/MarginContainer/VBoxContainer_LogLines"]
+[node name="Divider" type="TextureRect" parent="Pages/LogPage/ScrollContainer/MarginContainer/VBoxContainer_LogLines" unique_id=1590479461]
 layout_mode = 2
 texture = ExtResource("79_472nx")
 
-[node name="VScrollBarEx" parent="Pages/LogPage" node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
+[node name="VScrollBarEx" parent="Pages/LogPage" unique_id=1843920774 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("8_klri6")]
 offset_top = 116.0
 target_scroll_container = NodePath("../ScrollContainer")
 
-[node name="BackButton" parent="Pages/LogPage" instance=ExtResource("74_bf22m")]
+[node name="BackButton" parent="Pages/LogPage" unique_id=1026301269 instance=ExtResource("74_bf22m")]
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -1228,7 +1228,7 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 
-[node name="PhonePage" type="CanvasLayer" parent="Pages" node_paths=PackedStringArray("chat_node", "background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "chat_message_pool", "reply_selection_pool", "back_button")]
+[node name="PhonePage" type="CanvasLayer" parent="Pages" unique_id=1773944498 node_paths=PackedStringArray("chat_node", "background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "chat_message_pool", "reply_selection_pool", "back_button")]
 script = ExtResource("89_aggdw")
 dialogue = ExtResource("90_md0bp")
 phone_background = ExtResource("93_7s1vt")
@@ -1242,7 +1242,7 @@ chat_message_pool = NodePath("Phone/Chat/VBoxContainer/ScrollContainer/ChatMessa
 reply_selection_pool = NodePath("Phone/Chat/VBoxContainer/ReplySelectionPool")
 back_button = NodePath("Phone/Chat/BackButton")
 
-[node name="Background" type="Panel" parent="Pages/PhonePage"]
+[node name="Background" type="Panel" parent="Pages/PhonePage" unique_id=890884313]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1250,7 +1250,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aggdw")
 
-[node name="Phone" type="TextureRect" parent="Pages/PhonePage"]
+[node name="Phone" type="TextureRect" parent="Pages/PhonePage" unique_id=1039688777]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -1264,7 +1264,7 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("92_xj5di")
 
-[node name="Wallpaper" type="TextureRect" parent="Pages/PhonePage/Phone"]
+[node name="Wallpaper" type="TextureRect" parent="Pages/PhonePage/Phone" unique_id=805536679]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1279,7 +1279,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("93_7s1vt")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pages/PhonePage/Phone/Wallpaper"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pages/PhonePage/Phone/Wallpaper" unique_id=1437334342]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 1055.0
@@ -1287,31 +1287,31 @@ offset_right = 667.0
 offset_bottom = 1185.0
 theme_override_constants/separation = 25
 
-[node name="PhoneIcon_Message" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Message" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=273655491 instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("92_mhl8n")
 title = "信息"
 
-[node name="PhoneIcon_Photo" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Photo" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=663215521 instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("93_5xmm2")
 title = "相册"
 
-[node name="PhoneIcon_Music" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Music" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=166890393 instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("94_aggdw")
 title = "音乐"
 
-[node name="PhoneIcon_Book" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" instance=ExtResource("91_dadqe")]
+[node name="PhoneIcon_Book" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=1188279387 instance=ExtResource("91_dadqe")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("95_7128n")
 title = "奇迹书"
 
-[node name="Chat" type="TextureRect" parent="Pages/PhonePage/Phone"]
+[node name="Chat" type="TextureRect" parent="Pages/PhonePage/Phone" unique_id=2135232880]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1327,7 +1327,7 @@ grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("91_aggdw")
 
-[node name="Label_Name" type="Label" parent="Pages/PhonePage/Phone/Chat"]
+[node name="Label_Name" type="Label" parent="Pages/PhonePage/Phone/Chat" unique_id=1704511598]
 modulate = Color(0.29709297, 0.29709294, 0.2970929, 1)
 layout_mode = 1
 anchors_preset = 5
@@ -1342,7 +1342,7 @@ theme_override_font_sizes/font_size = 48
 text = "角色名称"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat" unique_id=1906531365]
 layout_mode = 0
 offset_left = 55.0
 offset_top = 211.0
@@ -1350,38 +1350,38 @@ offset_right = 697.0
 offset_bottom = 1261.0
 theme_override_constants/separation = 12
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer" unique_id=748072737]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="ChatMessagePool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ScrollContainer"]
+[node name="ChatMessagePool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ScrollContainer" unique_id=1240545379]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="ReplySelectionPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer"]
+[node name="ReplySelectionPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer" unique_id=1200149523]
 layout_mode = 2
 alignment = 2
 
-[node name="ReplyBox" type="PanelContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer"]
+[node name="ReplyBox" type="PanelContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer" unique_id=2093542287]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("98_7128n")
 
-[node name="MarginContainer" type="MarginContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox" unique_id=1245579538]
 layout_mode = 2
 theme = ExtResource("99_5ei0k")
 
-[node name="ReplyText" type="RichTextLabel" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox/MarginContainer"]
+[node name="ReplyText" type="RichTextLabel" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox/MarginContainer" unique_id=1968050617]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme = ExtResource("99_5ei0k")
 text = "我们"
 fit_content = true
 
-[node name="BackButton" type="TextureButton" parent="Pages/PhonePage/Phone/Chat"]
+[node name="BackButton" type="TextureButton" parent="Pages/PhonePage/Phone/Chat" unique_id=1223680888]
 layout_mode = 0
 offset_left = 604.0
 offset_top = 65.0
@@ -1394,7 +1394,7 @@ texture_hover = ExtResource("101_dr31o")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Preview" type="TextureRect" parent="Pages/PhonePage"]
+[node name="Preview" type="TextureRect" parent="Pages/PhonePage" unique_id=1959636755]
 visible = false
 modulate = Color(1, 1, 1, 0.22745098)
 offset_right = 40.0
