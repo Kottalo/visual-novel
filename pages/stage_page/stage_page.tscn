@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://c5o5yj7qu7ic5" path="res://assets/ui/对话界面/menu_phone.png" id="16_lqv2x"]
 [ext_resource type="Texture2D" uid="uid://cm2mbq2xdcqkf" path="res://assets/ui/对话界面/menu_book.png" id="17_4x5c0"]
 [ext_resource type="Texture2D" uid="uid://bnptfgpypwbn4" path="res://assets/ui/对话界面/menu_title.png" id="18_p0t85"]
+[ext_resource type="FontFile" uid="uid://dd1ubdqp4elpg" path="res://assets/fonts/C4v.4-Regular（日期）.otf" id="20_4x5c0"]
+[ext_resource type="Texture2D" uid="uid://cursfdexvwan7" path="res://assets/ui/对话界面/date_deco.png" id="21_edgdw"]
+[ext_resource type="Texture2D" uid="uid://dunx036ntwv0t" path="res://assets/ui/对话界面/date_text.png" id="22_vivor"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j08cx"]
 bg_color = Color(0, 0, 0, 1)
@@ -371,6 +374,75 @@ layout_mode = 2
 
 [node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title" index="1" unique_id=1758427880]
 texture = ExtResource("18_p0t85")
+
+[node name="Date" type="Control" parent="StagePage/SubViewport/DialogueScreen" unique_id=990267552]
+anchors_preset = 0
+offset_left = 158.0
+offset_top = 105.0
+offset_right = 445.0
+offset_bottom = 285.0
+
+[node name="Label_Day" type="Label" parent="StagePage/SubViewport/DialogueScreen/Date" unique_id=19742695]
+modulate = Color(0.5137255, 0.7764706, 1, 1)
+layout_mode = 0
+offset_left = -55.0
+offset_top = -7.0
+offset_right = 157.0
+offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("20_4x5c0")
+theme_override_font_sizes/font_size = 176
+text = "31"
+horizontal_alignment = 1
+
+[node name="Label_Slash" type="Label" parent="StagePage/SubViewport/DialogueScreen/Date" unique_id=585375775]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 40.0
+offset_right = 166.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.5137255, 0.7764706, 1, 1)
+theme_override_colors/font_outline_color = Color(0.5137255, 0.7764706, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("20_4x5c0")
+theme_override_font_sizes/font_size = 100
+text = "/"
+
+[node name="Label_Month" type="Label" parent="StagePage/SubViewport/DialogueScreen/Date" unique_id=1021873755]
+modulate = Color(0.5137255, 0.7764706, 1, 1)
+layout_mode = 0
+offset_left = 171.0
+offset_top = 39.0
+offset_right = 302.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("20_4x5c0")
+theme_override_font_sizes/font_size = 117
+text = "02"
+
+[node name="Label_Date" type="Label" parent="StagePage/SubViewport/DialogueScreen/Date" unique_id=1042550106]
+layout_mode = 0
+offset_left = -53.0
+offset_top = 139.0
+offset_right = 139.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("7_ke2v6")
+theme_override_font_sizes/font_size = 36
+text = "周四下午·晴"
+
+[node name="TextureRect" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen/Date" unique_id=72667629]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 95.0
+offset_right = 357.0
+offset_bottom = 210.0
+texture = ExtResource("21_edgdw")
+
+[node name="TextureRect2" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen/Date" unique_id=1425571291]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 219.0
+offset_right = 29.0
+offset_bottom = 247.0
+texture = ExtResource("22_vivor")
 
 [node name="TextureRect_Blackscreen" type="ColorRect" parent="StagePage/SubViewport" unique_id=1839957560]
 visible = false

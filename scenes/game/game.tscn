@@ -99,6 +99,7 @@
 [ext_resource type="Texture2D" uid="uid://bvf8bn2lhtjat" path="res://assets/ui/手机界面/ico_music.png" id="94_aggdw"]
 [ext_resource type="Texture2D" uid="uid://ciudxu8yrrbgu" path="res://assets/ui/手机界面/ico_book.png" id="95_7128n"]
 [ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
+[ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="98_3mho2"]
 [ext_resource type="Theme" uid="uid://b4d02lqqc61dq" path="res://themes/phone_theme.tres" id="99_md0bp"]
 [ext_resource type="Texture2D" uid="uid://klah0qwujx6o" path="res://assets/ui/通用/phone_back_normal.png" id="100_md0bp"]
 [ext_resource type="Texture2D" uid="uid://dr2hcofx3uf1r" path="res://assets/ui/通用/phone_back_click.png" id="101_3mho2"]
@@ -738,6 +739,7 @@ grow_vertical = 1
 
 [node name="StagePage" parent="Pages" unique_id=2061072662 instance=ExtResource("92_dadqe")]
 layer = 1
+visible = false
 
 [node name="ProfilePage" type="CanvasLayer" parent="Pages" unique_id=1748374715 node_paths=PackedStringArray("profile_card_model", "title_load", "title_save", "profile_card_pool")]
 visible = false
@@ -1308,7 +1310,24 @@ layout_mode = 2
 icon = ExtResource("95_7128n")
 title = "奇迹书"
 
+[node name="Date" type="Control" parent="Pages/PhonePage/Phone/Wallpaper" unique_id=1100308504]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_PhoneDate" type="Label" parent="Pages/PhonePage/Phone/Wallpaper/Date" unique_id=1797759143]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 737.0
+offset_right = 567.0
+offset_bottom = 902.0
+theme_override_fonts/font = ExtResource("98_3mho2")
+theme_override_font_sizes/font_size = 140
+text = "07/06"
+horizontal_alignment = 1
+
 [node name="Chat" type="TextureRect" parent="Pages/PhonePage/Phone" unique_id=2135232880]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1378,7 +1397,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Preview" type="TextureRect" parent="Pages/PhonePage" unique_id=1959636755]
-visible = false
 modulate = Color(1, 1, 1, 0.22745098)
 offset_right = 40.0
 offset_bottom = 40.0
