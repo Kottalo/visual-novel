@@ -100,7 +100,9 @@
 [ext_resource type="Texture2D" uid="uid://ciudxu8yrrbgu" path="res://assets/ui/手机界面/ico_book.png" id="95_7128n"]
 [ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
 [ext_resource type="Theme" uid="uid://b4d02lqqc61dq" path="res://themes/phone_theme.tres" id="99_md0bp"]
-[ext_resource type="Texture2D" uid="uid://dwendkelvabpn" path="res://assets/ui/手机界面/chat/left-arrow.png" id="101_dr31o"]
+[ext_resource type="Texture2D" uid="uid://klah0qwujx6o" path="res://assets/ui/通用/phone_back_normal.png" id="100_md0bp"]
+[ext_resource type="Texture2D" uid="uid://dr2hcofx3uf1r" path="res://assets/ui/通用/phone_back_click.png" id="101_3mho2"]
+[ext_resource type="Texture2D" uid="uid://c0dk86vd70xx3" path="res://assets/ui/通用/phone_back_hover.png" id="102_gu4yt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
@@ -1364,14 +1366,14 @@ alignment = 2
 
 [node name="BackButton" type="TextureButton" parent="Pages/PhonePage/Phone/Chat" unique_id=1223680888]
 layout_mode = 0
-offset_left = 604.0
-offset_top = 65.0
-offset_right = 698.0
-offset_bottom = 159.0
+offset_left = 618.0
+offset_top = 92.0
+offset_right = 675.0
+offset_bottom = 149.0
 focus_mode = 0
-texture_normal = ExtResource("101_dr31o")
-texture_pressed = ExtResource("101_dr31o")
-texture_hover = ExtResource("101_dr31o")
+texture_normal = ExtResource("100_md0bp")
+texture_pressed = ExtResource("101_3mho2")
+texture_hover = ExtResource("102_gu4yt")
 ignore_texture_size = true
 stretch_mode = 4
 
