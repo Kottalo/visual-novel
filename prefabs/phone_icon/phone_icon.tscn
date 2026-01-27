@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://btkall20t660f"]
+[gd_scene format=3 uid="uid://btkall20t660f"]
 
 [ext_resource type="Texture2D" uid="uid://bvs2xcuwuc67f" path="res://assets/ui/手机界面/ico_message.png" id="1_pex5o"]
 [ext_resource type="Script" uid="uid://dt57ajxw80ym7" path="res://prefabs/phone_icon/phone_icon.gd" id="1_s5ofn"]
+[ext_resource type="Theme" uid="uid://b4d02lqqc61dq" path="res://themes/phone_theme.tres" id="3_442nh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5ofn"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -12,30 +13,32 @@ corner_radius_bottom_left = 32
 shadow_color = Color(0.79477805, 0.68358934, 1, 0.25882354)
 shadow_size = 9
 
-[node name="PhoneIcon" type="PanelContainer" node_paths=PackedStringArray("texture_rect_icon", "label_title")]
+[node name="PhoneIcon" type="PanelContainer" unique_id=915122883 node_paths=PackedStringArray("texture_rect_icon", "label_title")]
+self_modulate = Color(1, 1, 1, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_s5ofn")
 script = ExtResource("1_s5ofn")
 texture_rect_icon = NodePath("VBoxContainer/TextureRect_Icon")
 label_title = NodePath("VBoxContainer/Control/Label_Title")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1438506118]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect_Icon" type="TextureRect" parent="VBoxContainer"]
+[node name="TextureRect_Icon" type="TextureRect" parent="VBoxContainer" unique_id=1537291288]
 layout_mode = 2
 texture = ExtResource("1_pex5o")
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=1792778293]
 layout_mode = 2
 
-[node name="Label_Title" type="Label" parent="VBoxContainer/Control"]
+[node name="Label_Title" type="Label" parent="VBoxContainer/Control" unique_id=1236988601]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 10.0
 offset_bottom = 45.0
 grow_horizontal = 2
+theme = ExtResource("3_442nh")
 theme_override_font_sizes/font_size = 24
 text = "信息"
 horizontal_alignment = 1

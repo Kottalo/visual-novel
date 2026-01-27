@@ -99,8 +99,7 @@
 [ext_resource type="Texture2D" uid="uid://bvf8bn2lhtjat" path="res://assets/ui/手机界面/ico_music.png" id="94_aggdw"]
 [ext_resource type="Texture2D" uid="uid://ciudxu8yrrbgu" path="res://assets/ui/手机界面/ico_book.png" id="95_7128n"]
 [ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="96_5xmm2"]
-[ext_resource type="StyleBox" uid="uid://db6semkjsurbl" path="res://themes/style_boxes/bubble.tres" id="98_7128n"]
-[ext_resource type="Theme" uid="uid://b6wigi5ow3raq" path="res://themes/chat_theme.tres" id="99_5ei0k"]
+[ext_resource type="Theme" uid="uid://b4d02lqqc61dq" path="res://themes/phone_theme.tres" id="99_md0bp"]
 [ext_resource type="Texture2D" uid="uid://dwendkelvabpn" path="res://assets/ui/手机界面/chat/left-arrow.png" id="101_dr31o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
@@ -1288,25 +1287,21 @@ offset_bottom = 1185.0
 theme_override_constants/separation = 25
 
 [node name="PhoneIcon_Message" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=273655491 instance=ExtResource("91_dadqe")]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("92_mhl8n")
 title = "信息"
 
 [node name="PhoneIcon_Photo" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=663215521 instance=ExtResource("91_dadqe")]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("93_5xmm2")
 title = "相册"
 
 [node name="PhoneIcon_Music" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=166890393 instance=ExtResource("91_dadqe")]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("94_aggdw")
 title = "音乐"
 
 [node name="PhoneIcon_Book" parent="Pages/PhonePage/Phone/Wallpaper/HBoxContainer" unique_id=1188279387 instance=ExtResource("91_dadqe")]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 icon = ExtResource("95_7128n")
 title = "奇迹书"
@@ -1338,6 +1333,7 @@ offset_top = 97.0
 offset_right = 362.0
 offset_bottom = 164.0
 grow_horizontal = 2
+theme = ExtResource("99_md0bp")
 theme_override_font_sizes/font_size = 48
 text = "角色名称"
 horizontal_alignment = 1
@@ -1363,23 +1359,8 @@ theme_override_constants/separation = 16
 
 [node name="ReplySelectionPool" type="VBoxContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer" unique_id=1200149523]
 layout_mode = 2
+theme_override_constants/separation = 12
 alignment = 2
-
-[node name="ReplyBox" type="PanelContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer" unique_id=2093542287]
-custom_minimum_size = Vector2(0, 68)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("98_7128n")
-
-[node name="MarginContainer" type="MarginContainer" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox" unique_id=1245579538]
-layout_mode = 2
-theme = ExtResource("99_5ei0k")
-
-[node name="ReplyText" type="RichTextLabel" parent="Pages/PhonePage/Phone/Chat/VBoxContainer/ReplyBox/MarginContainer" unique_id=1968050617]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-theme = ExtResource("99_5ei0k")
-text = "我们"
-fit_content = true
 
 [node name="BackButton" type="TextureButton" parent="Pages/PhonePage/Phone/Chat" unique_id=1223680888]
 layout_mode = 0
