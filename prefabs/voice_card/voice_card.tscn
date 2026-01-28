@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c7qu2xafv1pld"]
+
+[ext_resource type="Texture2D" uid="uid://4d8pyk37v5ja" path="res://assets/ui/语音收藏/data_background_normal.png" id="1_q3tst"]
+[ext_resource type="Texture2D" uid="uid://dd2r6s6pl0wc0" path="res://assets/ui/语音收藏/bigchr_yu.png" id="2_a21pf"]
+[ext_resource type="Texture2D" uid="uid://cjknif7xweb7y" path="res://assets/ui/语音收藏/no_background.png" id="3_4vpxv"]
+[ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="4_imp03"]
+
+[node name="VoiceCard" type="TextureRect" unique_id=1615778727]
+texture = ExtResource("1_q3tst")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1634246829]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 399.0
+offset_bottom = 240.0
+texture = ExtResource("2_a21pf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NumberBackground" type="TextureRect" parent="." unique_id=116980674]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 20.0
+offset_right = 163.0
+offset_bottom = 75.0
+texture = ExtResource("3_4vpxv")
+
+[node name="Label_Number" type="Label" parent="NumberBackground" unique_id=1327915845]
+modulate = Color(0.4862745, 0.47843137, 0.5294118, 1)
+layout_mode = 0
+offset_left = 33.0
+offset_top = 10.0
+offset_right = 99.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("4_imp03")
+theme_override_font_sizes/font_size = 24
+text = "NO.01"

@@ -1,0 +1,2 @@
+class_name VoicePage
+extends CanvasLayer
