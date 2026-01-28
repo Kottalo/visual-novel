@@ -10,6 +10,7 @@ extends Node
 @export var book_page: BookPage
 @export var log_page: LogPage
 @export var phone_page: PhonePage
+@export var setting_page: SettingPage
 
 func _ready() -> void:
 	hide_all_pages()

@@ -25,11 +25,10 @@ func _ready() -> void:
 			Game.bonus_page.show()
 	)
 	button_book.clicked.connect(
-		func ():
-			Game.book_page.show()
+		func (): Game.book_page.show()
 	)
 	button_setting.clicked.connect(
-		func (): pass
+		func (): Game.setting_page.show()
 	)
 	button_quit.clicked.connect(
 		func (): get_tree().quit()

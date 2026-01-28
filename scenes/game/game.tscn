@@ -114,21 +114,16 @@
 [ext_resource type="Texture2D" uid="uid://dvywk0ct3deqn" path="res://assets/ui/语音收藏/botton_hover.png" id="112_hpp13"]
 [ext_resource type="Texture2D" uid="uid://bnk32fachw0ln" path="res://assets/ui/语音收藏/botton_replay.png" id="113_1esc5"]
 [ext_resource type="Texture2D" uid="uid://ddqx8tpf5u7ve" path="res://assets/ui/语音收藏/botton_cancel.png" id="114_e01lh"]
+[ext_resource type="Script" uid="uid://c4buwpxs7t84t" path="res://pages/setting_page.gd" id="115_85u71"]
 [ext_resource type="Texture2D" uid="uid://y7legla6tlw1" path="res://assets/ui/系统设置/系统设置.png" id="115_hpp13"]
 [ext_resource type="Texture2D" uid="uid://5v07xxn7xy8t" path="res://assets/ui/系统设置/系统设置2.png" id="116_e01lh"]
 [ext_resource type="PackedScene" uid="uid://2y0i8n3fcpn8" path="res://prefabs/selection_button/selection_button.tscn" id="117_7hrcm"]
-[ext_resource type="Texture2D" uid="uid://d2d2p570nn87w" path="res://assets/ui/系统设置/botton_normal.png" id="118_7hrcm"]
+[ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="118_7hrcm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85u71"]
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[node name="Game" type="Node" unique_id=533485796 node_paths=PackedStringArray("page_pool", "main_menu", "bonus_page", "stage_page", "profile_page", "travel_page", "book_page", "log_page", "phone_page")]
+[node name="Game" type="Node" unique_id=533485796 node_paths=PackedStringArray("page_pool", "main_menu", "bonus_page", "stage_page", "profile_page", "travel_page", "book_page", "log_page", "phone_page", "setting_page")]
 script = ExtResource("1_e2o6t")
 page_pool = NodePath("Pages")
 main_menu = NodePath("Pages/MainMenu")
@@ -139,6 +134,7 @@ travel_page = NodePath("Pages/TravelPage")
 book_page = NodePath("Pages/BookPage")
 log_page = NodePath("Pages/LogPage")
 phone_page = NodePath("Pages/PhonePage")
+setting_page = NodePath("Pages/SettingPage")
 
 [node name="Pages" type="Node" parent="." unique_id=461717146]
 
@@ -1586,6 +1582,7 @@ mouse_filter = 2
 texture = ExtResource("114_e01lh")
 
 [node name="SettingPage" type="CanvasLayer" parent="Pages" unique_id=1417344304]
+script = ExtResource("115_85u71")
 
 [node name="Background2" type="TextureRect" parent="Pages/SettingPage" unique_id=208721850]
 offset_right = 2560.0
@@ -1660,47 +1657,11 @@ title = "开启"
 layout_mode = 2
 title = "关闭"
 
-[node name="PanelContainer" type="PanelContainer" parent="Pages/SettingPage" unique_id=381217015]
-clip_children = 1
-custom_minimum_size = Vector2(0, 15)
-offset_left = 1047.0
-offset_top = 605.0
-offset_right = 1751.0
-offset_bottom = 620.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_85u71")
-
-[node name="Base" type="ColorRect" parent="Pages/SettingPage/PanelContainer" unique_id=1569271287]
-layout_mode = 2
-color = Color(0, 0, 0, 0.45490196)
-
-[node name="Fill" type="ColorRect" parent="Pages/SettingPage/PanelContainer" unique_id=104499508]
-layout_mode = 2
-color = Color(0.60784316, 0.58431375, 0.69803923, 1)
-
-[node name="Control" type="Control" parent="Pages/SettingPage/PanelContainer/Fill" unique_id=1184288868]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Pages/SettingPage/PanelContainer/Fill/Control" unique_id=308376765]
-top_level = true
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -846.0
-offset_top = -146.0
-offset_right = -773.0
-offset_bottom = -70.0
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("118_7hrcm")
+[node name="SliderEx" parent="Pages/SettingPage" unique_id=1465816476 instance=ExtResource("118_7hrcm")]
+offset_left = 922.0
+offset_top = 97.0
+offset_right = 1626.0
+offset_bottom = 112.0
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Bonus"]
