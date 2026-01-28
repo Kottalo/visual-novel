@@ -24,3 +24,9 @@ func hide_all_pages() -> void:
 	for page: CanvasLayer in page_pool.get_children():
 		page.layer = 1
 		page.visible = false
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+			Main.dragged = false
+		
