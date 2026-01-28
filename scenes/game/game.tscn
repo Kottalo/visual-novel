@@ -117,9 +117,16 @@
 [ext_resource type="Texture2D" uid="uid://y7legla6tlw1" path="res://assets/ui/系统设置/系统设置.png" id="115_hpp13"]
 [ext_resource type="Texture2D" uid="uid://5v07xxn7xy8t" path="res://assets/ui/系统设置/系统设置2.png" id="116_e01lh"]
 [ext_resource type="PackedScene" uid="uid://2y0i8n3fcpn8" path="res://prefabs/selection_button/selection_button.tscn" id="117_7hrcm"]
+[ext_resource type="Texture2D" uid="uid://d2d2p570nn87w" path="res://assets/ui/系统设置/botton_normal.png" id="118_7hrcm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85u71"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Game" type="Node" unique_id=533485796 node_paths=PackedStringArray("page_pool", "main_menu", "bonus_page", "stage_page", "profile_page", "travel_page", "book_page", "log_page", "phone_page")]
 script = ExtResource("1_e2o6t")
@@ -1596,7 +1603,6 @@ grow_vertical = 2
 texture = ExtResource("115_hpp13")
 
 [node name="Preview2" type="TextureRect" parent="Pages/SettingPage" unique_id=1842722725]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1653,6 +1659,48 @@ title = "开启"
 [node name="SelectionButton2" parent="Pages/SettingPage/HBoxContainer2" unique_id=2074779104 instance=ExtResource("117_7hrcm")]
 layout_mode = 2
 title = "关闭"
+
+[node name="PanelContainer" type="PanelContainer" parent="Pages/SettingPage" unique_id=381217015]
+clip_children = 1
+custom_minimum_size = Vector2(0, 15)
+offset_left = 1047.0
+offset_top = 605.0
+offset_right = 1751.0
+offset_bottom = 620.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_85u71")
+
+[node name="Base" type="ColorRect" parent="Pages/SettingPage/PanelContainer" unique_id=1569271287]
+layout_mode = 2
+color = Color(0, 0, 0, 0.45490196)
+
+[node name="Fill" type="ColorRect" parent="Pages/SettingPage/PanelContainer" unique_id=104499508]
+layout_mode = 2
+color = Color(0.60784316, 0.58431375, 0.69803923, 1)
+
+[node name="Control" type="Control" parent="Pages/SettingPage/PanelContainer/Fill" unique_id=1184288868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Pages/SettingPage/PanelContainer/Fill/Control" unique_id=308376765]
+top_level = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -846.0
+offset_top = -146.0
+offset_right = -773.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("118_7hrcm")
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Bonus"]
