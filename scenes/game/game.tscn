@@ -114,6 +114,9 @@
 [ext_resource type="Texture2D" uid="uid://dvywk0ct3deqn" path="res://assets/ui/语音收藏/botton_hover.png" id="112_hpp13"]
 [ext_resource type="Texture2D" uid="uid://bnk32fachw0ln" path="res://assets/ui/语音收藏/botton_replay.png" id="113_1esc5"]
 [ext_resource type="Texture2D" uid="uid://ddqx8tpf5u7ve" path="res://assets/ui/语音收藏/botton_cancel.png" id="114_e01lh"]
+[ext_resource type="Texture2D" uid="uid://y7legla6tlw1" path="res://assets/ui/系统设置/系统设置.png" id="115_hpp13"]
+[ext_resource type="Texture2D" uid="uid://5v07xxn7xy8t" path="res://assets/ui/系统设置/系统设置2.png" id="116_e01lh"]
+[ext_resource type="PackedScene" uid="uid://2y0i8n3fcpn8" path="res://prefabs/selection_button/selection_button.tscn" id="117_7hrcm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
@@ -1413,6 +1416,7 @@ offset_bottom = 40.0
 texture = ExtResource("96_5xmm2")
 
 [node name="VoicePage" type="CanvasLayer" parent="Pages" unique_id=239479270]
+visible = false
 script = ExtResource("105_gu4yt")
 
 [node name="Background" type="TextureRect" parent="Pages/VoicePage" unique_id=932266780]
@@ -1422,6 +1426,7 @@ mouse_filter = 0
 texture = ExtResource("48_5dkr6")
 
 [node name="Preview" type="TextureRect" parent="Pages/VoicePage" unique_id=65313298]
+visible = false
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
@@ -1572,6 +1577,82 @@ offset_right = 141.0
 offset_bottom = 47.0
 mouse_filter = 2
 texture = ExtResource("114_e01lh")
+
+[node name="SettingPage" type="CanvasLayer" parent="Pages" unique_id=1417344304]
+
+[node name="Background2" type="TextureRect" parent="Pages/SettingPage" unique_id=208721850]
+offset_right = 2560.0
+offset_bottom = 1440.0
+mouse_filter = 0
+texture = ExtResource("48_5dkr6")
+
+[node name="Preview1" type="TextureRect" parent="Pages/SettingPage" unique_id=549004339]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("115_hpp13")
+
+[node name="Preview2" type="TextureRect" parent="Pages/SettingPage" unique_id=1842722725]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("116_e01lh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pages/SettingPage" unique_id=1216496155]
+offset_left = 1052.0
+offset_top = 195.0
+offset_right = 1176.0
+offset_bottom = 241.0
+theme_override_constants/separation = 72
+
+[node name="SelectionButton" parent="Pages/SettingPage/HBoxContainer" unique_id=933418496 instance=ExtResource("117_7hrcm")]
+layout_mode = 2
+title = "全屏"
+selected = true
+
+[node name="SelectionButton2" parent="Pages/SettingPage/HBoxContainer" unique_id=663223434 instance=ExtResource("117_7hrcm")]
+layout_mode = 2
+title = "窗口"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Pages/SettingPage" unique_id=1506578312]
+offset_left = 1053.0
+offset_top = 334.0
+offset_right = 1779.0
+offset_bottom = 380.0
+theme_override_constants/separation = 72
+
+[node name="SelectionButton" parent="Pages/SettingPage/HBoxContainer3" unique_id=717086997 instance=ExtResource("117_7hrcm")]
+layout_mode = 2
+title = "未读文本"
+
+[node name="SelectionButton2" parent="Pages/SettingPage/HBoxContainer3" unique_id=1095324642 instance=ExtResource("117_7hrcm")]
+layout_mode = 2
+title = "选项后继续"
+
+[node name="SelectionButton3" parent="Pages/SettingPage/HBoxContainer3" unique_id=1343638204 instance=ExtResource("117_7hrcm")]
+layout_mode = 2
+title = "忽略转场"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pages/SettingPage" unique_id=1106187035]
+offset_left = 1053.0
+offset_top = 472.0
+offset_right = 1373.0
+offset_bottom = 518.0
+theme_override_constants/separation = 72
+
+[node name="SelectionButton" parent="Pages/SettingPage/HBoxContainer2" unique_id=1919449712 instance=ExtResource("117_7hrcm")]
+layout_mode = 2
+title = "开启"
+
+[node name="SelectionButton2" parent="Pages/SettingPage/HBoxContainer2" unique_id=2074779104 instance=ExtResource("117_7hrcm")]
+layout_mode = 2
+title = "关闭"
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Bonus"]

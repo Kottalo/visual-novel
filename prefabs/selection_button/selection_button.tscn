@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://2y0i8n3fcpn8"]
+
+[ext_resource type="Script" uid="uid://dok3lbqth63w5" path="res://prefabs/selection_button/selection_button.gd" id="1_iafw3"]
+[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="1_jkra5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iafw3"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="SelectionButton" type="PanelContainer" unique_id=933418496 node_paths=PackedStringArray("select_rect", "hover_rect", "label_title")]
+clip_children = 1
+offset_right = 124.0
+offset_bottom = 53.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iafw3")
+script = ExtResource("1_iafw3")
+title = "标题"
+select_rect = NodePath("SelectRect")
+hover_rect = NodePath("HoverRect")
+label_title = NodePath("MarginContainer/Label_Title")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1835303418]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 2
+
+[node name="Label_Title" type="Label" parent="MarginContainer" unique_id=165872956]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jkra5")
+theme_override_font_sizes/font_size = 30
+text = "标题"
+horizontal_alignment = 1
+
+[node name="SelectRect" type="ColorRect" parent="." unique_id=2040444431]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0.07450981, 0.41568628)
+
+[node name="HoverRect" type="ColorRect" parent="." unique_id=363568572]
+visible = false
+layout_mode = 2
+color = Color(1, 1, 1, 0.27058825)
