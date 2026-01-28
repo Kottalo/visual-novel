@@ -110,6 +110,10 @@
 [ext_resource type="Texture2D" uid="uid://cgo10h4m51624" path="res://assets/ui/语音收藏/bigdata_background.png" id="108_ju56q"]
 [ext_resource type="Texture2D" uid="uid://dd2r6s6pl0wc0" path="res://assets/ui/语音收藏/bigchr_yu.png" id="109_y1qd8"]
 [ext_resource type="Texture2D" uid="uid://cqnejgbpip8yr" path="res://assets/ui/语音收藏/voice_title.png" id="110_0ipbe"]
+[ext_resource type="Texture2D" uid="uid://b7fol1re57dlc" path="res://assets/ui/语音收藏/botton_click.png" id="111_5v177"]
+[ext_resource type="Texture2D" uid="uid://dvywk0ct3deqn" path="res://assets/ui/语音收藏/botton_hover.png" id="112_hpp13"]
+[ext_resource type="Texture2D" uid="uid://bnk32fachw0ln" path="res://assets/ui/语音收藏/botton_replay.png" id="113_1esc5"]
+[ext_resource type="Texture2D" uid="uid://ddqx8tpf5u7ve" path="res://assets/ui/语音收藏/botton_cancel.png" id="114_e01lh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
@@ -1534,6 +1538,40 @@ texture = ExtResource("110_0ipbe")
 [node name="TextureRect3" type="TextureRect" parent="Pages/VoicePage" unique_id=114948476]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ReplayButton" type="TextureButton" parent="Pages/VoicePage" unique_id=1027569609]
+offset_left = 2023.0
+offset_top = 1062.0
+offset_right = 2201.0
+offset_bottom = 1125.0
+texture_pressed = ExtResource("111_5v177")
+texture_hover = ExtResource("112_hpp13")
+
+[node name="TextureRect" type="TextureRect" parent="Pages/VoicePage/ReplayButton" unique_id=567450372]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 14.0
+offset_right = 141.0
+offset_bottom = 47.0
+mouse_filter = 2
+texture = ExtResource("113_1esc5")
+
+[node name="CancelButton" type="TextureButton" parent="Pages/VoicePage" unique_id=432550731]
+offset_left = 2179.0
+offset_top = 1062.0
+offset_right = 2357.0
+offset_bottom = 1125.0
+texture_pressed = ExtResource("111_5v177")
+texture_hover = ExtResource("112_hpp13")
+
+[node name="TextureRect" type="TextureRect" parent="Pages/VoicePage/CancelButton" unique_id=1419904637]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 14.0
+offset_right = 141.0
+offset_bottom = 47.0
+mouse_filter = 2
+texture = ExtResource("114_e01lh")
 
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Load"]
 [editable path="Pages/MainMenu/Buttons/MainMenuButton_Bonus"]
