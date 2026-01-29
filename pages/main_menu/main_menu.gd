@@ -11,17 +11,16 @@ extends CanvasLayer
 func _ready() -> void:
 	button_start.clicked.connect(
 		func ():
+			hide()
 			Stage.start()
 	)
 	button_load.clicked.connect(
 		func ():
 			Main.profile_mode = Main.ProfileMode.LOAD
-			hide()
 			Game.profile_page.show()
 	)
 	button_bonus.clicked.connect(
 		func ():
-			hide()
 			Game.bonus_page.show()
 	)
 	button_book.clicked.connect(

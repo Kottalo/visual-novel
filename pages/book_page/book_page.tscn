@@ -133,7 +133,7 @@ offset_bottom = 1258.6079
 rotation = -0.075049154
 theme_override_constants/separation = 0
 
-[node name="BackButton" parent="." unique_id=2095390168 instance=ExtResource("16_7e5ln")]
+[node name="BackButton" parent="." unique_id=2095390168 node_paths=PackedStringArray("target_page") instance=ExtResource("16_7e5ln")]
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -142,6 +142,7 @@ offset_top = 1260.0
 offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
+target_page = NodePath("..")
 
 [node name="Buttons" type="Control" parent="." unique_id=1983019369]
 layout_mode = 3

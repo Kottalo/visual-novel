@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://2y0i8n3fcpn8" path="res://prefabs/selection_button/selection_button.tscn" id="5_175jp"]
 [ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="6_2c2te"]
 [ext_resource type="Texture2D" uid="uid://bho17r51qyb83" path="res://assets/ui/系统设置/textexample_background.png" id="7_myv8j"]
+[ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="8_70vfm"]
 
 [node name="SettingPage" type="CanvasLayer" unique_id=1362674666]
-visible = false
 script = ExtResource("1_cqmhw")
 
 [node name="Background2" type="TextureRect" parent="." unique_id=1987285052]
@@ -28,6 +28,7 @@ grow_vertical = 2
 texture = ExtResource("3_u8iwx")
 
 [node name="Preview2" type="TextureRect" parent="." unique_id=89363367]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,3 +104,10 @@ offset_top = 693.0
 offset_right = 2377.0
 offset_bottom = 943.0
 texture = ExtResource("7_myv8j")
+
+[node name="BackButton" parent="." unique_id=967157290 node_paths=PackedStringArray("target_page") instance=ExtResource("8_70vfm")]
+offset_left = 97.0
+offset_top = -180.0
+offset_right = 153.0
+offset_bottom = -109.0
+target_page = NodePath("..")

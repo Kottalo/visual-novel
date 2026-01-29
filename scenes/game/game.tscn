@@ -46,3 +46,4 @@ visible = false
 [node name="PhonePage" parent="Pages" unique_id=1191743071 instance=ExtResource("9_ftsea")]
 
 [node name="SettingPage" parent="Pages" unique_id=1362674666 instance=ExtResource("10_otnwt")]
+visible = false
