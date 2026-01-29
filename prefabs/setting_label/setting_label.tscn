@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dshln3xvv24k4"]
+
+[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="1_rfwen"]
+[ext_resource type="Script" uid="uid://be2kqu7pc5ap7" path="res://prefabs/setting_label/setting_label.gd" id="2_22oop"]
+[ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="2_y1y6v"]
+
+[node name="SettingLabel" type="Label" unique_id=1727516438 node_paths=PackedStringArray("label_title_en")]
+modulate = Color(0.72156864, 0.6901961, 0.75686276, 1)
+offset_left = 656.0
+offset_top = 188.0
+offset_right = 728.0
+offset_bottom = 241.0
+theme_override_fonts/font = ExtResource("1_rfwen")
+theme_override_font_sizes/font_size = 36
+text = "游戏"
+script = ExtResource("2_22oop")
+label_title_en = NodePath("Label_TitleEn")
+
+[node name="Label_TitleEn" type="Label" parent="." unique_id=540625506]
+modulate = Color(0.72156864, 0.6901961, 0.75686276, 1)
+layout_mode = 1
+offset_top = -15.0
+offset_right = 149.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("2_y1y6v")
+theme_override_font_sizes/font_size = 16
+text = "Screen"
+uppercase = true

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://y7legla6tlw1" path="res://assets/ui/系统设置/系统设置.png" id="3_u8iwx"]
 [ext_resource type="Texture2D" uid="uid://5v07xxn7xy8t" path="res://assets/ui/系统设置/系统设置2.png" id="4_evwb8"]
 [ext_resource type="PackedScene" uid="uid://2y0i8n3fcpn8" path="res://prefabs/selection_button/selection_button.tscn" id="5_175jp"]
+[ext_resource type="PackedScene" uid="uid://dshln3xvv24k4" path="res://prefabs/setting_label/setting_label.tscn" id="5_u8iwx"]
 [ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="6_2c2te"]
 [ext_resource type="Texture2D" uid="uid://bho17r51qyb83" path="res://assets/ui/系统设置/textexample_background.png" id="7_myv8j"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="8_70vfm"]
@@ -28,13 +29,72 @@ grow_vertical = 2
 texture = ExtResource("3_u8iwx")
 
 [node name="Preview2" type="TextureRect" parent="." unique_id=89363367]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_evwb8")
+
+[node name="Labels" type="Control" parent="." unique_id=74714070]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SettingLabel" parent="Labels" unique_id=1727516438 instance=ExtResource("5_u8iwx")]
+layout_mode = 0
+offset_top = 187.0
+offset_right = 872.0
+offset_bottom = 240.0
+text = "游戏窗口大小"
+title_zh = "游戏窗口大小"
+title_en = "Screen"
+
+[node name="SettingLabel2" parent="Labels" unique_id=1001590183 instance=ExtResource("5_u8iwx")]
+layout_mode = 0
+offset_top = 327.0
+offset_right = 872.0
+offset_bottom = 380.0
+text = "快进条件"
+title_zh = "快进条件"
+title_en = "Skip Conditions"
+
+[node name="SettingLabel3" parent="Labels" unique_id=1657591942 instance=ExtResource("5_u8iwx")]
+layout_mode = 0
+offset_top = 465.0
+offset_right = 872.0
+offset_bottom = 518.0
+text = "二级确认"
+title_zh = "二级确认"
+title_en = "Confirmation"
+
+[node name="SettingLabel4" parent="Labels" unique_id=627802397 instance=ExtResource("5_u8iwx")]
+layout_mode = 0
+offset_top = 605.0
+offset_right = 872.0
+offset_bottom = 658.0
+text = "文本显示速度"
+title_zh = "文本显示速度"
+title_en = "Text Speed"
+
+[node name="SettingLabel5" parent="Labels" unique_id=1472875771 instance=ExtResource("5_u8iwx")]
+layout_mode = 0
+offset_top = 988.0
+offset_right = 872.0
+offset_bottom = 1041.0
+text = "自动播放速度"
+title_zh = "自动播放速度"
+title_en = "Auto Speed"
+
+[node name="SettingLabel6" parent="Labels" unique_id=470391390 instance=ExtResource("5_u8iwx")]
+layout_mode = 0
+offset_top = 1127.0
+offset_right = 872.0
+offset_bottom = 1180.0
+text = "跳过未读文本"
+title_zh = "跳过未读文本"
+title_en = "Skip Unread"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=745257921]
 offset_left = 1052.0
