@@ -297,6 +297,29 @@ offset_top = 560.0
 offset_right = 1752.0
 offset_bottom = 575.0
 
+[node name="CharacterVoiceCard" type="Control" parent="Pages/AudioPage/Controls" unique_id=1293636068]
+custom_minimum_size = Vector2(260, 458)
+anchors_preset = 0
+offset_left = 942.0
+offset_top = 632.0
+offset_right = 1202.0
+offset_bottom = 1090.0
+
+[node name="Hover" type="TextureRect" parent="Pages/AudioPage/Controls/CharacterVoiceCard" unique_id=1635306219]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Normal" type="TextureRect" parent="Pages/AudioPage/Controls/CharacterVoiceCard" unique_id=1307263361]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Selected" type="TextureRect" parent="Pages/AudioPage/Controls/CharacterVoiceCard" unique_id=1603066377]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="BackButton" parent="." unique_id=967157290 node_paths=PackedStringArray("target_page") instance=ExtResource("8_70vfm")]
 offset_left = 97.0
 offset_top = -180.0
