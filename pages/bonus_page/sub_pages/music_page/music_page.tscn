@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://dma0o1vwd13f8"]
+
+[ext_resource type="Script" uid="uid://omnxih0ho37j" path="res://pages/bonus_page/sub_pages/music_page/music_page.gd" id="1_rtpcs"]
+[ext_resource type="PackedScene" uid="uid://kqg6e5wwdgne" path="res://prefabs/track_item/track_item.tscn" id="2_8cdy3"]
+[ext_resource type="Texture2D" uid="uid://d2hj5j33shnui" path="res://assets/ui/鉴赏内容/音乐鉴赏/background.png" id="3_yr5d4"]
+[ext_resource type="Texture2D" uid="uid://dlm1m8jw4iygt" path="res://assets/ui/鉴赏内容/音乐鉴赏/album.png" id="4_dja6k"]
+[ext_resource type="Texture2D" uid="uid://cds3ee3ndg2w1" path="res://assets/ui/鉴赏内容/音乐鉴赏/info_decoration.png" id="5_i5qfc"]
+[ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="6_dlduw"]
+[ext_resource type="PackedScene" uid="uid://d36uuqh45mwxc" path="res://prefabs/play_progress_line/play_progress_line.tscn" id="7_yiqbi"]
+[ext_resource type="Texture2D" uid="uid://cc8qwnf8vd041" path="res://assets/ui/鉴赏内容/progress_botton_normal.png" id="8_v2y0q"]
+[ext_resource type="Texture2D" uid="uid://dbxht1t3n4gtq" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_hover.png" id="9_xen4r"]
+[ext_resource type="Texture2D" uid="uid://bcal14yrqfeet" path="res://assets/ui/鉴赏内容/音乐鉴赏/play_click.png" id="10_l3ylv"]
+[ext_resource type="Texture2D" uid="uid://cjpl5db37js54" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_normal.png" id="11_f7x1v"]
+[ext_resource type="Texture2D" uid="uid://q3rb8edm0k6b" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_click.png" id="12_j2bn7"]
+[ext_resource type="Texture2D" uid="uid://4cj4g5cwxqi" path="res://assets/ui/鉴赏内容/音乐鉴赏/pause_hover.png" id="13_n1ueg"]
+[ext_resource type="Texture2D" uid="uid://c8opaonxwcbeb" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_normal.png" id="14_e7uy7"]
+[ext_resource type="Texture2D" uid="uid://4pcmkkc7q3y4" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_click.png" id="15_2t8b2"]
+[ext_resource type="Texture2D" uid="uid://bh85a7p3e14cs" path="res://assets/ui/鉴赏内容/音乐鉴赏/next_hover.png" id="16_eaeay"]
+[ext_resource type="Texture2D" uid="uid://bfek3nnequevu" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_normal.png" id="17_ivpjy"]
+[ext_resource type="Texture2D" uid="uid://c43o2le44abf5" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_click.png" id="18_w5dw4"]
+[ext_resource type="Texture2D" uid="uid://mnmjup6twua7" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_hover.png" id="19_q4vdm"]
+[ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="20_dj2j6"]
+[ext_resource type="Texture2D" uid="uid://bhp4hq27rc641" path="res://assets/ui/鉴赏内容/音乐鉴赏/音乐鉴赏.png" id="21_o4we8"]
+
+[node name="MusicPage" type="CanvasLayer" unique_id=1072405069 node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description", "label_current_time", "label_total_time")]
+layer = 2
+visible = false
+script = ExtResource("1_rtpcs")
+track_item_scene = ExtResource("2_8cdy3")
+play_progress_container = NodePath("PlayProgressContainer")
+play_progress_line = NodePath("PlayProgressContainer/PlayProgressLine")
+play_progress_line_ghost = NodePath("PlayProgressContainer/PlayProgressLine_Ghost")
+progress_hint = NodePath("PlayProgressContainer/ProgressHint")
+play_button = NodePath("Buttons/TextureRect_PlayButton")
+pause_button = NodePath("Buttons/TextureRect_PauseButton")
+next_button = NodePath("Buttons/TextureRect_NextButton")
+previous_button = NodePath("Buttons/TextureRect_PreviousButton")
+vbox_playlist = NodePath("ScrollContainer_Playlist/VBoxContainer_Playlist")
+label_title = NodePath("Labels/Label_Title")
+richlabel_description = NodePath("Labels/RichTextLabel_Description")
+label_current_time = NodePath("Time/Label_CurrentTime")
+label_total_time = NodePath("Time/Label_TotalTime")
+
+[node name="Images" type="Control" parent="." unique_id=177195987]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="TextureRect_Panel" type="TextureRect" parent="Images" unique_id=1878084967]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1882.0
+offset_bottom = 1264.0
+texture = ExtResource("3_yr5d4")
+
+[node name="TextureRect_Disc" type="TextureRect" parent="Images" unique_id=425215281]
+layout_mode = 0
+offset_top = 121.0
+offset_right = 855.0
+offset_bottom = 1091.0
+texture = ExtResource("4_dja6k")
+
+[node name="TextureRect_InfoDecoration" type="TextureRect" parent="Images" unique_id=1676593668]
+layout_mode = 0
+offset_left = 889.0
+offset_top = 227.0
+offset_right = 1678.0
+offset_bottom = 432.0
+texture = ExtResource("5_i5qfc")
+
+[node name="Labels" type="Control" parent="." unique_id=693347294]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_Title" type="Label" parent="Labels" unique_id=1651870037]
+layout_mode = 0
+offset_left = 891.0
+offset_top = 235.0
+offset_right = 1067.0
+offset_bottom = 299.0
+theme = ExtResource("6_dlduw")
+theme_override_font_sizes/font_size = 44
+text = "歌曲名称"
+
+[node name="RichTextLabel_Description" type="RichTextLabel" parent="Labels" unique_id=1913333970]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 445.0
+offset_right = 1681.0
+offset_bottom = 1052.0
+theme = ExtResource("6_dlduw")
+theme_override_font_sizes/normal_font_size = 31
+text = "歌曲简介歌曲简介歌曲简介歌曲简介歌曲简介歌曲简介歌曲简介"
+
+[node name="PlayProgressContainer" type="Control" parent="." unique_id=740297171]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1094.0
+offset_right = 1866.5
+offset_bottom = 1117.0
+
+[node name="PlayProgressLine" parent="PlayProgressContainer" unique_id=1661886530 node_paths=PackedStringArray("play_progress_container") instance=ExtResource("7_yiqbi")]
+layout_mode = 1
+play_progress_container = NodePath("..")
+
+[node name="PlayProgressLine_Ghost" parent="PlayProgressContainer" unique_id=542742680 node_paths=PackedStringArray("play_progress_container") instance=ExtResource("7_yiqbi")]
+modulate = Color(1, 1, 1, 0.6117647)
+layout_mode = 1
+color = Color(0.23366994, 0.2219201, 0.26291704, 1)
+play_progress_container = NodePath("..")
+
+[node name="ProgressHint" type="Control" parent="PlayProgressContainer" unique_id=427604424]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureRect_ProgressHint" type="TextureRect" parent="PlayProgressContainer/ProgressHint" unique_id=465980987]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -33.0
+offset_right = 31.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 33)
+texture = ExtResource("8_v2y0q")
+
+[node name="Buttons" type="Control" parent="." unique_id=352439253]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect_PlayButton" type="TextureButton" parent="Buttons" unique_id=207247409]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 1139.0
+offset_right = 927.0
+offset_bottom = 1211.0
+texture_normal = ExtResource("9_xen4r")
+texture_pressed = ExtResource("10_l3ylv")
+texture_hover = ExtResource("9_xen4r")
+
+[node name="TextureRect_PauseButton" type="TextureButton" parent="Buttons" unique_id=521318393]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 1139.0
+offset_right = 927.0
+offset_bottom = 1211.0
+texture_normal = ExtResource("11_f7x1v")
+texture_pressed = ExtResource("12_j2bn7")
+texture_hover = ExtResource("13_n1ueg")
+
+[node name="TextureRect_NextButton" type="TextureButton" parent="Buttons" unique_id=1569538604]
+layout_mode = 0
+offset_left = 975.0
+offset_top = 1162.0
+offset_right = 1002.0
+offset_bottom = 1190.0
+texture_normal = ExtResource("14_e7uy7")
+texture_pressed = ExtResource("15_2t8b2")
+texture_hover = ExtResource("16_eaeay")
+
+[node name="TextureRect_PreviousButton" type="TextureButton" parent="Buttons" unique_id=925621557]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 1162.0
+offset_right = 811.0
+offset_bottom = 1190.0
+texture_normal = ExtResource("17_ivpjy")
+texture_pressed = ExtResource("18_w5dw4")
+texture_hover = ExtResource("19_q4vdm")
+
+[node name="ScrollContainer_Playlist" type="ScrollContainer" parent="." unique_id=380790596]
+offset_left = 1911.0
+offset_top = 108.0
+offset_right = 2401.0
+offset_bottom = 1203.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer_Playlist" type="VBoxContainer" parent="ScrollContainer_Playlist" unique_id=396388092]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VScrollBarEx" parent="." unique_id=363532776 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("20_dj2j6")]
+offset_top = 116.0
+offset_bottom = 1186.0
+target_scroll_container = NodePath("../ScrollContainer_Playlist")
+
+[node name="Preview" type="TextureRect" parent="." unique_id=166642569]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_o4we8")
+
+[node name="Time" type="Control" parent="." unique_id=724334518]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_CurrentTime" type="Label" parent="Time" unique_id=1420255226]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 1159.0
+offset_right = 148.0
+offset_bottom = 1189.0
+theme = ExtResource("6_dlduw")
+theme_override_font_sizes/font_size = 20
+text = "02:13"
+
+[node name="Label" type="Label" parent="Time" unique_id=1872895388]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 1159.0
+offset_right = 205.0
+offset_bottom = 1189.0
+theme = ExtResource("6_dlduw")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Label_TotalTime" type="Label" parent="Time" unique_id=1227638600]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 1159.0
+offset_right = 220.0
+offset_bottom = 1189.0
+theme = ExtResource("6_dlduw")
+theme_override_font_sizes/font_size = 20
+text = "04:13"
+
+[editable path="PlayProgressContainer/PlayProgressLine_Ghost"]

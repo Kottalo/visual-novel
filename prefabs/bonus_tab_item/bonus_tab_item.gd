@@ -11,7 +11,7 @@ extends Control
 		title_en = value
 		label_title_en.text = title_en
 
-@export var target_tab: Control
+@export var target_tab: CanvasLayer
 @export var selected_frame: TextureRect
 @export var hover_hint: TextureRect
 
@@ -28,6 +28,7 @@ var hovered: bool:
 		hover_hint.visible = hovered
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	Main.bonus_tab_index_changed.connect(update)
 	mouse_entered.connect(
 		func (): hovered = true

@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://d2hqmraljwruf"]
+
+[ext_resource type="Script" uid="uid://cxoi0upsselr" path="res://pages/phone_page/phone_page.gd" id="1_xkddf"]
+[ext_resource type="Resource" uid="uid://bpyjoodw7rgic" path="res://dialogue_manager/dialogues/chat.dialogue" id="2_ctgom"]
+[ext_resource type="Texture2D" uid="uid://bv0fkx2mkc10g" path="res://assets/ui/手机界面/screen_image.png" id="3_31aqv"]
+[ext_resource type="Texture2D" uid="uid://buk2g6xctxqaj" path="res://assets/ui/手机界面/phone.png" id="4_fyc1j"]
+[ext_resource type="PackedScene" uid="uid://btkall20t660f" path="res://prefabs/phone_icon/phone_icon.tscn" id="5_pdylm"]
+[ext_resource type="Texture2D" uid="uid://bvs2xcuwuc67f" path="res://assets/ui/手机界面/ico_message.png" id="6_a7ami"]
+[ext_resource type="Texture2D" uid="uid://xdfemgucgx0x" path="res://assets/ui/手机界面/ico_image.png" id="7_22tcg"]
+[ext_resource type="Texture2D" uid="uid://bvf8bn2lhtjat" path="res://assets/ui/手机界面/ico_music.png" id="8_fl14n"]
+[ext_resource type="Texture2D" uid="uid://ciudxu8yrrbgu" path="res://assets/ui/手机界面/ico_book.png" id="9_plhg4"]
+[ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="10_a4j41"]
+[ext_resource type="Texture2D" uid="uid://cgovigajnmwml" path="res://assets/ui/手机界面/chat/screen_background.png" id="11_xseh0"]
+[ext_resource type="Theme" uid="uid://b4d02lqqc61dq" path="res://themes/phone_theme.tres" id="12_m0vni"]
+[ext_resource type="Texture2D" uid="uid://klah0qwujx6o" path="res://assets/ui/通用/phone_back_normal.png" id="13_c8vvb"]
+[ext_resource type="Texture2D" uid="uid://dr2hcofx3uf1r" path="res://assets/ui/通用/phone_back_click.png" id="14_na48d"]
+[ext_resource type="Texture2D" uid="uid://c0dk86vd70xx3" path="res://assets/ui/通用/phone_back_hover.png" id="15_dyncm"]
+[ext_resource type="Texture2D" uid="uid://c8m0rwaffg21k" path="res://assets/ui/手机界面/手机界面1.png" id="16_djdle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
+bg_color = Color(1, 1, 1, 0.3137255)
+
+[node name="PhonePage" type="CanvasLayer" unique_id=1191743071 node_paths=PackedStringArray("chat_node", "background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "chat_message_pool", "reply_selection_pool", "back_button")]
+visible = false
+script = ExtResource("1_xkddf")
+dialogue = ExtResource("2_ctgom")
+phone_background = ExtResource("3_31aqv")
+chat_node = NodePath("Phone/Chat")
+background = NodePath("Background")
+phone_icon_message = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Message")
+phone_icon_photo = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Photo")
+phone_icon_music = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Music")
+phone_icon_book = NodePath("Phone/Wallpaper/HBoxContainer/PhoneIcon_Book")
+chat_message_pool = NodePath("Phone/Chat/VBoxContainer/ScrollContainer/ChatMessagePool")
+reply_selection_pool = NodePath("Phone/Chat/VBoxContainer/ReplySelectionPool")
+back_button = NodePath("Phone/Chat/BackButton")
+
+[node name="Background" type="Panel" parent="." unique_id=1289440326]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aggdw")
+
+[node name="Phone" type="TextureRect" parent="." unique_id=219849411]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1167.0
+offset_top = -1429.0
+offset_right = -174.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("4_fyc1j")
+
+[node name="Wallpaper" type="TextureRect" parent="Phone" unique_id=1033589326]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.5
+offset_top = -611.5
+offset_right = 392.5
+offset_bottom = 715.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_31aqv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Phone/Wallpaper" unique_id=1174843467]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 1055.0
+offset_right = 667.0
+offset_bottom = 1185.0
+theme_override_constants/separation = 25
+
+[node name="PhoneIcon_Message" parent="Phone/Wallpaper/HBoxContainer" unique_id=915122883 instance=ExtResource("5_pdylm")]
+layout_mode = 2
+icon = ExtResource("6_a7ami")
+title = "信息"
+
+[node name="PhoneIcon_Photo" parent="Phone/Wallpaper/HBoxContainer" unique_id=176634025 instance=ExtResource("5_pdylm")]
+layout_mode = 2
+icon = ExtResource("7_22tcg")
+title = "相册"
+
+[node name="PhoneIcon_Music" parent="Phone/Wallpaper/HBoxContainer" unique_id=1894777181 instance=ExtResource("5_pdylm")]
+layout_mode = 2
+icon = ExtResource("8_fl14n")
+title = "音乐"
+
+[node name="PhoneIcon_Book" parent="Phone/Wallpaper/HBoxContainer" unique_id=1913776249 instance=ExtResource("5_pdylm")]
+layout_mode = 2
+icon = ExtResource("9_plhg4")
+title = "奇迹书"
+
+[node name="Date" type="Control" parent="Phone/Wallpaper" unique_id=1612343402]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_PhoneDate" type="Label" parent="Phone/Wallpaper/Date" unique_id=922845864]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 737.0
+offset_right = 567.0
+offset_bottom = 902.0
+theme_override_fonts/font = ExtResource("10_a4j41")
+theme_override_font_sizes/font_size = 140
+text = "07/06"
+horizontal_alignment = 1
+
+[node name="Chat" type="TextureRect" parent="Phone" unique_id=516955828]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.5
+offset_top = -611.5
+offset_right = 392.5
+offset_bottom = 715.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("11_xseh0")
+
+[node name="Label_Name" type="Label" parent="Phone/Chat" unique_id=138400390]
+modulate = Color(0.29709297, 0.29709294, 0.2970929, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 97.0
+offset_right = 362.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme = ExtResource("12_m0vni")
+theme_override_font_sizes/font_size = 48
+text = "角色名称"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Phone/Chat" unique_id=1994526817]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 211.0
+offset_right = 697.0
+offset_bottom = 1261.0
+theme_override_constants/separation = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Phone/Chat/VBoxContainer" unique_id=54785662]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="ChatMessagePool" type="VBoxContainer" parent="Phone/Chat/VBoxContainer/ScrollContainer" unique_id=1633904550]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="ReplySelectionPool" type="VBoxContainer" parent="Phone/Chat/VBoxContainer" unique_id=256761800]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="BackButton" type="TextureButton" parent="Phone/Chat" unique_id=48239441]
+layout_mode = 0
+offset_left = 618.0
+offset_top = 92.0
+offset_right = 675.0
+offset_bottom = 149.0
+focus_mode = 0
+texture_normal = ExtResource("13_c8vvb")
+texture_pressed = ExtResource("14_na48d")
+texture_hover = ExtResource("15_dyncm")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Preview" type="TextureRect" parent="." unique_id=1690479943]
+modulate = Color(1, 1, 1, 0.22745098)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_djdle")

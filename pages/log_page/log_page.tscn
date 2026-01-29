@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://y1pmr3blgg6s"]
+
+[ext_resource type="Script" uid="uid://y8nqj7elth0k" path="res://pages/log_page/log_page.gd" id="1_py1e1"]
+[ext_resource type="Texture2D" uid="uid://bxpntrtypwlt" path="res://assets/ui/通用/frame_background.png" id="2_j2irs"]
+[ext_resource type="Texture2D" uid="uid://dp2co1ram00wk" path="res://assets/ui/历史记录/历史记录.png" id="3_6owfp"]
+[ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="4_f82tv"]
+[ext_resource type="Texture2D" uid="uid://8778p7eby2v4" path="res://assets/ui/历史记录/divide_line.png" id="5_vg7js"]
+[ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="6_dc1co"]
+[ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="7_aanj8"]
+
+[node name="LogPage" type="CanvasLayer" unique_id=1793174608 node_paths=PackedStringArray("log_line", "divider", "vbox_log_lines")]
+visible = false
+script = ExtResource("1_py1e1")
+log_line = NodePath("PrefabContainer/LogLine")
+divider = NodePath("PrefabContainer/Divider")
+vbox_log_lines = NodePath("ScrollContainer/MarginContainer/VBoxContainer_LogLines")
+
+[node name="Background" type="TextureRect" parent="." unique_id=342664364]
+offset_right = 2560.0
+offset_bottom = 1440.0
+mouse_filter = 0
+texture = ExtResource("2_j2irs")
+
+[node name="Preview" type="TextureRect" parent="." unique_id=649915701]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6owfp")
+
+[node name="PrefabContainer" type="Control" parent="." unique_id=1708378959]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LogLine" parent="PrefabContainer" unique_id=510892904 instance=ExtResource("4_f82tv")]
+layout_mode = 0
+
+[node name="Divider" type="TextureRect" parent="PrefabContainer" unique_id=357377893]
+layout_mode = 0
+texture = ExtResource("5_vg7js")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=997502588]
+offset_left = 576.0
+offset_top = 105.0
+offset_right = 2397.0
+offset_bottom = 1354.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=2086071079]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+
+[node name="VBoxContainer_LogLines" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=1248036565]
+layout_mode = 2
+
+[node name="Divider" type="TextureRect" parent="ScrollContainer/MarginContainer/VBoxContainer_LogLines" unique_id=449978698]
+layout_mode = 2
+texture = ExtResource("5_vg7js")
+
+[node name="VScrollBarEx" parent="." unique_id=1421076078 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("6_dc1co")]
+offset_top = 116.0
+target_scroll_container = NodePath("../ScrollContainer")
+
+[node name="BackButton" parent="." unique_id=295863322 instance=ExtResource("7_aanj8")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 97.0
+offset_top = 1260.0
+offset_right = 153.0
+offset_bottom = 1331.0
+grow_vertical = 1

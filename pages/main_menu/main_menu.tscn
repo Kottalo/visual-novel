@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://c0gag5i2v34e2"]
+
+[ext_resource type="Script" uid="uid://c5tfa7c7bgv1b" path="res://pages/main_menu/main_menu.gd" id="1_563vs"]
+[ext_resource type="Texture2D" uid="uid://pw6m6ot1o6k4" path="res://assets/ui/开始游戏/background.png" id="2_mtbyv"]
+[ext_resource type="Texture2D" uid="uid://cbxom0bv4rm5s" path="res://assets/ui/开始游戏/logo_normal.png" id="3_0kkdm"]
+[ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_e7v1n"]
+[ext_resource type="Texture2D" uid="uid://b4525m6mkwbjf" path="res://assets/ui/开始游戏/标题界面.png" id="5_eneqn"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=494483393 node_paths=PackedStringArray("button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
+script = ExtResource("1_563vs")
+button_start = NodePath("Buttons/MainMenuButton_Start")
+button_load = NodePath("Buttons/MainMenuButton_Load")
+button_bonus = NodePath("Buttons/MainMenuButton_Bonus")
+button_book = NodePath("Buttons/MainMenuButton_Book")
+button_setting = NodePath("Buttons/MainMenuButton_Setting")
+button_quit = NodePath("Buttons/MainMenuButton_Quit")
+
+[node name="Background" type="TextureRect" parent="." unique_id=992212665]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mtbyv")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1981438053]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 658.0
+offset_top = 752.0
+offset_right = -658.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0kkdm")
+stretch_mode = 6
+
+[node name="Buttons" type="Control" parent="." unique_id=295338161]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 280.0
+offset_top = 1240.0
+offset_right = 320.0
+offset_bottom = 1280.0
+
+[node name="MainMenuButton_Start" parent="Buttons" unique_id=523271645 instance=ExtResource("4_e7v1n")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 29.0
+offset_right = 36.0
+offset_bottom = 29.0
+
+[node name="MainMenuButton_Load" parent="Buttons" unique_id=1916906003 instance=ExtResource("4_e7v1n")]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 29.0
+offset_right = 389.0
+offset_bottom = 29.0
+
+[node name="Label_Chinese" parent="Buttons/MainMenuButton_Load" index="0"]
+text = "读取档案"
+
+[node name="Label_English" parent="Buttons/MainMenuButton_Load" index="1"]
+text = "Load Game"
+
+[node name="MainMenuButton_Bonus" parent="Buttons" unique_id=263493456 instance=ExtResource("4_e7v1n")]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 29.0
+offset_right = 743.0
+offset_bottom = 29.0
+
+[node name="Label_Chinese" parent="Buttons/MainMenuButton_Bonus" index="0"]
+text = "特别鉴赏"
+
+[node name="Label_English" parent="Buttons/MainMenuButton_Bonus" index="1"]
+text = "Special Gallery"
+
+[node name="MainMenuButton_Book" parent="Buttons" unique_id=269561932 instance=ExtResource("4_e7v1n")]
+layout_mode = 0
+offset_left = 1098.0
+offset_top = 29.0
+offset_right = 1098.0
+offset_bottom = 29.0
+
+[node name="Label_Chinese" parent="Buttons/MainMenuButton_Book" index="0"]
+text = "奇迹书"
+
+[node name="Label_English" parent="Buttons/MainMenuButton_Book" index="1"]
+text = "Miracle Book"
+
+[node name="MainMenuButton_Setting" parent="Buttons" unique_id=1459167889 instance=ExtResource("4_e7v1n")]
+layout_mode = 0
+offset_left = 1448.0
+offset_top = 29.0
+offset_right = 1448.0
+offset_bottom = 29.0
+
+[node name="Label_Chinese" parent="Buttons/MainMenuButton_Setting" index="0"]
+text = "系统设置"
+
+[node name="Label_English" parent="Buttons/MainMenuButton_Setting" index="1"]
+text = "Options"
+
+[node name="MainMenuButton_Quit" parent="Buttons" unique_id=1308152861 instance=ExtResource("4_e7v1n")]
+layout_mode = 0
+offset_left = 1801.0
+offset_top = 29.0
+offset_right = 1801.0
+offset_bottom = 29.0
+
+[node name="Label_Chinese" parent="Buttons/MainMenuButton_Quit" index="0"]
+text = "退出游戏"
+
+[node name="Label_English" parent="Buttons/MainMenuButton_Quit" index="1"]
+text = "Exit Game"
+
+[node name="Preview" type="TextureRect" parent="." unique_id=1536876255]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_eneqn")
+expand_mode = 5
+stretch_mode = 6
+
+[editable path="Buttons/MainMenuButton_Load"]
+[editable path="Buttons/MainMenuButton_Bonus"]
+[editable path="Buttons/MainMenuButton_Book"]
+[editable path="Buttons/MainMenuButton_Setting"]
+[editable path="Buttons/MainMenuButton_Quit"]

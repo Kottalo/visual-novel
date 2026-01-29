@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://g2g8a8hw7t15"]
+
+[ext_resource type="Script" uid="uid://d2ex0eewal7fh" path="res://pages/bonus_page/sub_pages/character_page/character_page.gd" id="1_02pp7"]
+[ext_resource type="Texture2D" uid="uid://62bxyitkn4pu" path="res://assets/ui/鉴赏内容/background_character.png" id="2_201mx"]
+[ext_resource type="PackedScene" uid="uid://buso3d823ic3e" path="res://prefabs/character_selection/character_selection.tscn" id="3_dorhe"]
+[ext_resource type="Texture2D" uid="uid://c50l5bg7y00i2" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_changxia.png" id="4_faxlc"]
+[ext_resource type="Texture2D" uid="uid://b8jvafi4iuuey" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_yuluochen.png" id="5_khjfa"]
+[ext_resource type="Texture2D" uid="uid://bcqn2rjwt8m0p" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_gecheng.png" id="6_t786o"]
+[ext_resource type="PackedScene" uid="uid://bnu8yy8c7d3pj" path="res://characters/instances/character_辉夜奏.tscn" id="7_58pd2"]
+[ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="8_od5st"]
+[ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="9_5lwtc"]
+[ext_resource type="PackedScene" uid="uid://couiwje1dnllu" path="res://characters/instances/character_葛城.tscn" id="10_po4xj"]
+[ext_resource type="Texture2D" uid="uid://blachu13yjxr7" path="res://assets/ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png" id="11_yns56"]
+[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="12_qgx8s"]
+[ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="13_34roo"]
+
+[node name="CharacterPage" type="CanvasLayer" unique_id=1026354517 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option")]
+layer = 2
+script = ExtResource("1_02pp7")
+label_character_name = NodePath("Label_CharacterName")
+background = NodePath("Background")
+character_pool = NodePath("Characters")
+body_part_options = [NodePath("VBoxContainer_Options/CharacterOption_Body"), NodePath("VBoxContainer_Options/CharacterOption_Eyebrows"), NodePath("VBoxContainer_Options/CharacterOption_Eyes"), NodePath("VBoxContainer_Options/CharacterOption_Mouth")]
+background_option = NodePath("VBoxContainer_Options/CharacterOption_Background")
+
+[node name="Background" type="TextureRect" parent="." unique_id=954682134]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect_Foreground" type="TextureRect" parent="." unique_id=2105580272]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_201mx")
+stretch_mode = 6
+
+[node name="CharacterSelections" type="Control" parent="." unique_id=1545850755]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="CharacterSelection" parent="CharacterSelections" unique_id=1767349569 instance=ExtResource("3_dorhe")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 92.0
+offset_top = 96.0
+offset_right = 245.0
+offset_bottom = 249.0
+
+[node name="CharacterSelection2" parent="CharacterSelections" unique_id=674357083 instance=ExtResource("3_dorhe")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 177.0
+offset_top = 181.0
+offset_right = 330.0
+offset_bottom = 334.0
+texture = ExtResource("4_faxlc")
+
+[node name="CharacterSelection3" parent="CharacterSelections" unique_id=1964285792 instance=ExtResource("3_dorhe")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 92.0
+offset_top = 266.0
+offset_right = 245.0
+offset_bottom = 419.0
+texture = ExtResource("5_khjfa")
+
+[node name="CharacterSelection4" parent="CharacterSelections" unique_id=1513801597 instance=ExtResource("3_dorhe")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 177.0
+offset_top = 351.0
+offset_right = 330.0
+offset_bottom = 504.0
+texture = ExtResource("6_t786o")
+
+[node name="Characters" type="Node2D" parent="." unique_id=749052219]
+position = Vector2(1305, 1433)
+
+[node name="辉夜奏" parent="Characters" unique_id=332644119 instance=ExtResource("7_58pd2")]
+visible = false
+
+[node name="常夏" parent="Characters" unique_id=1713025133 instance=ExtResource("8_od5st")]
+visible = false
+
+[node name="余洛琛" parent="Characters" unique_id=316872221 instance=ExtResource("9_5lwtc")]
+visible = false
+
+[node name="葛城" parent="Characters" unique_id=360688654 instance=ExtResource("10_po4xj")]
+visible = false
+
+[node name="Preview" type="TextureRect" parent="." unique_id=327835344]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_yns56")
+
+[node name="Label_CharacterName" type="Label" parent="." unique_id=242887376]
+offset_left = 201.0
+offset_top = 867.0
+offset_right = 381.0
+offset_bottom = 955.0
+theme_override_colors/font_color = Color(0.72156864, 0.6901961, 0.75686276, 1)
+theme_override_fonts/font = ExtResource("12_qgx8s")
+theme_override_font_sizes/font_size = 60
+text = "辉夜奏"
+
+[node name="VBoxContainer_Options" type="VBoxContainer" parent="." unique_id=890492560]
+offset_left = 97.0
+offset_top = 983.0
+offset_right = 557.0
+offset_bottom = 1237.0
+
+[node name="CharacterOption_Background" parent="VBoxContainer_Options" unique_id=1215976934 instance=ExtResource("13_34roo")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer_Options/CharacterOption_Background" index="0"]
+text = "背景"
+
+[node name="CharacterOption_Body" parent="VBoxContainer_Options" unique_id=1477781270 instance=ExtResource("13_34roo")]
+layout_mode = 2
+body_part = "Body"
+
+[node name="Label" parent="VBoxContainer_Options/CharacterOption_Body" index="0"]
+text = "身体"
+
+[node name="CharacterOption_Eyebrows" parent="VBoxContainer_Options" unique_id=1415838287 instance=ExtResource("13_34roo")]
+layout_mode = 2
+body_part = "Eyebrows"
+
+[node name="Label" parent="VBoxContainer_Options/CharacterOption_Eyebrows" index="0"]
+text = "眉毛"
+
+[node name="CharacterOption_Eyes" parent="VBoxContainer_Options" unique_id=1989946523 instance=ExtResource("13_34roo")]
+layout_mode = 2
+body_part = "Eyes"
+
+[node name="Label" parent="VBoxContainer_Options/CharacterOption_Eyes" index="0"]
+text = "眼睛"
+
+[node name="CharacterOption_Mouth" parent="VBoxContainer_Options" unique_id=1170679312 instance=ExtResource("13_34roo")]
+layout_mode = 2
+body_part = "Mouth"
+
+[node name="Label" parent="VBoxContainer_Options/CharacterOption_Mouth" index="0"]
+text = "嘴巴"
+
+[editable path="VBoxContainer_Options/CharacterOption_Background"]
+[editable path="VBoxContainer_Options/CharacterOption_Body"]
+[editable path="VBoxContainer_Options/CharacterOption_Eyebrows"]
+[editable path="VBoxContainer_Options/CharacterOption_Eyes"]
+[editable path="VBoxContainer_Options/CharacterOption_Mouth"]

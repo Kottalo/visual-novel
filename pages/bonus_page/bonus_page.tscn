@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ds2orcg0dncno"]
+
+[ext_resource type="Script" uid="uid://2scs52fpvg75" path="res://pages/bonus_page/bonus_page.gd" id="1_kr8r3"]
+[ext_resource type="Texture2D" uid="uid://bxpntrtypwlt" path="res://assets/ui/通用/frame_background.png" id="2_yx1rh"]
+[ext_resource type="PackedScene" uid="uid://g2g8a8hw7t15" path="res://pages/bonus_page/sub_pages/character_page/character_page.tscn" id="3_n8efi"]
+[ext_resource type="PackedScene" uid="uid://b088cmdfmopjq" path="res://pages/bonus_page/sub_pages/gallery_page/gallery_page.tscn" id="4_yn5h1"]
+[ext_resource type="PackedScene" uid="uid://dma0o1vwd13f8" path="res://pages/bonus_page/sub_pages/music_page/music_page.tscn" id="5_mi528"]
+[ext_resource type="PackedScene" uid="uid://bh1j660oi8dw8" path="res://pages/bonus_page/sub_pages/voice_page/voice_page.tscn" id="6_0lt8g"]
+[ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="42_j7eld"]
+[ext_resource type="PackedScene" uid="uid://cdx8bibh1j6e4" path="res://prefabs/bonus_tab_item/bonus_tab_item.tscn" id="51_nu3n8"]
+
+[node name="BonusPage" type="CanvasLayer" unique_id=998352437 node_paths=PackedStringArray("music_page")]
+script = ExtResource("1_kr8r3")
+music_page = NodePath("TabPages/MusicPage")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1301707995]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="TextureRect" parent="." unique_id=1031335720]
+offset_right = 2560.0
+offset_bottom = 1440.0
+mouse_filter = 0
+texture = ExtResource("2_yx1rh")
+
+[node name="TabPages" type="Node" parent="." unique_id=1985830813]
+
+[node name="CharacterPage" parent="TabPages" unique_id=1026354517 instance=ExtResource("3_n8efi")]
+visible = false
+
+[node name="GalleryPage" parent="TabPages" unique_id=1229634649 instance=ExtResource("4_yn5h1")]
+
+[node name="MusicPage" parent="TabPages" unique_id=1072405069 instance=ExtResource("5_mi528")]
+
+[node name="VoicePage" parent="TabPages" unique_id=2028092101 instance=ExtResource("6_0lt8g")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=296840824]
+layer = 3
+
+[node name="HBoxContainer_Tabs" type="HBoxContainer" parent="CanvasLayer" unique_id=1931057470]
+offset_left = 1838.0
+offset_top = 1268.0
+offset_right = 2422.0
+offset_bottom = 1311.0
+theme_override_constants/separation = 112
+
+[node name="BonusTabItem_Character" parent="CanvasLayer/HBoxContainer_Tabs" unique_id=1406201431 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
+layout_mode = 2
+target_tab = NodePath("../../../TabPages/CharacterPage")
+
+[node name="BonusTabItem_Gallery" parent="CanvasLayer/HBoxContainer_Tabs" unique_id=1048788281 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
+layout_mode = 2
+title_zh = "插画鉴赏"
+title_en = "CG Gallery"
+target_tab = NodePath("../../../TabPages/GalleryPage")
+
+[node name="BonusTabItem_Music" parent="CanvasLayer/HBoxContainer_Tabs" unique_id=883599580 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
+layout_mode = 2
+title_zh = "音乐鉴赏"
+title_en = "Music Gallery"
+target_tab = NodePath("../../../TabPages/MusicPage")
+
+[node name="BackButton" parent="CanvasLayer" unique_id=879433762 node_paths=PackedStringArray("target_page") instance=ExtResource("42_j7eld")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 97.0
+offset_top = 1260.0
+offset_right = 153.0
+offset_bottom = 1331.0
+grow_vertical = 1
+target_page = NodePath("../..")

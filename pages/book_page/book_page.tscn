@@ -1,0 +1,213 @@
+[gd_scene format=3 uid="uid://bdyg6g7ravihq"]
+
+[ext_resource type="Script" uid="uid://dohllb8k33wi2" path="res://pages/book_page/book_page.gd" id="1_s06xr"]
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="2_hthhu"]
+[ext_resource type="Resource" uid="uid://dpdvuxgwg6q0l" path="res://dialogue_manager/dialogues/page_1.dialogue" id="3_gxpof"]
+[ext_resource type="Resource" uid="uid://6r2qa0nsp5do" path="res://dialogue_manager/dialogues/page_2.dialogue" id="4_jkv06"]
+[ext_resource type="Resource" uid="uid://cju4pdtxrrfdn" path="res://dialogue_manager/dialogues/page_3.dialogue" id="5_dy41n"]
+[ext_resource type="Texture2D" uid="uid://bq4dne8l5a5qr" path="res://assets/ui/奇迹书/background.png" id="6_ss78d"]
+[ext_resource type="Texture2D" uid="uid://d1elj7yroe3b7" path="res://assets/ui/奇迹书/book.png" id="7_binrq"]
+[ext_resource type="Texture2D" uid="uid://bndrl2b5xlneq" path="res://assets/ui/奇迹书/things.png" id="8_b4erg"]
+[ext_resource type="Texture2D" uid="uid://boxp02ammaqij" path="res://assets/ui/奇迹书/frame_title.png" id="9_ttmkd"]
+[ext_resource type="Texture2D" uid="uid://bjttrp8uahn8y" path="res://assets/ui/奇迹书/frame_3.png" id="10_ju1h1"]
+[ext_resource type="Texture2D" uid="uid://bwdhggq2t0ahc" path="res://assets/ui/奇迹书/frame2.png" id="11_4538g"]
+[ext_resource type="Texture2D" uid="uid://bulngn6a57phl" path="res://assets/ui/奇迹书/frame_1.png" id="12_of4fm"]
+[ext_resource type="FontFile" uid="uid://dgn3iice41qn8" path="res://assets/fonts/瑞美加张清平硬笔楷书.ttf" id="13_5hjx8"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="14_r2lyb"]
+[ext_resource type="PackedScene" uid="uid://cnrtv0v2fr2pd" path="res://prefabs/paragraph_container/paragraph_container.tscn" id="15_3fj4v"]
+[ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="16_7e5ln"]
+[ext_resource type="Texture2D" uid="uid://drhik2gxhcajv" path="res://assets/ui/奇迹书/page_normal.png" id="17_jkjot"]
+[ext_resource type="Texture2D" uid="uid://c7hk72qolj6il" path="res://assets/ui/奇迹书/page_click.png" id="18_ow5rj"]
+[ext_resource type="Texture2D" uid="uid://74ecblh737xd" path="res://assets/ui/奇迹书/page_hover.png" id="19_gtcw4"]
+[ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="20_nk4nf"]
+[ext_resource type="Texture2D" uid="uid://c1nsptow73vv4" path="res://assets/ui/奇迹书/奇迹书.png" id="21_vxkei"]
+
+[node name="BookPage" type="CanvasLayer" unique_id=139379015 node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container", "buttons")]
+visible = false
+script = ExtResource("1_s06xr")
+dialogue_label = NodePath("PrefabContainer/DialogueLabel")
+pages = Array[ExtResource("2_hthhu")]([ExtResource("3_gxpof"), ExtResource("4_jkv06"), ExtResource("5_dy41n")])
+vbox_page = NodePath("VBoxContainer_Page")
+button_previous = NodePath("Buttons/TextureButton_Previous")
+button_next = NodePath("Buttons/TextureButton_Next")
+paragraph_container = NodePath("PrefabContainer/ParagraphContainer")
+buttons = NodePath("Buttons")
+reply_color = Color(0.24705882, 0.21568628, 0.76862746, 1)
+
+[node name="TextureRect_Background" type="TextureRect" parent="." unique_id=1756240891]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ss78d")
+
+[node name="TextureRect_Book" type="TextureRect" parent="." unique_id=130242192]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2112.0
+offset_bottom = 1440.0
+grow_horizontal = 0
+texture = ExtResource("7_binrq")
+
+[node name="TextureRect_Foreground" type="TextureRect" parent="." unique_id=464490074]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_b4erg")
+
+[node name="TextureRect_Title" type="TextureRect" parent="." unique_id=2129010288]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1685.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ttmkd")
+
+[node name="TextureRect_Frame3" type="TextureRect" parent="." unique_id=1274555165]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_ju1h1")
+
+[node name="TextureRect_Frame2" type="TextureRect" parent="." unique_id=746865034]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_4538g")
+
+[node name="TextureRect_Frame1" type="TextureRect" parent="." unique_id=527991148]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_of4fm")
+
+[node name="PrefabContainer" type="Control" parent="." unique_id=1684034971]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 267.0
+offset_bottom = 140.0
+
+[node name="DialogueLabel" type="RichTextLabel" parent="PrefabContainer" unique_id=796606706]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 7
+theme_override_constants/paragraph_separation = 7
+theme_override_fonts/normal_font = ExtResource("13_5hjx8")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "这是我们的故事
+我想起来了
+我要去做某些事"
+fit_content = true
+script = ExtResource("14_r2lyb")
+seconds_per_step = 0.1
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+metadata/_custom_type_script = "uid://g32um0mltv5d"
+
+[node name="ParagraphContainer" parent="PrefabContainer" unique_id=1756509369 instance=ExtResource("15_3fj4v")]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 181.99998
+offset_right = 1442.0
+offset_bottom = 181.99998
+
+[node name="VBoxContainer_Page" type="VBoxContainer" parent="." unique_id=2087188017]
+offset_left = 642.0
+offset_top = 181.99998
+offset_right = 1442.6052
+offset_bottom = 1258.6079
+rotation = -0.075049154
+theme_override_constants/separation = 0
+
+[node name="BackButton" parent="." unique_id=2095390168 instance=ExtResource("16_7e5ln")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 97.0
+offset_top = 1260.0
+offset_right = 153.0
+offset_bottom = 1331.0
+grow_vertical = 1
+
+[node name="Buttons" type="Control" parent="." unique_id=1983019369]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton_Previous" type="TextureButton" parent="Buttons" unique_id=294565385]
+layout_mode = 0
+offset_left = 1358.0
+offset_top = 1240.0
+offset_right = 1575.0
+offset_bottom = 1323.0
+texture_normal = ExtResource("17_jkjot")
+texture_pressed = ExtResource("18_ow5rj")
+texture_hover = ExtResource("19_gtcw4")
+
+[node name="Label" type="Label" parent="Buttons/TextureButton_Previous" unique_id=1953847728]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -19.5
+offset_right = 38.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("20_nk4nf")
+theme_override_font_sizes/font_size = 26
+text = "上一页"
+
+[node name="TextureButton_Next" type="TextureButton" parent="Buttons" unique_id=2063053913]
+layout_mode = 0
+offset_left = 1748.0
+offset_top = 1240.0
+offset_right = 1965.0
+offset_bottom = 1323.0
+texture_normal = ExtResource("17_jkjot")
+texture_pressed = ExtResource("18_ow5rj")
+texture_hover = ExtResource("19_gtcw4")
+
+[node name="Label" type="Label" parent="Buttons/TextureButton_Next" unique_id=353982809]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -19.5
+offset_right = 38.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("20_nk4nf")
+theme_override_font_sizes/font_size = 26
+text = "下一页"
+
+[node name="Preview" type="TextureRect" parent="." unique_id=1194752147]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_vxkei")

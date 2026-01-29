@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://d1umh6ylt5pkt"]
+
+[ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/profile_page/profile_page.gd" id="1_bswld"]
+[ext_resource type="Texture2D" uid="uid://bxpntrtypwlt" path="res://assets/ui/通用/frame_background.png" id="2_nf4dd"]
+[ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://prefabs/profile_card/profile_card.tscn" id="3_ebjnp"]
+[ext_resource type="Texture2D" uid="uid://bpiqrc5rxn28d" path="res://assets/ui/存读档案/load_title.png" id="4_l63eq"]
+[ext_resource type="Texture2D" uid="uid://csgmvnc2fh17n" path="res://assets/ui/存读档案/save_title.png" id="5_fb4lt"]
+[ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="6_ot1va"]
+[ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="7_rond4"]
+[ext_resource type="Texture2D" uid="uid://kdb1r5x3d2o8" path="res://assets/ui/存读档案/存读档界面.png" id="8_8xd6v"]
+
+[node name="ProfilePage" type="CanvasLayer" unique_id=899662598 node_paths=PackedStringArray("profile_card_model", "title_load", "title_save", "profile_card_pool")]
+visible = false
+script = ExtResource("1_bswld")
+profile_card_model = NodePath("PrefabContainer/SaveProfileCard")
+title_load = NodePath("Titles/Title_Load")
+title_save = NodePath("Titles/Title_Save")
+profile_card_pool = NodePath("ScrollContainer/GridContainer_ProfileCards")
+
+[node name="Background" type="TextureRect" parent="." unique_id=964565474]
+offset_right = 2560.0
+offset_bottom = 1440.0
+mouse_filter = 0
+texture = ExtResource("2_nf4dd")
+
+[node name="PrefabContainer" type="Control" parent="." unique_id=118402228]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SaveProfileCard" parent="PrefabContainer" unique_id=1213522950 instance=ExtResource("3_ebjnp")]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 104.0
+offset_right = 1167.0
+offset_bottom = 573.0
+
+[node name="Titles" type="Control" parent="." unique_id=867472270]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 81.0
+offset_right = 136.0
+offset_bottom = 121.0
+
+[node name="Title_Load" type="TextureRect" parent="Titles" unique_id=335128343]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_l63eq")
+
+[node name="Title_Save" type="TextureRect" parent="Titles" unique_id=953843422]
+layout_mode = 0
+offset_right = 446.0
+offset_bottom = 255.0
+texture = ExtResource("5_fb4lt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=227130680]
+offset_left = 596.0
+offset_top = 104.0
+offset_right = 2353.0
+offset_bottom = 1331.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer_ProfileCards" type="GridContainer" parent="ScrollContainer" unique_id=638593095]
+layout_mode = 2
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 42
+columns = 3
+
+[node name="VScrollBarEx" parent="." unique_id=895094589 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("6_ot1va")]
+anchor_top = 0.081
+anchor_bottom = 0.081
+offset_bottom = 1210.36
+target_scroll_container = NodePath("../ScrollContainer")
+
+[node name="BackButton" parent="." unique_id=1649292307 instance=ExtResource("7_rond4")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 97.0
+offset_top = 1260.0
+offset_right = 153.0
+offset_bottom = 1331.0
+grow_vertical = 1
+
+[node name="Preview" type="TextureRect" parent="." unique_id=1795361763]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8xd6v")

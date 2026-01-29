@@ -1,5 +1,5 @@
 class_name CharacterPage
-extends Control
+extends CanvasLayer
 
 @export var label_character_name: Label
 @export var background: TextureRect
