@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://q03lfcdqrodr" path="res://assets/ui/对话界面/menu_set.png" id="15_ii14q"]
 [ext_resource type="Texture2D" uid="uid://c5o5yj7qu7ic5" path="res://assets/ui/对话界面/menu_phone.png" id="16_lqv2x"]
 [ext_resource type="Texture2D" uid="uid://cm2mbq2xdcqkf" path="res://assets/ui/对话界面/menu_book.png" id="17_4x5c0"]
+[ext_resource type="Texture2D" uid="uid://cqxujk1k2eo41" path="res://assets/ui/对话界面/menu_voice.png" id="17_vivor"]
 [ext_resource type="Texture2D" uid="uid://bnptfgpypwbn4" path="res://assets/ui/对话界面/menu_title.png" id="18_p0t85"]
 [ext_resource type="FontFile" uid="uid://dd1ubdqp4elpg" path="res://assets/fonts/C4v.4-Regular（日期）.otf" id="20_4x5c0"]
 [ext_resource type="Texture2D" uid="uid://cursfdexvwan7" path="res://assets/ui/对话界面/date_deco.png" id="21_edgdw"]
@@ -291,7 +292,7 @@ offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_yetgv")
 
-[node name="DialogueButtonController" type="Node" parent="StagePage/SubViewport/DialogueScreen" unique_id=1781078644 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_phone", "button_book", "button_title")]
+[node name="DialogueButtonController" type="Node" parent="StagePage/SubViewport/DialogueScreen" unique_id=1781078644 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_voice", "button_phone", "button_book", "button_title")]
 script = ExtResource("10_lqv2x")
 button_skip = NodePath("../HBoxContainer_Buttons/DialogueButton_Skip")
 button_auto = NodePath("../HBoxContainer_Buttons/DialogueButton_Auto")
@@ -299,17 +300,18 @@ button_save = NodePath("../HBoxContainer_Buttons/DialogueButton_Save")
 button_load = NodePath("../HBoxContainer_Buttons/DialogueButton_Load")
 button_log = NodePath("../HBoxContainer_Buttons/DialogueButton_Log")
 button_set = NodePath("../HBoxContainer_Buttons/DialogueButton_Set")
+button_voice = NodePath("../HBoxContainer_Buttons/DialogueButton_Voice")
 button_phone = NodePath("../HBoxContainer_Buttons/DialogueButton_Phone")
 button_book = NodePath("../HBoxContainer_Buttons/DialogueButton_Book")
 button_title = NodePath("../HBoxContainer_Buttons/DialogueButton_Title")
 
 [node name="HBoxContainer_Buttons" type="HBoxContainer" parent="StagePage/SubViewport/DialogueScreen" unique_id=2120074705]
 layout_mode = 0
-offset_left = 915.0
 offset_top = 1331.0
-offset_right = 1647.0
+offset_right = 2560.0
 offset_bottom = 1420.0
 theme_override_constants/separation = 6
+alignment = 1
 
 [node name="DialogueButton_Skip" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=717129467 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
@@ -353,6 +355,15 @@ layout_mode = 2
 
 [node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set" index="1" unique_id=1758427880]
 texture = ExtResource("15_ii14q")
+
+[node name="DialogueButton_Voice" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=1310080083 instance=ExtResource("10_7jxs1")]
+layout_mode = 2
+
+[node name="Icon" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Voice" index="1" unique_id=1758427880]
+offset_left = -15.0
+offset_top = -68.0
+offset_right = 17.0
+texture = ExtResource("17_vivor")
 
 [node name="DialogueButton_Phone" parent="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons" unique_id=538227529 instance=ExtResource("10_7jxs1")]
 layout_mode = 2
@@ -460,6 +471,7 @@ color = Color(0, 0, 0, 1)
 [editable path="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Load"]
 [editable path="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Log"]
 [editable path="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Set"]
+[editable path="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Voice"]
 [editable path="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Phone"]
 [editable path="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Book"]
 [editable path="StagePage/SubViewport/DialogueScreen/HBoxContainer_Buttons/DialogueButton_Title"]

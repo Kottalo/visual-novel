@@ -6,6 +6,7 @@ extends Node
 @export var button_load: DialogueButton
 @export var button_log: DialogueButton
 @export var button_set: DialogueButton
+@export var button_voice: DialogueButton
 @export var button_phone: DialogueButton
 @export var button_book: DialogueButton
 @export var button_title: DialogueButton

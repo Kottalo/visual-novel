@@ -52,10 +52,8 @@
 [ext_resource type="Texture2D" uid="uid://c43o2le44abf5" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_click.png" id="36_4v2jo"]
 [ext_resource type="PackedScene" uid="uid://cdx8bibh1j6e4" path="res://prefabs/bonus_tab_item/bonus_tab_item.tscn" id="36_aa0lp"]
 [ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="36_vuohh"]
-[ext_resource type="Texture2D" uid="uid://bvva0d38s1cqa" path="res://assets/ui/鉴赏内容/botton_cg.png" id="37_4v2jo"]
 [ext_resource type="Texture2D" uid="uid://mnmjup6twua7" path="res://assets/ui/鉴赏内容/音乐鉴赏/last_hover.png" id="37_l1i01"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="37_r62pu"]
-[ext_resource type="Texture2D" uid="uid://bd6e0ymjeplfj" path="res://assets/ui/鉴赏内容/botton_music.png" id="38_l1i01"]
 [ext_resource type="PackedScene" uid="uid://kqg6e5wwdgne" path="res://prefabs/track_item/track_item.tscn" id="39_eu6ph"]
 [ext_resource type="Texture2D" uid="uid://bxpntrtypwlt" path="res://assets/ui/通用/frame_background.png" id="48_5dkr6"]
 [ext_resource type="Texture2D" uid="uid://bpiqrc5rxn28d" path="res://assets/ui/存读档案/load_title.png" id="50_bf22m"]
@@ -282,6 +280,7 @@ mouse_filter = 0
 texture = ExtResource("48_5dkr6")
 
 [node name="TabPages" type="Control" parent="Pages/BonusPage" unique_id=701786141]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -736,12 +735,14 @@ target_tab = NodePath("../../TabPages/CharacterPage")
 
 [node name="BonusTabItem_Gallery" parent="Pages/BonusPage/HBoxContainer_Tabs" unique_id=2073185599 node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
 layout_mode = 2
-texture = ExtResource("37_4v2jo")
+title_zh = "插画鉴赏"
+title_en = "CG Gallery"
 target_tab = NodePath("../../TabPages/GalleryPage")
 
 [node name="BonusTabItem_Music" parent="Pages/BonusPage/HBoxContainer_Tabs" unique_id=1542797552 node_paths=PackedStringArray("target_tab") instance=ExtResource("36_aa0lp")]
 layout_mode = 2
-texture = ExtResource("38_l1i01")
+title_zh = "音乐鉴赏"
+title_en = "Music Gallery"
 target_tab = NodePath("../../TabPages/MusicPage")
 
 [node name="BackButton" parent="Pages/BonusPage" unique_id=1292181598 instance=ExtResource("74_bf22m")]
@@ -756,6 +757,7 @@ grow_vertical = 1
 
 [node name="StagePage" parent="Pages" unique_id=2061072662 instance=ExtResource("92_dadqe")]
 layer = 1
+visible = false
 
 [node name="ProfilePage" type="CanvasLayer" parent="Pages" unique_id=1748374715 node_paths=PackedStringArray("profile_card_model", "title_load", "title_save", "profile_card_pool")]
 visible = false
@@ -1583,6 +1585,7 @@ mouse_filter = 2
 texture = ExtResource("114_e01lh")
 
 [node name="SettingPage" type="CanvasLayer" parent="Pages" unique_id=1417344304]
+visible = false
 script = ExtResource("115_85u71")
 
 [node name="Background2" type="TextureRect" parent="Pages/SettingPage" unique_id=208721850]

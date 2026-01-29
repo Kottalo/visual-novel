@@ -1,9 +1,22 @@
+@tool
 class_name BonusTabItem
-extends TextureRect
+extends Control
+
+@export var title_zh: String:
+	set(value):
+		title_zh = value
+		label_title_zh.text = title_zh
+@export var title_en: String:
+	set(value):
+		title_en = value
+		label_title_en.text = title_en
 
 @export var target_tab: Control
 @export var selected_frame: TextureRect
 @export var hover_hint: TextureRect
+
+@export var label_title_zh: Label
+@export var label_title_en: Label
 
 var selected: bool:
 	get:

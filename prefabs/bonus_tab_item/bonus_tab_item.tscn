@@ -1,17 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdx8bibh1j6e4"]
+[gd_scene format=3 uid="uid://cdx8bibh1j6e4"]
 
-[ext_resource type="Texture2D" uid="uid://bb0wqkfqcao81" path="res://assets/ui/鉴赏内容/botton_chr.png" id="1_wj5cv"]
 [ext_resource type="Texture2D" uid="uid://cjf78o7uhw0uw" path="res://assets/ui/鉴赏内容/click_deco.png" id="2_k06jo"]
 [ext_resource type="Script" uid="uid://1mo62ksp7417" path="res://prefabs/bonus_tab_item/bonus_tab_item.gd" id="2_xygy2"]
 [ext_resource type="Texture2D" uid="uid://cr6smjvptk4es" path="res://assets/ui/鉴赏内容/hover_deco.png" id="4_xygy2"]
+[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="5_3lslt"]
+[ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_esx1e"]
 
-[node name="BonusTabItem" type="TextureRect" node_paths=PackedStringArray("selected_frame", "hover_hint")]
-texture = ExtResource("1_wj5cv")
+[node name="BonusTabItem" type="Control" unique_id=1406201431 node_paths=PackedStringArray("selected_frame", "hover_hint", "label_title_zh", "label_title_en")]
+custom_minimum_size = Vector2(120, 43)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 43.0
 script = ExtResource("2_xygy2")
 selected_frame = NodePath("TextureRect_SelectedFrame")
 hover_hint = NodePath("TextureRect_HoverHint")
+label_title_zh = NodePath("Label_TitleZh")
+label_title_en = NodePath("Label_TitleZh/Label_TitleEn")
 
-[node name="TextureRect_SelectedFrame" type="TextureRect" parent="."]
+[node name="TextureRect_SelectedFrame" type="TextureRect" parent="." unique_id=1810337636]
 layout_mode = 0
 offset_left = -110.0
 offset_top = -62.0
@@ -19,10 +26,40 @@ offset_right = 243.0
 offset_bottom = 97.0
 texture = ExtResource("2_k06jo")
 
-[node name="TextureRect_HoverHint" type="TextureRect" parent="."]
+[node name="TextureRect_HoverHint" type="TextureRect" parent="." unique_id=12977192]
 layout_mode = 0
 offset_left = -54.0
 offset_top = -24.0
 offset_right = 21.0
 offset_bottom = 54.0
 texture = ExtResource("4_xygy2")
+
+[node name="Label_TitleZh" type="Label" parent="." unique_id=2119197859]
+modulate = Color(0.9098039, 0.8862745, 0.9411765, 1)
+layout_mode = 0
+offset_top = -9.0
+offset_right = 120.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("5_3lslt")
+theme_override_font_sizes/font_size = 30
+text = "立绘鉴赏"
+horizontal_alignment = 2
+
+[node name="Label_TitleEn" type="Label" parent="Label_TitleZh" unique_id=1666782889]
+modulate = Color(0.9098039, 0.8862745, 0.9411765, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 18.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_esx1e")
+theme_override_font_sizes/font_size = 10
+text = "Characters Gallery"
+horizontal_alignment = 2
+uppercase = true
