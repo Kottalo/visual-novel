@@ -104,7 +104,7 @@ func _input(event: InputEvent) -> void:
 			if event.is_released():
 				button_pressed = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var progress_ratio = audio_player.get_playback_position() \
 	/ AudioManager.current_track.track.get_length()
 	play_progress_line.set_progress(progress_ratio)

@@ -22,11 +22,6 @@ func start() -> void:
 	Game.stage_page.show()
 	Game.stage_page.start(main_dialogue, "start", [Stage])
 
-#region Dialogue Variables
-var position_name: String
-var background_name: String
-#endregion
-
 #region Dialogue Commands
 func Character(character_name: String) -> Character:
 	return character_dict[character_name]
