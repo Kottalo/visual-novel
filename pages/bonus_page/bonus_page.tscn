@@ -27,19 +27,29 @@ offset_bottom = 1440.0
 mouse_filter = 0
 texture = ExtResource("2_yx1rh")
 
-[node name="TabPages" type="Node" parent="." unique_id=1985830813]
+[node name="TabPages" type="Control" parent="." unique_id=583774228]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CharacterPage" parent="TabPages" unique_id=1026354517 instance=ExtResource("3_n8efi")]
 visible = false
+layout_mode = 1
 
 [node name="GalleryPage" parent="TabPages" unique_id=1229634649 instance=ExtResource("4_yn5h1")]
 visible = false
+layout_mode = 1
 
 [node name="MusicPage" parent="TabPages" unique_id=1072405069 instance=ExtResource("5_mi528")]
 visible = false
+layout_mode = 1
 
 [node name="VoicePage" parent="TabPages" unique_id=2028092101 instance=ExtResource("6_0lt8g")]
 visible = false
+layout_mode = 0
 
 [node name="HBoxContainer_Tabs" type="HBoxContainer" parent="." unique_id=1931057470]
 offset_left = 1838.0

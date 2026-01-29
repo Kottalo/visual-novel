@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="12_qgx8s"]
 [ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="13_34roo"]
 
-[node name="CharacterPage" type="Control" unique_id=1990265637 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option")]
+[node name="CharacterPage" type="Control" unique_id=217028155 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
