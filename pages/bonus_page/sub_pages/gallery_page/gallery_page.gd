@@ -1,5 +1,5 @@
 class_name GalleryPage
-extends CanvasLayer
+extends Control
 
 @export var gallery_card_pool: Control
 

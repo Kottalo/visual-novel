@@ -11,7 +11,7 @@ extends Control
 		title_en = value
 		label_title_en.text = title_en
 
-@export var target_tab: CanvasLayer
+@export var target_tab: Control
 @export var selected_frame: TextureRect
 @export var hover_hint: TextureRect
 

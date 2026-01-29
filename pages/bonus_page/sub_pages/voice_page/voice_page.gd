@@ -1,2 +1,2 @@
 class_name VoicePage
-extends CanvasLayer
+extends Control

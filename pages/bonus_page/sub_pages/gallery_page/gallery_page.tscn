@@ -4,18 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="2_8y25x"]
 [ext_resource type="Texture2D" uid="uid://dl0m5u1eiytd5" path="res://assets/ui/鉴赏内容/插画鉴赏/插画鉴赏.png" id="3_xqqoh"]
 
-[node name="GalleryPage" type="CanvasLayer" unique_id=1229634649 node_paths=PackedStringArray("gallery_card_pool")]
-layer = 2
-visible = false
+[node name="GalleryPage" type="Control" unique_id=2070320143 node_paths=PackedStringArray("gallery_card_pool")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_s5tye")
 gallery_card_pool = NodePath("ScrollContainer/GalleryCardPool")
 
 [node name="VScrollBarEx" parent="." unique_id=504723256 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("2_8y25x")]
+layout_mode = 1
 offset_top = 116.0
 offset_bottom = 1188.0
 target_scroll_container = NodePath("../ScrollContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1251443452]
+layout_mode = 0
 offset_left = 261.0
 offset_top = 73.0
 offset_right = 2367.0
@@ -31,6 +37,7 @@ columns = 4
 
 [node name="Preview" type="TextureRect" parent="." unique_id=1089744420]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

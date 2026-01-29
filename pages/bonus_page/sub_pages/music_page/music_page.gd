@@ -1,5 +1,5 @@
 class_name MusicPage
-extends CanvasLayer
+extends Control
 
 @export var track_item_scene: PackedScene
 @export var play_progress_container: Control

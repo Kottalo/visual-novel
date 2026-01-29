@@ -33,38 +33,38 @@ texture = ExtResource("2_yx1rh")
 visible = false
 
 [node name="GalleryPage" parent="TabPages" unique_id=1229634649 instance=ExtResource("4_yn5h1")]
+visible = false
 
 [node name="MusicPage" parent="TabPages" unique_id=1072405069 instance=ExtResource("5_mi528")]
+visible = false
 
 [node name="VoicePage" parent="TabPages" unique_id=2028092101 instance=ExtResource("6_0lt8g")]
+visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=296840824]
-layer = 3
-
-[node name="HBoxContainer_Tabs" type="HBoxContainer" parent="CanvasLayer" unique_id=1931057470]
+[node name="HBoxContainer_Tabs" type="HBoxContainer" parent="." unique_id=1931057470]
 offset_left = 1838.0
 offset_top = 1268.0
 offset_right = 2422.0
 offset_bottom = 1311.0
 theme_override_constants/separation = 112
 
-[node name="BonusTabItem_Character" parent="CanvasLayer/HBoxContainer_Tabs" unique_id=1406201431 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
+[node name="BonusTabItem_Character" parent="HBoxContainer_Tabs" unique_id=1406201431 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
 layout_mode = 2
-target_tab = NodePath("../../../TabPages/CharacterPage")
+target_tab = NodePath("../../TabPages/CharacterPage")
 
-[node name="BonusTabItem_Gallery" parent="CanvasLayer/HBoxContainer_Tabs" unique_id=1048788281 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
+[node name="BonusTabItem_Gallery" parent="HBoxContainer_Tabs" unique_id=1048788281 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
 layout_mode = 2
 title_zh = "插画鉴赏"
 title_en = "CG Gallery"
-target_tab = NodePath("../../../TabPages/GalleryPage")
+target_tab = NodePath("../../TabPages/GalleryPage")
 
-[node name="BonusTabItem_Music" parent="CanvasLayer/HBoxContainer_Tabs" unique_id=883599580 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
+[node name="BonusTabItem_Music" parent="HBoxContainer_Tabs" unique_id=883599580 node_paths=PackedStringArray("target_tab") instance=ExtResource("51_nu3n8")]
 layout_mode = 2
 title_zh = "音乐鉴赏"
 title_en = "Music Gallery"
-target_tab = NodePath("../../../TabPages/MusicPage")
+target_tab = NodePath("../../TabPages/MusicPage")
 
-[node name="BackButton" parent="CanvasLayer" unique_id=879433762 node_paths=PackedStringArray("target_page") instance=ExtResource("42_j7eld")]
+[node name="BackButton" parent="." unique_id=879433762 node_paths=PackedStringArray("target_page") instance=ExtResource("42_j7eld")]
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
@@ -73,4 +73,4 @@ offset_top = 1260.0
 offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
-target_page = NodePath("../..")
+target_page = NodePath("..")
