@@ -1,59 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpa5d8jlrcd16"]
+[gd_scene format=3 uid="uid://bpa5d8jlrcd16"]
 
 [ext_resource type="Script" uid="uid://di7qgo24s04cu" path="res://characters/character.gd" id="1_e3kty"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_54qew"]
-viewport_path = NodePath("SubViewportContainer/SubViewport")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqr4u"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_54qew")
 
-[node name="Character" type="Node2D" node_paths=PackedStringArray("subviewport", "avatar_frame", "texture_rect_avatar", "body_parts", "optionals_pool")]
+[node name="Character" type="Control" unique_id=809289517 node_paths=PackedStringArray("subviewport", "texture_rect_avatar", "body_parts", "optionals_pool")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_e3kty")
 subviewport = NodePath("SubViewportContainer/SubViewport")
-avatar_frame = NodePath("SubViewportContainer/SubViewport/AvatarFrame")
 texture_rect_avatar = NodePath("TextureRect_Avatar")
 body_parts = [NodePath("SubViewportContainer/SubViewport/Body"), NodePath("SubViewportContainer/SubViewport/Body/Eyebrows"), NodePath("SubViewportContainer/SubViewport/Body/Eyes"), NodePath("SubViewportContainer/SubViewport/Body/Mouth")]
 optionals_pool = NodePath("SubViewportContainer/SubViewport/Body/Optionals")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2063694038]
+layout_mode = 0
 offset_left = -477.0
 offset_top = -1352.0
 offset_right = 527.0
 offset_bottom = 13.0
+pivot_offset_ratio = Vector2(0.5, 1)
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2050918912]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1004, 1365)
 render_target_update_mode = 4
 
-[node name="Body" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport"]
+[node name="Body" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport" unique_id=216061573]
 position = Vector2(499, 1071.0001)
 scale = Vector2(0.5986112, 0.5986112)
 
-[node name="Eyebrows" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/Body"]
+[node name="Eyebrows" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/Body" unique_id=354402092]
 
-[node name="Eyes" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/Body"]
+[node name="Eyes" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/Body" unique_id=493810032]
 
-[node name="Mouth" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/Body"]
+[node name="Mouth" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/Body" unique_id=631882318]
 
-[node name="Optionals" type="Node2D" parent="SubViewportContainer/SubViewport/Body"]
+[node name="Optionals" type="Node2D" parent="SubViewportContainer/SubViewport/Body" unique_id=703917704]
 
-[node name="AvatarFrame" type="Control" parent="SubViewportContainer/SubViewport"]
-layout_mode = 3
-anchor_left = 0.238
-anchor_top = 0.007
-anchor_right = 0.69000006
-anchor_bottom = 0.32200003
-offset_left = 0.04798889
-offset_top = 0.4449997
-offset_right = 0.2399292
-offset_bottom = 0.4699707
-
-[node name="TextureRect_Avatar" type="TextureRect" parent="."]
+[node name="TextureRect_Avatar" type="TextureRect" parent="." unique_id=919147274]
+visible = false
+layout_mode = 0
 offset_left = 740.0
 offset_top = -1029.0
 offset_right = 1328.0

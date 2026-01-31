@@ -1,9 +1,8 @@
 @tool
 class_name Character
-extends Node2D
+extends Control
 
 @export var subviewport: SubViewport
-@export var avatar_frame: Control
 @export var texture_rect_avatar: TextureRect
 
 @export var body_parts: Array[AnimatedSprite2D]
@@ -37,7 +36,8 @@ func _ready() -> void:
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
 			if line.character == self.name:
-				Game.stage_page.avatar.texture = get_avatar_image()
+				Game.stage_page.avatar.texture = texture_rect_avatar.texture
+				#Game.stage_page.avatar.texture = get_avatar_image()
 	)
 
 func update_bonus_part_index(part_name: String, increment: int) -> void:
@@ -52,12 +52,12 @@ func update_bonus_part_index(part_name: String, increment: int) -> void:
 	Main.clear_connections(bonus_part_index_dict_updated)
 	bonus_part_index_dict_updated.emit()
 
-func get_avatar_image() -> AtlasTexture:
-	var atlas_texture = AtlasTexture.new()
-	atlas_texture.atlas = subviewport.get_texture()
-	atlas_texture.region = avatar_frame.get_rect()
-	
-	return atlas_texture
+#func get_avatar_image() -> AtlasTexture:
+	#var atlas_texture = AtlasTexture.new()
+	#atlas_texture.atlas = subviewport.get_texture()
+	#atlas_texture.region = avatar_frame.get_rect()
+	#
+	#return atlas_texture
 
 @export_tool_button("Print SetParts") var print_set_parts_button = print_set_parts
 

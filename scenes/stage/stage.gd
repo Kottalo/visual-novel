@@ -1,7 +1,7 @@
 extends Node
 
 @export var main_dialogue: DialogueResource
-@export var character_pool: Node2D
+@export var character_pool: Control
 @export var background_data_pool: Array[BackgroundData]
 @export var gallery_data_pool: Array[GalleryData]
 

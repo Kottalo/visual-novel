@@ -13,7 +13,7 @@ signal value_changed
 var value: float:
 	set(_value):
 		value = clamp(_value, 0, 1)
-		fill.scale.x = value
+		fill.size.x = size.x * value
 		value_changed.emit()
 		caret.global_position = end_point.global_position - caret.get_combined_pivot_offset()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ctj8imd7y1gpj"]
+[gd_scene format=3 uid="uid://ctj8imd7y1gpj"]
 
 [ext_resource type="Script" uid="uid://dhckqb4wog1cn" path="res://scenes/stage/stage.gd" id="1_ecxui"]
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="2_3kwj0"]
@@ -21,20 +21,26 @@
 [ext_resource type="Resource" uid="uid://cyaas0wqlx0de" path="res://data/galleries/gallery_4.tres" id="15_hohle"]
 [ext_resource type="Resource" uid="uid://ccwti1wp1tp2p" path="res://data/galleries/gallery_5.tres" id="16_bbyji"]
 
-[node name="Stage" type="Node" node_paths=PackedStringArray("character_pool")]
+[node name="Stage" type="Node" unique_id=1343709308 node_paths=PackedStringArray("character_pool")]
 script = ExtResource("1_ecxui")
 main_dialogue = ExtResource("2_a221a")
 character_pool = NodePath("Characters")
 background_data_pool = Array[ExtResource("4_pf3bu")]([ExtResource("4_uutle"), ExtResource("5_cwi0x"), ExtResource("6_lrsvv"), ExtResource("7_gf271"), ExtResource("8_wvhxk"), ExtResource("9_suqj7"), ExtResource("10_lv745")])
 gallery_data_pool = Array[ExtResource("11_henb2")]([ExtResource("12_arv8b"), ExtResource("13_0sb5g"), ExtResource("14_qard3"), ExtResource("15_hohle"), ExtResource("16_bbyji")])
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Control" parent="." unique_id=1964690209]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
 
-[node name="余洛琛" parent="Characters" instance=ExtResource("2_3kwj0")]
+[node name="余洛琛" parent="Characters" unique_id=15564452 instance=ExtResource("2_3kwj0")]
+layout_mode = 0
 
-[node name="常夏" parent="Characters" instance=ExtResource("3_a221a")]
+[node name="常夏" parent="Characters" unique_id=1369953955 instance=ExtResource("3_a221a")]
+layout_mode = 0
 
-[node name="葛城" parent="Characters" instance=ExtResource("9_uutle")]
+[node name="葛城" parent="Characters" unique_id=269003034 instance=ExtResource("9_uutle")]
+layout_mode = 0
 
-[node name="辉夜奏" parent="Characters" instance=ExtResource("10_cwi0x")]
+[node name="辉夜奏" parent="Characters" unique_id=931949811 instance=ExtResource("10_cwi0x")]
+layout_mode = 0

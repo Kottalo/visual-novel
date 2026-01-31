@@ -3,7 +3,7 @@ extends Control
 
 @export var label_character_name: Label
 @export var background: TextureRect
-@export var character_pool: Node2D
+@export var character_pool: Control
 @export var body_part_options: Array[CharacterOption]
 @export var background_option: CharacterOption
 @export var variation_option: CharacterOption
@@ -54,7 +54,7 @@ func _ready() -> void:
 	
 
 func update_characters() -> void:
-	for child: Node2D in character_pool.get_children():
+	for child: Control in character_pool.get_children():
 		child.visible = false
 	current_character.visible = true
 	label_character_name.text = current_character.name

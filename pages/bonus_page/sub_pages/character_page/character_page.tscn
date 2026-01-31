@@ -104,19 +104,27 @@ offset_right = 330.0
 offset_bottom = 504.0
 texture = ExtResource("6_t786o")
 
-[node name="Characters" type="Node2D" parent="." unique_id=749052219]
-position = Vector2(1305, 1433)
+[node name="Characters" type="Control" parent="." unique_id=1346683318]
+anchors_preset = 0
+offset_left = 1305.0
+offset_top = 1433.0
+offset_right = 1305.0
+offset_bottom = 1433.0
 
 [node name="辉夜奏" parent="Characters" unique_id=332644119 instance=ExtResource("7_58pd2")]
+layout_mode = 0
 
 [node name="常夏" parent="Characters" unique_id=1713025133 instance=ExtResource("8_od5st")]
 visible = false
+layout_mode = 0
 
 [node name="余洛琛" parent="Characters" unique_id=316872221 instance=ExtResource("9_5lwtc")]
 visible = false
+layout_mode = 0
 
 [node name="葛城" parent="Characters" unique_id=360688654 instance=ExtResource("10_po4xj")]
 visible = false
+layout_mode = 0
 
 [node name="Preview" type="TextureRect" parent="." unique_id=327835344]
 visible = false
@@ -198,11 +206,11 @@ text = "嘴巴"
 [node name="SliderEx" parent="." unique_id=1465816476 instance=ExtResource("14_201mx")]
 layout_mode = 0
 offset_left = 2420.0
-offset_top = 119.0
-offset_right = 3460.3728
-offset_bottom = 134.0
-rotation = 1.5707964
-initial_value = 0.3
+offset_top = 1160.0
+offset_right = 3460.0
+offset_bottom = 1175.0
+rotation = -1.5707964
+initial_value = 0.7
 
 [editable path="VBoxContainer_Options/CharacterOption_Background"]
 [editable path="VBoxContainer_Options/CharacterOption_Variation"]
