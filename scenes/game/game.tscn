@@ -51,3 +51,4 @@ visible = false
 visible = false
 
 [node name="LoadingPage" parent="." unique_id=79654088 instance=ExtResource("11_kp23o")]
+layer = 4
