@@ -212,19 +212,9 @@ offset_right = 3460.0
 offset_bottom = 1175.0
 rotation = -1.5707964
 
-[node name="Fill" parent="SliderEx_Size/Base" parent_id_path=PackedInt32Array(1465816476, 1968626753) index="0" unique_id=172891822]
-offset_right = 520.0
-
-[node name="Caret" parent="SliderEx_Size/Base/Fill/EndPoint" parent_id_path=PackedInt32Array(1465816476, 1164873906) index="0" unique_id=319633012]
-offset_left = -169.0
-offset_top = -118.0
-offset_right = -96.0
-offset_bottom = -42.0
-
 [editable path="VBoxContainer_Options/CharacterOption_Background"]
 [editable path="VBoxContainer_Options/CharacterOption_Variation"]
 [editable path="VBoxContainer_Options/CharacterOption_Body"]
 [editable path="VBoxContainer_Options/CharacterOption_Eyebrows"]
 [editable path="VBoxContainer_Options/CharacterOption_Eyes"]
 [editable path="VBoxContainer_Options/CharacterOption_Mouth"]
-[editable path="SliderEx_Size"]
