@@ -10,7 +10,13 @@ atlas = SubResource("ViewportTexture_54qew")
 
 [node name="Character" type="Control" unique_id=809289517 node_paths=PackedStringArray("subviewport", "texture_rect_avatar", "body_parts", "optionals_pool")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("1_e3kty")
 subviewport = NodePath("SubViewportContainer/SubViewport")
 texture_rect_avatar = NodePath("TextureRect_Avatar")
@@ -23,7 +29,7 @@ offset_left = -477.0
 offset_top = -1352.0
 offset_right = 527.0
 offset_bottom = 13.0
-pivot_offset_ratio = Vector2(0.5, 1)
+pivot_offset_ratio = Vector2(0.5, 0)
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2050918912]

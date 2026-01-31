@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvwwuqgnvc672"]
+[gd_scene format=3 uid="uid://dvwwuqgnvc672"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_pac1f"]
 [ext_resource type="Texture2D" uid="uid://xab5gw8j5c0q" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/常服-手举起.tres" id="2_h3wkl"]
@@ -196,41 +196,41 @@ resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_h3wkl")
 region = Rect2(270.00244, 14.997192, 415.1543, 447.7154)
 
-[node name="余洛琛" instance=ExtResource("1_pac1f")]
+[node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
 
-[node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
+[node name="SubViewportContainer" parent="." index="0" unique_id=2063694038]
+offset_bottom = 785.0
+
+[node name="SubViewport" parent="SubViewportContainer" index="0" unique_id=2050918912]
+size = Vector2i(1004, 2137)
+
+[node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
 sprite_frames = SubResource("SpriteFrames_qqr4u")
 animation = &"校服-手放下"
 
-[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
+[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_qulg7")
 animation = &"默认"
 
-[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
+[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_ke030")
 animation = &"默认"
 
-[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
+[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_bnq0n")
 animation = &"笑开口"
 
-[node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
+[node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=736903750]
 visible = false
 texture = ExtResource("21_0ni7k")
 
-[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="1"]
+[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="1" unique_id=349479754]
 visible = false
 texture = ExtResource("22_67hvi")
 
-[node name="问号" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="2"]
+[node name="问号" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="2" unique_id=1498249844]
 visible = false
 texture = ExtResource("23_2ajgh")
 
-[node name="AvatarFrame" parent="SubViewportContainer/SubViewport" index="1"]
-offset_left = -108.95201
-offset_top = -12.555
-offset_right = 88.23993
-offset_bottom = 167.46997
-
-[node name="TextureRect_Avatar" parent="." index="1"]
+[node name="TextureRect_Avatar" parent="." index="1" unique_id=919147274]
 texture = SubResource("AtlasTexture_lpavb")

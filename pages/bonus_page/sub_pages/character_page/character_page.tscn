@@ -114,18 +114,46 @@ offset_bottom = 1433.0
 
 [node name="辉夜奏" parent="Characters" unique_id=332644119 instance=ExtResource("7_58pd2")]
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="常夏" parent="Characters" unique_id=1713025133 instance=ExtResource("8_od5st")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="余洛琛" parent="Characters" unique_id=316872221 instance=ExtResource("9_5lwtc")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="葛城" parent="Characters" unique_id=360688654 instance=ExtResource("10_po4xj")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Preview" type="TextureRect" parent="." unique_id=327835344]
 visible = false

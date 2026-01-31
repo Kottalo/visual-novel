@@ -169,7 +169,13 @@ region = Rect2(213.02051, 0, 561.67944, 511.55426)
 
 [node name="辉夜奏" unique_id=961663325 instance=ExtResource("1_mvhsb")]
 
-[node name="Body" parent="SubViewportContainer/SubViewport" parent_id_path=PackedInt32Array(2050918912) index="0" unique_id=216061573]
+[node name="SubViewportContainer" parent="." index="0" unique_id=2063694038]
+offset_bottom = 866.0
+
+[node name="SubViewport" parent="SubViewportContainer" index="0" unique_id=2050918912]
+size = Vector2i(1004, 2218)
+
+[node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
 position = Vector2(499, 1130)
 sprite_frames = SubResource("SpriteFrames_mvhsb")
 animation = &"默认"

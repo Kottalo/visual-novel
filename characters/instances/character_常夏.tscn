@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://crtfb3f3rs7b1"]
+[gd_scene format=3 uid="uid://crtfb3f3rs7b1"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_1d4w3"]
 [ext_resource type="Texture2D" uid="uid://b3qpnd5exitjk" path="res://assets/sprites/characters/characters.sprites/常夏/身体/举手掌.tres" id="2_cmy8o"]
@@ -194,27 +194,33 @@ resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_cmy8o")
 region = Rect2(221.16089, 0, 561.6792, 527.8349)
 
-[node name="常夏" instance=ExtResource("1_1d4w3")]
+[node name="常夏" unique_id=401531579 instance=ExtResource("1_1d4w3")]
 
-[node name="Body" parent="SubViewportContainer/SubViewport" index="0"]
+[node name="SubViewportContainer" parent="." index="0" unique_id=2063694038]
+offset_bottom = 693.0
+
+[node name="SubViewport" parent="SubViewportContainer" index="0" unique_id=2050918912]
+size = Vector2i(1004, 2045)
+
+[node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
 sprite_frames = SubResource("SpriteFrames_mflfp")
 animation = &"举手掌"
 
-[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0"]
+[node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_mpe7f")
 animation = &"默认"
 
-[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1"]
+[node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_ioytk")
 animation = &"默认"
 
-[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2"]
+[node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_8q33n")
 animation = &"笑开口"
 
-[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" index="0"]
+[node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=594954153]
 visible = false
 texture = ExtResource("21_hdqmv")
 
-[node name="TextureRect_Avatar" parent="." index="1"]
+[node name="TextureRect_Avatar" parent="." index="1" unique_id=919147274]
 texture = SubResource("AtlasTexture_p5ym6")
