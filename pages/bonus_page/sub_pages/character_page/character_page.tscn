@@ -113,6 +113,7 @@ offset_right = 1305.0
 offset_bottom = 1433.0
 
 [node name="辉夜奏" parent="Characters" unique_id=332644119 instance=ExtResource("7_58pd2")]
+visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0

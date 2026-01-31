@@ -2,6 +2,7 @@
 class_name Character
 extends Control
 
+@export var sv_container: SubViewportContainer
 @export var subviewport: SubViewport
 @export var texture_rect_avatar: TextureRect
 
@@ -11,9 +12,17 @@ extends Control
 var body_part_dict: Dictionary[String, AnimatedSprite2D]
 var character_image: Node2D
 
-var character_data: CharacterData:
+var body_scale_factor: float = 0.5:
+	set(value):
+		body_scale_factor = value
+		var scale_range = 1 - min_scale_factor
+		var s = body_scale_factor * scale_range
+		var scale_factor = min_scale_factor + s
+		sv_container.scale = Vector2(scale_factor, scale_factor)
+
+var min_scale_factor: float:
 	get:
-		return
+		return abs(sv_container.position.y) / sv_container.size.y
 
 # This is for Character Bonus only
 signal bonus_part_index_dict_updated
@@ -37,7 +46,6 @@ func _ready() -> void:
 		func (line: DialogueLine):
 			if line.character == self.name:
 				Game.stage_page.avatar.texture = texture_rect_avatar.texture
-				#Game.stage_page.avatar.texture = get_avatar_image()
 	)
 
 func update_bonus_part_index(part_name: String, increment: int) -> void:
@@ -51,13 +59,6 @@ func update_bonus_part_index(part_name: String, increment: int) -> void:
 	body_part.animation = bonus_part_index_dict[part_name].options[index]
 	Main.clear_connections(bonus_part_index_dict_updated)
 	bonus_part_index_dict_updated.emit()
-
-#func get_avatar_image() -> AtlasTexture:
-	#var atlas_texture = AtlasTexture.new()
-	#atlas_texture.atlas = subviewport.get_texture()
-	#atlas_texture.region = avatar_frame.get_rect()
-	#
-	#return atlas_texture
 
 @export_tool_button("Print SetParts") var print_set_parts_button = print_set_parts
 

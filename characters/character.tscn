@@ -8,7 +8,7 @@
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_54qew")
 
-[node name="Character" type="Control" unique_id=809289517 node_paths=PackedStringArray("subviewport", "texture_rect_avatar", "body_parts", "optionals_pool")]
+[node name="Character" type="Control" unique_id=809289517 node_paths=PackedStringArray("sv_container", "subviewport", "texture_rect_avatar", "body_parts", "optionals_pool")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -18,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_e3kty")
+sv_container = NodePath("SubViewportContainer")
 subviewport = NodePath("SubViewportContainer/SubViewport")
 texture_rect_avatar = NodePath("TextureRect_Avatar")
 body_parts = [NodePath("SubViewportContainer/SubViewport/Body"), NodePath("SubViewportContainer/SubViewport/Body/Eyebrows"), NodePath("SubViewportContainer/SubViewport/Body/Eyes"), NodePath("SubViewportContainer/SubViewport/Body/Mouth")]

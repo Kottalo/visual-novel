@@ -35,7 +35,11 @@ var variation_index: int:
 		
 
 func _ready() -> void:
-	Stage.character_selection_index_changed.connect(update_characters)
+	Stage.character_selection_index_changed.connect(
+		func ():
+			update_characters()
+			slider_size.value = current_character.body_scale_factor
+	)
 	
 	background_option.previous_button.pressed.connect(
 		func (): background_index -= 1
@@ -53,10 +57,12 @@ func _ready() -> void:
 	
 	update_characters()
 	
-	slider_size.value_changed.connect(
-		func ():
-			current_character.scale = Vector2(slider_size.value, slider_size.value)
-	)
+	slider_size.value_changed.connect(update_scale)
+	
+	Stage.character_selection_index = 0
+
+func update_scale() -> void:
+	current_character.body_scale_factor = slider_size.value
 
 func update_characters() -> void:
 	for child: Control in character_pool.get_children():

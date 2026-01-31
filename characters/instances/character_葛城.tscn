@@ -152,8 +152,8 @@ region = Rect2(204.88013, 89.8569, 504.6975, 488.4169)
 [node name="葛城" unique_id=1900529109 instance=ExtResource("1_8t5bo")]
 
 [node name="SubViewportContainer" parent="." index="0" unique_id=2063694038]
-offset_top = -1518.0
-offset_bottom = 861.0
+offset_top = -1414.0
+offset_bottom = 965.0
 
 [node name="SubViewport" parent="SubViewportContainer" index="0" unique_id=2050918912]
 size = Vector2i(1004, 2379)
