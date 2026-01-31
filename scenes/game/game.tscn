@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://y1pmr3blgg6s" path="res://pages/log_page/log_page.tscn" id="8_vaxfo"]
 [ext_resource type="PackedScene" uid="uid://d2hqmraljwruf" path="res://pages/phone_page/phone_page.tscn" id="9_ftsea"]
 [ext_resource type="PackedScene" uid="uid://cnqqbeyauw3gt" path="res://pages/setting_page/setting_page.tscn" id="10_otnwt"]
+[ext_resource type="PackedScene" uid="uid://c7tlr4l4j3tcp" path="res://pages/loading_page/loading_page.tscn" id="11_kp23o"]
 [ext_resource type="PackedScene" uid="uid://dwnsxsn6pit1f" path="res://pages/stage_page/stage_page.tscn" id="92_dadqe"]
 
-[node name="Game" type="Node" unique_id=533485796 node_paths=PackedStringArray("page_pool", "main_menu", "bonus_page", "stage_page", "profile_page", "travel_page", "book_page", "log_page", "phone_page", "setting_page")]
+[node name="Game" type="Node" unique_id=533485796 node_paths=PackedStringArray("page_pool", "main_menu", "bonus_page", "stage_page", "profile_page", "travel_page", "book_page", "log_page", "phone_page", "setting_page", "loading_page")]
 script = ExtResource("1_e2o6t")
 page_pool = NodePath("Pages")
 main_menu = NodePath("Pages/MainMenu")
@@ -23,6 +24,7 @@ book_page = NodePath("Pages/BookPage")
 log_page = NodePath("Pages/LogPage")
 phone_page = NodePath("Pages/PhonePage")
 setting_page = NodePath("Pages/SettingPage")
+loading_page = NodePath("LoadingPage")
 
 [node name="Pages" type="Node" parent="." unique_id=461717146]
 
@@ -47,3 +49,5 @@ visible = false
 
 [node name="SettingPage" parent="Pages" unique_id=1362674666 instance=ExtResource("10_otnwt")]
 visible = false
+
+[node name="LoadingPage" parent="." unique_id=79654088 instance=ExtResource("11_kp23o")]

@@ -11,8 +11,15 @@ extends Node
 @export var log_page: LogPage
 @export var phone_page: PhonePage
 @export var setting_page: SettingPage
+@export var loading_page: LoadingPage
+
+var loading: bool:
+	set(value):
+		loading = value
+		loading_page.visible = loading
 
 func _ready() -> void:
+	loading = false
 	hide_all_pages()
 	main_menu.show()
 	

@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://c7tlr4l4j3tcp"]
+
+[ext_resource type="Texture2D" uid="uid://c2qsbmirtptqi" path="res://assets/ui/系统设置/botton_hover.png" id="1_8lx4p"]
+[ext_resource type="Script" uid="uid://cu13bhxceoasm" path="res://pages/loading_page/loading_page.gd" id="1_mieu7"]
+[ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="2_mieu7"]
+[ext_resource type="Animation" uid="uid://ddvxmdrdsg06k" path="res://animations/rotate.res" id="4_jy7hn"]
+[ext_resource type="Animation" uid="uid://cirho7p042sfc" path="res://animations/blink.res" id="5_1occ5"]
+
+[sub_resource type="Animation" id="Animation_a4ipm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/LoadingHint:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jy7hn"]
+_data = {
+&"RESET": SubResource("Animation_a4ipm"),
+&"rotate": ExtResource("4_jy7hn")
+}
+
+[sub_resource type="Animation" id="Animation_jy7hn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1occ5"]
+_data = {
+&"RESET": SubResource("Animation_jy7hn"),
+&"blink": ExtResource("5_1occ5")
+}
+
+[node name="LoadingPage" type="CanvasLayer" unique_id=79654088 node_paths=PackedStringArray("animation_player_rotate", "animation_player_blink")]
+script = ExtResource("1_mieu7")
+animation_player_rotate = NodePath("AnimationPlayer_Rotate")
+animation_player_blink = NodePath("AnimationPlayer_Blink")
+
+[node name="Background" type="ColorRect" parent="." unique_id=874357959]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.30588236)
+
+[node name="Control" type="Control" parent="." unique_id=1107214408]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="LoadingHint" type="TextureRect" parent="Control" unique_id=1715082343]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -111.0
+offset_right = -43.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_8lx4p")
+
+[node name="Label" type="Label" parent="Control" unique_id=375028799]
+modulate = Color(0.68635553, 0.85314685, 0.996563, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -110.0
+offset_right = -124.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_mieu7")
+theme_override_font_sizes/font_size = 48
+text = "加载中"
+
+[node name="AnimationPlayer_Rotate" type="AnimationPlayer" parent="." unique_id=2021675893]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_jy7hn")
+autoplay = &"rotate"
+speed_scale = 0.4
+
+[node name="AnimationPlayer_Blink" type="AnimationPlayer" parent="." unique_id=1267555600]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_1occ5")
+autoplay = &"blink"
+speed_scale = 0.5
