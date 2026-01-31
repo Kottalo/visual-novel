@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="12_qgx8s"]
 [ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="13_34roo"]
 
-[node name="CharacterPage" type="Control" unique_id=217028155 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option")]
+[node name="CharacterPage" type="Control" unique_id=217028155 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option", "variation_option")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +27,7 @@ background = NodePath("Background")
 character_pool = NodePath("Characters")
 body_part_options = [NodePath("VBoxContainer_Options/CharacterOption_Body"), NodePath("VBoxContainer_Options/CharacterOption_Eyebrows"), NodePath("VBoxContainer_Options/CharacterOption_Eyes"), NodePath("VBoxContainer_Options/CharacterOption_Mouth")]
 background_option = NodePath("VBoxContainer_Options/CharacterOption_Background")
+variation_option = NodePath("VBoxContainer_Options/CharacterOption_Variation")
 
 [node name="Background" type="TextureRect" parent="." unique_id=954682134]
 layout_mode = 1
@@ -150,6 +151,12 @@ layout_mode = 2
 [node name="Label" parent="VBoxContainer_Options/CharacterOption_Background" index="0"]
 text = "背景"
 
+[node name="CharacterOption_Variation" parent="VBoxContainer_Options" unique_id=1256078184 instance=ExtResource("13_34roo")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer_Options/CharacterOption_Variation" index="0"]
+text = "时段"
+
 [node name="CharacterOption_Body" parent="VBoxContainer_Options" unique_id=1477781270 instance=ExtResource("13_34roo")]
 layout_mode = 2
 body_part = "Body"
@@ -179,6 +186,7 @@ body_part = "Mouth"
 text = "嘴巴"
 
 [editable path="VBoxContainer_Options/CharacterOption_Background"]
+[editable path="VBoxContainer_Options/CharacterOption_Variation"]
 [editable path="VBoxContainer_Options/CharacterOption_Body"]
 [editable path="VBoxContainer_Options/CharacterOption_Eyebrows"]
 [editable path="VBoxContainer_Options/CharacterOption_Eyes"]

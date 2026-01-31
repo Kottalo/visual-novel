@@ -6,6 +6,7 @@ extends Control
 @export var character_pool: Node2D
 @export var body_part_options: Array[CharacterOption]
 @export var background_option: CharacterOption
+@export var variation_option: CharacterOption
 
 var current_character: Character:
 	get:
@@ -16,9 +17,21 @@ var background_index: int:
 		background_index = value
 		var background_count = Stage.background_data_pool.size()
 		background_index = posmod(background_index, background_count)
-		var background_data = Stage.background_data_pool[background_index]
 		background_option.option_name = background_data.title
-		background.texture = background_data.texture
+		var variation_key = background_data.variations.keys()[0]
+		variation_option.option_name = variation_key
+		background.texture = background_data.variations[variation_key]
+var background_data: BackgroundData:
+	get: return Stage.background_data_pool[background_index]
+
+var variation_index: int:
+	set(value):
+		variation_index = value
+		variation_index = posmod(variation_index, background_data.variations.keys().size())
+		var variation_key = background_data.variations.keys()[variation_index]
+		variation_option.option_name = variation_key
+		background.texture = background_data.variations[variation_key]
+		
 
 func _ready() -> void:
 	Stage.character_selection_index_changed.connect(update_characters)
@@ -28,6 +41,12 @@ func _ready() -> void:
 	)
 	background_option.next_button.pressed.connect(
 		func (): background_index += 1
+	)
+	variation_option.previous_button.pressed.connect(
+		func (): variation_index -= 1
+	)
+	variation_option.next_button.pressed.connect(
+		func (): variation_index += 1
 	)
 	background_index = 0
 	
