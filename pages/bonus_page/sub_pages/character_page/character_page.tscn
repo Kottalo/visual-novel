@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://blachu13yjxr7" path="res://assets/ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png" id="11_yns56"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="12_qgx8s"]
 [ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="13_34roo"]
+[ext_resource type="Texture2D" uid="uid://c07yt1nl0wy5q" path="res://assets/ui/鉴赏内容/立绘鉴赏/name_deco.png" id="13_dorhe"]
+[ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="14_201mx"]
 
 [node name="CharacterPage" type="Control" unique_id=217028155 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option", "variation_option")]
 layout_mode = 3
@@ -106,7 +108,6 @@ texture = ExtResource("6_t786o")
 position = Vector2(1305, 1433)
 
 [node name="辉夜奏" parent="Characters" unique_id=332644119 instance=ExtResource("7_58pd2")]
-visible = false
 
 [node name="常夏" parent="Characters" unique_id=1713025133 instance=ExtResource("8_od5st")]
 visible = false
@@ -130,20 +131,29 @@ texture = ExtResource("11_yns56")
 [node name="Label_CharacterName" type="Label" parent="." unique_id=242887376]
 layout_mode = 0
 offset_left = 201.0
-offset_top = 867.0
+offset_top = 795.0
 offset_right = 381.0
-offset_bottom = 955.0
+offset_bottom = 883.0
 theme_override_colors/font_color = Color(0.72156864, 0.6901961, 0.75686276, 1)
 theme_override_fonts/font = ExtResource("12_qgx8s")
 theme_override_font_sizes/font_size = 60
 text = "辉夜奏"
 
+[node name="Deco" type="TextureRect" parent="Label_CharacterName" unique_id=274264846]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -111.0
+offset_top = -7.0
+offset_right = 415.0
+offset_bottom = 112.0
+texture = ExtResource("13_dorhe")
+
 [node name="VBoxContainer_Options" type="VBoxContainer" parent="." unique_id=890492560]
 layout_mode = 0
 offset_left = 97.0
-offset_top = 983.0
+offset_top = 911.0
 offset_right = 557.0
-offset_bottom = 1237.0
+offset_bottom = 1195.0
 
 [node name="CharacterOption_Background" parent="VBoxContainer_Options" unique_id=1215976934 instance=ExtResource("13_34roo")]
 layout_mode = 2
@@ -184,6 +194,15 @@ body_part = "Mouth"
 
 [node name="Label" parent="VBoxContainer_Options/CharacterOption_Mouth" index="0"]
 text = "嘴巴"
+
+[node name="SliderEx" parent="." unique_id=1465816476 instance=ExtResource("14_201mx")]
+layout_mode = 0
+offset_left = 2420.0
+offset_top = 119.0
+offset_right = 3460.3728
+offset_bottom = 134.0
+rotation = 1.5707964
+initial_value = 0.3
 
 [editable path="VBoxContainer_Options/CharacterOption_Background"]
 [editable path="VBoxContainer_Options/CharacterOption_Variation"]
