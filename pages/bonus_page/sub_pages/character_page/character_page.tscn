@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c07yt1nl0wy5q" path="res://assets/ui/鉴赏内容/立绘鉴赏/name_deco.png" id="13_dorhe"]
 [ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="14_201mx"]
 
-[node name="CharacterPage" type="Control" unique_id=217028155 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option", "variation_option")]
+[node name="CharacterPage" type="Control" unique_id=217028155 node_paths=PackedStringArray("label_character_name", "background", "character_pool", "body_part_options", "background_option", "variation_option", "slider_size")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +30,7 @@ character_pool = NodePath("Characters")
 body_part_options = [NodePath("VBoxContainer_Options/CharacterOption_Body"), NodePath("VBoxContainer_Options/CharacterOption_Eyebrows"), NodePath("VBoxContainer_Options/CharacterOption_Eyes"), NodePath("VBoxContainer_Options/CharacterOption_Mouth")]
 background_option = NodePath("VBoxContainer_Options/CharacterOption_Background")
 variation_option = NodePath("VBoxContainer_Options/CharacterOption_Variation")
+slider_size = NodePath("SliderEx_Size")
 
 [node name="Background" type="TextureRect" parent="." unique_id=954682134]
 layout_mode = 1
@@ -203,14 +204,22 @@ body_part = "Mouth"
 [node name="Label" parent="VBoxContainer_Options/CharacterOption_Mouth" index="0"]
 text = "嘴巴"
 
-[node name="SliderEx" parent="." unique_id=1465816476 instance=ExtResource("14_201mx")]
+[node name="SliderEx_Size" parent="." unique_id=1465816476 instance=ExtResource("14_201mx")]
 layout_mode = 0
 offset_left = 2420.0
 offset_top = 1160.0
 offset_right = 3460.0
 offset_bottom = 1175.0
 rotation = -1.5707964
-initial_value = 0.7
+
+[node name="Fill" parent="SliderEx_Size/Base" parent_id_path=PackedInt32Array(1465816476, 1968626753) index="0" unique_id=172891822]
+offset_right = 520.0
+
+[node name="Caret" parent="SliderEx_Size/Base/Fill/EndPoint" parent_id_path=PackedInt32Array(1465816476, 1164873906) index="0" unique_id=319633012]
+offset_left = -169.0
+offset_top = -118.0
+offset_right = -96.0
+offset_bottom = -42.0
 
 [editable path="VBoxContainer_Options/CharacterOption_Background"]
 [editable path="VBoxContainer_Options/CharacterOption_Variation"]
@@ -218,3 +227,4 @@ initial_value = 0.7
 [editable path="VBoxContainer_Options/CharacterOption_Eyebrows"]
 [editable path="VBoxContainer_Options/CharacterOption_Eyes"]
 [editable path="VBoxContainer_Options/CharacterOption_Mouth"]
+[editable path="SliderEx_Size"]

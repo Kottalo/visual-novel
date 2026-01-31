@@ -7,6 +7,7 @@ extends Control
 @export var body_part_options: Array[CharacterOption]
 @export var background_option: CharacterOption
 @export var variation_option: CharacterOption
+@export var slider_size: SliderEx
 
 var current_character: Character:
 	get:
@@ -52,6 +53,10 @@ func _ready() -> void:
 	
 	update_characters()
 	
+	slider_size.value_changed.connect(
+		func ():
+			current_character.scale = Vector2(slider_size.value, slider_size.value)
+	)
 
 func update_characters() -> void:
 	for child: Control in character_pool.get_children():
