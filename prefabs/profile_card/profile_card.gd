@@ -34,7 +34,7 @@ func _ready() -> void:
 				image.resize(470, 265, Image.INTERPOLATE_NEAREST)
 				var resized_texture = ImageTexture.create_from_image(image)
 				var index = get_index()
-				if not Main.save_data.profiles[index]:
+				if Main.save_data.profiles.size() <= index:
 					Main.save_data.profiles.insert(index, ProfileData.new())
 				Main.save_data.profiles[index].preview = resized_texture
 				ResourceSaver.save(Main.save_data, Main.file_path)
