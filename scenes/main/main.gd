@@ -24,12 +24,6 @@ var gallery_card_index: int:
 		gallery_card_index = value
 		emit_signal("gallery_card_index_changed")
 
-signal save_profile_index_changed
-var selected_save_profile_index: int:
-	set(value):
-		selected_save_profile_index = value
-		emit_signal("save_profile_index_changed")
-
 func _ready() -> void:
 	if FileAccess.file_exists(file_path):
 		save_data = load(file_path)

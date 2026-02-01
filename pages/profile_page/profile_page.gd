@@ -6,6 +6,12 @@ extends CanvasLayer
 @export var title_save: TextureRect
 @export var profile_card_pool: GridContainer
 
+signal profile_index_changed
+var profile_index: int:
+	set(value):
+		profile_index = value
+		profile_index_changed.emit()
+
 func _ready() -> void:	
 	visibility_changed.connect(
 		func ():
@@ -32,22 +38,20 @@ func save_game() -> void:
 	Game.loading = true
 	var _texture = Game.stage_page.subviewport.get_texture()
 	var image = _texture.get_image()
-	save_thread.start(process_save.bind(image))
-
-var save_profile_index: int
-
-func process_save(image: Image) -> void:
-	image.resize(470, 265, Image.INTERPOLATE_NEAREST)
-	var resized_texture = ImageTexture.create_from_image(image)
-	if Main.save_data.profiles.size() <= save_profile_index:
-		Main.save_data.profiles.insert(save_profile_index, ProfileData.new())
-	Main.save_data.profiles[save_profile_index].preview = resized_texture
-	ResourceSaver.save(Main.save_data, Main.file_path)
-	
-	finish_save.call_deferred()
-
-func finish_save() -> void:
-	save_thread.wait_to_finish()
-	save_thread = null
-	Game.loading = false
-	update()
+	save_thread.start(
+		func ():
+			image.resize(470, 265, Image.INTERPOLATE_NEAREST)
+			var resized_texture = ImageTexture.create_from_image(image)
+			if Main.save_data.profiles.size() <= profile_index:
+				Main.save_data.profiles.insert(profile_index, ProfileData.new())
+			Main.save_data.profiles[profile_index].preview = resized_texture
+			ResourceSaver.save(Main.save_data, Main.file_path)
+			
+			(
+				func ():
+					save_thread.wait_to_finish()
+					save_thread = null
+					Game.loading = false
+					update()
+			).call_deferred()
+	)

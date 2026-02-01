@@ -14,7 +14,7 @@ var hovered: bool:
 
 var selected: bool:
 	get:
-		return Main.selected_save_profile_index == get_index()
+		return Game.profile_page.profile_index == get_index()
 
 func _ready() -> void:
 	mouse_entered.connect(
@@ -27,16 +27,15 @@ func _ready() -> void:
 	)
 	drag_filter.execute.connect(
 		func ():
-			Main.selected_save_profile_index = get_index()
+			Game.profile_page.profile_index = get_index()
 			if Main.profile_mode == Main.ProfileMode.SAVE:
-				Game.profile_page.save_profile_index = get_index()
 				Game.profile_page.save_game()
 			
 			if Main.profile_mode == Main.ProfileMode.LOAD:
 				pass
 	)
 	
-	Main.save_profile_index_changed.connect(
+	Game.profile_page.profile_index_changed.connect(
 		func ():
 			update()
 	)
