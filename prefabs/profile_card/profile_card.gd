@@ -30,7 +30,6 @@ func _ready() -> void:
 			Game.profile_page.profile_index = get_index()
 			if Main.profile_mode == Main.ProfileMode.SAVE:
 				Game.profile_page.save_game()
-			
 			if Main.profile_mode == Main.ProfileMode.LOAD:
 				pass
 	)
