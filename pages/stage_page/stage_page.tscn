@@ -89,7 +89,7 @@ script = ExtResource("1_wlgfe")
 dialogue_screen = NodePath("StagePage/SubViewport/DialogueScreen")
 responses_menu = NodePath("StagePage/SubViewport/DialogueScreen/ResponsesMenu")
 subviewport = NodePath("StagePage/SubViewport")
-hbox_positions = NodePath("StagePage/SubViewport/HBoxContainer_Positions")
+hbox_positions = NodePath("StagePage/SubViewport/Positions")
 character_image_pool = NodePath("StagePage/SubViewport/CharacterImages")
 texture_rect_background = NodePath("StagePage/SubViewport/TextureRect_Background")
 texture_rect_blackscreen = NodePath("StagePage/SubViewport/TextureRect_Blackscreen")
@@ -134,9 +134,11 @@ texture = ExtResource("3_lqv2x")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="CharacterImages" type="Node2D" parent="StagePage/SubViewport" unique_id=19264594]
+[node name="CharacterImages" type="Control" parent="StagePage/SubViewport" unique_id=1132370350]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="HBoxContainer_Positions" type="HBoxContainer" parent="StagePage/SubViewport" unique_id=1663383264]
+[node name="Positions" type="HBoxContainer" parent="StagePage/SubViewport" unique_id=1663383264]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -144,39 +146,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LeftMost" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=774944302]
+[node name="LeftMost" type="CenterContainer" parent="StagePage/SubViewport/Positions" unique_id=774944302]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/LeftMost" unique_id=2054177225]
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/Positions/LeftMost" unique_id=2054177225]
 layout_mode = 2
 
-[node name="Left" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=1134200764]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Left" unique_id=946482615]
-layout_mode = 2
-
-[node name="Center" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=2004570200]
+[node name="Left" type="CenterContainer" parent="StagePage/SubViewport/Positions" unique_id=1134200764]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Center" unique_id=1244112783]
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/Positions/Left" unique_id=946482615]
 layout_mode = 2
 
-[node name="Right" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=152013508]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/Right" unique_id=627323666]
-layout_mode = 2
-
-[node name="RightMost" type="CenterContainer" parent="StagePage/SubViewport/HBoxContainer_Positions" unique_id=471927817]
+[node name="Center" type="CenterContainer" parent="StagePage/SubViewport/Positions" unique_id=2004570200]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/HBoxContainer_Positions/RightMost" unique_id=2100089452]
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/Positions/Center" unique_id=1244112783]
+layout_mode = 2
+
+[node name="Right" type="CenterContainer" parent="StagePage/SubViewport/Positions" unique_id=152013508]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/Positions/Right" unique_id=627323666]
+layout_mode = 2
+
+[node name="RightMost" type="CenterContainer" parent="StagePage/SubViewport/Positions" unique_id=471927817]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterPoint" type="Control" parent="StagePage/SubViewport/Positions/RightMost" unique_id=2100089452]
 layout_mode = 2
 
 [node name="DialogueScreen" type="Control" parent="StagePage/SubViewport" unique_id=1066749812]

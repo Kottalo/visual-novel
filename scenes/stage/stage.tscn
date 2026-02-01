@@ -31,16 +31,48 @@ gallery_data_pool = Array[ExtResource("11_henb2")]([ExtResource("12_arv8b"), Ext
 [node name="Characters" type="Control" parent="." unique_id=1964690209]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="余洛琛" parent="Characters" unique_id=15564452 instance=ExtResource("2_3kwj0")]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="常夏" parent="Characters" unique_id=1369953955 instance=ExtResource("3_a221a")]
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="葛城" parent="Characters" unique_id=269003034 instance=ExtResource("9_uutle")]
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="辉夜奏" parent="Characters" unique_id=931949811 instance=ExtResource("10_cwi0x")]
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

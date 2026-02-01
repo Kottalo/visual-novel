@@ -11,7 +11,7 @@ extends CanvasLayer
 @export var responses_menu: DialogueResponsesMenu
 @export var subviewport: SubViewport
 @export var hbox_positions: HBoxContainer
-@export var character_image_pool: Node2D
+@export var character_image_pool: Control
 @export var texture_rect_background: TextureRect
 @export var texture_rect_blackscreen: ColorRect
 
