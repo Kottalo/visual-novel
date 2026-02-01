@@ -14,7 +14,7 @@ func _ready() -> void:
 						Main.clicked = true
 						Main.dragged = false
 					if event.is_released():
-						if (not Main.dragged) and Main.clicked:
+						if not Main.dragged and Main.clicked:
 							emit_signal("execute")
 							Main.clicked = false
 						Main.dragged = false
