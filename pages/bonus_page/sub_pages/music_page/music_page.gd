@@ -16,7 +16,7 @@ extends Control
 @export var label_current_time: Label
 @export var label_total_time: Label
 
-var audio_player: AudioStreamPlayer2D:
+var audio_player: AudioStreamPlayer:
 	get:
 		return AudioManager.audio_player_bonus
 

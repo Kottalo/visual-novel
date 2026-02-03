@@ -152,7 +152,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
 	mutation_cooldown.stop()
-
+	
 	progress.hide()
 	is_waiting_for_input = false
 	dialogue_screen.focus_mode = Control.FOCUS_ALL
@@ -160,7 +160,7 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
-	
+	DebugPage.label_line_id.text = dialogue_line.id
 	var character_name = dialogue_line.character
 	bg_common.visible = dialogue_line.character.is_empty()
 	bg_character.visible = not dialogue_line.character.is_empty()

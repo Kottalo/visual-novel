@@ -1,10 +1,12 @@
 extends Node
 
 @export var playlist: Array[MusicData]
-@export var audio_player_music: AudioStreamPlayer2D
-@export var audio_player_sound: AudioStreamPlayer2D
-@export var audio_player_voice: AudioStreamPlayer2D
-@export var audio_player_bonus: AudioStreamPlayer2D
+@export var audio_player_music: AudioStreamPlayer
+@export var audio_player_sound: AudioStreamPlayer
+@export var audio_player_voice: AudioStreamPlayer
+@export var audio_player_bonus: AudioStreamPlayer
+
+@export_dir var voice_path: String
 
 signal track_index_changed
 var track_index: int:
@@ -32,3 +34,13 @@ func set_track_position_by_ratio(ratio: float):
 	var target_position = audio_player_bonus.stream.get_length() * ratio
 	audio_player_bonus.stop()
 	audio_player_bonus.play(target_position)
+
+#func play_
+
+func play_voice(chapter_name: String, filename: String) -> void:
+	var c
+	var file_path = "%s/%s.wav" % [AudioManager.voice_path, filename]
+	var audio: AudioStreamWAV = load(file_path)
+	audio_player_voice.stream = audio
+	audio_player_voice.play()
+	

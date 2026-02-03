@@ -23,6 +23,10 @@
 [ext_resource type="FontFile" uid="uid://dd1ubdqp4elpg" path="res://assets/fonts/C4v.4-Regular（日期）.otf" id="20_4x5c0"]
 [ext_resource type="Texture2D" uid="uid://cursfdexvwan7" path="res://assets/ui/对话界面/date_deco.png" id="21_edgdw"]
 [ext_resource type="Texture2D" uid="uid://dunx036ntwv0t" path="res://assets/ui/对话界面/date_text.png" id="22_vivor"]
+[ext_resource type="Texture2D" uid="uid://dvywk0ct3deqn" path="res://assets/ui/语音收藏/botton_hover.png" id="24_limwj"]
+[ext_resource type="Texture2D" uid="uid://b7fol1re57dlc" path="res://assets/ui/语音收藏/botton_click.png" id="25_rw8us"]
+[ext_resource type="Texture2D" uid="uid://bnk32fachw0ln" path="res://assets/ui/语音收藏/botton_replay.png" id="26_ic8ca"]
+[ext_resource type="Texture2D" uid="uid://ddqx8tpf5u7ve" path="res://assets/ui/语音收藏/botton_cancel.png" id="27_rw8us"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j08cx"]
 bg_color = Color(0, 0, 0, 1)
@@ -288,7 +292,6 @@ script = ExtResource("3_jool8")
 response_template = NodePath("../../SceneContainer/DialogueSelection")
 
 [node name="Preview" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen" unique_id=1694271716]
-visible = false
 layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
@@ -456,6 +459,33 @@ offset_top = 219.0
 offset_right = 29.0
 offset_bottom = 247.0
 texture = ExtResource("22_vivor")
+
+[node name="Button_Replay" type="TextureButton" parent="StagePage/SubViewport/DialogueScreen" unique_id=521022224]
+layout_mode = 0
+offset_left = 1750.0
+offset_top = 1111.0
+offset_right = 1928.0
+offset_bottom = 1174.0
+focus_mode = 0
+texture_normal = ExtResource("24_limwj")
+texture_pressed = ExtResource("25_rw8us")
+texture_hover = ExtResource("24_limwj")
+
+[node name="TextureRect" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen/Button_Replay" unique_id=1962923498]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 15.0
+offset_right = 147.0
+offset_bottom = 48.0
+texture = ExtResource("26_ic8ca")
+
+[node name="TextureRect" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen" unique_id=2012701076]
+layout_mode = 0
+offset_left = 1938.0
+offset_top = 1126.0
+offset_right = 2052.0
+offset_bottom = 1159.0
+texture = ExtResource("27_rw8us")
 
 [node name="TextureRect_Blackscreen" type="ColorRect" parent="StagePage/SubViewport" unique_id=1839957560]
 visible = false
