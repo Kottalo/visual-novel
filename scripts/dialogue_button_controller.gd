@@ -10,6 +10,8 @@ extends Node
 @export var button_phone: DialogueButton
 @export var button_book: DialogueButton
 @export var button_title: DialogueButton
+@export var button_replay: TextureButton
+@export var button_star: Control
 
 func _ready() -> void:
 	button_skip.toggle_changed.connect(
@@ -45,4 +47,9 @@ func _ready() -> void:
 		func ():
 			Game.hide_all_pages()
 			Game.main_menu.show()
+	)
+	button_replay.pressed.connect(
+		func ():
+			var voice_name = Game.stage_page.dialogue_line.get_tag_value("voice")
+			AudioManager.play_voice(voice_name)
 	)

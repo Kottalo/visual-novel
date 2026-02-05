@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rujid3trau57" path="res://assets/ui/对话界面/dialogue_box_noname.png" id="5_wyvu0"]
 [ext_resource type="Texture2D" uid="uid://8q4jt6eqfbr3" path="res://assets/ui/对话界面/dialogue_box.png" id="6_ra4hq"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_ke2v6"]
-[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="8_cvq0y"]
+[ext_resource type="PackedScene" uid="uid://bda21biuupnf1" path="res://prefabs/dialogue_label_ex/dialogue_label_ex.tscn" id="7_rw8us"]
 [ext_resource type="PackedScene" uid="uid://ojfoyxcslkhd" path="res://prefabs/dialogue_button/dialogue_button.tscn" id="10_7jxs1"]
 [ext_resource type="Script" uid="uid://dtnp35i10ike1" path="res://scripts/dialogue_button_controller.gd" id="10_lqv2x"]
 [ext_resource type="Texture2D" uid="uid://bvj5howg3ndy2" path="res://assets/ui/对话界面/menu_auto.png" id="11_tx5oi"]
@@ -87,7 +87,7 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_sqldi")
 
-[node name="StagePage" type="CanvasLayer" unique_id=547424691 node_paths=PackedStringArray("dialogue_screen", "responses_menu", "subviewport", "hbox_positions", "character_image_pool", "texture_rect_background", "texture_rect_blackscreen", "bg_common", "bg_character", "avatar", "character_label", "dialogue_label", "progress")]
+[node name="StagePage" type="CanvasLayer" unique_id=547424691 node_paths=PackedStringArray("dialogue_screen", "responses_menu", "subviewport", "hbox_positions", "character_image_pool", "texture_rect_background", "texture_rect_blackscreen", "bg_common", "bg_character", "avatar")]
 layer = 100
 script = ExtResource("1_wlgfe")
 dialogue_screen = NodePath("StagePage/SubViewport/DialogueScreen")
@@ -100,9 +100,6 @@ texture_rect_blackscreen = NodePath("StagePage/SubViewport/TextureRect_Blackscre
 bg_common = NodePath("StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Common")
 bg_character = NodePath("StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Character")
 avatar = NodePath("StagePage/SubViewport/DialogueScreen/Avatar")
-character_label = NodePath("StagePage/SubViewport/DialogueScreen/Bg_DialogueBox/Bg_Character/CharacterLabel")
-dialogue_label = NodePath("StagePage/SubViewport/DialogueScreen/DialogueLabel")
-progress = NodePath("StagePage/SubViewport/DialogueScreen/Progress")
 
 [node name="StagePage" type="SubViewportContainer" parent="." unique_id=1454457358]
 anchors_preset = 15
@@ -185,6 +182,12 @@ size_flags_horizontal = 3
 [node name="CenterPoint" type="Control" parent="StagePage/SubViewport/Positions/RightMost" unique_id=2100089452]
 layout_mode = 2
 
+[node name="Preview" type="TextureRect" parent="StagePage/SubViewport" unique_id=1694271716]
+visible = false
+offset_right = 2560.0
+offset_bottom = 1440.0
+texture = ExtResource("2_yetgv")
+
 [node name="DialogueScreen" type="Control" parent="StagePage/SubViewport" unique_id=1066749812]
 layout_mode = 3
 anchors_preset = 15
@@ -194,7 +197,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
-[node name="Bg_DialogueBox" type="Control" parent="StagePage/SubViewport/DialogueScreen" unique_id=1193722480]
+[node name="Bg_DialogueBox" type="Control" parent="StagePage/SubViewport/DialogueScreen" unique_id=2091702803]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -238,26 +242,18 @@ text = "余洛琛"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="StagePage/SubViewport/DialogueScreen" unique_id=442996839 instance=ExtResource("8_cvq0y")]
-unique_name_in_owner = true
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-offset_left = 505.0
-offset_top = 1197.0
-offset_right = 2061.0
-offset_bottom = 1407.0
-grow_horizontal = 1
-size_flags_vertical = 3
-mouse_filter = 2
-theme_override_colors/default_color = Color(0.92941177, 0.9019608, 0.9607843, 1)
-theme_override_fonts/normal_font = ExtResource("7_ke2v6")
-theme_override_font_sizes/normal_font_size = 40
-text = "文学社"
-pause_at_characters = ""
+[node name="DialogueLabel" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox" unique_id=1947273625 instance=ExtResource("7_rw8us")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 508.0
+offset_top = -246.0
+offset_right = 2072.0
+offset_bottom = -114.0
+grow_vertical = 0
 
 [node name="Progress" type="Polygon2D" parent="StagePage/SubViewport/DialogueScreen" unique_id=97073002]
-unique_name_in_owner = true
 position = Vector2(2306, 1337)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
@@ -291,13 +287,7 @@ alignment = 1
 script = ExtResource("3_jool8")
 response_template = NodePath("../../SceneContainer/DialogueSelection")
 
-[node name="Preview" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen" unique_id=1694271716]
-layout_mode = 0
-offset_right = 2560.0
-offset_bottom = 1440.0
-texture = ExtResource("2_yetgv")
-
-[node name="DialogueButtonController" type="Node" parent="StagePage/SubViewport/DialogueScreen" unique_id=1781078644 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_voice", "button_phone", "button_book", "button_title")]
+[node name="DialogueButtonController" type="Node" parent="StagePage/SubViewport/DialogueScreen" unique_id=1781078644 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_voice", "button_phone", "button_book", "button_title", "button_replay", "button_star")]
 script = ExtResource("10_lqv2x")
 button_skip = NodePath("../HBoxContainer_Buttons/DialogueButton_Skip")
 button_auto = NodePath("../HBoxContainer_Buttons/DialogueButton_Auto")
@@ -309,6 +299,8 @@ button_voice = NodePath("../HBoxContainer_Buttons/DialogueButton_Voice")
 button_phone = NodePath("../HBoxContainer_Buttons/DialogueButton_Phone")
 button_book = NodePath("../HBoxContainer_Buttons/DialogueButton_Book")
 button_title = NodePath("../HBoxContainer_Buttons/DialogueButton_Title")
+button_replay = NodePath("../Button_Replay")
+button_star = NodePath("../Button_Star")
 
 [node name="HBoxContainer_Buttons" type="HBoxContainer" parent="StagePage/SubViewport/DialogueScreen" unique_id=2120074705]
 layout_mode = 0
@@ -479,7 +471,7 @@ offset_right = 147.0
 offset_bottom = 48.0
 texture = ExtResource("26_ic8ca")
 
-[node name="TextureRect" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen" unique_id=2012701076]
+[node name="Button_Star" type="TextureRect" parent="StagePage/SubViewport/DialogueScreen" unique_id=2012701076]
 layout_mode = 0
 offset_left = 1938.0
 offset_top = 1126.0

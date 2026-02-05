@@ -37,8 +37,7 @@ func set_track_position_by_ratio(ratio: float):
 
 #func play_
 
-func play_voice(chapter_name: String, filename: String) -> void:
-	var c
+func play_voice(filename: String) -> void:
 	var file_path = "%s/%s.wav" % [AudioManager.voice_path, filename]
 	var audio: AudioStreamWAV = load(file_path)
 	audio_player_voice.stream = audio
