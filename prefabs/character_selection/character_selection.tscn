@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://buso3d823ic3e"]
+[gd_scene format=3 uid="uid://buso3d823ic3e"]
 
-[ext_resource type="Texture2D" uid="uid://pcnqicga1ur8" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_kanade.png" id="1_se0ac"]
-[ext_resource type="Texture2D" uid="uid://d3kgnpra63t6q" path="res://assets/ui/鉴赏内容/立绘鉴赏/ico_select.png" id="2_4303y"]
+[ext_resource type="Texture2D" uid="uid://bjtw8ju4h4pft" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/ico_kanade.tres" id="1_4303y"]
 [ext_resource type="Script" uid="uid://beghy6l0mwfw" path="res://prefabs/character_selection/character_selection.gd" id="2_bvhc2"]
+[ext_resource type="Texture2D" uid="uid://bsgowxgvjmfpx" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/ico_select.tres" id="3_bvhc2"]
 
-[node name="CharacterSelection" type="TextureRect" node_paths=PackedStringArray("texture_rect_frame", "selection_frame")]
+[node name="CharacterSelection" type="TextureRect" unique_id=372530569 node_paths=PackedStringArray("texture_rect_frame", "selection_frame")]
 anchors_preset = -1
 anchor_left = 0.030000001
 anchor_top = 0.053000003
@@ -16,14 +16,14 @@ offset_right = 76.2
 offset_bottom = 76.67999
 pivot_offset = Vector2(76.5, 76.5)
 mouse_filter = 2
-texture = ExtResource("1_se0ac")
+texture = ExtResource("1_4303y")
 script = ExtResource("2_bvhc2")
 texture_rect_frame = NodePath("TextureRect_Frame")
 color_hovered = Color(1, 1, 1, 0.7019608)
 color_selected = Color(1, 1, 1, 1)
 selection_frame = NodePath("SelectionFrame")
 
-[node name="TextureRect_Frame" type="TextureRect" parent="."]
+[node name="TextureRect_Frame" type="TextureRect" parent="." unique_id=2099506129]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,9 +37,9 @@ offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_4303y")
+texture = ExtResource("3_bvhc2")
 
-[node name="SelectionFrame" type="Control" parent="."]
+[node name="SelectionFrame" type="Control" parent="." unique_id=507633568]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

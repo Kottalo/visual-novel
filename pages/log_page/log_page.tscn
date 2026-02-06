@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://y1pmr3blgg6s"]
 
 [ext_resource type="Script" uid="uid://y8nqj7elth0k" path="res://pages/log_page/log_page.gd" id="1_py1e1"]
-[ext_resource type="Texture2D" uid="uid://bxpntrtypwlt" path="res://assets/ui/通用/frame_background.png" id="2_j2irs"]
-[ext_resource type="Texture2D" uid="uid://dp2co1ram00wk" path="res://assets/ui/历史记录/历史记录.png" id="3_6owfp"]
+[ext_resource type="Texture2D" uid="uid://bpeelq1xw0jki" path="res://assets/sprites/ui/ui.sprites/frame_background.tres" id="2_py1e1"]
+[ext_resource type="Texture2D" uid="uid://b0bc0fent33dy" path="res://assets/sprites/ui/ui.sprites/历史记录.tres" id="3_j2irs"]
 [ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="4_f82tv"]
-[ext_resource type="Texture2D" uid="uid://8778p7eby2v4" path="res://assets/ui/历史记录/divide_line.png" id="5_vg7js"]
+[ext_resource type="Texture2D" uid="uid://c5cn651lwy8l7" path="res://assets/sprites/ui/ui.sprites/divide_line.tres" id="5_6owfp"]
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="6_dc1co"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="7_aanj8"]
 
@@ -19,7 +19,7 @@ vbox_log_lines = NodePath("ScrollContainer/MarginContainer/VBoxContainer_LogLine
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
-texture = ExtResource("2_j2irs")
+texture = ExtResource("2_py1e1")
 
 [node name="Preview" type="TextureRect" parent="." unique_id=649915701]
 visible = false
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_6owfp")
+texture = ExtResource("3_j2irs")
 
 [node name="PrefabContainer" type="Control" parent="." unique_id=1708378959]
 visible = false
@@ -42,7 +42,7 @@ layout_mode = 0
 
 [node name="Divider" type="TextureRect" parent="PrefabContainer" unique_id=357377893]
 layout_mode = 0
-texture = ExtResource("5_vg7js")
+texture = ExtResource("5_6owfp")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=997502588]
 offset_left = 576.0
@@ -61,7 +61,7 @@ layout_mode = 2
 
 [node name="Divider" type="TextureRect" parent="ScrollContainer/MarginContainer/VBoxContainer_LogLines" unique_id=449978698]
 layout_mode = 2
-texture = ExtResource("5_vg7js")
+texture = ExtResource("5_6owfp")
 
 [node name="VScrollBarEx" parent="." unique_id=1421076078 node_paths=PackedStringArray("target_scroll_container") instance=ExtResource("6_dc1co")]
 offset_top = 116.0

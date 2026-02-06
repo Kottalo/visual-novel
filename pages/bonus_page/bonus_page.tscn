@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds2orcg0dncno"]
 
 [ext_resource type="Script" uid="uid://2scs52fpvg75" path="res://pages/bonus_page/bonus_page.gd" id="1_kr8r3"]
-[ext_resource type="Texture2D" uid="uid://bxpntrtypwlt" path="res://assets/ui/通用/frame_background.png" id="2_yx1rh"]
+[ext_resource type="Texture2D" uid="uid://bpeelq1xw0jki" path="res://assets/sprites/ui/ui.sprites/frame_background.tres" id="2_n8efi"]
 [ext_resource type="PackedScene" uid="uid://g2g8a8hw7t15" path="res://pages/bonus_page/sub_pages/character_page/character_page.tscn" id="3_n8efi"]
 [ext_resource type="PackedScene" uid="uid://b088cmdfmopjq" path="res://pages/bonus_page/sub_pages/gallery_page/gallery_page.tscn" id="4_yn5h1"]
 [ext_resource type="PackedScene" uid="uid://dma0o1vwd13f8" path="res://pages/bonus_page/sub_pages/music_page/music_page.tscn" id="5_mi528"]
@@ -25,7 +25,7 @@ color = Color(0, 0, 0, 1)
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
-texture = ExtResource("2_yx1rh")
+texture = ExtResource("2_n8efi")
 
 [node name="TabPages" type="Control" parent="." unique_id=583774228]
 layout_mode = 3

@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://lfcmnldfkrh"]
+[gd_scene format=3 uid="uid://lfcmnldfkrh"]
 
 [ext_resource type="Script" uid="uid://bqfqrsbb2ue0q" path="res://prefabs/main_menu_button/main_menu_button.gd" id="1_htbgh"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="2_htbgh"]
-[ext_resource type="Texture2D" uid="uid://dlhggpwbm5tov" path="res://assets/ui/开始游戏/hover_deco.png" id="3_c0fwr"]
-[ext_resource type="Texture2D" uid="uid://cgdomt8rxfhho" path="res://assets/ui/开始游戏/click_deco.png" id="4_g71bb"]
+[ext_resource type="Texture2D" uid="uid://c32bdmf5uardd" path="res://assets/sprites/ui/ui.sprites/hover_deco.tres" id="3_htbgh"]
+[ext_resource type="Texture2D" uid="uid://b7y0sv8noxv8o" path="res://assets/sprites/ui/ui.sprites/start_click_deco.tres" id="4_jl38l"]
 
 [sub_resource type="FontVariation" id="FontVariation_fc0e3"]
 spacing_glyph = 6
 
-[node name="MainMenuButton" type="Control" node_paths=PackedStringArray("texture_hover", "texture_click", "click_box")]
+[node name="MainMenuButton" type="Control" unique_id=1959894228 node_paths=PackedStringArray("texture_hover", "texture_click", "click_box")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_htbgh")
@@ -16,7 +16,7 @@ texture_hover = NodePath("TextureRect_Hover")
 texture_click = NodePath("TextureRect_Click")
 click_box = NodePath("ClickBox")
 
-[node name="Label_Chinese" type="Label" parent="."]
+[node name="Label_Chinese" type="Label" parent="." unique_id=306491173]
 layout_mode = 0
 offset_top = -15.0
 offset_right = 160.0
@@ -25,7 +25,7 @@ theme = ExtResource("2_htbgh")
 theme_override_font_sizes/font_size = 40
 text = "开始游戏"
 
-[node name="Label_English" type="Label" parent="."]
+[node name="Label_English" type="Label" parent="." unique_id=1721478160]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 40.0
@@ -36,25 +36,25 @@ theme_override_fonts/font = SubResource("FontVariation_fc0e3")
 theme_override_font_sizes/font_size = 12
 text = "Start Game"
 
-[node name="TextureRect_Hover" type="TextureRect" parent="."]
+[node name="TextureRect_Hover" type="TextureRect" parent="." unique_id=452635565]
 visible = false
 layout_mode = 0
 offset_left = -39.0
 offset_top = -21.0
 offset_right = 36.0
 offset_bottom = 57.0
-texture = ExtResource("3_c0fwr")
+texture = ExtResource("3_htbgh")
 
-[node name="TextureRect_Click" type="TextureRect" parent="."]
+[node name="TextureRect_Click" type="TextureRect" parent="." unique_id=1771584627]
 visible = false
 layout_mode = 0
 offset_left = -94.0
 offset_top = -59.0
 offset_right = 259.0
 offset_bottom = 100.0
-texture = ExtResource("4_g71bb")
+texture = ExtResource("4_jl38l")
 
-[node name="ClickBox" type="Control" parent="."]
+[node name="ClickBox" type="Control" parent="." unique_id=1081121905]
 anchors_preset = 0
 offset_left = -3.0
 offset_top = -5.0

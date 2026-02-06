@@ -1,16 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgqkic1n3os2r"]
+[gd_scene format=3 uid="uid://cgqkic1n3os2r"]
 
-[ext_resource type="Texture2D" uid="uid://bhk56e201y345" path="res://assets/ui/存读档案/data_background_normal.png" id="1_ueu0p"]
+[ext_resource type="Texture2D" uid="uid://xw0cutuvmqql" path="res://assets/sprites/ui/ui.sprites/data_background_normal.tres" id="1_47rjm"]
 [ext_resource type="Script" uid="uid://c8kumhshi054" path="res://prefabs/profile_card/profile_card.gd" id="2_ocbxf"]
 [ext_resource type="PackedScene" uid="uid://cdnnwlov248c" path="res://prefabs/components/drag_filter.tscn" id="3_ocbxf"]
-[ext_resource type="Texture2D" uid="uid://c7j0ffldcerti" path="res://assets/ui/存读档案/dataimage_empty.png" id="3_ueu0p"]
-[ext_resource type="Texture2D" uid="uid://cbsg1w1i7o3lo" path="res://assets/ui/存读档案/no_background.png" id="4_3cquv"]
+[ext_resource type="Texture2D" uid="uid://bjb3li7bkghk" path="res://assets/sprites/ui/ui.sprites/dataimage_empty.tres" id="4_47rjm"]
 [ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="5_4wxwx"]
+[ext_resource type="Texture2D" uid="uid://26uticl0uan5" path="res://assets/sprites/ui/ui.sprites/button_no_background.tres" id="5_owy0m"]
 [ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_mkcy0"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="8_ocbxf"]
 
-[node name="SaveProfileCard" type="TextureRect" node_paths=PackedStringArray("texture_rect_preview", "drag_filter", "label_index", "label_chapter", "label_chapter_title")]
-texture = ExtResource("1_ueu0p")
+[node name="SaveProfileCard" type="TextureRect" unique_id=1393657536 node_paths=PackedStringArray("texture_rect_preview", "drag_filter", "label_index", "label_chapter", "label_chapter_title")]
+texture = ExtResource("1_47rjm")
 stretch_mode = 4
 script = ExtResource("2_ocbxf")
 texture_rect_preview = NodePath("TextureRect_Preview")
@@ -19,28 +19,28 @@ label_index = NodePath("TextureRect_Index/Label_Index")
 label_chapter = NodePath("Label_Chapter")
 label_chapter_title = NodePath("Label_ChapterTitle")
 
-[node name="DragFilter" parent="." node_paths=PackedStringArray("target_object") instance=ExtResource("3_ocbxf")]
+[node name="DragFilter" parent="." unique_id=981783705 node_paths=PackedStringArray("target_object") instance=ExtResource("3_ocbxf")]
 target_object = NodePath("..")
 
-[node name="TextureRect_Preview" type="TextureRect" parent="."]
+[node name="TextureRect_Preview" type="TextureRect" parent="." unique_id=1513935913]
 layout_mode = 0
 offset_left = 53.0
 offset_top = 64.0
 offset_right = 523.0
 offset_bottom = 329.0
-texture = ExtResource("3_ueu0p")
+texture = ExtResource("4_47rjm")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="TextureRect_Index" type="TextureRect" parent="."]
+[node name="TextureRect_Index" type="TextureRect" parent="." unique_id=1516255643]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 34.0
 offset_right = 148.0
 offset_bottom = 88.0
-texture = ExtResource("4_3cquv")
+texture = ExtResource("5_owy0m")
 
-[node name="Label_Index" type="Label" parent="TextureRect_Index"]
+[node name="Label_Index" type="Label" parent="TextureRect_Index" unique_id=1640007243]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 11.0
@@ -51,7 +51,7 @@ theme_override_fonts/font = ExtResource("5_4wxwx")
 theme_override_font_sizes/font_size = 23
 text = "NO.01"
 
-[node name="Label_Chapter" type="Label" parent="."]
+[node name="Label_Chapter" type="Label" parent="." unique_id=956372083]
 layout_mode = 0
 offset_left = 55.0
 offset_top = 346.0
@@ -62,7 +62,7 @@ theme_override_fonts/font = ExtResource("6_mkcy0")
 theme_override_font_sizes/font_size = 19
 text = "CHAPTER 01"
 
-[node name="Label_ChapterTitle" type="Label" parent="."]
+[node name="Label_ChapterTitle" type="Label" parent="." unique_id=777092137]
 layout_mode = 0
 offset_left = 52.0
 offset_top = 367.0

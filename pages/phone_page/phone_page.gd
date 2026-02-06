@@ -3,7 +3,6 @@ extends CanvasLayer
 
 @export var dialogue: DialogueResource
 
-@export var phone_background: Texture2D
 @export var chat_node: Control
 
 @export var background: Control

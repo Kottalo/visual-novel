@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cdx8bibh1j6e4"]
 
-[ext_resource type="Texture2D" uid="uid://cjf78o7uhw0uw" path="res://assets/ui/鉴赏内容/click_deco.png" id="2_k06jo"]
+[ext_resource type="Texture2D" uid="uid://cnnyvc7v2a01t" path="res://assets/sprites/ui/ui.sprites/gallery_click_deco.tres" id="2_bnil1"]
 [ext_resource type="Script" uid="uid://1mo62ksp7417" path="res://prefabs/bonus_tab_item/bonus_tab_item.gd" id="2_xygy2"]
-[ext_resource type="Texture2D" uid="uid://cr6smjvptk4es" path="res://assets/ui/鉴赏内容/hover_deco.png" id="4_xygy2"]
+[ext_resource type="Texture2D" uid="uid://c32bdmf5uardd" path="res://assets/sprites/ui/ui.sprites/hover_deco.tres" id="3_3lslt"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="5_3lslt"]
 [ext_resource type="FontFile" uid="uid://oirjsykiv7oi" path="res://assets/fonts/Poppins-Light（英文小字）.ttf" id="6_esx1e"]
 
@@ -24,7 +24,7 @@ offset_left = -110.0
 offset_top = -62.0
 offset_right = 243.0
 offset_bottom = 97.0
-texture = ExtResource("2_k06jo")
+texture = ExtResource("2_bnil1")
 
 [node name="TextureRect_HoverHint" type="TextureRect" parent="." unique_id=12977192]
 layout_mode = 0
@@ -32,7 +32,7 @@ offset_left = -54.0
 offset_top = -24.0
 offset_right = 21.0
 offset_bottom = 54.0
-texture = ExtResource("4_xygy2")
+texture = ExtResource("3_3lslt")
 
 [node name="Label_TitleZh" type="Label" parent="." unique_id=2119197859]
 modulate = Color(0.9098039, 0.8862745, 0.9411765, 1)

@@ -1,20 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://biidn3huf1yac"]
+[gd_scene format=3 uid="uid://biidn3huf1yac"]
 
 [ext_resource type="Script" uid="uid://27mw600o134l" path="res://prefabs/character_option/character_option.gd" id="1_nbg24"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="2_fiit1"]
-[ext_resource type="Texture2D" uid="uid://b4q4w8i7agtfn" path="res://assets/ui/鉴赏内容/立绘鉴赏/last_normal.png" id="2_nbg24"]
-[ext_resource type="Texture2D" uid="uid://dj1hquxy6whqb" path="res://assets/ui/鉴赏内容/立绘鉴赏/last_click.png" id="3_fiit1"]
-[ext_resource type="Texture2D" uid="uid://cusk6xv4ja4qq" path="res://assets/ui/鉴赏内容/立绘鉴赏/last_hover.png" id="4_of8w3"]
-[ext_resource type="Texture2D" uid="uid://byvicwdqfnr52" path="res://assets/ui/鉴赏内容/立绘鉴赏/listname_background.png" id="5_cdu4s"]
+[ext_resource type="Texture2D" uid="uid://bl08yri3cc4ic" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/last_normal.tres" id="3_nbg24"]
+[ext_resource type="Texture2D" uid="uid://20d4j2gadm74" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/last_click.tres" id="4_fiit1"]
+[ext_resource type="Texture2D" uid="uid://m01jyjgea68u" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/last_hover.tres" id="5_of8w3"]
+[ext_resource type="Texture2D" uid="uid://bvdv3vne87si7" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/listname_background.tres" id="6_nbg24"]
 
-[node name="CharacterOption" type="HBoxContainer" node_paths=PackedStringArray("label", "previous_button", "next_button", "label_option_name")]
+[node name="CharacterOption" type="HBoxContainer" unique_id=555581031 node_paths=PackedStringArray("label", "previous_button", "next_button", "label_option_name")]
 script = ExtResource("1_nbg24")
 label = NodePath("Label")
 previous_button = NodePath("TextureButton_Previous")
 next_button = NodePath("TextureButton_Next")
 label_option_name = NodePath("TextureRect/Label_OptionName")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=706614607]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
@@ -23,22 +23,22 @@ theme_override_font_sizes/font_size = 30
 text = "表情"
 vertical_alignment = 1
 
-[node name="TextureButton_Previous" type="TextureButton" parent="."]
+[node name="TextureButton_Previous" type="TextureButton" parent="." unique_id=1867605246]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.53
-texture_normal = ExtResource("2_nbg24")
-texture_pressed = ExtResource("3_fiit1")
-texture_hover = ExtResource("4_of8w3")
+texture_normal = ExtResource("3_nbg24")
+texture_pressed = ExtResource("4_fiit1")
+texture_hover = ExtResource("5_of8w3")
 stretch_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=848747171]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_cdu4s")
+texture = ExtResource("6_nbg24")
 stretch_mode = 3
 
-[node name="Label_OptionName" type="Label" parent="TextureRect"]
+[node name="Label_OptionName" type="Label" parent="TextureRect" unique_id=243116870]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,12 +53,12 @@ text = "表情啊啊"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton_Next" type="TextureButton" parent="."]
+[node name="TextureButton_Next" type="TextureButton" parent="." unique_id=394097424]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.53
-texture_normal = ExtResource("2_nbg24")
-texture_pressed = ExtResource("3_fiit1")
-texture_hover = ExtResource("4_of8w3")
+texture_normal = ExtResource("3_nbg24")
+texture_pressed = ExtResource("4_fiit1")
+texture_hover = ExtResource("5_of8w3")
 stretch_mode = 3
 flip_h = true

@@ -1,8 +1,5 @@
 extends Node
 
-@export var chapters: Array[DialogueResource]
-var chapters_dict: Dictionary[String, DialogueResource]
-
 @export var page_pool: Node
 
 @export var main_menu: MainMenu
@@ -29,9 +26,6 @@ func _ready() -> void:
 	bonus_page.music_page.audio_player.play()
 	
 	stage_page.visibility_changed.connect(bonus_page.music_page.update_pause)
-	for chapter in chapters:
-		var chapter_name = chapter.resource_path.get_file()[0]
-		chapters_dict[chapter_name] = chapter
 
 func hide_all_pages() -> void:
 	for page: CanvasLayer in page_pool.get_children():

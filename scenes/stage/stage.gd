@@ -20,7 +20,7 @@ func _ready() -> void:
 func start() -> void:
 	Game.hide_all_pages()
 	Game.stage_page.show()
-	Game.stage_page.start(main_dialogue, "start", [Stage])
+	Game.stage_page.start()
 
 #region Dialogue Commands
 func Character(character_name: String) -> Character:

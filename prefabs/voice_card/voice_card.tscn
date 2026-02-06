@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c7qu2xafv1pld"]
 
-[ext_resource type="Texture2D" uid="uid://4d8pyk37v5ja" path="res://assets/ui/语音收藏/data_background_normal.png" id="1_q3tst"]
-[ext_resource type="Texture2D" uid="uid://dd2r6s6pl0wc0" path="res://assets/ui/语音收藏/bigchr_yu.png" id="2_a21pf"]
-[ext_resource type="Texture2D" uid="uid://cjknif7xweb7y" path="res://assets/ui/语音收藏/no_background.png" id="3_4vpxv"]
+[ext_resource type="Texture2D" uid="uid://dnxcijehsidy8" path="res://assets/sprites/ui/ui.sprites/voice_background_normal.tres" id="1_q3tst"]
+[ext_resource type="Texture2D" uid="uid://dym4c4x0q0fti" path="res://assets/sprites/ui/ui.sprites/bigchr_yu.tres" id="2_a21pf"]
+[ext_resource type="Texture2D" uid="uid://csf80f5vqn6ic" path="res://assets/sprites/ui/ui.sprites/no_background.tres" id="3_4vpxv"]
 [ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="4_imp03"]
 
 [node name="VoiceCard" type="TextureRect" unique_id=1615778727]

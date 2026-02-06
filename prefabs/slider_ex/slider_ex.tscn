@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjgc7qq7fa0s3"]
 
 [ext_resource type="Script" uid="uid://dm8vrcjl5dmmh" path="res://prefabs/slider_ex/slider_ex.gd" id="1_2chib"]
-[ext_resource type="Texture2D" uid="uid://d2d2p570nn87w" path="res://assets/ui/系统设置/botton_normal.png" id="1_3m0la"]
+[ext_resource type="Texture2D" uid="uid://4tcqtunql1lj" path="res://assets/sprites/ui/ui.sprites/button_deco_normal.tres" id="2_2chib"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85u71"]
 corner_radius_top_left = 8
@@ -59,7 +59,7 @@ grow_horizontal = 0
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("1_3m0la")
+texture = ExtResource("2_2chib")
 
 [node name="ClickRect" type="Control" parent="Base" unique_id=2143422042]
 custom_minimum_size = Vector2(0, 32)

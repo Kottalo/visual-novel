@@ -5,22 +5,22 @@
 [ext_resource type="Resource" uid="uid://dpdvuxgwg6q0l" path="res://dialogue_manager/dialogues/page_1.dialogue" id="3_gxpof"]
 [ext_resource type="Resource" uid="uid://6r2qa0nsp5do" path="res://dialogue_manager/dialogues/page_2.dialogue" id="4_jkv06"]
 [ext_resource type="Resource" uid="uid://cju4pdtxrrfdn" path="res://dialogue_manager/dialogues/page_3.dialogue" id="5_dy41n"]
-[ext_resource type="Texture2D" uid="uid://bq4dne8l5a5qr" path="res://assets/ui/奇迹书/background.png" id="6_ss78d"]
-[ext_resource type="Texture2D" uid="uid://d1elj7yroe3b7" path="res://assets/ui/奇迹书/book.png" id="7_binrq"]
-[ext_resource type="Texture2D" uid="uid://bndrl2b5xlneq" path="res://assets/ui/奇迹书/things.png" id="8_b4erg"]
-[ext_resource type="Texture2D" uid="uid://boxp02ammaqij" path="res://assets/ui/奇迹书/frame_title.png" id="9_ttmkd"]
-[ext_resource type="Texture2D" uid="uid://bjttrp8uahn8y" path="res://assets/ui/奇迹书/frame_3.png" id="10_ju1h1"]
-[ext_resource type="Texture2D" uid="uid://bwdhggq2t0ahc" path="res://assets/ui/奇迹书/frame2.png" id="11_4538g"]
-[ext_resource type="Texture2D" uid="uid://bulngn6a57phl" path="res://assets/ui/奇迹书/frame_1.png" id="12_of4fm"]
+[ext_resource type="Texture2D" uid="uid://caskxrj3ow814" path="res://assets/sprites/ui/ui.sprites/book_background.tres" id="6_s06xr"]
+[ext_resource type="Texture2D" uid="uid://dys8d0o3najee" path="res://assets/sprites/ui/ui.sprites/book.tres" id="7_hthhu"]
+[ext_resource type="Texture2D" uid="uid://n8oukw0nwhw2" path="res://assets/sprites/ui/ui.sprites/things.tres" id="8_gxpof"]
+[ext_resource type="Texture2D" uid="uid://criymhvifcve5" path="res://assets/sprites/ui/ui.sprites/frame_title.tres" id="9_jkv06"]
+[ext_resource type="Texture2D" uid="uid://cf8or3av66oy0" path="res://assets/sprites/ui/ui.sprites/frame_3.tres" id="10_dy41n"]
+[ext_resource type="Texture2D" uid="uid://b8gvr006unadu" path="res://assets/sprites/ui/ui.sprites/frame2.tres" id="11_ss78d"]
+[ext_resource type="Texture2D" uid="uid://dxtg1fggjxwpx" path="res://assets/sprites/ui/ui.sprites/frame_1.tres" id="12_binrq"]
 [ext_resource type="FontFile" uid="uid://dgn3iice41qn8" path="res://assets/fonts/瑞美加张清平硬笔楷书.ttf" id="13_5hjx8"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="14_r2lyb"]
 [ext_resource type="PackedScene" uid="uid://cnrtv0v2fr2pd" path="res://prefabs/paragraph_container/paragraph_container.tscn" id="15_3fj4v"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="16_7e5ln"]
-[ext_resource type="Texture2D" uid="uid://drhik2gxhcajv" path="res://assets/ui/奇迹书/page_normal.png" id="17_jkjot"]
-[ext_resource type="Texture2D" uid="uid://c7hk72qolj6il" path="res://assets/ui/奇迹书/page_click.png" id="18_ow5rj"]
-[ext_resource type="Texture2D" uid="uid://74ecblh737xd" path="res://assets/ui/奇迹书/page_hover.png" id="19_gtcw4"]
+[ext_resource type="Texture2D" uid="uid://blsusl7xbrsbd" path="res://assets/sprites/ui/ui.sprites/page_normal.tres" id="17_b4erg"]
+[ext_resource type="Texture2D" uid="uid://b03qjme3jeruc" path="res://assets/sprites/ui/ui.sprites/page_click.tres" id="18_ttmkd"]
+[ext_resource type="Texture2D" uid="uid://bvamlxda5wg7e" path="res://assets/sprites/ui/ui.sprites/page_hover.tres" id="19_ju1h1"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="20_nk4nf"]
-[ext_resource type="Texture2D" uid="uid://c1nsptow73vv4" path="res://assets/ui/奇迹书/奇迹书.png" id="21_vxkei"]
+[ext_resource type="Texture2D" uid="uid://b3f7hniav4fqb" path="res://assets/sprites/ui/ui.sprites/奇迹书.tres" id="21_s06xr"]
 
 [node name="BookPage" type="CanvasLayer" unique_id=139379015 node_paths=PackedStringArray("dialogue_label", "vbox_page", "button_previous", "button_next", "paragraph_container", "buttons")]
 visible = false
@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_ss78d")
+texture = ExtResource("6_s06xr")
 
 [node name="TextureRect_Book" type="TextureRect" parent="." unique_id=130242192]
 anchors_preset = 1
@@ -49,12 +49,12 @@ anchor_right = 1.0
 offset_left = -2112.0
 offset_bottom = 1440.0
 grow_horizontal = 0
-texture = ExtResource("7_binrq")
+texture = ExtResource("7_hthhu")
 
 [node name="TextureRect_Foreground" type="TextureRect" parent="." unique_id=464490074]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("8_b4erg")
+texture = ExtResource("8_gxpof")
 
 [node name="TextureRect_Title" type="TextureRect" parent="." unique_id=2129010288]
 anchors_preset = 15
@@ -63,7 +63,7 @@ anchor_bottom = 1.0
 offset_right = -1685.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_ttmkd")
+texture = ExtResource("9_jkv06")
 
 [node name="TextureRect_Frame3" type="TextureRect" parent="." unique_id=1274555165]
 anchors_preset = 15
@@ -71,7 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_ju1h1")
+texture = ExtResource("10_dy41n")
 
 [node name="TextureRect_Frame2" type="TextureRect" parent="." unique_id=746865034]
 anchors_preset = 15
@@ -79,7 +79,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_4538g")
+texture = ExtResource("11_ss78d")
 
 [node name="TextureRect_Frame1" type="TextureRect" parent="." unique_id=527991148]
 anchors_preset = 15
@@ -87,7 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_of4fm")
+texture = ExtResource("12_binrq")
 
 [node name="PrefabContainer" type="Control" parent="." unique_id=1684034971]
 visible = false
@@ -156,9 +156,9 @@ offset_left = 1358.0
 offset_top = 1240.0
 offset_right = 1575.0
 offset_bottom = 1323.0
-texture_normal = ExtResource("17_jkjot")
-texture_pressed = ExtResource("18_ow5rj")
-texture_hover = ExtResource("19_gtcw4")
+texture_normal = ExtResource("17_b4erg")
+texture_pressed = ExtResource("18_ttmkd")
+texture_hover = ExtResource("19_ju1h1")
 
 [node name="Label" type="Label" parent="Buttons/TextureButton_Previous" unique_id=1953847728]
 layout_mode = 1
@@ -183,9 +183,9 @@ offset_left = 1748.0
 offset_top = 1240.0
 offset_right = 1965.0
 offset_bottom = 1323.0
-texture_normal = ExtResource("17_jkjot")
-texture_pressed = ExtResource("18_ow5rj")
-texture_hover = ExtResource("19_gtcw4")
+texture_normal = ExtResource("17_b4erg")
+texture_pressed = ExtResource("18_ttmkd")
+texture_hover = ExtResource("19_ju1h1")
 
 [node name="Label" type="Label" parent="Buttons/TextureButton_Next" unique_id=353982809]
 layout_mode = 1
@@ -211,4 +211,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("21_vxkei")
+texture = ExtResource("21_s06xr")

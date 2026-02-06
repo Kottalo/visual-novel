@@ -10,4 +10,6 @@ func _ready() -> void:
 			print(Stage.main_dialogue.lines["0"])
 	)
 	
+	#while Stage.resou
 	
+	Game.main_menu.button_start.clicked.emit()

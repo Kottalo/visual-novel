@@ -1,26 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://cil2u80u3sj0p"]
+[gd_scene format=3 uid="uid://cil2u80u3sj0p"]
 
-[ext_resource type="Texture2D" uid="uid://bug4cjc7giy6b" path="res://assets/ui/鉴赏内容/插画鉴赏/image_click.png" id="1_egen2"]
-[ext_resource type="Texture2D" uid="uid://cb5cjfqrwnbio" path="res://assets/ui/鉴赏内容/插画鉴赏/image_hover.png" id="2_jemxq"]
-[ext_resource type="Texture2D" uid="uid://cgahi32bw87b" path="res://assets/ui/鉴赏内容/插画鉴赏/image_example.png" id="3_6oylf"]
+[ext_resource type="Texture2D" uid="uid://e0xgek7y17tl" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/image_click.tres" id="1_6oylf"]
+[ext_resource type="Texture2D" uid="uid://55r8b7ht40eu" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/image_hover.tres" id="2_v1s15"]
 [ext_resource type="Script" uid="uid://p3w881071rcv" path="res://prefabs/gallery_card/gallery_card.gd" id="3_jemxq"]
 [ext_resource type="Script" uid="uid://bonnjjxt11u8k" path="res://prefabs/components/drag_filter.gd" id="4_6oylf"]
+[ext_resource type="Texture2D" uid="uid://crp6u5yhnjjxr" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/image_example.tres" id="5_6oylf"]
 
-[node name="GalleryCard" type="TextureButton" node_paths=PackedStringArray("texture_rect_base", "texture_rect_variation")]
+[node name="GalleryCard" type="TextureButton" unique_id=1091187862 node_paths=PackedStringArray("texture_rect_base", "texture_rect_variation")]
 mouse_filter = 1
 toggle_mode = true
-texture_pressed = ExtResource("1_egen2")
-texture_hover = ExtResource("2_jemxq")
+texture_pressed = ExtResource("1_6oylf")
+texture_hover = ExtResource("2_v1s15")
 script = ExtResource("3_jemxq")
 texture_rect_base = NodePath("TextureRect_Base")
 texture_rect_variation = NodePath("TextureRect_Variation")
 
-[node name="DragFilter" type="Node" parent="." node_paths=PackedStringArray("target_object")]
+[node name="DragFilter" type="Node" parent="." unique_id=1592244227 node_paths=PackedStringArray("target_object")]
 script = ExtResource("4_6oylf")
 target_object = NodePath("..")
 metadata/_custom_type_script = "uid://bonnjjxt11u8k"
 
-[node name="TextureRect_Base" type="TextureRect" parent="."]
+[node name="TextureRect_Base" type="TextureRect" parent="." unique_id=1524271455]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,11 +33,11 @@ offset_right = 240.5
 offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_6oylf")
+texture = ExtResource("5_6oylf")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="TextureRect_Variation" type="TextureRect" parent="."]
+[node name="TextureRect_Variation" type="TextureRect" parent="." unique_id=438480789]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,6 +50,6 @@ offset_right = 240.5
 offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_6oylf")
+texture = ExtResource("5_6oylf")
 expand_mode = 1
 stretch_mode = 6

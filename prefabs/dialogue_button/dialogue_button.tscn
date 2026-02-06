@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://ojfoyxcslkhd"]
 
-[ext_resource type="Texture2D" uid="uid://d1bqawxs7ufb" path="res://assets/ui/对话界面/menu_select.png" id="1_b2dtw"]
+[ext_resource type="Texture2D" uid="uid://cjbxr6ahgmcqb" path="res://assets/sprites/ui/ui.sprites/menu_select.tres" id="1_mst00"]
 [ext_resource type="Script" uid="uid://db3one1avbq5b" path="res://prefabs/dialogue_button/dialogue_button.gd" id="2_4cn42"]
-[ext_resource type="Texture2D" uid="uid://bokqhrkwjgvac" path="res://assets/ui/对话界面/menu_skip.png" id="2_mst00"]
+[ext_resource type="Texture2D" uid="uid://decc21etivel3" path="res://assets/sprites/ui/ui.sprites/menu_skip.tres" id="3_mst00"]
 
 [node name="DialogueButton" type="TextureRect" unique_id=1310080083 node_paths=PackedStringArray("select_frame", "icon", "click_rect")]
 offset_right = 76.0
 offset_bottom = 89.0
 mouse_filter = 2
-texture = ExtResource("1_b2dtw")
+texture = ExtResource("1_mst00")
 script = ExtResource("2_4cn42")
 select_frame = NodePath(".")
 icon = NodePath("Icon")
@@ -38,4 +38,4 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 0
-texture = ExtResource("2_mst00")
+texture = ExtResource("3_mst00")

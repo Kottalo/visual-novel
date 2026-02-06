@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg15vxvu5533s" path="res://pages/bonus_page/sub_pages/gallery_page/gallery_page.gd" id="1_s5tye"]
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="2_8y25x"]
-[ext_resource type="Texture2D" uid="uid://dl0m5u1eiytd5" path="res://assets/ui/鉴赏内容/插画鉴赏/插画鉴赏.png" id="3_xqqoh"]
+[ext_resource type="Texture2D" uid="uid://dov8at8wxlxgs" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/插画鉴赏.tres" id="3_s5tye"]
 
 [node name="GalleryPage" type="Control" unique_id=2070320143 node_paths=PackedStringArray("gallery_card_pool")]
 layout_mode = 3
@@ -43,4 +43,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_xqqoh")
+texture = ExtResource("3_s5tye")

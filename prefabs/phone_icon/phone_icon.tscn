@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btkall20t660f"]
 
-[ext_resource type="Texture2D" uid="uid://bvs2xcuwuc67f" path="res://assets/ui/手机界面/ico_message.png" id="1_pex5o"]
 [ext_resource type="Script" uid="uid://dt57ajxw80ym7" path="res://prefabs/phone_icon/phone_icon.gd" id="1_s5ofn"]
+[ext_resource type="Texture2D" uid="uid://b3pdi3vismhi6" path="res://assets/sprites/ui/ui.sprites/ico_message.tres" id="2_442nh"]
 [ext_resource type="Theme" uid="uid://b4d02lqqc61dq" path="res://themes/phone_theme.tres" id="3_442nh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5ofn"]
@@ -26,7 +26,7 @@ theme_override_constants/separation = 0
 
 [node name="TextureRect_Icon" type="TextureRect" parent="VBoxContainer" unique_id=1537291288]
 layout_mode = 2
-texture = ExtResource("1_pex5o")
+texture = ExtResource("2_442nh")
 
 [node name="Control" type="Control" parent="VBoxContainer" unique_id=1792778293]
 layout_mode = 2

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7tlr4l4j3tcp"]
 
-[ext_resource type="Texture2D" uid="uid://c2qsbmirtptqi" path="res://assets/ui/系统设置/botton_hover.png" id="1_8lx4p"]
 [ext_resource type="Script" uid="uid://cu13bhxceoasm" path="res://pages/loading_page/loading_page.gd" id="1_mieu7"]
+[ext_resource type="Texture2D" uid="uid://b8bq7fk6acc46" path="res://assets/sprites/ui/ui.sprites/button_deco_hover.tres" id="2_jy7hn"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="2_mieu7"]
 [ext_resource type="Animation" uid="uid://ddvxmdrdsg06k" path="res://animations/rotate.res" id="4_jy7hn"]
 [ext_resource type="Animation" uid="uid://cirho7p042sfc" path="res://animations/blink.res" id="5_1occ5"]
@@ -47,10 +47,8 @@ _data = {
 &"blink": ExtResource("5_1occ5")
 }
 
-[node name="LoadingPage" type="CanvasLayer" unique_id=79654088 node_paths=PackedStringArray("animation_player_rotate", "animation_player_blink")]
+[node name="LoadingPage" type="CanvasLayer" unique_id=79654088]
 script = ExtResource("1_mieu7")
-animation_player_rotate = NodePath("AnimationPlayer_Rotate")
-animation_player_blink = NodePath("AnimationPlayer_Blink")
 
 [node name="Background" type="ColorRect" parent="." unique_id=874357959]
 anchors_preset = 15
@@ -61,6 +59,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.30588236)
 
 [node name="Control" type="Control" parent="." unique_id=1107214408]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -84,7 +83,7 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("1_8lx4p")
+texture = ExtResource("2_jy7hn")
 
 [node name="Label" type="Label" parent="Control" unique_id=375028799]
 modulate = Color(0.68635553, 0.85314685, 0.996563, 1)

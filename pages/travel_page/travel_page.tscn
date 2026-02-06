@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bvnwmelln5gka"]
 
 [ext_resource type="Script" uid="uid://cnknlnqa5symr" path="res://pages/travel_page/travel_page.gd" id="1_vfsqv"]
-[ext_resource type="Texture2D" uid="uid://xrkqspeftm3" path="res://assets/ui/地点约会/background.png" id="2_p7mpw"]
-[ext_resource type="Texture2D" uid="uid://dpy330u8ik3xq" path="res://assets/ui/地点约会/place_deco.png" id="3_7lu08"]
+[ext_resource type="Texture2D" uid="uid://bg0p5go3jh0kl" path="res://assets/sprites/ui/ui.sprites/travel_background.tres" id="2_vfsqv"]
+[ext_resource type="Texture2D" uid="uid://ox8uvjclcfv5" path="res://assets/sprites/ui/ui.sprites/place_deco.tres" id="3_p7mpw"]
 [ext_resource type="PackedScene" uid="uid://okl3ot47mvah" path="res://prefabs/place_selection/place_selection.tscn" id="4_ewjmk"]
-[ext_resource type="Texture2D" uid="uid://c2dsc25734sgs" path="res://assets/ui/地点约会/select_outline.png" id="5_kq6kk"]
-[ext_resource type="Texture2D" uid="uid://by8xnut5fcscc" path="res://assets/ui/地点约会/shadow.png" id="6_sibm5"]
-[ext_resource type="Texture2D" uid="uid://cih8lehdp2fxt" path="res://assets/ui/地点约会/tip_background.png" id="7_ulfo1"]
+[ext_resource type="Texture2D" uid="uid://15kii2im4pnt" path="res://assets/sprites/ui/ui.sprites/select_outline.tres" id="5_7lu08"]
+[ext_resource type="Texture2D" uid="uid://pprvy8otptxg" path="res://assets/sprites/ui/ui.sprites/shadow.tres" id="6_ewjmk"]
+[ext_resource type="Texture2D" uid="uid://bfr2trnwdk14f" path="res://assets/sprites/ui/ui.sprites/tip_background.tres" id="7_vfsqv"]
 [ext_resource type="Theme" uid="uid://de7lc2eux6hpx" path="res://themes/main.theme" id="8_xihry"]
-[ext_resource type="Texture2D" uid="uid://c8s76ry77sao" path="res://assets/ui/地点约会/go_normal.png" id="9_medie"]
-[ext_resource type="Texture2D" uid="uid://bjidvkqunqtc5" path="res://assets/ui/地点约会/go_click.png" id="10_gsf35"]
-[ext_resource type="Texture2D" uid="uid://cv1p14jatv3bt" path="res://assets/ui/地点约会/go_hover.png" id="11_3x5bd"]
-[ext_resource type="Texture2D" uid="uid://i1xh5r7t83vm" path="res://assets/ui/地点约会/地点约会.png" id="12_aooum"]
+[ext_resource type="Texture2D" uid="uid://igcdwvkhjrsy" path="res://assets/sprites/ui/ui.sprites/go_normal.tres" id="9_kq6kk"]
+[ext_resource type="Texture2D" uid="uid://b1p0da8mupmhp" path="res://assets/sprites/ui/ui.sprites/go_click.tres" id="10_sibm5"]
+[ext_resource type="Texture2D" uid="uid://beh8m7kdr5ebm" path="res://assets/sprites/ui/ui.sprites/go_hover.tres" id="11_ulfo1"]
+[ext_resource type="Texture2D" uid="uid://c26nb20ihj7u6" path="res://assets/sprites/ui/ui.sprites/地点约会.tres" id="12_xihry"]
 
 [node name="TravelPage" type="CanvasLayer" unique_id=574453905 node_paths=PackedStringArray("vbox_selections", "place_selection", "texture_button_confirm", "label_place_title", "rich_label_place_description")]
 visible = false
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_p7mpw")
+texture = ExtResource("2_vfsqv")
 
 [node name="Title" type="TextureRect" parent="Background" unique_id=1118218158]
 layout_mode = 1
@@ -43,7 +43,7 @@ offset_bottom = -770.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_7lu08")
+texture = ExtResource("3_p7mpw")
 
 [node name="VBoxContainer_Selections" type="VBoxContainer" parent="." unique_id=2033869821]
 offset_left = 254.0
@@ -74,7 +74,7 @@ offset_top = 399.0
 offset_right = 1144.0
 offset_bottom = 1048.0
 mouse_filter = 2
-texture = ExtResource("5_kq6kk")
+texture = ExtResource("5_7lu08")
 
 [node name="Foreground" type="TextureRect" parent="." unique_id=72681740]
 anchors_preset = 15
@@ -83,7 +83,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("6_sibm5")
+texture = ExtResource("6_ewjmk")
 
 [node name="TipBar" type="TextureRect" parent="." unique_id=253047128]
 anchors_preset = 5
@@ -95,7 +95,7 @@ offset_right = 529.0
 offset_bottom = 224.0
 grow_horizontal = 2
 mouse_filter = 2
-texture = ExtResource("7_ulfo1")
+texture = ExtResource("7_vfsqv")
 
 [node name="Label" type="Label" parent="TipBar" unique_id=19584614]
 layout_mode = 1
@@ -144,9 +144,9 @@ offset_left = 1706.0
 offset_top = 981.0
 offset_right = 1996.0
 offset_bottom = 1044.0
-texture_normal = ExtResource("9_medie")
-texture_pressed = ExtResource("10_gsf35")
-texture_hover = ExtResource("11_3x5bd")
+texture_normal = ExtResource("9_kq6kk")
+texture_pressed = ExtResource("10_sibm5")
+texture_hover = ExtResource("11_ulfo1")
 
 [node name="Preview" type="TextureRect" parent="." unique_id=218881393]
 visible = false
@@ -155,4 +155,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_aooum")
+texture = ExtResource("12_xihry")
