@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ft3erxxeesae" path="res://prefabs/dialogue_selection/dialogue_selection.tscn" id="4_wd0lf"]
 [ext_resource type="Texture2D" uid="uid://d2pf2lyg2d364" path="res://assets/sprites/ui/ui.sprites/dialogue_box_noname.tres" id="7_217kn"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_ke2v6"]
-[ext_resource type="PackedScene" uid="uid://bda21biuupnf1" path="res://prefabs/dialogue_label_ex/dialogue_label_ex.tscn" id="7_rw8us"]
 [ext_resource type="Texture2D" uid="uid://bsmb4d7itelyb" path="res://assets/sprites/ui/ui.sprites/dialogue_box.tres" id="8_hovpu"]
 [ext_resource type="PackedScene" uid="uid://ojfoyxcslkhd" path="res://prefabs/dialogue_button/dialogue_button.tscn" id="10_7jxs1"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="10_lda8k"]
 [ext_resource type="Script" uid="uid://dtnp35i10ike1" path="res://scripts/dialogue_button_controller.gd" id="10_lqv2x"]
 [ext_resource type="Texture2D" uid="uid://cogpsthxtxebe" path="res://assets/sprites/ui/ui.sprites/menu_auto.tres" id="14_lda8k"]
 [ext_resource type="Texture2D" uid="uid://2wfnq8qx2pnn" path="res://assets/sprites/ui/ui.sprites/menu_save.tres" id="15_217kn"]
@@ -240,16 +240,22 @@ text = "余洛琛"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox" unique_id=1947273625 instance=ExtResource("7_rw8us")]
+[node name="DialogueLabel" parent="StagePage/SubViewport/DialogueScreen/Bg_DialogueBox" unique_id=585223007 instance=ExtResource("10_lda8k")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
+anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 508.0
 offset_top = -246.0
 offset_right = 2072.0
 offset_bottom = -114.0
+grow_horizontal = 1
 grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("7_ke2v6")
+theme_override_font_sizes/normal_font_size = 40
+text = "文学社"
+pause_at_characters = ""
 
 [node name="Progress" type="Polygon2D" parent="StagePage/SubViewport/DialogueScreen" unique_id=97073002]
 position = Vector2(2306, 1337)

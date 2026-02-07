@@ -15,7 +15,7 @@ var chapters_dict: Dictionary[String, DialogueResource]
 @export var auto_step_rate: float = 0.1
 
 @export var dialogue_screen: Control
-@export var dialogue_label: DialogueLabelEx
+@export var dialogue_label: DialogueLabel
 @export var responses_menu: DialogueResponsesMenu
 @export var subviewport: SubViewport
 @export var hbox_positions: HBoxContainer
@@ -50,22 +50,6 @@ func get_position_by_name(position_name: String) -> Vector2:
 	
 	return position_node.global_position
 
-var finish_pause: float = 2
-var char_per_sec: float = 12
-var text_progress: float:
-	set(value):
-		text_progress = value
-		dialogue_label.visible_characters = int(text_progress)
-var total_text_progress: int:
-	get: return dialogue_label.text.length()
-
-func _process(delta: float) -> void:
-	if not dialogue_line: return
-	
-	if text_progress < total_text_progress:
-		text_progress += char_per_sec * delta
-		
-
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -74,13 +58,26 @@ var dialogue_line: DialogueLine:
 			print(dialogue_line)
 			process_line()
 
+var finish_pause: float = 1
+
 func process_line() -> void:
-	dialogue_label.text = dialogue_line.text
-	text_progress = 0
-	while text_progress < total_text_progress:
+	dialogue_label.dialogue_line = dialogue_line
+	if dialogue_line.has_tag("voice"):
+		AudioManager.play_voice(dialogue_line.get_tag_value("voice"))
+	else:
+		AudioManager.audio_player_voice.stop()
+	dialogue_label.type_out()
+	while dialogue_label.is_typing:
 		await get_tree().process_frame
 	if autoplay:
-		await get_tree().create_timer(finish_pause).timeout
+		if skip:
+			pass
+		else:
+			if dialogue_line.has_tag("voice"):
+				while AudioManager.audio_player_voice.playing:
+					await get_tree().process_frame
+			else:
+				await get_tree().create_timer(finish_pause).timeout
 	else:
 		await next_line
 	
