@@ -50,7 +50,7 @@
         <key>dxtCompressionMode</key>
         <enum type="SettingsBase::DxtCompressionMode">DXT_PERCEPTUAL</enum>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
+        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -74,15 +74,15 @@
         <key>textureSubPath</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png</enum>
+        <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>4096</int>
+            <int>2560</int>
             <key>height</key>
-            <int>4096</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -202,46 +202,6 @@
                 <rect>42,19,83,38</rect>
                 <key>scale9Paddings</key>
                 <rect>42,19,83,38</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ui/二级确认/frame.png</key>
-            <key type="filename">../ui/二级确认/二级确认.png</key>
-            <key type="filename">../ui/历史记录/历史记录.png</key>
-            <key type="filename">../ui/地点约会/shadow.png</key>
-            <key type="filename">../ui/地点约会/travel_background.png</key>
-            <key type="filename">../ui/地点约会/地点约会.png</key>
-            <key type="filename">../ui/奇迹书/book_background.png</key>
-            <key type="filename">../ui/奇迹书/frame2.png</key>
-            <key type="filename">../ui/奇迹书/frame_1.png</key>
-            <key type="filename">../ui/奇迹书/奇迹书.png</key>
-            <key type="filename">../ui/存读档案/存读档界面.png</key>
-            <key type="filename">../ui/对话界面/对话界面.png</key>
-            <key type="filename">../ui/开始游戏/title_background.png</key>
-            <key type="filename">../ui/开始游戏/标题界面.png</key>
-            <key type="filename">../ui/手机界面/chat/手机界面.png</key>
-            <key type="filename">../ui/手机界面/手机界面1.png</key>
-            <key type="filename">../ui/系统设置/系统设置.png</key>
-            <key type="filename">../ui/系统设置/系统设置2.png</key>
-            <key type="filename">../ui/语音收藏/语音收藏.png</key>
-            <key type="filename">../ui/通用/frame_background.png</key>
-            <key type="filename">../ui/鉴赏内容/background_character.png</key>
-            <key type="filename">../ui/鉴赏内容/background_full.png</key>
-            <key type="filename">../ui/鉴赏内容/插画鉴赏/插画鉴赏.png</key>
-            <key type="filename">../ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png</key>
-            <key type="filename">../ui/鉴赏内容/音乐鉴赏/play_normal.png</key>
-            <key type="filename">../ui/鉴赏内容/音乐鉴赏/音乐鉴赏.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>640,360,1280,720</rect>
-                <key>scale9Paddings</key>
-                <rect>640,360,1280,720</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -367,21 +327,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ui/地点约会/place_example.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>212,138,423,275</rect>
-                <key>scale9Paddings</key>
-                <rect>212,138,423,275</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../ui/地点约会/place_outline.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -427,21 +372,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ui/奇迹书/book.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>528,360,1056,720</rect>
-                <key>scale9Paddings</key>
-                <rect>528,360,1056,720</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../ui/奇迹书/circle_behind.png</key>
             <key type="filename">../ui/奇迹书/circle_front.png</key>
             <struct type="IndividualSpriteSettings">
@@ -455,36 +385,6 @@
                 <rect>17,41,35,82</rect>
                 <key>scale9Paddings</key>
                 <rect>17,41,35,82</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ui/奇迹书/frame_3.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>640,99,1280,197</rect>
-                <key>scale9Paddings</key>
-                <rect>640,99,1280,197</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ui/奇迹书/frame_title.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>219,360,437,720</rect>
-                <key>scale9Paddings</key>
-                <rect>219,360,437,720</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -517,21 +417,6 @@
                 <rect>54,21,109,41</rect>
                 <key>scale9Paddings</key>
                 <rect>54,21,109,41</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ui/奇迹书/things.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>564,342,1129,683</rect>
-                <key>scale9Paddings</key>
-                <rect>564,342,1129,683</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -1349,36 +1234,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ui/系统设置/text_page1.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>54,249,107,497</rect>
-                <key>scale9Paddings</key>
-                <rect>54,249,107,497</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ui/系统设置/text_page2.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>72,252,143,504</rect>
-                <key>scale9Paddings</key>
-                <rect>72,252,143,504</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../ui/系统设置/textexample_background.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -1779,21 +1634,6 @@
                 <rect>131,80,263,159</rect>
                 <key>scale9Paddings</key>
                 <rect>131,80,263,159</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ui/鉴赏内容/插画鉴赏/image_example.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>120,68,241,135</rect>
-                <key>scale9Paddings</key>
-                <rect>120,68,241,135</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

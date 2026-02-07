@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://g2g8a8hw7t15"]
 
 [ext_resource type="Script" uid="uid://d2ex0eewal7fh" path="res://pages/bonus_page/sub_pages/character_page/character_page.gd" id="1_02pp7"]
-[ext_resource type="Texture2D" uid="uid://cns7imkoqum0t" path="res://assets/sprites/ui/ui.sprites/background_character.tres" id="2_faxlc"]
+[ext_resource type="Texture2D" uid="uid://bpnnrxr2pch6g" path="res://assets/ui_backgrounds/background_character.png" id="2_201mx"]
 [ext_resource type="PackedScene" uid="uid://buso3d823ic3e" path="res://prefabs/character_selection/character_selection.tscn" id="3_dorhe"]
 [ext_resource type="Texture2D" uid="uid://dqxpvn4tbvwmn" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/ico_changxia.tres" id="5_t786o"]
 [ext_resource type="Texture2D" uid="uid://b04547jj613x" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/ico_yuluochen.tres" id="6_58pd2"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="8_od5st"]
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="9_5lwtc"]
 [ext_resource type="PackedScene" uid="uid://couiwje1dnllu" path="res://characters/instances/character_葛城.tscn" id="10_po4xj"]
-[ext_resource type="Texture2D" uid="uid://7jvr30sgyuae" path="res://assets/sprites/ui/ui.sprites/立绘鉴赏/立绘鉴赏.tres" id="12_5lwtc"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="12_qgx8s"]
 [ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="13_34roo"]
 [ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="14_201mx"]
@@ -47,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_faxlc")
+texture = ExtResource("2_201mx")
 stretch_mode = 6
 
 [node name="CharacterSelections" type="Control" parent="." unique_id=1545850755]
@@ -164,7 +163,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_5lwtc")
 
 [node name="Label_CharacterName" type="Label" parent="." unique_id=242887376]
 layout_mode = 0

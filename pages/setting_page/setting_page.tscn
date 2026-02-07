@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://cnqqbeyauw3gt"]
 
 [ext_resource type="Script" uid="uid://c4buwpxs7t84t" path="res://pages/setting_page/setting_page.gd" id="1_cqmhw"]
-[ext_resource type="Texture2D" uid="uid://bpeelq1xw0jki" path="res://assets/sprites/ui/ui.sprites/frame_background.tres" id="2_u8iwx"]
-[ext_resource type="Texture2D" uid="uid://bp1ps40t1vmvs" path="res://assets/sprites/ui/ui.sprites/系统设置2.tres" id="3_evwb8"]
+[ext_resource type="Texture2D" uid="uid://gsd0mrvxyqpi" path="res://assets/ui_backgrounds/common_background.jpg" id="2_cqmhw"]
 [ext_resource type="PackedScene" uid="uid://2y0i8n3fcpn8" path="res://prefabs/selection_button/selection_button.tscn" id="5_175jp"]
 [ext_resource type="PackedScene" uid="uid://dshln3xvv24k4" path="res://prefabs/setting_label/setting_label.tscn" id="5_u8iwx"]
 [ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="6_2c2te"]
 [ext_resource type="Texture2D" uid="uid://h8t4re234qtv" path="res://assets/sprites/ui/ui.sprites/textexample_background.tres" id="7_175jp"]
-[ext_resource type="Texture2D" uid="uid://bhwkrwe04c5qc" path="res://assets/sprites/ui/ui.sprites/系统设置.tres" id="8_2c2te"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="8_70vfm"]
 
 [node name="SettingPage" type="CanvasLayer" unique_id=1362674666]
@@ -17,7 +15,7 @@ script = ExtResource("1_cqmhw")
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
-texture = ExtResource("2_u8iwx")
+texture = ExtResource("2_cqmhw")
 
 [node name="Pages" type="Control" parent="." unique_id=1931831820]
 layout_mode = 3
@@ -35,16 +33,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Preview2" type="TextureRect" parent="Pages/SystemPage" unique_id=89363367]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_evwb8")
 
 [node name="Labels" type="Control" parent="Pages/SystemPage" unique_id=74714070]
 anchors_preset = 0
@@ -222,7 +210,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_2c2te")
 
 [node name="Labels" type="Control" parent="Pages/AudioPage" unique_id=891592829]
 anchors_preset = 0

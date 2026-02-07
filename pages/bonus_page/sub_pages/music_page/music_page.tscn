@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dj1wc6rxcr1ka" path="res://assets/sprites/ui/ui.sprites/音乐鉴赏/last_normal.tres" id="14_dlduw"]
 [ext_resource type="Texture2D" uid="uid://c538o5cslsb25" path="res://assets/sprites/ui/ui.sprites/音乐鉴赏/last_click.tres" id="15_yiqbi"]
 [ext_resource type="Texture2D" uid="uid://dfbxwpqvpsdr2" path="res://assets/sprites/ui/ui.sprites/音乐鉴赏/last_hover.tres" id="16_v2y0q"]
-[ext_resource type="Texture2D" uid="uid://l7nd0clg3g2d" path="res://assets/sprites/ui/ui.sprites/音乐鉴赏/音乐鉴赏.tres" id="18_wb12c"]
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="20_dj2j6"]
 
 [node name="MusicPage" type="Control" unique_id=1084617009 node_paths=PackedStringArray("play_progress_container", "play_progress_line", "play_progress_line_ghost", "progress_hint", "play_button", "pause_button", "next_button", "previous_button", "vbox_playlist", "label_title", "richlabel_description", "label_current_time", "label_total_time")]
@@ -199,16 +198,6 @@ layout_mode = 1
 offset_top = 116.0
 offset_bottom = 1186.0
 target_scroll_container = NodePath("../ScrollContainer_Playlist")
-
-[node name="Preview" type="TextureRect" parent="." unique_id=166642569]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_wb12c")
 
 [node name="Time" type="Control" parent="." unique_id=724334518]
 anchors_preset = 0

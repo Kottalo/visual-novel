@@ -38,14 +38,19 @@ layer = 1
 visible = false
 
 [node name="ProfilePage" parent="Pages" unique_id=899662598 instance=ExtResource("5_4j704")]
+visible = false
 
 [node name="TravelPage" parent="Pages" unique_id=574453905 instance=ExtResource("6_kp23o")]
+visible = false
 
 [node name="BookPage" parent="Pages" unique_id=139379015 instance=ExtResource("7_5jirj")]
+visible = false
 
 [node name="LogPage" parent="Pages" unique_id=1793174608 instance=ExtResource("8_vaxfo")]
+visible = false
 
 [node name="PhonePage" parent="Pages" unique_id=1191743071 instance=ExtResource("9_ftsea")]
+visible = false
 
 [node name="SettingPage" parent="Pages" unique_id=1362674666 instance=ExtResource("10_otnwt")]
 visible = false

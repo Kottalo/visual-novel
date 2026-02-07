@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://d1umh6ylt5pkt"]
 
 [ext_resource type="Script" uid="uid://d33fetdva8op3" path="res://pages/profile_page/profile_page.gd" id="1_bswld"]
-[ext_resource type="Texture2D" uid="uid://bpeelq1xw0jki" path="res://assets/sprites/ui/ui.sprites/frame_background.tres" id="2_bswld"]
+[ext_resource type="Texture2D" uid="uid://gsd0mrvxyqpi" path="res://assets/ui_backgrounds/common_background.jpg" id="2_3v82o"]
 [ext_resource type="PackedScene" uid="uid://cgqkic1n3os2r" path="res://prefabs/profile_card/profile_card.tscn" id="3_ebjnp"]
 [ext_resource type="Texture2D" uid="uid://c5bsk7k6db5r0" path="res://assets/sprites/ui/ui.sprites/load_title.tres" id="4_bswld"]
 [ext_resource type="Texture2D" uid="uid://c5fnmemssfmcr" path="res://assets/sprites/ui/ui.sprites/save_title.tres" id="5_nf4dd"]
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="6_ot1va"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="7_rond4"]
-[ext_resource type="Texture2D" uid="uid://bxgl3gedll0kb" path="res://assets/sprites/ui/ui.sprites/存读档界面.tres" id="8_bswld"]
 
 [node name="ProfilePage" type="CanvasLayer" unique_id=899662598 node_paths=PackedStringArray("profile_card_model", "title_load", "title_save", "profile_card_pool")]
-visible = false
 script = ExtResource("1_bswld")
 profile_card_model = NodePath("PrefabContainer/SaveProfileCard")
 title_load = NodePath("Titles/Title_Load")
@@ -18,10 +16,11 @@ title_save = NodePath("Titles/Title_Save")
 profile_card_pool = NodePath("ScrollContainer/GridContainer_ProfileCards")
 
 [node name="Background" type="TextureRect" parent="." unique_id=964565474]
+self_modulate = Color(1, 1, 1, 0.7882353)
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
-texture = ExtResource("2_bswld")
+texture = ExtResource("2_3v82o")
 
 [node name="PrefabContainer" type="Control" parent="." unique_id=118402228]
 visible = false
@@ -87,12 +86,3 @@ offset_right = 153.0
 offset_bottom = 1331.0
 grow_vertical = 1
 target_page = NodePath("..")
-
-[node name="Preview" type="TextureRect" parent="." unique_id=1795361763]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_bswld")

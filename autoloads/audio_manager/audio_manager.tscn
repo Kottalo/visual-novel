@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dlwuxad1c584x"]
+
+[ext_resource type="Script" uid="uid://dm16uidvb5i2x" path="res://autoloads/audio_manager/audio_manager.gd" id="1_j0p2n"]
+[ext_resource type="Script" uid="uid://dd5qtcvk5r731" path="res://data/_models/music_data.gd" id="2_qhrnm"]
+[ext_resource type="Resource" uid="uid://bscr1rj1i7xmw" path="res://data/musics/1.tres" id="3_n2vnv"]
+[ext_resource type="Resource" uid="uid://bw6mujweotjus" path="res://data/musics/2.tres" id="4_xydhd"]
+
+[node name="AudioManager" type="Node" unique_id=1244309478 node_paths=PackedStringArray("audio_player_music", "audio_player_sound", "audio_player_voice", "audio_player_bonus")]
+script = ExtResource("1_j0p2n")
+playlist = Array[ExtResource("2_qhrnm")]([ExtResource("3_n2vnv"), ExtResource("4_xydhd")])
+audio_player_music = NodePath("AudioPlayer_Music")
+audio_player_sound = NodePath("AudioPlayer_Sound")
+audio_player_voice = NodePath("AudioPlayerr_Voice")
+audio_player_bonus = NodePath("AudioPlayer_Bonus")
+voice_path = "res://assets/voice"
+
+[node name="AudioPlayer_Music" type="AudioStreamPlayer" parent="." unique_id=1700763400]
+
+[node name="AudioPlayer_Sound" type="AudioStreamPlayer" parent="." unique_id=2092790848]
+
+[node name="AudioPlayerr_Voice" type="AudioStreamPlayer" parent="." unique_id=1849022482]
+
+[node name="AudioPlayer_Bonus" type="AudioStreamPlayer" parent="." unique_id=481289247]

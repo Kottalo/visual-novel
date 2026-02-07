@@ -15,13 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://cfuu8ygjd04ca" path="res://assets/sprites/ui/ui.sprites/phone_back_normal.tres" id="13_xkddf"]
 [ext_resource type="Texture2D" uid="uid://bk4hu44q1ui71" path="res://assets/sprites/ui/ui.sprites/phone_back_click.tres" id="14_ctgom"]
 [ext_resource type="Texture2D" uid="uid://beupyvqe73rww" path="res://assets/sprites/ui/ui.sprites/phone_back_hover.tres" id="15_31aqv"]
-[ext_resource type="Texture2D" uid="uid://gy6scu3eua4p" path="res://assets/sprites/ui/ui.sprites/手机界面1.tres" id="17_pdylm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aggdw"]
 bg_color = Color(1, 1, 1, 0.3137255)
 
 [node name="PhonePage" type="CanvasLayer" unique_id=1191743071 node_paths=PackedStringArray("chat_node", "background", "phone_icon_message", "phone_icon_photo", "phone_icon_music", "phone_icon_book", "chat_message_pool", "reply_selection_pool", "back_button")]
-visible = false
 script = ExtResource("1_xkddf")
 dialogue = ExtResource("2_ctgom")
 chat_node = NodePath("Phone/Chat")
@@ -184,9 +182,3 @@ texture_pressed = ExtResource("14_ctgom")
 texture_hover = ExtResource("15_31aqv")
 ignore_texture_size = true
 stretch_mode = 4
-
-[node name="Preview" type="TextureRect" parent="." unique_id=1690479943]
-modulate = Color(1, 1, 1, 0.22745098)
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("17_pdylm")

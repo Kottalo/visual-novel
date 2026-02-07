@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_jool8"]
 [ext_resource type="Texture2D" uid="uid://reggb0dey3tm" path="res://assets/backgrounds/2同兴里-白天.jpg" id="3_lqv2x"]
 [ext_resource type="PackedScene" uid="uid://ft3erxxeesae" path="res://prefabs/dialogue_selection/dialogue_selection.tscn" id="4_wd0lf"]
-[ext_resource type="Texture2D" uid="uid://baxd4v7mctole" path="res://assets/sprites/ui/ui.sprites/对话界面.tres" id="6_lda8k"]
 [ext_resource type="Texture2D" uid="uid://d2pf2lyg2d364" path="res://assets/sprites/ui/ui.sprites/dialogue_box_noname.tres" id="7_217kn"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_ke2v6"]
 [ext_resource type="PackedScene" uid="uid://bda21biuupnf1" path="res://prefabs/dialogue_label_ex/dialogue_label_ex.tscn" id="7_rw8us"]
@@ -185,12 +184,6 @@ size_flags_horizontal = 3
 
 [node name="CenterPoint" type="Control" parent="StagePage/SubViewport/Positions/RightMost" unique_id=2100089452]
 layout_mode = 2
-
-[node name="Preview" type="TextureRect" parent="StagePage/SubViewport" unique_id=1694271716]
-visible = false
-offset_right = 2560.0
-offset_bottom = 1440.0
-texture = ExtResource("6_lda8k")
 
 [node name="DialogueScreen" type="Control" parent="StagePage/SubViewport" unique_id=1066749812]
 layout_mode = 3

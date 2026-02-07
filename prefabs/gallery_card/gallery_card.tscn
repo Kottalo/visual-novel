@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://55r8b7ht40eu" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/image_hover.tres" id="2_v1s15"]
 [ext_resource type="Script" uid="uid://p3w881071rcv" path="res://prefabs/gallery_card/gallery_card.gd" id="3_jemxq"]
 [ext_resource type="Script" uid="uid://bonnjjxt11u8k" path="res://prefabs/components/drag_filter.gd" id="4_6oylf"]
-[ext_resource type="Texture2D" uid="uid://crp6u5yhnjjxr" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/image_example.tres" id="5_6oylf"]
 
 [node name="GalleryCard" type="TextureButton" unique_id=1091187862 node_paths=PackedStringArray("texture_rect_base", "texture_rect_variation")]
 mouse_filter = 1
@@ -33,7 +32,6 @@ offset_right = 240.5
 offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_6oylf")
 expand_mode = 1
 stretch_mode = 6
 
@@ -50,6 +48,5 @@ offset_right = 240.5
 offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_6oylf")
 expand_mode = 1
 stretch_mode = 6

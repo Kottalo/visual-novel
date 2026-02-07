@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://c0gag5i2v34e2"]
 
 [ext_resource type="Script" uid="uid://c5tfa7c7bgv1b" path="res://pages/main_menu/main_menu.gd" id="1_563vs"]
-[ext_resource type="Texture2D" uid="uid://36q5025ycf76" path="res://assets/sprites/ui/ui.sprites/title_background.tres" id="2_563vs"]
+[ext_resource type="Texture2D" uid="uid://bxe31xgcmaiac" path="res://assets/ui_backgrounds/title_background.jpg" id="2_kxxlx"]
 [ext_resource type="Texture2D" uid="uid://dkl0wjuebbpm4" path="res://assets/sprites/ui/ui.sprites/logo_normal.tres" id="3_mtbyv"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_e7v1n"]
-[ext_resource type="Texture2D" uid="uid://bokos6agb0ep2" path="res://assets/sprites/ui/ui.sprites/标题界面.tres" id="5_0kkdm"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=494483393 node_paths=PackedStringArray("button_start", "button_load", "button_bonus", "button_book", "button_setting", "button_quit")]
 script = ExtResource("1_563vs")
@@ -21,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_563vs")
+texture = ExtResource("2_kxxlx")
 expand_mode = 5
 stretch_mode = 6
 
@@ -117,17 +116,6 @@ text = "退出游戏"
 
 [node name="Label_English" parent="Buttons/MainMenuButton_Quit" index="1" unique_id=1721478160]
 text = "Exit Game"
-
-[node name="Preview" type="TextureRect" parent="." unique_id=1536876255]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_0kkdm")
-expand_mode = 5
-stretch_mode = 6
 
 [editable path="Buttons/MainMenuButton_Load"]
 [editable path="Buttons/MainMenuButton_Bonus"]

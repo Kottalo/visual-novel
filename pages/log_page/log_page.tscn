@@ -1,34 +1,24 @@
 [gd_scene format=3 uid="uid://y1pmr3blgg6s"]
 
 [ext_resource type="Script" uid="uid://y8nqj7elth0k" path="res://pages/log_page/log_page.gd" id="1_py1e1"]
-[ext_resource type="Texture2D" uid="uid://bpeelq1xw0jki" path="res://assets/sprites/ui/ui.sprites/frame_background.tres" id="2_py1e1"]
-[ext_resource type="Texture2D" uid="uid://b0bc0fent33dy" path="res://assets/sprites/ui/ui.sprites/历史记录.tres" id="3_j2irs"]
+[ext_resource type="Texture2D" uid="uid://gsd0mrvxyqpi" path="res://assets/ui_backgrounds/common_background.jpg" id="2_7xc7c"]
 [ext_resource type="PackedScene" uid="uid://ct727m5c0373a" path="res://prefabs/log_line/log_line.tscn" id="4_f82tv"]
 [ext_resource type="Texture2D" uid="uid://c5cn651lwy8l7" path="res://assets/sprites/ui/ui.sprites/divide_line.tres" id="5_6owfp"]
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="6_dc1co"]
 [ext_resource type="PackedScene" uid="uid://cv3nd1gusfy8i" path="res://prefabs/back_button/back_button.tscn" id="7_aanj8"]
 
 [node name="LogPage" type="CanvasLayer" unique_id=1793174608 node_paths=PackedStringArray("log_line", "divider", "vbox_log_lines")]
-visible = false
 script = ExtResource("1_py1e1")
 log_line = NodePath("PrefabContainer/LogLine")
 divider = NodePath("PrefabContainer/Divider")
 vbox_log_lines = NodePath("ScrollContainer/MarginContainer/VBoxContainer_LogLines")
 
 [node name="Background" type="TextureRect" parent="." unique_id=342664364]
+self_modulate = Color(1, 1, 1, 0.7294118)
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 0
-texture = ExtResource("2_py1e1")
-
-[node name="Preview" type="TextureRect" parent="." unique_id=649915701]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_j2irs")
+texture = ExtResource("2_7xc7c")
 
 [node name="PrefabContainer" type="Control" parent="." unique_id=1708378959]
 visible = false
