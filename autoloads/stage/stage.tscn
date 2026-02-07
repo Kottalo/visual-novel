@@ -5,28 +5,17 @@
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/dialogues/chapter_1.dialogue" id="2_a221a"]
 [ext_resource type="PackedScene" uid="uid://crtfb3f3rs7b1" path="res://characters/instances/character_常夏.tscn" id="3_a221a"]
 [ext_resource type="Script" uid="uid://cv5xbdhucorap" path="res://data/_models/background_data.gd" id="4_pf3bu"]
-[ext_resource type="Resource" uid="uid://7jvl0vqxy55f" path="res://data/backgrounds/01_泳池.tres" id="4_uutle"]
 [ext_resource type="Resource" uid="uid://5p2jg6p6wwwt" path="res://data/backgrounds/02_同兴里.tres" id="5_cwi0x"]
 [ext_resource type="Resource" uid="uid://m03wvfwq416w" path="res://data/backgrounds/03_操场.tres" id="6_lrsvv"]
-[ext_resource type="Resource" uid="uid://giuufsoos0t2" path="res://data/backgrounds/04_马客茂.tres" id="7_gf271"]
-[ext_resource type="Resource" uid="uid://d24qk46tjvlix" path="res://data/backgrounds/05_客厅.tres" id="8_wvhxk"]
-[ext_resource type="Resource" uid="uid://d1nmy2owig1yn" path="res://data/backgrounds/06_教学楼.tres" id="9_suqj7"]
 [ext_resource type="PackedScene" uid="uid://couiwje1dnllu" path="res://characters/instances/character_葛城.tscn" id="9_uutle"]
 [ext_resource type="PackedScene" uid="uid://bnu8yy8c7d3pj" path="res://characters/instances/character_辉夜奏.tscn" id="10_cwi0x"]
 [ext_resource type="Resource" uid="uid://b0n2joy3a36wk" path="res://data/backgrounds/07_教室.tres" id="10_lv745"]
-[ext_resource type="Script" uid="uid://lqr1upuurtst" path="res://data/_models/gallery_data.gd" id="11_henb2"]
-[ext_resource type="Resource" uid="uid://dtspa6wybftue" path="res://data/galleries/gallery_1.tres" id="12_arv8b"]
-[ext_resource type="Resource" uid="uid://besb6muoar2x4" path="res://data/galleries/gallery_2.tres" id="13_0sb5g"]
-[ext_resource type="Resource" uid="uid://cen4assgpd65n" path="res://data/galleries/gallery_3.tres" id="14_qard3"]
-[ext_resource type="Resource" uid="uid://cyaas0wqlx0de" path="res://data/galleries/gallery_4.tres" id="15_hohle"]
-[ext_resource type="Resource" uid="uid://ccwti1wp1tp2p" path="res://data/galleries/gallery_5.tres" id="16_bbyji"]
 
 [node name="Stage" type="Node" unique_id=1343709308 node_paths=PackedStringArray("character_pool")]
 script = ExtResource("1_ecxui")
 main_dialogue = ExtResource("2_a221a")
 character_pool = NodePath("Characters")
-background_data_pool = Array[ExtResource("4_pf3bu")]([ExtResource("4_uutle"), ExtResource("5_cwi0x"), ExtResource("6_lrsvv"), ExtResource("7_gf271"), ExtResource("8_wvhxk"), ExtResource("9_suqj7"), ExtResource("10_lv745")])
-gallery_data_pool = Array[ExtResource("11_henb2")]([ExtResource("12_arv8b"), ExtResource("13_0sb5g"), ExtResource("14_qard3"), ExtResource("15_hohle"), ExtResource("16_bbyji")])
+background_data_pool = Array[ExtResource("4_pf3bu")]([ExtResource("5_cwi0x"), ExtResource("6_lrsvv"), ExtResource("10_lv745")])
 
 [node name="Characters" type="Control" parent="." unique_id=1964690209]
 modulate = Color(1, 1, 1, 0)
