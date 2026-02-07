@@ -16,7 +16,7 @@ var chapters_dict: Dictionary[String, DialogueResource]
 
 @export var dialogue_screen: Control
 @export var dialogue_label: DialogueLabel
-@export var responses_menu: DialogueResponsesMenu
+@export var responses_menu: Control
 @export var subviewport: SubViewport
 @export var hbox_positions: HBoxContainer
 @export var character_image_pool: Control
@@ -59,12 +59,13 @@ var dialogue_line: DialogueLine:
 	set(value):
 		if value:
 			dialogue_line = value
-			print(dialogue_line)
+			print(dialogue_line.responses)
 			process_line()
 
 var finish_pause: float = 1
 
 func process_line() -> void:
+	responses_menu.visible = dialogue_line.responses.size()
 	dialogue_label.dialogue_line = dialogue_line
 	if dialogue_line.has_tag("voice"):
 		AudioManager.play_voice(dialogue_line.get_tag_value("voice"))
@@ -73,17 +74,48 @@ func process_line() -> void:
 	dialogue_label.type_out()
 	while dialogue_label.is_typing:
 		await get_tree().process_frame
-	if autoplay or skip:
-		if skip:
-			next_line.emit()
-		else:
-			if dialogue_line.has_tag("voice"):
-				while AudioManager.audio_player_voice.playing:
-					await get_tree().process_frame
-			else:
-				await get_tree().create_timer(finish_pause).timeout
+	
+	if dialogue_line.responses:
+		for child in responses_menu.get_children():
+			responses_menu.remove_child(child)
+			child.queue_free()
+		for response: DialogueResponse in dialogue_line.responses:
+			var selection: DialogueSelection = Prefabs.dialogue_selection.instantiate()
+			selection.text = response.text
+			selection.pressed.connect(
+				func ():
+					dialogue_line = await dialogue.get_next_dialogue_line(response.next_id, [self, Stage])
+			)
+			responses_menu.add_child(selection)
+		return
 	else:
-		await next_line
+		if autoplay or skip:
+			if skip:
+				next_line.emit()
+			else:
+				if dialogue_line.has_tag("voice"):
+					while AudioManager.audio_player_voice.playing:
+						await get_tree().process_frame
+				else:
+					await get_tree().create_timer(finish_pause).timeout
+		else:
+			await next_line
+	
+	#if dialogue_line.responses:
+		#for child in responses_menu.get_children():
+			#responses_menu.remove_child(child)
+			#child.queue_free()
+		#for response: DialogueResponse in dialogue_line.responses:
+			#var selection: DialogueSelection = Prefabs.dialogue_selection.instantiate()
+			#selection.text = response.text
+			#selection.pressed.connect(
+				#func ():
+					#dialogue_line = await dialogue.get_next_dialogue_line(response.next_id, [self, Stage])
+			#)
+			#responses_menu.add_child(selection)
+		#return
+	#else:
+		#await next_line
 	
 	dialogue_line = await dialogue.get_next_dialogue_line(dialogue_line.next_id, [self, Stage])
 

@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://d3q3evsgl40pc" path="res://pages/stage_page/stage_page.gd" id="1_wlgfe"]
 [ext_resource type="Resource" uid="uid://gn7fehedufmw" path="res://dialogue_manager/dialogues/chapter_1.dialogue" id="2_ic8ca"]
 [ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="2_lda8k"]
-[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_jool8"]
 [ext_resource type="Texture2D" uid="uid://reggb0dey3tm" path="res://assets/backgrounds/2同兴里-白天.jpg" id="3_lqv2x"]
-[ext_resource type="PackedScene" uid="uid://ft3erxxeesae" path="res://prefabs/dialogue_selection/dialogue_selection.tscn" id="4_wd0lf"]
 [ext_resource type="Texture2D" uid="uid://d2pf2lyg2d364" path="res://assets/sprites/ui/ui.sprites/dialogue_box_noname.tres" id="7_217kn"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="7_ke2v6"]
 [ext_resource type="Texture2D" uid="uid://bsmb4d7itelyb" path="res://assets/sprites/ui/ui.sprites/dialogue_box.tres" id="8_hovpu"]
@@ -118,19 +116,6 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(2560, 1440)
 render_target_update_mode = 4
-
-[node name="SceneContainer" type="Control" parent="StagePage/SubViewport" unique_id=1145592]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DialogueSelection" parent="StagePage/SubViewport/SceneContainer" unique_id=129240634 instance=ExtResource("4_wd0lf")]
-layout_mode = 0
-offset_left = 669.0
-offset_top = 535.0
-offset_right = 1892.0
-offset_bottom = 682.0
 
 [node name="TextureRect_Background" type="TextureRect" parent="StagePage/SubViewport" unique_id=1394197653]
 offset_right = 2560.0
@@ -272,7 +257,7 @@ mouse_filter = 2
 expand_mode = 5
 stretch_mode = 6
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="StagePage/SubViewport/DialogueScreen" unique_id=1848378009 node_paths=PackedStringArray("response_template")]
+[node name="ResponsesMenu" type="VBoxContainer" parent="StagePage/SubViewport/DialogueScreen" unique_id=1848378009]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -288,8 +273,6 @@ grow_vertical = 2
 size_flags_vertical = 8
 theme_override_constants/separation = -19
 alignment = 1
-script = ExtResource("3_jool8")
-response_template = NodePath("../../SceneContainer/DialogueSelection")
 
 [node name="DialogueButtonController" type="Node" parent="StagePage/SubViewport/DialogueScreen" unique_id=1781078644 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_voice", "button_phone", "button_book", "button_title", "button_replay", "button_star")]
 script = ExtResource("10_lqv2x")
