@@ -100,23 +100,7 @@ func process_line() -> void:
 					await get_tree().create_timer(finish_pause).timeout
 		else:
 			await next_line
-	
-	#if dialogue_line.responses:
-		#for child in responses_menu.get_children():
-			#responses_menu.remove_child(child)
-			#child.queue_free()
-		#for response: DialogueResponse in dialogue_line.responses:
-			#var selection: DialogueSelection = Prefabs.dialogue_selection.instantiate()
-			#selection.text = response.text
-			#selection.pressed.connect(
-				#func ():
-					#dialogue_line = await dialogue.get_next_dialogue_line(response.next_id, [self, Stage])
-			#)
-			#responses_menu.add_child(selection)
-		#return
-	#else:
-		#await next_line
-	
+		
 	dialogue_line = await dialogue.get_next_dialogue_line(dialogue_line.next_id, [self, Stage])
 
 func _ready() -> void:
