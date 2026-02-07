@@ -48,17 +48,28 @@ func get_position_by_name(position_name: String) -> Vector2:
 	
 	return position_node.global_position
 
+var text_tween: Tween
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
 		if value:
 			dialogue_line = value
 			print(dialogue_line)
+			dialogue_label.text = dialogue_line.text
+			dialogue_label.visible_characters = 0
+			text_tween = create_tween()
+			text_tween.tween_property(dialogue_label, "visible_characters",
+				dialogue_line.text.length(), 1.4
+			)
 
 func _ready() -> void:
+	dialogue_label.visible_characters = 0
 	for chapter in chapters:
 		var chapter_name = chapter.resource_path.get_file()[0]
 		chapters_dict[chapter_name] = chapter
+	
+	
 
 func start() -> void:
 	dialogue_line = await dialogue.get_next_dialogue_line("start", [self, Stage])
