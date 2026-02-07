@@ -15,10 +15,13 @@ extends Node
 
 func _ready() -> void:
 	button_skip.toggle_changed.connect(
-		func (): Game.stage_page.skip = button_skip.toggled
+		func ():
+			Game.stage_page.skip = button_skip.toggled
+			button_auto.disabled = Game.stage_page.skip
 	)
 	button_auto.toggle_changed.connect(
-		func (): Game.stage_page.autoplay = button_auto.toggled
+		func ():
+			Game.stage_page.autoplay = button_auto.toggled
 	)
 	button_save.clicked.connect(
 		func ():

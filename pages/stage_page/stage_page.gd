@@ -30,17 +30,21 @@ var chapters_dict: Dictionary[String, DialogueResource]
 var skip: bool = false:
 	set(value):
 		skip = value
+		if skip:
+			next_line.emit()
 		update_step_rate()
 
 var autoplay: bool = false:
 	set(value):
 		autoplay = value
+		if autoplay:
+			next_line.emit()
 		update_step_rate()
 
 func update_step_rate() -> void:
 	var rate = auto_step_rate if autoplay else normal_step_rate
 	rate = skip_step_rate if skip else rate
-	
+	dialogue_label.seconds_per_step = rate
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -69,9 +73,9 @@ func process_line() -> void:
 	dialogue_label.type_out()
 	while dialogue_label.is_typing:
 		await get_tree().process_frame
-	if autoplay:
+	if autoplay or skip:
 		if skip:
-			pass
+			next_line.emit()
 		else:
 			if dialogue_line.has_tag("voice"):
 				while AudioManager.audio_player_voice.playing:
@@ -93,6 +97,8 @@ func _ready() -> void:
 		func (event: InputEvent):
 			if event is InputEventMouseButton:
 				if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+					if dialogue_label.is_typing:
+						dialogue_label.skip_typing()
 					next_line.emit()
 	)
 

@@ -25,17 +25,27 @@ var color_off = Color(0.0, 0.0, 0.0, 0)
 		
 		toggle_changed.emit()
 
+var disabled: bool:
+	set(value):
+		disabled = value
+		if disabled:
+			toggled = false
+		modulate.a = 0.3 if disabled else 1.0
+
 func _ready() -> void:
 	icon.mouse_entered.connect(
 		func ():
+			if disabled: return
 			icon.modulate = color_hover
 	)
 	icon.mouse_exited.connect(
 		func ():
+			if disabled: return
 			icon.modulate = color_normal
 	)
 	icon.gui_input.connect(
 		func (event: InputEvent):
+			if disabled: return
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT:
 					if event.is_pressed():
