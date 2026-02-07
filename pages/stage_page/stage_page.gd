@@ -48,20 +48,26 @@ func get_position_by_name(position_name: String) -> Vector2:
 	
 	return position_node.global_position
 
-var text_tween: Tween
+var char_per_sec: float = 12
+var text_progress: float:
+	set(value):
+		text_progress = value
+		dialogue_label.visible_characters = int(text_progress)
+
+func _process(delta: float) -> void:
+	if not dialogue_line: return
+	print(delta)
+	if text_progress < dialogue_label.text.length():
+		text_progress += char_per_sec * delta
+		
 
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
 		if value:
 			dialogue_line = value
-			print(dialogue_line)
 			dialogue_label.text = dialogue_line.text
-			dialogue_label.visible_characters = 0
-			text_tween = create_tween()
-			text_tween.tween_property(dialogue_label, "visible_characters",
-				dialogue_line.text.length(), 1.4
-			)
+			text_progress = 0
 
 func _ready() -> void:
 	dialogue_label.visible_characters = 0
