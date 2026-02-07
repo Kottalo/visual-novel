@@ -34,11 +34,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Main="*res://scenes/main/main.tscn"
+Main="*res://autoloads/main/main.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 AudioManager="*res://autoloads/audio_manager/audio_manager.tscn"
-Stage="*res://scenes/stage/stage.tscn"
-Game="*res://scenes/game/game.tscn"
+Stage="*res://autoloads/stage/stage.tscn"
+Game="*res://autoloads/game/game.tscn"
 Prefabs="*res://autoloads/prefabs/prefabs.tscn"
 DebugPage="*uid://bvwif7y56kkck"
 
