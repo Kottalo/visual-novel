@@ -51,6 +51,7 @@ enum AdvanceMode { MANUAL, SKIP, AUTO }
 var _mode: AdvanceMode = AdvanceMode.MANUAL
 var _idle: bool = false
 var _voice_finished_cb: Callable = Callable()
+var quick_save_progress_count: int = 0
 
 var skip: bool:
 	get: return _mode == AdvanceMode.SKIP
@@ -159,7 +160,11 @@ func process_line() -> void:
 				return
 
 	# 标记已读（在skip检查之后）
-	Main.save_data.mark_read(chapter_name, dialogue_line.id.to_int())
+	var line_id := dialogue_line.id.to_int()
+	var should_count_quick_save := _should_count_for_quick_save(dialogue_line, line_id)
+	Main.save_data.mark_read(chapter_name, line_id)
+	if should_count_quick_save:
+		_register_quick_save_progress()
 	dialogue_line = await dialogue.get_next_dialogue_line(dialogue_line.next_id, [ self , Stage])
 
 
@@ -175,6 +180,7 @@ func process_phone_line() -> void:
 		dialogue_line = await dialogue.get_next_dialogue_line(next_id, [self, Stage])
 
 func process_book_line() -> void:
+	print("[BookChoice] line id=", dialogue_line.id, " next_id=", dialogue_line.next_id, " tags=", dialogue_line.tags, " responses=", dialogue_line.responses.size(), " text=", dialogue_line.text)
 	var side := "right" if dialogue_line.character == "周腾" else "left"
 	await Game.book_page.append_story_entry(
 		str(dialogue_line.id),
@@ -183,15 +189,39 @@ func process_book_line() -> void:
 		side,
 		[]
 	)
+	if dialogue_line.responses:
+		print("[BookChoice] show_reply_options count=", dialogue_line.responses.size())
+		if skip and not Main.setting_data.skip_after_choice:
+			_set_mode(AdvanceMode.MANUAL)
+			skip_cancelled.emit()
+		Game.book_page.show_reply_options(dialogue_line.responses)
+		var next_id: String = await Game.book_page.reply_selected
+		print("[BookChoice] selected next_id=", next_id)
+		var selected_next_line: DialogueLine = await dialogue.get_next_dialogue_line(next_id, [self, Stage])
+		if selected_next_line and "奇迹书" not in selected_next_line.tags:
+			await Game.book_page.wait_for_story_close()
+		dialogue_line = selected_next_line
+		return
+	print("[BookChoice] no responses on current book line")
 	var next_line: DialogueLine = await dialogue.get_next_dialogue_line(dialogue_line.next_id, [self, Stage])
 	if next_line and "奇迹书" not in next_line.tags:
 		await Game.book_page.wait_for_story_close()
-	if dialogue_line.responses:
-		show_dialogue_responses()
 
 var expression: String:
 	get:
 		return dialogue_line.get_tag_value("表情")
+
+func _should_count_for_quick_save(line: DialogueLine, line_id: int) -> bool:
+	if line == null or line.text == "" or line_id <= 0:
+		return false
+	return not Main.save_data.is_line_read(chapter_name, line_id)
+
+func _register_quick_save_progress() -> void:
+	quick_save_progress_count += 1
+	if quick_save_progress_count < 20:
+		return
+	quick_save_progress_count = 0
+	Game.profile_page.save_quick_game()
 
 func process_dialogue_line() -> void:
 	AudioManager.audio_player_voice.stop()
@@ -368,10 +398,13 @@ func reset() -> void:
 	AudioManager.audio_player_voice.stop()
 	_disconnect_voice_finished()
 	Stage.reset()
+	quick_save_progress_count = 0
 
 func start() -> void:
 	reset()
 	dialogue_line = await dialogue.get_next_dialogue_line("start", [ self , Stage])
+	if not Game.profile_page.has_quick_save():
+		Game.profile_page.save_quick_game()
 
 
 # ─── 收藏 ───
