@@ -1,62 +1,60 @@
 [gd_scene format=3 uid="uid://dvwwuqgnvc672"]
 
 [ext_resource type="PackedScene" uid="uid://bpa5d8jlrcd16" path="res://characters/character.tscn" id="1_pac1f"]
-[ext_resource type="Texture2D" uid="uid://ccke18ol40s8d" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/常服-手举起.tres" id="2_h3wkl"]
-[ext_resource type="Texture2D" uid="uid://cugl5be1nhfi0" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/常服-手放下.tres" id="3_lpavb"]
-[ext_resource type="Texture2D" uid="uid://b3omtft3a11v5" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/校服-手举起.tres" id="4_2s1x3"]
-[ext_resource type="Texture2D" uid="uid://eaof6jsowkl5" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/校服-手放下.tres" id="5_gfdhf"]
-[ext_resource type="Texture2D" uid="uid://dvdj84yat8r4h" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/上挑.tres" id="6_iajx4"]
+[ext_resource type="Texture2D" uid="uid://cc1c36rdmgttp" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/常服-待机.tres" id="3_6e4on"]
+[ext_resource type="Texture2D" uid="uid://c12okvcfg22c8" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/常服-托眼镜.tres" id="4_kju8n"]
+[ext_resource type="Texture2D" uid="uid://duos2kn5ghot3" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/校服-待机.tres" id="5_j52or"]
+[ext_resource type="Texture2D" uid="uid://dlteykscf1jp1" path="res://assets/sprites/characters/characters.sprites/余洛琛/身体/校服-托眼镜.tres" id="6_tj6n1"]
 [ext_resource type="Texture2D" uid="uid://dvkqkdt2l2o6m" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/悲伤.tres" id="7_gv6fb"]
-[ext_resource type="Texture2D" uid="uid://dq2ctcl8q27pa" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/生气.tres" id="8_6x227"]
+[ext_resource type="Texture2D" uid="uid://c4kaynaobdfxi" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/吃惊.tres" id="7_tj6n1"]
 [ext_resource type="Texture2D" uid="uid://5gc60u5hs3td" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/默认.tres" id="9_5es0l"]
-[ext_resource type="Texture2D" uid="uid://v2dw8nqyqap5" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/不敢对视.tres" id="10_vorhc"]
+[ext_resource type="Texture2D" uid="uid://ch1wub0qjbsbd" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/疑惑.tres" id="9_wwk3g"]
+[ext_resource type="Texture2D" uid="uid://8327lcs1k4uh" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/认真.tres" id="10_sxffg"]
 [ext_resource type="Texture2D" uid="uid://c45apigc23fvn" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/微眯.tres" id="11_kproh"]
 [ext_resource type="Texture2D" uid="uid://yno0e6r3r2qa" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/悲伤.tres" id="12_3jmkh"]
-[ext_resource type="Texture2D" uid="uid://bwuptu10p0knw" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/晕.tres" id="13_8dhwq"]
-[ext_resource type="Texture2D" uid="uid://b3k2i3srx3odc" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/眯眼.tres" id="14_rh8oq"]
+[ext_resource type="Texture2D" uid="uid://kaq04dc01rkl" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/吃惊.tres" id="12_sxffg"]
 [ext_resource type="Texture2D" uid="uid://c4dn4wltopekm" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/默认.tres" id="15_6ljhu"]
-[ext_resource type="Texture2D" uid="uid://c43vj8rqsnyoi" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/不满.tres" id="16_7sdn8"]
-[ext_resource type="Texture2D" uid="uid://h6towjpthb7g" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/不满说话.tres" id="17_8njrs"]
+[ext_resource type="Texture2D" uid="uid://druyvx88r8swm" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/眯眼开心.tres" id="15_ykarx"]
+[ext_resource type="Texture2D" uid="uid://c4ult687wm0on" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/小开口.tres" id="17_ys0an"]
 [ext_resource type="Texture2D" uid="uid://bgfwg0xdesfem" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/微笑.tres" id="18_ustjo"]
 [ext_resource type="Texture2D" uid="uid://dl8dk3hwee4j8" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/无口.tres" id="19_uigqx"]
-[ext_resource type="Texture2D" uid="uid://db35k4w5k0feh" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/笑开口.tres" id="20_o54wy"]
-[ext_resource type="Texture2D" uid="uid://bdy13d2jq61fp" path="res://assets/sprites/characters/characters.sprites/余洛琛/附加/眼镜.tres" id="21_0ni7k"]
+[ext_resource type="Texture2D" uid="uid://bmkwpqaj4x6jn" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/说话.tres" id="20_tlcri"]
+[ext_resource type="Texture2D" uid="uid://dxrt1hqxmlx8m" path="res://assets/sprites/characters/characters.sprites/余洛琛/附加/本体（眼镜）.tres" id="21_tlcri"]
 [ext_resource type="Texture2D" uid="uid://b5jbqw8rh1633" path="res://assets/sprites/characters/characters.sprites/余洛琛/附加/脸红.tres" id="22_67hvi"]
-[ext_resource type="Texture2D" uid="uid://dcy6aov2d5inv" path="res://assets/sprites/characters/characters.sprites/余洛琛/附加/问号.tres" id="23_2ajgh"]
 [ext_resource type="Texture2D" uid="uid://dwc5sfrr5b5p7" path="res://assets/sprites/ui/ui.sprites/头像/phone_portrait_yuluochen.tres" id="24_phone"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qqr4u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_h3wkl")
+"texture": ExtResource("3_6e4on")
 }],
 "loop": true,
-"name": &"常服-手举起",
+"name": &"常服-待机",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_lpavb")
+"texture": ExtResource("4_kju8n")
 }],
 "loop": true,
-"name": &"常服-手放下",
+"name": &"常服-托眼镜",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_2s1x3")
+"texture": ExtResource("5_j52or")
 }],
 "loop": true,
-"name": &"校服-手举起",
+"name": &"校服-待机",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_gfdhf")
+"texture": ExtResource("6_tj6n1")
 }],
 "loop": true,
-"name": &"校服-手放下",
+"name": &"校服-托眼镜",
 "speed": 5.0
 }]
 
@@ -64,10 +62,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_iajx4")
+"texture": ExtResource("7_tj6n1")
 }],
 "loop": true,
-"name": &"上挑",
+"name": &"吃惊",
 "speed": 5.0
 }, {
 "frames": [{
@@ -80,10 +78,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_6x227")
+"texture": ExtResource("9_wwk3g")
 }],
 "loop": true,
-"name": &"生气",
+"name": &"疑惑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_sxffg")
+}],
+"loop": true,
+"name": &"认真",
 "speed": 5.0
 }, {
 "frames": [{
@@ -99,10 +105,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_vorhc")
+"texture": ExtResource("12_sxffg")
 }],
 "loop": true,
-"name": &"不敢对视",
+"name": &"吃惊",
 "speed": 5.0
 }, {
 "frames": [{
@@ -123,18 +129,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_8dhwq")
+"texture": ExtResource("15_ykarx")
 }],
 "loop": true,
-"name": &"晕",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_rh8oq")
-}],
-"loop": true,
-"name": &"眯眼",
+"name": &"眯眼开心",
 "speed": 5.0
 }, {
 "frames": [{
@@ -150,18 +148,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_7sdn8")
+"texture": ExtResource("17_ys0an")
 }],
 "loop": true,
-"name": &"不满",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_8njrs")
-}],
-"loop": true,
-"name": &"不满说话",
+"name": &"小开口",
 "speed": 5.0
 }, {
 "frames": [{
@@ -182,22 +172,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("20_o54wy")
+"texture": ExtResource("20_tlcri")
 }],
 "loop": true,
-"name": &"笑开口",
+"name": &"说话",
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lpavb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wwk3g"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2s1x3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sxffg"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gfdhf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykarx"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_2s1x3")
+atlas = SubResource("ViewportTexture_sxffg")
 region = Rect2(194.94196, 46.457703, 970.89386, 1009.7415)
 
 [node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
@@ -217,11 +207,11 @@ size = Vector2i(1330, 3070)
 position = Vector2(632, 1470)
 scale = Vector2(0.794, 0.794)
 sprite_frames = SubResource("SpriteFrames_qqr4u")
-animation = &"校服-手放下"
+animation = &"常服-待机"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_qulg7")
-animation = &"默认"
+animation = &"吃惊"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_ke030")
@@ -229,10 +219,10 @@ animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_bnq0n")
-animation = &"笑开口"
+animation = &"说话"
 
 [node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=736903750]
-texture = ExtResource("21_0ni7k")
+texture = ExtResource("21_tlcri")
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="1" unique_id=349479754]
 visible = false
@@ -240,7 +230,6 @@ texture = ExtResource("22_67hvi")
 
 [node name="问号" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="2" unique_id=1498249844]
 visible = false
-texture = ExtResource("23_2ajgh")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
@@ -255,7 +244,7 @@ offset_left = -686.0
 offset_right = 644.0
 offset_bottom = 1705.0
 pivot_offset = Vector2(594, 1362)
-texture = SubResource("ViewportTexture_lpavb")
+texture = SubResource("ViewportTexture_wwk3g")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_gfdhf")
+preview_texture = SubResource("AtlasTexture_ykarx")
