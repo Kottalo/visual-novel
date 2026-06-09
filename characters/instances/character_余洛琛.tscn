@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bmkwpqaj4x6jn" path="res://assets/sprites/characters/characters.sprites/余洛琛/嘴巴/说话.tres" id="20_tlcri"]
 [ext_resource type="Texture2D" uid="uid://dxrt1hqxmlx8m" path="res://assets/sprites/characters/characters.sprites/余洛琛/附加/本体（眼镜）.tres" id="21_tlcri"]
 [ext_resource type="Texture2D" uid="uid://b5jbqw8rh1633" path="res://assets/sprites/characters/characters.sprites/余洛琛/附加/脸红.tres" id="22_67hvi"]
+[ext_resource type="Texture2D" uid="uid://dcy6aov2d5inv" path="res://assets/sprites/characters/characters.sprites/余洛琛/附加/问号.tres" id="23_h3wkl"]
 [ext_resource type="Texture2D" uid="uid://dwc5sfrr5b5p7" path="res://assets/sprites/ui/ui.sprites/头像/phone_portrait_yuluochen.tres" id="24_phone"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qqr4u"]
@@ -179,15 +180,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wwk3g"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lpavb"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sxffg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2s1x3"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ykarx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfdhf"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_sxffg")
+atlas = SubResource("ViewportTexture_2s1x3")
 region = Rect2(194.94196, 46.457703, 970.89386, 1009.7415)
 
 [node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
@@ -211,7 +212,7 @@ animation = &"常服-待机"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_qulg7")
-animation = &"吃惊"
+animation = &"默认"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_ke030")
@@ -230,6 +231,7 @@ texture = ExtResource("22_67hvi")
 
 [node name="问号" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="2" unique_id=1498249844]
 visible = false
+texture = ExtResource("23_h3wkl")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
@@ -244,7 +246,7 @@ offset_left = -686.0
 offset_right = 644.0
 offset_bottom = 1705.0
 pivot_offset = Vector2(594, 1362)
-texture = SubResource("ViewportTexture_wwk3g")
+texture = SubResource("ViewportTexture_lpavb")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_ykarx")
+preview_texture = SubResource("AtlasTexture_gfdhf")

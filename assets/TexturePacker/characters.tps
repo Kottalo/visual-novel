@@ -195,6 +195,7 @@
             <key type="filename">../characters/余洛琛/身体/校服-托眼镜.png</key>
             <key type="filename">../characters/余洛琛/附加/本体（眼镜）.png</key>
             <key type="filename">../characters/余洛琛/附加/脸红.png</key>
+            <key type="filename">../characters/余洛琛/附加/问号.png</key>
             <key type="filename">../characters/常夏/嘴巴/不满.png</key>
             <key type="filename">../characters/常夏/嘴巴/大开口.png</key>
             <key type="filename">../characters/常夏/嘴巴/小开口.png</key>
