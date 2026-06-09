@@ -30,6 +30,7 @@ signal reply_selected(next_id: String)
 @export var self_avatar: Texture2D
 
 @export var chat_data_pool: Array[ChatData]
+var pending_reply_options: Array[Dictionary] = []
 
 const SLIDE_DURATION: float = 0.4
 const PAGE_TRANSITION_DURATION: float = 0.25
@@ -160,10 +161,38 @@ func show_dialogue_message(character_name: String, text: String) -> void:
 	add_message(character_name, text)
 	_scroll_chat_to_bottom()
 
+func get_bridge_phone_state() -> Dictionary:
+	return {
+		"visible": visible,
+		"story_mode": story_mode,
+		"active_chat_character": active_chat_character,
+		"label_chat_name": label_chat_name.text,
+		"date": label_phone_date.text,
+		"time": label_time.text,
+		"location": label_location.text,
+		"pending_replies": pending_reply_options.duplicate(true),
+		"chats": _serialize_chat_data_pool(),
+	}
+
+func choose_reply_from_bridge(index: int = -1, next_id: String = "") -> bool:
+	var resolved_next_id := _resolve_pending_reply_next_id(index, next_id)
+	if resolved_next_id == "":
+		return false
+	var selected_text := _get_pending_reply_text(resolved_next_id)
+	clear_reply_selections()
+	await show_dialogue_message("周腾", selected_text)
+	reply_selected.emit(resolved_next_id)
+	return true
 
 func show_reply_options(responses) -> void:
 	clear_reply_selections()
-	for response in responses:
+	for i in responses.size():
+		var response = responses[i]
+		pending_reply_options.append({
+			"index": i,
+			"text": response.text,
+			"next_id": response.next_id,
+		})
 		var reply: ReplySelection = Prefabs.reply_selection.instantiate()
 		reply_selection_pool.add_child(reply)
 		reply.setup(response.text, response.next_id)
@@ -272,13 +301,39 @@ func add_message(character_name: String, text: String) -> void:
 	chat_data.messages.append(text)
 	chat_data.senders.append(character_name)
 
+func _serialize_chat_data_pool() -> Array[Dictionary]:
+	var chats: Array[Dictionary] = []
+	for chat_data in chat_data_pool:
+		chats.append({
+			"character_name": chat_data.character_name,
+			"messages": chat_data.messages.duplicate(),
+			"senders": chat_data.senders.duplicate(),
+		})
+	return chats
+
+func _resolve_pending_reply_next_id(index: int, next_id: String) -> String:
+	if next_id != "":
+		for option in pending_reply_options:
+			if str(option.get("next_id", "")) == next_id:
+				return next_id
+	if index >= 0 and index < pending_reply_options.size():
+		return str(pending_reply_options[index].get("next_id", ""))
+	return ""
+
+func _get_pending_reply_text(next_id: String) -> String:
+	for option in pending_reply_options:
+		if str(option.get("next_id", "")) == next_id:
+			return str(option.get("text", ""))
+	return ""
 
 func clear_reply_selections() -> void:
+	pending_reply_options.clear()
 	Tools.clear_children(reply_selection_pool)
 	typing_tip.modulate.a = 0.0
 
 
 func clear_all() -> void:
+	pending_reply_options.clear()
 	chat_data_pool.clear()
 	Tools.clear_children(chat_message_pool)
 	Tools.clear_children(chat_pool)

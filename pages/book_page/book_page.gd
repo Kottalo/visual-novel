@@ -20,6 +20,7 @@ const MAX_ENTRIES_PER_PAGE := 8
 @export var audio_player: AudioStreamPlayer
 
 var notebook_data = NotebookData.new()
+var pending_reply_options: Array[Dictionary] = []
 var page_index: int = 0
 var _waiting_for_click := false
 var _render_revision := 0
@@ -142,8 +143,32 @@ func _fit_choice_label(label: RichTextLabel, max_font_size: int = 38, min_font_s
 		label.add_theme_font_size_override("normal_font_size", size)
 		await get_tree().process_frame
 
+func get_bridge_book_state() -> Dictionary:
+	return {
+		"visible": visible,
+		"page_index": page_index,
+		"current_page_index": notebook_data.current_page_index,
+		"pending_replies": pending_reply_options.duplicate(true),
+		"notebook": _serialize_notebook_data(),
+	}
+
+func choose_reply_from_bridge(index: int = -1, next_id: String = "") -> bool:
+	var resolved_next_id := _resolve_pending_reply_next_id(index, next_id)
+	if resolved_next_id == "":
+		return false
+	clear_reply_options()
+	reply_selected.emit(resolved_next_id)
+	return true
+
 func show_reply_options(responses) -> void:
 	clear_reply_options()
+	for i in responses.size():
+		var response = responses[i]
+		pending_reply_options.append({
+			"index": i,
+			"text": response.text,
+			"next_id": response.next_id,
+		})
 	var choice_button = get_node_or_null("Buttons/ChoiceButton") as Control
 	if choice_button == null:
 		return
@@ -211,6 +236,7 @@ func _on_reply_clicked(next_id: String) -> void:
 	reply_selected.emit(next_id)
 
 func clear_reply_options() -> void:
+	pending_reply_options.clear()
 	var choice_button = get_node_or_null("Buttons/ChoiceButton") as Control
 	if choice_button:
 		choice_button.visible = false
@@ -361,6 +387,41 @@ func show_last_page() -> void:
 func duplicate_notebook_data():
 	_ensure_initialized()
 	return notebook_data.duplicate(true)
+
+func _serialize_notebook_data() -> Dictionary:
+	_ensure_initialized()
+	var pages: Array[Dictionary] = []
+	for page: NotebookPageData in notebook_data.pages:
+		var entries: Array[Dictionary] = []
+		for entry: NotebookEntryData in page.entries:
+			entries.append({
+				"entry_id": entry.entry_id,
+				"speaker": entry.speaker,
+				"text": entry.text,
+				"side": entry.side,
+				"tags": entry.tags.duplicate(),
+				"page_index": entry.page_index,
+				"chapter_name": entry.chapter_name,
+				"source_dialogue_id": entry.source_dialogue_id,
+			})
+		pages.append({
+			"page_index": page.page_index,
+			"entries": entries,
+		})
+	return {
+		"current_page_index": notebook_data.current_page_index,
+		"entry_ids_written": notebook_data.entry_ids_written.duplicate(),
+		"pages": pages,
+	}
+
+func _resolve_pending_reply_next_id(index: int, next_id: String) -> String:
+	if next_id != "":
+		for option in pending_reply_options:
+			if str(option.get("next_id", "")) == next_id:
+				return next_id
+	if index >= 0 and index < pending_reply_options.size():
+		return str(pending_reply_options[index].get("next_id", ""))
+	return ""
 
 func reset_notebook() -> void:
 	notebook_data = NotebookData.new()
