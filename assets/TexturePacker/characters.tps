@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>6</int>
         <key>texturePackerVersion</key>
-        <string>7.12.0</string>
+        <string>8.0.1</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -144,6 +144,8 @@
         <false/>
         <key>trimSpriteNames</key>
         <false/>
+        <key>enableCacheBusting</key>
+        <false/>
         <key>prependSmartFolderName</key>
         <false/>
         <key>autodetectAnimations</key>
@@ -173,26 +175,25 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../characters/余洛琛/嘴巴/不满.png</key>
-            <key type="filename">../characters/余洛琛/嘴巴/不满说话.png</key>
+            <key type="filename">../characters/余洛琛/嘴巴/小开口.png</key>
             <key type="filename">../characters/余洛琛/嘴巴/微笑.png</key>
             <key type="filename">../characters/余洛琛/嘴巴/无口.png</key>
-            <key type="filename">../characters/余洛琛/嘴巴/笑开口.png</key>
-            <key type="filename">../characters/余洛琛/眉毛/上挑.png</key>
+            <key type="filename">../characters/余洛琛/嘴巴/说话.png</key>
+            <key type="filename">../characters/余洛琛/眉毛/吃惊.png</key>
             <key type="filename">../characters/余洛琛/眉毛/悲伤.png</key>
-            <key type="filename">../characters/余洛琛/眉毛/生气.png</key>
+            <key type="filename">../characters/余洛琛/眉毛/疑惑.png</key>
+            <key type="filename">../characters/余洛琛/眉毛/认真.png</key>
             <key type="filename">../characters/余洛琛/眉毛/默认.png</key>
-            <key type="filename">../characters/余洛琛/眼睛/不敢对视.png</key>
+            <key type="filename">../characters/余洛琛/眼睛/吃惊.png</key>
             <key type="filename">../characters/余洛琛/眼睛/微眯.png</key>
             <key type="filename">../characters/余洛琛/眼睛/悲伤.png</key>
-            <key type="filename">../characters/余洛琛/眼睛/晕.png</key>
-            <key type="filename">../characters/余洛琛/眼睛/眯眼.png</key>
+            <key type="filename">../characters/余洛琛/眼睛/眯眼开心.png</key>
             <key type="filename">../characters/余洛琛/眼睛/默认.png</key>
-            <key type="filename">../characters/余洛琛/身体/常服-手举起.png</key>
-            <key type="filename">../characters/余洛琛/身体/常服-手放下.png</key>
-            <key type="filename">../characters/余洛琛/身体/校服-手举起.png</key>
-            <key type="filename">../characters/余洛琛/身体/校服-手放下.png</key>
-            <key type="filename">../characters/余洛琛/附加/眼镜.png</key>
+            <key type="filename">../characters/余洛琛/身体/常服-待机.png</key>
+            <key type="filename">../characters/余洛琛/身体/常服-托眼镜.png</key>
+            <key type="filename">../characters/余洛琛/身体/校服-待机.png</key>
+            <key type="filename">../characters/余洛琛/身体/校服-托眼镜.png</key>
+            <key type="filename">../characters/余洛琛/附加/本体（眼镜）.png</key>
             <key type="filename">../characters/余洛琛/附加/脸红.png</key>
             <key type="filename">../characters/余洛琛/附加/问号.png</key>
             <key type="filename">../characters/常夏/嘴巴/不满.png</key>
