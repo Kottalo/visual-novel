@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>6</int>
         <key>texturePackerVersion</key>
-        <string>7.12.0</string>
+        <string>8.0.1</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -143,6 +143,8 @@
         <key>autoAliasEnabled</key>
         <false/>
         <key>trimSpriteNames</key>
+        <false/>
+        <key>enableCacheBusting</key>
         <false/>
         <key>prependSmartFolderName</key>
         <false/>
@@ -943,6 +945,7 @@
                 <false/>
             </struct>
             <key type="filename">../ui/开始游戏/start_click_deco.png</key>
+            <key type="filename">../ui/鉴赏内容/click_deco.png</key>
             <key type="filename">../ui/鉴赏内容/gallery_click_deco.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -1192,23 +1195,9 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ui/系统设置/botton_text_click.png</key>
-            <key type="filename">../ui/系统设置/botton_text_hover.png</key>
-            <key type="filename">../ui/系统设置/botton_text_normal.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>38,18,75,36</rect>
-                <key>scale9Paddings</key>
-                <rect>38,18,75,36</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
+            <key type="filename">../ui/系统设置/botton_normal.png</key>
+            <key type="filename">../ui/系统设置/botton_set_click.png</key>
+            <key type="filename">../ui/系统设置/botton_set_hover.png</key>
             <key type="filename">../ui/系统设置/button_deco_click.png</key>
             <key type="filename">../ui/系统设置/button_deco_hover.png</key>
             <key type="filename">../ui/系统设置/button_deco_normal.png</key>
@@ -1223,6 +1212,23 @@
                 <rect>18,19,37,38</rect>
                 <key>scale9Paddings</key>
                 <rect>18,19,37,38</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../ui/系统设置/botton_text_click.png</key>
+            <key type="filename">../ui/系统设置/botton_text_hover.png</key>
+            <key type="filename">../ui/系统设置/botton_text_normal.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>38,18,75,36</rect>
+                <key>scale9Paddings</key>
+                <rect>38,18,75,36</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -1289,6 +1295,36 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../ui/系统设置/text_page1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>54,249,107,497</rect>
+                <key>scale9Paddings</key>
+                <rect>54,249,107,497</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../ui/系统设置/text_page2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>72,252,143,504</rect>
+                <key>scale9Paddings</key>
+                <rect>72,252,143,504</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../ui/系统设置/textexample_background.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -1301,6 +1337,30 @@
                 <rect>433,63,866,125</rect>
                 <key>scale9Paddings</key>
                 <rect>433,63,866,125</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../ui/系统设置/系统设置.png</key>
+            <key type="filename">../ui/系统设置/系统设置2.png</key>
+            <key type="filename">../ui/语音收藏/语音收藏.png</key>
+            <key type="filename">../ui/鉴赏内容/background_character.png</key>
+            <key type="filename">../ui/鉴赏内容/background_full.png</key>
+            <key type="filename">../ui/鉴赏内容/frame_background.jpg</key>
+            <key type="filename">../ui/鉴赏内容/插画鉴赏/插画鉴赏.png</key>
+            <key type="filename">../ui/鉴赏内容/立绘鉴赏/立绘鉴赏.png</key>
+            <key type="filename">../ui/鉴赏内容/音乐鉴赏/play_normal.png</key>
+            <key type="filename">../ui/鉴赏内容/音乐鉴赏/音乐鉴赏.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>640,360,1280,720</rect>
+                <key>scale9Paddings</key>
+                <rect>640,360,1280,720</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -1549,21 +1609,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ui/语音收藏/语音收藏.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>640,360,1280,720</rect>
-                <key>scale9Paddings</key>
-                <rect>640,360,1280,720</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../ui/通用/back_click.png</key>
             <key type="filename">../ui/通用/back_hover.png</key>
             <key type="filename">../ui/通用/back_normal.png</key>
@@ -1647,6 +1692,7 @@
             </struct>
             <key type="filename">../ui/鉴赏内容/botton_cg.png</key>
             <key type="filename">../ui/鉴赏内容/botton_chr.png</key>
+            <key type="filename">../ui/鉴赏内容/botton_voice.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -1755,6 +1801,21 @@
                 <rect>131,80,263,159</rect>
                 <key>scale9Paddings</key>
                 <rect>131,80,263,159</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../ui/鉴赏内容/插画鉴赏/image_example.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>120,68,241,135</rect>
+                <key>scale9Paddings</key>
+                <rect>120,68,241,135</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
