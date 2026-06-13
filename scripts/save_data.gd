@@ -33,7 +33,7 @@ func _save_deferred() -> void:
 	_save_thread = Thread.new()
 	_save_thread.start(
 		func():
-			ResourceSaver.save(self, "user://save_data.tres")
+			
 			_save_pending = false
 	)
 

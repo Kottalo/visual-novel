@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://autoloads/localhost_bridge/localhost_bridge.gd" id="1_script"]
+
+[node name="LocalhostBridge" type="Node"]
+script = ExtResource("1_script")

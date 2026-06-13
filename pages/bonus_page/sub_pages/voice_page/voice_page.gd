@@ -35,7 +35,7 @@ func select_collection(collection: VoiceCollection) -> void:
 	label_chapter_number.text = current_collection.chapter_number_text
 	label_chapter_name.text = current_collection.chapter_name
 	label_text.text = current_collection.text
-	texture_rect_portrait.texture = Stage.Character(current_collection.character_name).texture_rect_avatar.texture
+	texture_rect_portrait.texture = Stage.Character(current_collection.character_name).phone_avatar
 	update_favourite()
 	# 状态就绪后才呈现给玩家
 	voice_view.modulate.a = 0

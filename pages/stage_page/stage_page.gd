@@ -106,6 +106,108 @@ func get_position_by_name(position_name: String) -> Vector2:
 	var position_node: Control = hbox_positions.get_node(position_name + "/CenterPoint")
 	return position_node.global_position
 
+func get_bridge_dialogue_state() -> Dictionary:
+	var current_line: Dictionary = {}
+	if dialogue_line:
+		current_line = {
+			"id": dialogue_line.id,
+			"next_id": dialogue_line.next_id,
+			"character": dialogue_line.character,
+			"text": dialogue_line.text,
+			"tags": dialogue_line.tags.duplicate(),
+			"responses": _serialize_dialogue_responses(dialogue_line.responses),
+		}
+	return {
+		"chapter_name": chapter_name if dialogue else "",
+		"current_line": current_line,
+		"speaker_label": label_character_name.text,
+		"mode": _bridge_mode_name(),
+		"is_typing": dialogue_label.is_typing,
+		"visible_characters": dialogue_label.visible_characters,
+		"current_book_segment_start_id": current_book_segment_start_id,
+		"can_advance": dialogue_line != null,
+	}
+
+func advance_from_bridge() -> bool:
+	if Game.loading or dialogue_line == null:
+		return false
+	if dialogue_label.is_typing:
+		dialogue_label.skip_typing()
+		return true
+	next_line.emit()
+	return true
+
+func skip_typing_from_bridge() -> bool:
+	if not dialogue_label.is_typing:
+		return false
+	dialogue_label.skip_typing()
+	return true
+
+func set_mode_from_bridge(mode_name: String) -> bool:
+	match mode_name.to_lower():
+		"manual":
+			_set_mode(AdvanceMode.MANUAL)
+			return true
+		"skip":
+			_set_mode(AdvanceMode.SKIP)
+			return true
+		"auto":
+			_set_mode(AdvanceMode.AUTO)
+			return true
+		_:
+			return false
+
+func choose_response_from_bridge(index: int = -1, next_id: String = "") -> bool:
+	if dialogue_line == null or dialogue_line.responses.is_empty():
+		return false
+
+	if "手机" in dialogue_line.tags:
+		return await Game.phone_page.choose_reply_from_bridge(index, next_id)
+	if "奇迹书" in dialogue_line.tags:
+		return await Game.book_page.choose_reply_from_bridge(index, next_id)
+
+	var resolved_next_id := _resolve_response_next_id(index, next_id)
+	if resolved_next_id.is_empty():
+		return false
+	dialogue_line = await dialogue.get_next_dialogue_line(resolved_next_id, [self, Stage])
+	return true
+
+func start_chapter_from_bridge(chapter_name_from_bridge: String) -> bool:
+	if not chapters_dict.has(chapter_name_from_bridge):
+		return false
+	dialogue = chapters_dict[chapter_name_from_bridge]
+	await start()
+	return true
+
+func _serialize_dialogue_responses(responses: Array) -> Array[Dictionary]:
+	var serialized: Array[Dictionary] = []
+	for i in responses.size():
+		var response: DialogueResponse = responses[i]
+		serialized.append({
+			"index": i,
+			"text": response.text,
+			"next_id": response.next_id,
+		})
+	return serialized
+
+func _bridge_mode_name() -> String:
+	match _mode:
+		AdvanceMode.SKIP:
+			return "skip"
+		AdvanceMode.AUTO:
+			return "auto"
+		_:
+			return "manual"
+
+func _resolve_response_next_id(index: int, next_id: String) -> String:
+	if next_id != "":
+		for response: DialogueResponse in dialogue_line.responses:
+			if response.next_id == next_id:
+				return response.next_id
+	if index >= 0 and index < dialogue_line.responses.size():
+		return dialogue_line.responses[index].next_id
+	return ""
+
 var dialogue_line: DialogueLine:
 	set(value):
 		dialogue_line = value

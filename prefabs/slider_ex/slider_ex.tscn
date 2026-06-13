@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://dm8vrcjl5dmmh" path="res://prefabs/slider_ex/slider_ex.gd" id="1_2chib"]
 [ext_resource type="Texture2D" uid="uid://4tcqtunql1lj" path="res://assets/sprites/ui/ui.sprites/button_deco_normal.tres" id="2_2chib"]
 [ext_resource type="PackedScene" uid="uid://mopd128nba0y" path="res://prefabs/components/interact_sound.tscn" id="3_vaddk"]
+[ext_resource type="Texture2D" uid="uid://digw7cael6l08" path="res://assets/sprites/ui/ui.sprites/botton_set_click.tres" id="3_x17mf"]
 [ext_resource type="AudioStream" uid="uid://cbv00i4cd5jyl" path="res://assets/system_sounds/奇迹书音效/主界面按钮点击音效2.wav" id="4_58gxs"]
+[ext_resource type="Texture2D" uid="uid://de5irbcn3xcaw" path="res://assets/sprites/ui/ui.sprites/botton_set_hover.tres" id="4_umu3m"]
 [ext_resource type="AudioStream" uid="uid://bwkgf8rel13s3" path="res://assets/system_sounds/奇迹书音效/鼠标滑动音效.wav" id="5_58gxs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85u71"]
@@ -19,6 +21,8 @@ offset_right = 704.0
 offset_bottom = 15.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_85u71")
 script = ExtResource("1_2chib")
+caret_hover_texture = ExtResource("4_umu3m")
+caret_pressed_texture = ExtResource("3_x17mf")
 fill = NodePath("Base/Fill")
 end_point = NodePath("Base/Fill/EndPoint")
 caret = NodePath("Base/Fill/EndPoint/Caret")
