@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4buwpxs7t84t" path="res://pages/setting_page/setting_page.gd" id="1_cqmhw"]
 [ext_resource type="Texture2D" uid="uid://cp7tpt61m14md" path="res://assets/ui_backgrounds/frame_background.png" id="2_e1hbt"]
+[ext_resource type="Texture2D" uid="uid://d3e6xssb4ahll" path="res://assets/sprites/ui/ui.sprites/set_title.tres" id="3_e3mt2"]
 [ext_resource type="Texture2D" uid="uid://dbo7821y14t2c" path="res://assets/temp/system.jpg" id="3_u8iwx"]
 [ext_resource type="PackedScene" uid="uid://2y0i8n3fcpn8" path="res://prefabs/selection_button/selection_button.tscn" id="5_175jp"]
 [ext_resource type="PackedScene" uid="uid://dshln3xvv24k4" path="res://prefabs/setting_label/setting_label.tscn" id="5_u8iwx"]
@@ -69,6 +70,20 @@ offset_bottom = 1440.0
 mouse_filter = 0
 texture = ExtResource("2_e1hbt")
 
+[node name="Titles" type="Control" parent="." unique_id=247200248]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 81.0
+offset_right = 136.0
+offset_bottom = 121.0
+
+[node name="Title_Set" type="TextureRect" parent="Titles" unique_id=1278725167]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_e3mt2")
+
 [node name="Pages" type="Control" parent="." unique_id=1931831820]
 layout_mode = 3
 anchors_preset = 15
@@ -78,7 +93,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SystemPage" type="Control" parent="Pages" unique_id=1184190931]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -349,6 +363,7 @@ target_scroll_container = NodePath("../ScrollContainer")
 metadata/_custom_type_script = "uid://c451u0wxoyvl7"
 
 [node name="AudioPage" type="Control" parent="Pages" unique_id=1534882373]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
