@@ -31,7 +31,7 @@ animations = [{
 "texture": ExtResource("3_6e4on")
 }],
 "loop": true,
-"name": &"常服-待机",
+"name": &"常服-常服差分1",
 "speed": 5.0
 }, {
 "frames": [{
@@ -39,7 +39,7 @@ animations = [{
 "texture": ExtResource("4_kju8n")
 }],
 "loop": true,
-"name": &"常服-托眼镜",
+"name": &"常服-常服差分2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -47,7 +47,7 @@ animations = [{
 "texture": ExtResource("5_j52or")
 }],
 "loop": true,
-"name": &"校服-待机",
+"name": &"校服-校服差分1",
 "speed": 5.0
 }, {
 "frames": [{
@@ -55,7 +55,7 @@ animations = [{
 "texture": ExtResource("6_tj6n1")
 }],
 "loop": true,
-"name": &"校服-托眼镜",
+"name": &"校服-校服差分2",
 "speed": 5.0
 }]
 
@@ -180,19 +180,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lpavb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_h3wkl"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2s1x3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lpavb"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gfdhf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s1x3"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_2s1x3")
+atlas = SubResource("ViewportTexture_lpavb")
 region = Rect2(194.94196, 46.457703, 970.89386, 1009.7415)
 
 [node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
-speaking_mouth = "笑开口"
+speaking_mouth = "说话"
 phone_avatar = ExtResource("24_phone")
 phone_nickname = "【高三（10）班-余洛琛-12月5日】"
 
@@ -208,19 +208,19 @@ size = Vector2i(1330, 3070)
 position = Vector2(632, 1470)
 scale = Vector2(0.794, 0.794)
 sprite_frames = SubResource("SpriteFrames_qqr4u")
-animation = &"常服-待机"
+animation = &"常服-常服差分1"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_qulg7")
-animation = &"默认"
+animation = &"疑惑"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_ke030")
-animation = &"默认"
+animation = &"眯眼开心"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_bnq0n")
-animation = &"说话"
+animation = &"无口"
 
 [node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=736903750]
 texture = ExtResource("21_tlcri")
@@ -246,7 +246,7 @@ offset_left = -686.0
 offset_right = 644.0
 offset_bottom = 1705.0
 pivot_offset = Vector2(594, 1362)
-texture = SubResource("ViewportTexture_lpavb")
+texture = SubResource("ViewportTexture_h3wkl")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_gfdhf")
+preview_texture = SubResource("AtlasTexture_2s1x3")
