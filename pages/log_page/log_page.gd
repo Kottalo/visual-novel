@@ -21,7 +21,10 @@ func _ready() -> void:
 	visibility_changed.connect(func():
 		if visible:
 			await get_tree().process_frame
-			scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
+			await get_tree().process_frame
+			var v_scroll := scroll_container.get_v_scroll_bar()
+			if v_scroll:
+				scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
 	)
 	DialogueManager.got_dialogue.connect(
 		func (line: DialogueLine):
@@ -67,6 +70,8 @@ func _insert_ui(data: LogData) -> void:
 		var old_child = vbox_log_lines.get_child(0)
 		vbox_log_lines.remove_child(old_child)
 		old_child.queue_free()
+	await get_tree().process_frame
+	scroll_container.scroll_vertical = scroll_container.get_v_scroll_bar().max_value
 
 func clear_all() -> void:
 	log_data_pool.clear()

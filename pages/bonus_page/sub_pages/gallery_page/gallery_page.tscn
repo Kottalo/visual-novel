@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bg15vxvu5533s" path="res://pages/bonus_page/sub_pages/gallery_page/gallery_page.gd" id="1_s5tye"]
 [ext_resource type="PackedScene" uid="uid://1qd1ifwgiuft" path="res://prefabs/v_scrollbar_ex/v_scroll_bar_ex.tscn" id="2_8y25x"]
-[ext_resource type="Texture2D" uid="uid://cue1maxr5247u" path="res://assets/sprites/galleries/galleries.sprites/CG1/CG01-背景.tres" id="3_8y25x"]
-[ext_resource type="Texture2D" uid="uid://qvctjtwopkrn" path="res://assets/sprites/galleries/galleries.sprites/CG1/CG01-害羞撇嘴.tres" id="4_xqqoh"]
+[ext_resource type="Texture2D" uid="uid://p3scyw01522g" path="res://assets/sprites/galleries/galleries.sprites/CG1/CG01-背景.tres" id="3_8y25x"]
+[ext_resource type="Texture2D" uid="uid://d2e2rapqrwuho" path="res://assets/sprites/galleries/galleries.sprites/CG1/CG01-害羞撇嘴.tres" id="4_xqqoh"]
 [ext_resource type="Texture2D" uid="uid://bejxvf0b47myg" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/gallery_frame.tres" id="5_0878j"]
 [ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="6_iw6sv"]
 [ext_resource type="Texture2D" uid="uid://hye07exv6r3f" path="res://assets/sprites/ui/ui.sprites/插画鉴赏/hide_normal.tres" id="7_u0is1"]
