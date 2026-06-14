@@ -184,6 +184,7 @@
             <key type="filename">../characters/余洛琛/眉毛/疑惑.png</key>
             <key type="filename">../characters/余洛琛/眉毛/认真.png</key>
             <key type="filename">../characters/余洛琛/眉毛/默认.png</key>
+            <key type="filename">../characters/余洛琛/眼睛/不敢对视.png</key>
             <key type="filename">../characters/余洛琛/眼睛/吃惊.png</key>
             <key type="filename">../characters/余洛琛/眼睛/微眯.png</key>
             <key type="filename">../characters/余洛琛/眼睛/悲伤.png</key>

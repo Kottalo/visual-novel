@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://8327lcs1k4uh" path="res://assets/sprites/characters/characters.sprites/余洛琛/眉毛/认真.tres" id="10_sxffg"]
 [ext_resource type="Texture2D" uid="uid://c45apigc23fvn" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/微眯.tres" id="11_kproh"]
 [ext_resource type="Texture2D" uid="uid://yno0e6r3r2qa" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/悲伤.tres" id="12_3jmkh"]
+[ext_resource type="Texture2D" uid="uid://dm5py8t1miw0j" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/不敢对视.tres" id="12_lpavb"]
 [ext_resource type="Texture2D" uid="uid://kaq04dc01rkl" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/吃惊.tres" id="12_sxffg"]
 [ext_resource type="Texture2D" uid="uid://c4dn4wltopekm" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/默认.tres" id="15_6ljhu"]
 [ext_resource type="Texture2D" uid="uid://druyvx88r8swm" path="res://assets/sprites/characters/characters.sprites/余洛琛/眼睛/眯眼开心.tres" id="15_ykarx"]
@@ -106,6 +107,14 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("12_lpavb")
+}],
+"loop": true,
+"name": &"不敢对视",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_sxffg")
 }],
 "loop": true,
@@ -180,15 +189,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h3wkl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2s1x3"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lpavb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gfdhf"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2s1x3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iajx4"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_lpavb")
+atlas = SubResource("ViewportTexture_gfdhf")
 region = Rect2(194.94196, 46.457703, 970.89386, 1009.7415)
 
 [node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
@@ -216,7 +225,7 @@ animation = &"疑惑"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_ke030")
-animation = &"眯眼开心"
+animation = &"不敢对视"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_bnq0n")
@@ -246,7 +255,7 @@ offset_left = -686.0
 offset_right = 644.0
 offset_bottom = 1705.0
 pivot_offset = Vector2(594, 1362)
-texture = SubResource("ViewportTexture_h3wkl")
+texture = SubResource("ViewportTexture_2s1x3")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_2s1x3")
+preview_texture = SubResource("AtlasTexture_iajx4")
