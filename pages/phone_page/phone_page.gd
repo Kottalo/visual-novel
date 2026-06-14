@@ -82,7 +82,7 @@ func _ready() -> void:
 	)
 
 
-func open(is_story: bool = false) -> void:
+func open(is_story: bool = false, initial_chat_character: String = "") -> void:
 	story_mode = is_story
 	messenger_back_button.visible = not story_mode
 	home_page.visible = not story_mode
@@ -94,6 +94,8 @@ func open(is_story: bool = false) -> void:
 		Tools.clear_children(chat_message_pool)
 		Tools.clear_children(reply_selection_pool)
 		active_chat_character = ""
+		label_chat_name.text = ""
+		_prime_story_chat_title(initial_chat_character)
 
 	show()
 
@@ -132,6 +134,13 @@ func update_chat_list() -> void:
 
 # ─── 剧情模式消息管理 ───
 
+func _prime_story_chat_title(character_name: String) -> void:
+	if character_name.is_empty() or character_name == "周腾":
+		return
+	active_chat_character = character_name
+	label_chat_name.text = get_phone_nickname(character_name)
+
+
 func _scroll_chat_to_bottom() -> void:
 	await get_tree().process_frame
 	var scroll: ScrollContainer = chat_message_pool.get_parent()
@@ -157,6 +166,7 @@ func _add_chat_message(character_name: String, text: String, silent: bool = fals
 
 
 func show_dialogue_message(character_name: String, text: String) -> void:
+	_prime_story_chat_title(character_name)
 	_add_chat_message(character_name, text)
 	add_message(character_name, text)
 	_scroll_chat_to_bottom()

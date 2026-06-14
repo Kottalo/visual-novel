@@ -263,7 +263,16 @@ func ShowDialogue(duration: float = 0.4) -> void:
 			sp.dialogue_screen.modulate.a = 1
 
 func ShowPhone() -> void:
-	await Game.phone_page.open(true)
+	var initial_chat_character := ""
+	if Game.stage_page.dialogue_line:
+		var next_line = await Game.stage_page.dialogue.get_next_dialogue_line(
+			Game.stage_page.dialogue_line.next_id,
+			[Game.stage_page, Stage],
+			DMConstants.MutationBehaviour.Skip
+		)
+		if next_line and "手机" in next_line.tags and next_line.character != "周腾":
+			initial_chat_character = next_line.character
+	await Game.phone_page.open(true, initial_chat_character)
 
 func HidePhone() -> void:
 	await Game.phone_page.close()
