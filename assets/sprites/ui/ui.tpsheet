@@ -1383,29 +1383,44 @@
 					"region": {
 						"x": 1734,
 						"y": 1442,
-						"w": 711,
-						"h": 355
+						"w": 709,
+						"h": 353
 					},
 					"margin": {
-						"x": 8,
-						"y": 8,
-						"w": 1156,
-						"h": 16
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
-					"filename": "bigchr_yu.png",
+					"filename": "bigchr_ge.png",
 					"region": {
 						"x": 1225,
 						"y": 1694,
-						"w": 479,
-						"h": 354
+						"w": 482,
+						"h": 353
 					},
 					"margin": {
-						"x": 104,
-						"y": 9,
-						"w": 1388,
-						"h": 17
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "botton_cancel.png",
+					"region": {
+						"x": 2445,
+						"y": 1537,
+						"w": 114,
+						"h": 33
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
@@ -1439,10 +1454,25 @@
 					}
 				},
 				{
+					"filename": "botton_replay.png",
+					"region": {
+						"x": 2445,
+						"y": 1502,
+						"w": 115,
+						"h": 33
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
 					"filename": "botton_star.png",
 					"region": {
-						"x": 2447,
-						"y": 1502,
+						"x": 2445,
+						"y": 1572,
 						"w": 113,
 						"h": 32
 					},
@@ -1471,7 +1501,7 @@
 				{
 					"filename": "del_normal.png",
 					"region": {
-						"x": 2447,
+						"x": 2445,
 						"y": 1442,
 						"w": 58,
 						"h": 58
@@ -1516,8 +1546,8 @@
 				{
 					"filename": "place_deco.png",
 					"region": {
-						"x": 1706,
-						"y": 1799,
+						"x": 1709,
+						"y": 1797,
 						"w": 825,
 						"h": 237
 					},
@@ -1576,7 +1606,7 @@
 				{
 					"filename": "插画鉴赏/hide_normal.png",
 					"region": {
-						"x": 2507,
+						"x": 2505,
 						"y": 1442,
 						"w": 39,
 						"h": 32
@@ -1627,36 +1657,6 @@
 				"h": 2032
 			},
 			"sprites": [
-				{
-					"filename": "botton_cancel.png",
-					"region": {
-						"x": 1194,
-						"y": 1983,
-						"w": 114,
-						"h": 33
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "botton_replay.png",
-					"region": {
-						"x": 1194,
-						"y": 1948,
-						"w": 115,
-						"h": 33
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
 				{
 					"filename": "botton_text_click.png",
 					"region": {
@@ -1765,7 +1765,7 @@
 				{
 					"filename": "name_decoration.png",
 					"region": {
-						"x": 1311,
+						"x": 1246,
 						"y": 1938,
 						"w": 142,
 						"h": 88
@@ -2691,14 +2691,14 @@
 					"region": {
 						"x": 1049,
 						"y": 1675,
-						"w": 563,
-						"h": 355
+						"w": 561,
+						"h": 353
 					},
 					"margin": {
-						"x": 65,
-						"y": 8,
-						"w": 1304,
-						"h": 16
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
@@ -2749,7 +2749,7 @@
 				{
 					"filename": "click_deco.png",
 					"region": {
-						"x": 1614,
+						"x": 1612,
 						"y": 1871,
 						"w": 353,
 						"h": 159
@@ -2779,7 +2779,7 @@
 				{
 					"filename": "ico_book.png",
 					"region": {
-						"x": 2333,
+						"x": 2331,
 						"y": 1602,
 						"w": 130,
 						"h": 130
@@ -2794,7 +2794,7 @@
 				{
 					"filename": "ico_message.png",
 					"region": {
-						"x": 2333,
+						"x": 2331,
 						"y": 1734,
 						"w": 130,
 						"h": 130
@@ -2809,7 +2809,7 @@
 				{
 					"filename": "nnote.png",
 					"region": {
-						"x": 1614,
+						"x": 1612,
 						"y": 1675,
 						"w": 717,
 						"h": 194
@@ -2854,7 +2854,7 @@
 				{
 					"filename": "skip.png",
 					"region": {
-						"x": 1969,
+						"x": 1967,
 						"y": 1871,
 						"w": 484,
 						"h": 158
@@ -2895,21 +2895,21 @@
 					"region": {
 						"x": 1439,
 						"y": 1047,
-						"w": 465,
-						"h": 355
+						"w": 463,
+						"h": 353
 					},
 					"margin": {
-						"x": 87,
-						"y": 8,
-						"w": 1402,
-						"h": 16
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
 					"filename": "chat/chat_example.png",
 					"region": {
-						"x": 1703,
-						"y": 1858,
+						"x": 1439,
+						"y": 1402,
 						"w": 458,
 						"h": 120
 					},
@@ -2998,7 +2998,7 @@
 				{
 					"filename": "dataimage_empty.png",
 					"region": {
-						"x": 1906,
+						"x": 1904,
 						"y": 1319,
 						"w": 469,
 						"h": 263
@@ -3014,7 +3014,7 @@
 					"filename": "voice_title.png",
 					"region": {
 						"x": 1703,
-						"y": 1600,
+						"y": 1720,
 						"w": 457,
 						"h": 256
 					},
@@ -3029,7 +3029,7 @@
 					"filename": "头像/phone_portrait_changxia.png",
 					"region": {
 						"x": 1703,
-						"y": 1404,
+						"y": 1524,
 						"w": 194,
 						"h": 194
 					},
@@ -3058,7 +3058,7 @@
 				{
 					"filename": "插画鉴赏/image_locked.png",
 					"region": {
-						"x": 1906,
+						"x": 1904,
 						"y": 1047,
 						"w": 481,
 						"h": 270
@@ -3073,7 +3073,7 @@
 				{
 					"filename": "立绘鉴赏/ico_select.png",
 					"region": {
-						"x": 2389,
+						"x": 2387,
 						"y": 1047,
 						"w": 167,
 						"h": 167
@@ -3088,7 +3088,7 @@
 				{
 					"filename": "立绘鉴赏/ico_yuluochen.png",
 					"region": {
-						"x": 2389,
+						"x": 2387,
 						"y": 1216,
 						"w": 153,
 						"h": 153
@@ -3127,7 +3127,7 @@
 				{
 					"filename": "auto.png",
 					"region": {
-						"x": 2054,
+						"x": 2047,
 						"y": 1825,
 						"w": 484,
 						"h": 169
@@ -3140,18 +3140,18 @@
 					}
 				},
 				{
-					"filename": "bigchr_ge.png",
+					"filename": "bigchr_yu.png",
 					"region": {
 						"x": 1568,
 						"y": 1649,
-						"w": 484,
-						"h": 355
+						"w": 477,
+						"h": 352
 					},
 					"margin": {
-						"x": 87,
-						"y": 8,
-						"w": 1383,
-						"h": 16
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
@@ -3415,6 +3415,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:ffe1146c3e5cb38f43377ee67e152f53:e696c0e32edcc0ee01e4b143ce161562:67eaf37eea44c4511444f69d26e74af2$"
+		"smartupdate": "$TexturePacker:SmartUpdate:abae32d010509b0033cc5ff5595c16f4:4f61575740ffc9dccda550e40710eacb:67eaf37eea44c4511444f69d26e74af2$"
 	}
 }

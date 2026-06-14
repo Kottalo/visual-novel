@@ -2,15 +2,17 @@
 class_name VoicePage
 extends Control
 
-@export var portrait_dict: Dictionary[Enums.CharacterName, Texture2D]
+@export var portrait_dict: Dictionary[Enums.CharacterName, TextureRect]
 
 @export var selected_character: Enums.CharacterName:
 	set(value):
 		selected_character = value
-		texture_rect_portrait.texture = portrait_dict[selected_character]
+		for texture in portrait_dict:
+			portrait_dict[texture].visible = false
+		portrait_dict[selected_character].visible = true	
+		
 
 @export var voice_card_pool: Control
-@export var texture_rect_portrait: TextureRect
 @export var label_character_name: Label
 @export var label_chapter_number: Label
 @export var label_chapter_name: Label
@@ -35,14 +37,21 @@ func select_collection(collection: VoiceCollection) -> void:
 	label_chapter_number.text = current_collection.chapter_number_text
 	label_chapter_name.text = current_collection.chapter_name
 	label_text.text = current_collection.text
-	texture_rect_portrait.texture = Stage.Character(current_collection.character_name).phone_avatar
+	print(current_collection.character_name)
+	selected_character = get_character_enum_from_string(current_collection.character_name)
 	update_favourite()
 	# 状态就绪后才呈现给玩家
 	voice_view.modulate.a = 0
 	voice_view.visible = true
 	create_tween().tween_property(voice_view, "modulate:a", 1.0, 0.2)
 	play_current_voice()
-
+	
+func get_character_enum_from_string(name: String) -> Enums.CharacterName:
+	var idx = Enums.CharacterName.keys().find(name)
+	if idx != -1:
+		return Enums.CharacterName.values()[idx]
+	return Enums.CharacterName.余洛琛  # 确保枚举中有 NONE 默认值
+	
 func play_current_voice() -> void:
 	await AudioManager.pause_music()
 	AudioManager.play_voice(current_collection.voice_filename, true)
