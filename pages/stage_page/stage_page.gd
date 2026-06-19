@@ -25,6 +25,8 @@ var chapter_name: String:
 @export var hbox_positions: HBoxContainer
 @export var character_image_pool: Control
 @export var texture_rect_background: TextureRect
+@export var background_performance_mask: Control
+@export var texture_rect_background_performance: TextureRect
 @export var texture_rect_cg: TextureRect
 @export var texture_rect_variation: TextureRect
 @export var texture_rect_blackscreen: ColorRect
@@ -53,6 +55,7 @@ var _idle: bool = false
 var _voice_finished_cb: Callable = Callable()
 var quick_save_progress_count: int = 0
 var current_book_segment_start_id: String = ""
+var _background_performance_tween: Tween
 
 var skip: bool:
 	get: return _mode == AdvanceMode.SKIP
@@ -207,6 +210,127 @@ func _resolve_response_next_id(index: int, next_id: String) -> String:
 	if index >= 0 and index < dialogue_line.responses.size():
 		return dialogue_line.responses[index].next_id
 	return ""
+
+func _kill_background_performance_tween() -> void:
+	if _background_performance_tween and is_instance_valid(_background_performance_tween):
+		_background_performance_tween.kill()
+	_background_performance_tween = null
+
+func stop_background_performance(clear_texture: bool = true) -> void:
+	_kill_background_performance_tween()
+	background_performance_mask.visible = false
+	texture_rect_background_performance.position = Vector2.ZERO
+	texture_rect_background_performance.size = Vector2.ZERO
+	texture_rect_background_performance.scale = Vector2.ONE
+	if clear_texture:
+		texture_rect_background_performance.texture = null
+
+func _get_background_performance_size(texture: Texture2D, scale_multiplier: float) -> Dictionary:
+	if texture == null:
+		return {}
+	var viewport_size: Vector2 = background_performance_mask.size
+	if viewport_size.x <= 0 or viewport_size.y <= 0:
+		viewport_size = Vector2(subviewport.size)
+	var texture_size: Vector2 = texture.get_size()
+	if texture_size.x <= 0 or texture_size.y <= 0:
+		return {}
+	var cover_scale: float = max(viewport_size.x / texture_size.x, viewport_size.y / texture_size.y)
+	var drawn_size: Vector2 = texture_size * cover_scale * max(scale_multiplier, 1.0)
+	var base_position: Vector2 = (viewport_size - drawn_size) / 2.0
+	return {
+		"viewport_size": viewport_size,
+		"drawn_size": drawn_size,
+		"base_position": base_position,
+		"min_position": viewport_size - drawn_size,
+		"max_position": Vector2.ZERO,
+	}
+
+func prepare_background_performance(texture: Texture2D, scale_multiplier: float) -> Dictionary:
+	stop_background_performance(false)
+	var layout: Dictionary = _get_background_performance_size(texture, scale_multiplier)
+	if layout.is_empty():
+		return {}
+	texture_rect_background_performance.texture = texture
+	texture_rect_background_performance.position = layout["base_position"]
+	texture_rect_background_performance.size = layout["drawn_size"]
+	texture_rect_background_performance.scale = Vector2.ONE
+	background_performance_mask.visible = true
+	return layout
+
+func _get_background_performance_target(layout: Dictionary, segment: Dictionary) -> Vector2:
+	var base_position: Vector2 = layout["base_position"]
+	var min_position: Vector2 = layout["min_position"]
+	var max_position: Vector2 = layout["max_position"]
+	var normalized_x: float = clamp(float(segment.get("x", 0.0)), -1.0, 1.0)
+	var normalized_y: float = clamp(float(segment.get("y", 0.0)), -1.0, 1.0)
+	var target_x: float = base_position.x + normalized_x * ((base_position.x - min_position.x) if normalized_x < 0 else (max_position.x - base_position.x))
+	var target_y: float = base_position.y + normalized_y * ((base_position.y - min_position.y) if normalized_y < 0 else (max_position.y - base_position.y))
+	return Vector2(
+		clamp(target_x, min_position.x, max_position.x),
+		clamp(target_y, min_position.y, max_position.y)
+	)
+
+func play_background_performance(scale_multiplier: float, segments: Array) -> void:
+	var texture: Texture2D = texture_rect_background.texture
+	if texture == null:
+		push_warning("PerformBackgroundPan: 当前没有背景贴图可用于演出")
+		return
+	var base_layout: Dictionary = prepare_background_performance(texture, scale_multiplier)
+	if base_layout.is_empty():
+		push_warning("PerformBackgroundPan: 背景演出层布局失败")
+		return
+	if segments.is_empty():
+		stop_background_performance()
+		return
+	for raw_segment in segments:
+		if typeof(raw_segment) != TYPE_DICTIONARY:
+			continue
+		var segment: Dictionary = raw_segment
+		var segment_scale: float = float(segment.get("scale", scale_multiplier))
+		var layout: Dictionary = _get_background_performance_size(texture, segment_scale)
+		if layout.is_empty():
+			continue
+		texture_rect_background_performance.size = layout["drawn_size"]
+		var hold: float = float(segment.get("hold", 0.0))
+		var target: Vector2 = _get_background_performance_target(layout, segment)
+		var duration: float = float(segment.get("duration", -1.0))
+		if duration <= 0.0:
+			var speed: float = float(segment.get("speed", 0.0))
+			if speed > 0.0:
+				duration = texture_rect_background_performance.position.distance_to(target) / speed
+			elif not segment.has("duration"):
+				push_warning("PerformBackgroundPan: 分段缺少有效 duration 或 speed")
+				continue
+		if duration <= 0.0:
+			texture_rect_background_performance.position = target
+		else:
+			var tween: Tween = create_tween()
+			_background_performance_tween = tween
+			tween.set_parallel(true)
+			tween.tween_property(
+				texture_rect_background_performance,
+				"position",
+				target,
+				duration
+			).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property(
+				texture_rect_background_performance,
+				"size",
+				layout["drawn_size"],
+				duration
+			).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			while _background_performance_tween == tween and tween.is_valid() and tween.is_running():
+				await get_tree().process_frame
+			if _background_performance_tween != tween:
+				return
+			_background_performance_tween = null
+		if hold > 0.0:
+			var timer: SceneTreeTimer = get_tree().create_timer(hold)
+			while timer.time_left > 0.0:
+				await get_tree().process_frame
+				if background_performance_mask.visible == false:
+					return
+	stop_background_performance()
 
 var dialogue_line: DialogueLine:
 	set(value):
@@ -504,6 +628,7 @@ func reset() -> void:
 	voice_buttons.visible = false
 	AudioManager.audio_player_voice.stop()
 	_disconnect_voice_finished()
+	stop_background_performance()
 	Stage.reset()
 	quick_save_progress_count = 0
 	current_book_segment_start_id = ""

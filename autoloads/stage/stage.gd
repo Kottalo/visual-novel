@@ -28,6 +28,7 @@ func _ready() -> void:
 		character_dict[character.name] = character
 
 func reset() -> void:
+	Game.stage_page.stop_background_performance()
 	current_background = ""
 	current_date = ""
 	current_cg = ""
@@ -43,6 +44,7 @@ func Character(character_name: String) -> Character:
 
 func SetBackground(background_name: String, variation_name: String,
 		out_time: float = 1.2, in_time: float = 1.2) -> void:
+	Game.stage_page.stop_background_performance()
 	var is_skip: bool = Game.stage_page.skip
 	var skip_trans: bool = is_skip and Main.setting_data.skip_ignore_transitions
 
@@ -83,6 +85,7 @@ func SetBackground(background_name: String, variation_name: String,
 		).finished
 
 func SetCG(cg_name: String, variation_name: String) -> void:
+	Game.stage_page.stop_background_performance()
 	var target_gallery: GalleryData = gallery_data_pool.filter(
 		func(g: GalleryData): return g.resource_path.get_file().replace(".tres", "") == cg_name
 	).front()
@@ -143,6 +146,7 @@ func SetCG(cg_name: String, variation_name: String) -> void:
 		).finished
 
 func HideCG() -> void:
+	Game.stage_page.stop_background_performance()
 	var is_skip: bool = Game.stage_page.skip
 	var skip_trans: bool = is_skip and Main.setting_data.skip_ignore_transitions
 
@@ -261,6 +265,23 @@ func ShowDialogue(duration: float = 0.4) -> void:
 			).finished
 		else:
 			sp.dialogue_screen.modulate.a = 1
+
+func PerformBackgroundPan(scale_multiplier: float, segments: Array) -> void:
+	if segments.is_empty():
+		Game.stage_page.stop_background_performance()
+		return
+	var is_skip: bool = Game.stage_page.skip
+	var skip_trans: bool = is_skip and Main.setting_data.skip_ignore_transitions
+	if skip_trans:
+		Game.stage_page.stop_background_performance()
+		return
+	if is_skip:
+		Game.stage_page._set_mode(Game.stage_page.AdvanceMode.MANUAL)
+		Game.stage_page.skip_cancelled.emit()
+	Game.stage_page.play_background_performance.call_deferred(scale_multiplier, segments)
+
+func StopBackgroundPerformance() -> void:
+	Game.stage_page.stop_background_performance()
 
 func ShowPhone() -> void:
 	var initial_chat_character := ""
