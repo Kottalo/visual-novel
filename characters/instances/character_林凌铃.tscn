@@ -301,7 +301,7 @@ offset_bottom = 1460.0
 size = Vector2i(1287, 2812)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(681, 1171)
+position = Vector2(721, 1196)
 scale = Vector2(0.774, 0.774)
 sprite_frames = SubResource("SpriteFrames_ha8hd")
 animation = &"校服-摊手"
@@ -335,9 +335,10 @@ visible = true
 pivot_offset = Vector2(-29, -6)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -694.0
-offset_right = 593.0
-offset_bottom = 1447.0
+offset_left = -674.0
+offset_top = -1360.0
+offset_right = 613.0
+offset_bottom = 1452.0
 pivot_offset = Vector2(624, 1372)
 texture = SubResource("ViewportTexture_3ptuv")
 

@@ -206,6 +206,8 @@ func _is_allowed_action(action: String) -> bool:
 		"dialogue.set_mode",
 		"dialogue.choose_response",
 		"stage.start",
+		"stage.start_at",
+		"stage.debug_dialogue_lines",
 		"stage.reset",
 		"stage.show_phone",
 		"stage.hide_phone",
@@ -278,6 +280,29 @@ func _run_action(action: String, params: Dictionary, request_id: String) -> void
 				ok = await Game.stage_page.start_chapter_from_bridge(chapter_name)
 				if not ok:
 					error_message = "unknown chapter"
+		"stage.start_at":
+			var chapter_name := str(params.get("chapter_name", ""))
+			var next_id := str(params.get("next_id", ""))
+			if chapter_name.is_empty() or next_id.is_empty():
+				ok = false
+				error_message = "chapter_name and next_id are required"
+			else:
+				await Game.switch_to_page(Game.stage_page, _as_bool(params.get("transition", true), true), false)
+				ok = await Game.stage_page.start_at_from_bridge(chapter_name, next_id)
+				if not ok:
+					error_message = "unknown chapter or next_id"
+		"stage.debug_dialogue_lines":
+			var debug_payload := Game.stage_page.get_bridge_dialogue_debug_lines(
+				str(params.get("chapter_name", "")),
+				str(params.get("text_query", "")),
+				str(params.get("key_query", "")),
+				int(params.get("limit", 50)),
+				int(params.get("offset", 0))
+			)
+			ok = bool(debug_payload.get("ok", false))
+			_last_action_result["debug_payload"] = debug_payload
+			if not ok:
+				error_message = str(debug_payload.get("error", "unable to inspect dialogue lines"))
 		"stage.reset":
 			Game.stage_page.reset()
 		"stage.show_phone":
@@ -420,6 +445,7 @@ func _build_state_payload() -> Dictionary:
 		"phone": Game.phone_page.get_bridge_phone_state(),
 		"book": Game.book_page.get_bridge_book_state(),
 		"audio": _build_audio_payload(),
+		"dialogue_debug": _last_action_result.get("debug_payload", {}),
 	}
 
 func _get_page_stack_names() -> Array[String]:

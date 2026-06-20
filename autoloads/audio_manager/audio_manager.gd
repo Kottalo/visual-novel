@@ -5,6 +5,7 @@ extends Node
 @export var audio_player_music: AudioStreamPlayer
 @export var audio_player_sound: AudioStreamPlayer
 @export var audio_player_voice: AudioStreamPlayer
+@export var intro_sfx_debugging: AudioStream
 
 @export_dir var voice_path: String
 
@@ -116,6 +117,25 @@ func replay_voice() -> void:
 	audio_player_voice.stream = current_voice
 	audio_player_voice.play()
 	_duck_music()
+
+func play_sound_by_name(sound_name: String, wait_for_finish: bool = false) -> void:
+	var stream: AudioStream = null
+	match sound_name:
+		"设备调试":
+			stream = intro_sfx_debugging
+		_:
+			push_warning("play_sound_by_name: 未知音效 %s" % sound_name)
+			return
+	if stream == null:
+		push_warning("play_sound_by_name: 音效未配置 %s" % sound_name)
+		return
+	audio_player_sound.stream = stream
+	audio_player_sound.play()
+	if wait_for_finish:
+		await audio_player_sound.finished
+
+func stop_sound() -> void:
+	audio_player_sound.stop()
 
 
 var _duck_tween: Tween

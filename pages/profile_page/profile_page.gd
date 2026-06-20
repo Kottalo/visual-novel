@@ -224,6 +224,7 @@ func load_profile(profile: ProfileData) -> void:
 						Stage.current_background = profile.background
 						Game.phone_page.label_location.text = target_background.location
 			Game.stage_page.stop_background_performance()
+			Game.stage_page.stop_opening_effects()
 			if profile.cg_name != "" and profile.cg_variation != "":
 				var target_gallery: GalleryData = Stage.gallery_data_pool.filter(
 					func(g: GalleryData): return g.resource_path.get_file().replace(".tres", "") == profile.cg_name

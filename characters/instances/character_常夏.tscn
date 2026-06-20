@@ -241,7 +241,7 @@ offset_bottom = 1361.0
 size = Vector2i(1339, 2713)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(634, 1500)
+position = Vector2(652, 1541)
 scale = Vector2(0.714, 0.714)
 sprite_frames = SubResource("SpriteFrames_mflfp")
 animation = &"校服-叉腰"
@@ -268,9 +268,10 @@ offset_left = -117.0
 offset_right = -117.0
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -565.0
-offset_right = 774.0
-offset_bottom = 1348.0
+offset_left = -2165.0
+offset_top = -1435.0
+offset_right = -826.0
+offset_bottom = 1278.0
 texture = SubResource("ViewportTexture_r613x")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]

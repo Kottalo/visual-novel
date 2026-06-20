@@ -88,6 +88,9 @@ func open(is_story: bool = false, initial_chat_character: String = "") -> void:
 	home_page.visible = not story_mode
 	messenger_page.visible = false
 	chat_page.visible = story_mode
+	chat_page.modulate.a = 1.0
+	chat_page.scale = Vector2.ONE
+	messenger_page.modulate.a = 1.0
 
 	# 剧情模式进入时清理聊天视图，避免多次 ShowPhone 之间消息堆积
 	if story_mode:

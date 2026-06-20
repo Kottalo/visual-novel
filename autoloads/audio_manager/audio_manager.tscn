@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://beet2evhreecd" path="res://data/musics/4_江城闪景 Day Ver..tres" id="6_wpaao"]
 [ext_resource type="Resource" uid="uid://cbihx1n2p3436" path="res://data/musics/5_江城闪景 Night Ver..tres" id="7_om30b"]
 [ext_resource type="Resource" uid="uid://crroiovvr1cbt" path="res://data/musics/6_时与风的徘徊.tres" id="8_vl31e"]
+[ext_resource type="AudioStream" uid="uid://cbv00i4cd5jyl" path="res://assets/system_sounds/奇迹书音效/主界面按钮点击音效2.wav" id="9_debug_sfx"]
 
 [node name="AudioManager" type="Node" unique_id=1244309478 node_paths=PackedStringArray("audio_player_music", "audio_player_sound", "audio_player_voice")]
 script = ExtResource("1_j0p2n")
@@ -17,6 +18,7 @@ theme_music = ExtResource("5_bntsi")
 audio_player_music = NodePath("AudioPlayer_Music")
 audio_player_sound = NodePath("AudioPlayer_Sound")
 audio_player_voice = NodePath("AudioPlayerr_Voice")
+intro_sfx_debugging = ExtResource("9_debug_sfx")
 voice_path = "res://assets/voice"
 
 [node name="AudioPlayer_Music" type="AudioStreamPlayer" parent="." unique_id=1700763400]

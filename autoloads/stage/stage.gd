@@ -28,7 +28,9 @@ func _ready() -> void:
 		character_dict[character.name] = character
 
 func reset() -> void:
-	Game.stage_page.stop_background_performance()
+	if Game and Game.stage_page:
+		Game.stage_page.stop_background_performance()
+		Game.stage_page.stop_opening_effects()
 	current_background = ""
 	current_date = ""
 	current_cg = ""
@@ -45,6 +47,7 @@ func Character(character_name: String) -> Character:
 func SetBackground(background_name: String, variation_name: String,
 		out_time: float = 1.2, in_time: float = 1.2) -> void:
 	Game.stage_page.stop_background_performance()
+	Game.stage_page.stop_opening_effects()
 	var is_skip: bool = Game.stage_page.skip
 	var skip_trans: bool = is_skip and Main.setting_data.skip_ignore_transitions
 
@@ -66,13 +69,7 @@ func SetBackground(background_name: String, variation_name: String,
 		func (background: BackgroundData):
 			return background.title == background_name
 	).front()
-	var target_texture: Texture2D = target_background.variations[variation_name]
-	current_background = "%s-%s" % [background_name, variation_name]
-	Game.phone_page.label_location.text = target_background.location
-	Game.stage_page.texture_rect_background.texture = target_texture
-	# 趁黑屏清空场景人物、隐藏对话框
-	clear_characters()
-	HideDialogue(0)
+	_apply_background(target_background, variation_name)
 
 	if skip_trans:
 		Game.stage_page.texture_rect_blackscreen.modulate.a = 0
@@ -84,8 +81,30 @@ func SetBackground(background_name: String, variation_name: String,
 			in_time
 		).finished
 
+func _apply_background(target_background: BackgroundData, variation_name: String) -> void:
+	var target_texture: Texture2D = target_background.variations[variation_name]
+	current_background = "%s-%s" % [target_background.title, variation_name]
+	Game.phone_page.label_location.text = target_background.location
+	Game.stage_page.texture_rect_background.texture = target_texture
+	clear_characters()
+	HideDialogue(0)
+
+func PrepareBackground(background_name: String, variation_name: String) -> void:
+	Game.stage_page.stop_background_performance()
+	Game.stage_page.stop_opening_effects(false)
+	var target_background: BackgroundData = background_data_pool.filter(
+		func (background: BackgroundData):
+			return background.title == background_name
+	).front()
+	if not target_background:
+		push_warning("PrepareBackground: 未找到背景 %s" % background_name)
+		return
+	_apply_background(target_background, variation_name)
+	Game.stage_page.texture_rect_blackscreen.modulate.a = 1.0
+
 func SetCG(cg_name: String, variation_name: String) -> void:
 	Game.stage_page.stop_background_performance()
+	Game.stage_page.stop_opening_effects()
 	var target_gallery: GalleryData = gallery_data_pool.filter(
 		func(g: GalleryData): return g.resource_path.get_file().replace(".tres", "") == cg_name
 	).front()
@@ -147,6 +166,7 @@ func SetCG(cg_name: String, variation_name: String) -> void:
 
 func HideCG() -> void:
 	Game.stage_page.stop_background_performance()
+	Game.stage_page.stop_opening_effects()
 	var is_skip: bool = Game.stage_page.skip
 	var skip_trans: bool = is_skip and Main.setting_data.skip_ignore_transitions
 
@@ -265,6 +285,22 @@ func ShowDialogue(duration: float = 0.4) -> void:
 			).finished
 		else:
 			sp.dialogue_screen.modulate.a = 1
+
+func PlaySFX(sound_name: String, wait_for_finish: bool = false) -> void:
+	await AudioManager.play_sound_by_name(sound_name, wait_for_finish)
+
+func RevealBackgroundWithBlur(black_fade_time: float = 0.8,
+		blur_fade_time: float = 1.2, blur_amount: float = 8.0) -> void:
+	var is_skip: bool = Game.stage_page.skip
+	var skip_trans: bool = is_skip and Main.setting_data.skip_ignore_transitions
+	if skip_trans:
+		Game.stage_page.stop_opening_effects()
+		Game.stage_page.texture_rect_blackscreen.modulate.a = 0.0
+		return
+	if is_skip:
+		Game.stage_page._set_mode(Game.stage_page.AdvanceMode.MANUAL)
+		Game.stage_page.skip_cancelled.emit()
+	await Game.stage_page.play_blur_reveal(black_fade_time, blur_fade_time, blur_amount)
 
 func PerformBackgroundPan(scale_multiplier: float, segments: Array) -> void:
 	if segments.is_empty():

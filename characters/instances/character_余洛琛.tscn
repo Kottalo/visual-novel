@@ -198,15 +198,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_iajx4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2s1x3"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gv6fb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gfdhf"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6x227"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iajx4"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_gv6fb")
+atlas = SubResource("ViewportTexture_gfdhf")
 region = Rect2(194.94196, 46.457703, 970.89386, 1009.7415)
 
 [node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
@@ -223,7 +223,7 @@ offset_bottom = 1718.0
 size = Vector2i(1330, 3070)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(632, 1470)
+position = Vector2(727, 1648)
 scale = Vector2(0.794, 0.794)
 sprite_frames = SubResource("SpriteFrames_qqr4u")
 animation = &"常服-常服差分1"
@@ -260,11 +260,12 @@ offset_bottom = 2.0
 pivot_offset = Vector2(-104, -9)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -686.0
-offset_right = 644.0
-offset_bottom = 1705.0
+offset_left = -1825.0
+offset_top = -1346.0
+offset_right = -495.0
+offset_bottom = 1724.0
 pivot_offset = Vector2(594, 1362)
-texture = SubResource("ViewportTexture_iajx4")
+texture = SubResource("ViewportTexture_2s1x3")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_6x227")
+preview_texture = SubResource("AtlasTexture_iajx4")
