@@ -18,6 +18,13 @@ REPO_ROOT = SCRIPT_DIR.parent
 PERFORMANCE_TABLE_ID = "tblCjPtCWMLcKCS7"  # 演出表
 BASE_URL = "https://open.feishu.cn/open-apis"
 OUTPUT_DIR = REPO_ROOT / "dialogue_manager" / "dialogues"
+PRESERVED_COMMAND_PREFIXES = (
+    "$> PerformBackgroundPan(",
+    "$> StopBackgroundPerformance()",
+    "$> PrepareBackground(",
+    "$> PlaySFX(",
+    "$> RevealBackgroundWithBlur(",
+)
 
 
 def get_all_records(token):
@@ -369,6 +376,19 @@ def convert_chapter(roots, children_map, chapter_filter):
     return "\n".join(lines)
 
 
+def merge_preserved_commands(existing_content, generated_content):
+    if not existing_content:
+        return generated_content
+
+    existing_lines = existing_content.splitlines()
+    for line in existing_lines:
+        stripped = line.strip()
+        if stripped.startswith(PRESERVED_COMMAND_PREFIXES):
+            return existing_content
+
+    return generated_content
+
+
 def main():
     print("=" * 60)
     print("演出表 → dialogue 文件转换")
@@ -424,6 +444,11 @@ def main():
         print(f"\n[2] 转换章节: {ch_name} ({count} 条根记录)")
         content = convert_chapter(roots, children_map, ch_name)
         filepath = os.path.join(OUTPUT_DIR, f"{ch_name}.dialogue")
+        existing_content = ""
+        if os.path.exists(filepath):
+            with open(filepath, "r", encoding="utf-8") as f:
+                existing_content = f.read()
+        content = merge_preserved_commands(existing_content, content)
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
         print(f"  已写入: {filepath}")

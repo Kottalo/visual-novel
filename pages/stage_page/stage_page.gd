@@ -25,8 +25,11 @@ var chapter_name: String:
 @export var hbox_positions: HBoxContainer
 @export var character_image_pool: Control
 @export var texture_rect_background: TextureRect
+@export var background_performance_mask: Control
+@export var texture_rect_background_performance: TextureRect
 @export var texture_rect_cg: TextureRect
 @export var texture_rect_variation: TextureRect
+@export var opening_blur_overlay: ColorRect
 @export var texture_rect_blackscreen: ColorRect
 
 @export var bg_common: TextureRect
@@ -53,6 +56,8 @@ var _idle: bool = false
 var _voice_finished_cb: Callable = Callable()
 var quick_save_progress_count: int = 0
 var current_book_segment_start_id: String = ""
+var _background_performance_tween: Tween
+var _opening_reveal_tween: Tween
 
 var skip: bool:
 	get: return _mode == AdvanceMode.SKIP
@@ -173,11 +178,96 @@ func choose_response_from_bridge(index: int = -1, next_id: String = "") -> bool:
 	return true
 
 func start_chapter_from_bridge(chapter_name_from_bridge: String) -> bool:
-	if not chapters_dict.has(chapter_name_from_bridge):
+	var target_dialogue := _resolve_bridge_chapter_dialogue(chapter_name_from_bridge)
+	if target_dialogue == null:
 		return false
-	dialogue = chapters_dict[chapter_name_from_bridge]
+	dialogue = target_dialogue
 	await start()
 	return true
+
+func start_at_from_bridge(chapter_name_from_bridge: String, next_id: String) -> bool:
+	if next_id.is_empty():
+		return false
+	var target_dialogue := _resolve_bridge_chapter_dialogue(chapter_name_from_bridge)
+	if target_dialogue == null:
+		return false
+	dialogue = target_dialogue
+	reset()
+	dialogue_line = await dialogue.get_line(next_id, [self, Stage])
+	return dialogue_line != null
+
+func _resolve_bridge_chapter_dialogue(chapter_name_from_bridge: String) -> DialogueResource:
+	if chapters_dict.has(chapter_name_from_bridge):
+		return chapters_dict[chapter_name_from_bridge]
+	if dialogue and chapter_name == chapter_name_from_bridge:
+		return dialogue
+	return null
+
+func get_bridge_dialogue_debug_lines(chapter_name_from_bridge: String = "", text_query: String = "", key_query: String = "", limit: int = 50, offset: int = 0) -> Dictionary:
+	var target_dialogue := dialogue
+	if not chapter_name_from_bridge.is_empty():
+		target_dialogue = _resolve_bridge_chapter_dialogue(chapter_name_from_bridge)
+	if target_dialogue == null:
+		return {
+			"ok": false,
+			"error": "unknown chapter",
+		}
+
+	var normalized_text_query := text_query.strip_edges().to_lower()
+	var normalized_key_query := key_query.strip_edges().to_lower()
+	var safe_limit := clamp(limit, 1, 200)
+	var safe_offset := max(offset, 0)
+	var keys: Array = target_dialogue.lines.keys()
+	keys.sort()
+
+	var lines: Array[Dictionary] = []
+	var total_matches := 0
+	for key_variant in keys:
+		var line_key := str(key_variant)
+		var data: Dictionary = target_dialogue.lines.get(line_key, {})
+		if not _matches_bridge_dialogue_debug_query(line_key, data, normalized_text_query, normalized_key_query):
+			continue
+		if total_matches >= safe_offset and lines.size() < safe_limit:
+			var responses = data.get("responses", [])
+			var tags = data.get("tags", [])
+			lines.append({
+				"key": line_key,
+				"id": str(data.get("id", line_key)),
+				"type": str(data.get("type", "")),
+				"character": str(data.get("character", "")),
+				"text": str(data.get("text", "")),
+				"next_id": str(data.get("next_id", "")),
+				"response_count": responses.size() if typeof(responses) == TYPE_ARRAY else 0,
+				"tags": tags,
+			})
+		total_matches += 1
+
+	return {
+		"ok": true,
+		"chapter_name": target_dialogue.resource_path.get_file().trim_suffix(".dialogue"),
+		"resource_path": target_dialogue.resource_path,
+		"text_query": text_query,
+		"key_query": key_query,
+		"offset": safe_offset,
+		"limit": safe_limit,
+		"total_matches": total_matches,
+		"lines": lines,
+	}
+
+func _matches_bridge_dialogue_debug_query(line_key: String, data: Dictionary, normalized_text_query: String, normalized_key_query: String) -> bool:
+	if not normalized_key_query.is_empty() and not line_key.to_lower().contains(normalized_key_query):
+		return false
+	if normalized_text_query.is_empty():
+		return true
+	for value in [
+		str(data.get("id", line_key)),
+		str(data.get("character", "")),
+		str(data.get("text", "")),
+		str(data.get("next_id", "")),
+	]:
+		if value.to_lower().contains(normalized_text_query):
+			return true
+	return false
 
 func _serialize_dialogue_responses(responses: Array) -> Array[Dictionary]:
 	var serialized: Array[Dictionary] = []
@@ -207,6 +297,173 @@ func _resolve_response_next_id(index: int, next_id: String) -> String:
 	if index >= 0 and index < dialogue_line.responses.size():
 		return dialogue_line.responses[index].next_id
 	return ""
+
+func _kill_background_performance_tween() -> void:
+	if _background_performance_tween and is_instance_valid(_background_performance_tween):
+		_background_performance_tween.kill()
+	_background_performance_tween = null
+
+func _set_opening_blur(amount: float, tint_alpha: float) -> void:
+	var material := opening_blur_overlay.material as ShaderMaterial
+	if material == null:
+		return
+	material.set_shader_parameter("blur_amount", amount)
+	material.set_shader_parameter("tint_color", Color(0, 0, 0, tint_alpha))
+
+func _kill_opening_reveal_tween() -> void:
+	if _opening_reveal_tween and is_instance_valid(_opening_reveal_tween):
+		_opening_reveal_tween.kill()
+	_opening_reveal_tween = null
+
+func stop_opening_effects(stop_sound: bool = true) -> void:
+	_kill_opening_reveal_tween()
+	opening_blur_overlay.visible = false
+	_set_opening_blur(0.0, 0.0)
+	texture_rect_blackscreen.modulate.a = 0.0
+	if stop_sound:
+		AudioManager.stop_sound()
+
+func stop_background_performance(clear_texture: bool = true) -> void:
+	_kill_background_performance_tween()
+	background_performance_mask.visible = false
+	texture_rect_background_performance.position = Vector2.ZERO
+	texture_rect_background_performance.size = Vector2.ZERO
+	texture_rect_background_performance.scale = Vector2.ONE
+	if clear_texture:
+		texture_rect_background_performance.texture = null
+
+func prepare_background_hidden(texture: Texture2D) -> void:
+	stop_background_performance()
+	stop_opening_effects(false)
+	texture_rect_background.texture = texture
+	texture_rect_blackscreen.modulate.a = 1.0
+
+func play_blur_reveal(black_fade_time: float = 0.8, blur_fade_time: float = 1.2, blur_amount: float = 8.0) -> void:
+	stop_opening_effects(false)
+	opening_blur_overlay.visible = true
+	texture_rect_blackscreen.modulate.a = 1.0
+	_set_opening_blur(blur_amount, 0.5)
+	var material := opening_blur_overlay.material as ShaderMaterial
+	if material == null:
+		texture_rect_blackscreen.modulate.a = 0.0
+		opening_blur_overlay.visible = false
+		return
+	_opening_reveal_tween = create_tween()
+	_opening_reveal_tween.set_parallel(true)
+	_opening_reveal_tween.tween_property(texture_rect_blackscreen, "modulate:a", 0.0, black_fade_time)
+	_opening_reveal_tween.tween_property(material, "shader_parameter/blur_amount", 0.0, blur_fade_time)
+	_opening_reveal_tween.tween_property(material, "shader_parameter/tint_color", Color(0, 0, 0, 0), blur_fade_time)
+	await _opening_reveal_tween.finished
+	_opening_reveal_tween = null
+	opening_blur_overlay.visible = false
+	_set_opening_blur(0.0, 0.0)
+
+func _get_background_performance_size(texture: Texture2D, scale_multiplier: float) -> Dictionary:
+	if texture == null:
+		return {}
+	var viewport_size: Vector2 = background_performance_mask.size
+	if viewport_size.x <= 0 or viewport_size.y <= 0:
+		viewport_size = Vector2(subviewport.size)
+	var texture_size: Vector2 = texture.get_size()
+	if texture_size.x <= 0 or texture_size.y <= 0:
+		return {}
+	var cover_scale: float = max(viewport_size.x / texture_size.x, viewport_size.y / texture_size.y)
+	var drawn_size: Vector2 = texture_size * cover_scale * max(scale_multiplier, 1.0)
+	var base_position: Vector2 = (viewport_size - drawn_size) / 2.0
+	return {
+		"viewport_size": viewport_size,
+		"drawn_size": drawn_size,
+		"base_position": base_position,
+		"min_position": viewport_size - drawn_size,
+		"max_position": Vector2.ZERO,
+	}
+
+func prepare_background_performance(texture: Texture2D, scale_multiplier: float) -> Dictionary:
+	stop_background_performance(false)
+	var layout: Dictionary = _get_background_performance_size(texture, scale_multiplier)
+	if layout.is_empty():
+		return {}
+	texture_rect_background_performance.texture = texture
+	texture_rect_background_performance.position = layout["base_position"]
+	texture_rect_background_performance.size = layout["drawn_size"]
+	texture_rect_background_performance.scale = Vector2.ONE
+	background_performance_mask.visible = true
+	return layout
+
+func _get_background_performance_target(layout: Dictionary, segment: Dictionary) -> Vector2:
+	var base_position: Vector2 = layout["base_position"]
+	var min_position: Vector2 = layout["min_position"]
+	var max_position: Vector2 = layout["max_position"]
+	var normalized_x: float = clamp(float(segment.get("x", 0.0)), -1.0, 1.0)
+	var normalized_y: float = clamp(float(segment.get("y", 0.0)), -1.0, 1.0)
+	var target_x: float = base_position.x + normalized_x * ((base_position.x - min_position.x) if normalized_x < 0 else (max_position.x - base_position.x))
+	var target_y: float = base_position.y + normalized_y * ((base_position.y - min_position.y) if normalized_y < 0 else (max_position.y - base_position.y))
+	return Vector2(
+		clamp(target_x, min_position.x, max_position.x),
+		clamp(target_y, min_position.y, max_position.y)
+	)
+
+func play_background_performance(scale_multiplier: float, segments: Array) -> void:
+	var texture: Texture2D = texture_rect_background.texture
+	if texture == null:
+		push_warning("PerformBackgroundPan: 当前没有背景贴图可用于演出")
+		return
+	var base_layout: Dictionary = prepare_background_performance(texture, scale_multiplier)
+	if base_layout.is_empty():
+		push_warning("PerformBackgroundPan: 背景演出层布局失败")
+		return
+	if segments.is_empty():
+		stop_background_performance()
+		return
+	for raw_segment in segments:
+		if typeof(raw_segment) != TYPE_DICTIONARY:
+			continue
+		var segment: Dictionary = raw_segment
+		var segment_scale: float = float(segment.get("scale", scale_multiplier))
+		var layout: Dictionary = _get_background_performance_size(texture, segment_scale)
+		if layout.is_empty():
+			continue
+		texture_rect_background_performance.size = layout["drawn_size"]
+		var hold: float = float(segment.get("hold", 0.0))
+		var target: Vector2 = _get_background_performance_target(layout, segment)
+		var duration: float = float(segment.get("duration", -1.0))
+		if duration <= 0.0:
+			var speed: float = float(segment.get("speed", 0.0))
+			if speed > 0.0:
+				duration = texture_rect_background_performance.position.distance_to(target) / speed
+			elif not segment.has("duration"):
+				push_warning("PerformBackgroundPan: 分段缺少有效 duration 或 speed")
+				continue
+		if duration <= 0.0:
+			texture_rect_background_performance.position = target
+		else:
+			var tween: Tween = create_tween()
+			_background_performance_tween = tween
+			tween.set_parallel(true)
+			tween.tween_property(
+				texture_rect_background_performance,
+				"position",
+				target,
+				duration
+			).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property(
+				texture_rect_background_performance,
+				"size",
+				layout["drawn_size"],
+				duration
+			).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			while _background_performance_tween == tween and tween.is_valid() and tween.is_running():
+				await get_tree().process_frame
+			if _background_performance_tween != tween:
+				return
+			_background_performance_tween = null
+		if hold > 0.0:
+			var timer: SceneTreeTimer = get_tree().create_timer(hold)
+			while timer.time_left > 0.0:
+				await get_tree().process_frame
+				if background_performance_mask.visible == false:
+					return
+	stop_background_performance()
 
 var dialogue_line: DialogueLine:
 	set(value):
@@ -436,6 +693,8 @@ func wait_for_advance() -> void:
 
 func _ready() -> void:
 	date.modulate.a = 0
+	opening_blur_overlay.visible = false
+	_set_opening_blur(0.0, 0.0)
 	dialogue_label.visible_characters = 0
 	Main.speed_settings_changed.connect(update_step_rate)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_end)
@@ -504,6 +763,8 @@ func reset() -> void:
 	voice_buttons.visible = false
 	AudioManager.audio_player_voice.stop()
 	_disconnect_voice_finished()
+	stop_background_performance()
+	stop_opening_effects()
 	Stage.reset()
 	quick_save_progress_count = 0
 	current_book_segment_start_id = ""

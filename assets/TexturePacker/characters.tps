@@ -186,9 +186,11 @@
             <key type="filename">../characters/余洛琛/眉毛/默认.png</key>
             <key type="filename">../characters/余洛琛/眼睛/吃惊.png</key>
             <key type="filename">../characters/余洛琛/眼睛/微眯.png</key>
+            <key type="filename">../characters/余洛琛/眼睛/微眯躲闪.png</key>
             <key type="filename">../characters/余洛琛/眼睛/悲伤.png</key>
             <key type="filename">../characters/余洛琛/眼睛/眯眼开心.png</key>
             <key type="filename">../characters/余洛琛/眼睛/默认.png</key>
+            <key type="filename">../characters/余洛琛/眼睛/默认躲闪.png</key>
             <key type="filename">../characters/余洛琛/身体/常服-待机.png</key>
             <key type="filename">../characters/余洛琛/身体/常服-托眼镜.png</key>
             <key type="filename">../characters/余洛琛/身体/校服-待机.png</key>

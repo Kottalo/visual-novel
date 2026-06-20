@@ -166,10 +166,10 @@ offset_bottom = 1982.0
 size = Vector2i(1252, 3396)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(704.9999, 1650)
+position = Vector2(741, 1745)
 scale = Vector2(0.849, 0.849)
 sprite_frames = SubResource("SpriteFrames_dacpq")
-animation = &"默认-手放下"
+animation = &"默认-手抬起"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_i7yso")
@@ -191,10 +191,10 @@ visible = true
 pivot_offset = Vector2(-17, -2)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -734.0
-offset_top = -1426.0
-offset_right = 518.0
-offset_bottom = 1970.0
+offset_left = -2256.0
+offset_top = -1359.0
+offset_right = -1004.0
+offset_bottom = 2037.0
 pivot_offset = Vector2(705, 1430)
 texture = SubResource("ViewportTexture_ijtpr")
 

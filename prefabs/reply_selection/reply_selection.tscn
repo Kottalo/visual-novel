@@ -15,6 +15,18 @@ reply_text = NodePath("MarginContainer/ReplyText")
 hover_shade = NodePath("HoverShade")
 select_shade = NodePath("SelectShade")
 
+[node name="HoverShade" type="ColorRect" parent="." unique_id=1002091012]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.67058825, 0.654902, 0.7764706, 1)
+
+[node name="SelectShade" type="ColorRect" parent="." unique_id=1102489161]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.67058825, 0.654902, 0.7764706, 1)
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1367347500]
 layout_mode = 2
 mouse_filter = 2
@@ -28,18 +40,6 @@ theme = ExtResource("2_hx05g")
 theme_override_fonts/normal_font = ExtResource("4_jusj8")
 text = "我们"
 fit_content = true
-
-[node name="HoverShade" type="ColorRect" parent="." unique_id=1002091012]
-visible = false
-modulate = Color(0, 0, 0, 0.27450982)
-layout_mode = 2
-mouse_filter = 2
-
-[node name="SelectShade" type="ColorRect" parent="." unique_id=1102489161]
-visible = false
-modulate = Color(0, 0, 0, 0.27450982)
-layout_mode = 2
-mouse_filter = 2
 
 [node name="InteractSound" parent="." unique_id=1483212628 node_paths=PackedStringArray("target") instance=ExtResource("5_yh42e")]
 target = NodePath("..")

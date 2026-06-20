@@ -19,8 +19,10 @@ var variation_index: int:
 			return
 		variation_index = posmod(variation_index, current_gallery_data.cg_variations.size())
 		gallery_view_variation.texture = current_gallery_data.cg_variations[variation_index]
-		option_variation.option_name = current_gallery_data.cg_variations[variation_index].resource_path.get_file().get_basename()
-
+		var raw_name = current_gallery_data.cg_variations[variation_index].resource_path.get_file().get_basename()
+		var dash_pos = raw_name.find("-")
+		var display_name = raw_name.substr(dash_pos + 1) if dash_pos != -1 else raw_name
+		option_variation.option_name = display_name
 var _active_card: GalleryCard
 
 func _ready() -> void:

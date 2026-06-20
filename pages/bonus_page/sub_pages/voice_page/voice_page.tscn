@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dptcwuvdtymn8" path="res://assets/sprites/ui/ui.sprites/botton_hover.tres" id="13_f3a7m"]
 [ext_resource type="Texture2D" uid="uid://ocfot3ouwomw" path="res://assets/sprites/ui/ui.sprites/botton_replay.tres" id="14_n2gkn"]
 
-[node name="VoicePage" type="Control" unique_id=21218107 node_paths=PackedStringArray("voice_card_pool", "texture_rect_portrait", "label_character_name", "label_chapter_number", "label_chapter_name", "label_text", "voice_view", "button_replay", "button_favourite", "texture_rect_favourite")]
+[node name="VoicePage" type="Control" unique_id=21218107 node_paths=PackedStringArray("portrait_dict", "voice_card_pool", "label_character_name", "label_chapter_number", "label_chapter_name", "label_text", "voice_view", "button_replay", "button_favourite", "texture_rect_favourite")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,15 +29,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_feqe0")
-portrait_dict = Dictionary[int, Texture2D]({
-0: ExtResource("6_e62bb"),
-1: ExtResource("3_jy1e2"),
-2: ExtResource("4_cs7ht"),
-3: ExtResource("5_n2gkn"),
-4: ExtResource("6_inet1")
-})
+portrait_dict = {
+0: NodePath("VoiceView/TextureRect_Portrait_yu"),
+1: NodePath("VoiceView/TextureRect_Portrait_xia"),
+2: NodePath("VoiceView/TextureRect_Portrait_knd"),
+3: NodePath("VoiceView/TextureRect_Portrait_ge"),
+4: NodePath("VoiceView/TextureRect_Portrait_ling")
+}
 voice_card_pool = NodePath("ScrollContainer/VoiceCardPool")
-texture_rect_portrait = NodePath("VoiceView/TextureRect_Portrait")
 label_character_name = NodePath("VoiceView/Label_CharacterName")
 label_chapter_number = NodePath("VoiceView/Label_ChapterNumber")
 label_chapter_name = NodePath("VoiceView/Label_ChapterName")
@@ -90,17 +89,74 @@ offset_bottom = 1219.0
 mouse_filter = 2
 texture = ExtResource("7_jy1e2")
 
-[node name="TextureRect_Portrait" type="TextureRect" parent="VoiceView" unique_id=986176691]
+[node name="TextureRect_Portrait_yu" type="TextureRect" parent="VoiceView" unique_id=986176691]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -176.5
-offset_right = 709.0
-offset_bottom = 176.5
+offset_left = 112.0
+offset_top = -175.13
+offset_right = 589.0
+offset_bottom = 176.87
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("6_e62bb")
+
+[node name="TextureRect_Portrait_xia" type="TextureRect" parent="VoiceView" unique_id=1731573392]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.244995
+offset_top = -175.35999
+offset_right = 718.245
+offset_bottom = 177.64001
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_jy1e2")
+
+[node name="TextureRect_Portrait_ge" type="TextureRect" parent="VoiceView" unique_id=16016185]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 90.0
+offset_top = -176.5
+offset_right = 572.001
+offset_bottom = 176.5
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_n2gkn")
+
+[node name="TextureRect_Portrait_knd" type="TextureRect" parent="VoiceView" unique_id=773925071]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.30499
+offset_top = -176.5
+offset_right = 633.305
+offset_bottom = 176.5
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_cs7ht")
+
+[node name="TextureRect_Portrait_ling" type="TextureRect" parent="VoiceView" unique_id=471489141]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 84.109985
+offset_top = -176.5
+offset_right = 561.1101
+offset_bottom = 176.5
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_inet1")
 
 [node name="ShadowFrame" type="TextureRect" parent="VoiceView" unique_id=1990874687]
 layout_mode = 1
