@@ -12,14 +12,17 @@ signal reply_clicked(text: String, next_id: String)
 	set(value):
 		hovered = value
 		hover_shade.visible = hovered
+		_update_text_color()
 @export var selected: bool:
 	set(value):
 		selected = value
 		select_shade.visible = selected
+		_update_text_color()
 
 var next_id: String
 
 func _ready() -> void:
+	_update_text_color()
 	mouse_entered.connect(
 		func (): hovered = true
 	)
@@ -35,4 +38,8 @@ func _ready() -> void:
 
 func setup(text: String, _next_id: String) -> void:
 	reply_text.text = text
+	_update_text_color()
 	next_id = _next_id
+
+func _update_text_color() -> void:
+	reply_text.modulate = Color.WHITE if selected or hovered else Color.BLACK

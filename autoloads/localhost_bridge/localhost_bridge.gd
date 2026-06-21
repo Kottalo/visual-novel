@@ -14,7 +14,7 @@ var _busy: bool = false
 var _last_action_result: Dictionary = {}
 
 func _ready() -> void:
-	set_process(true)
+	set_process(false)
 	if auto_start_on_ready:
 		start_server()
 
@@ -86,10 +86,12 @@ func start_server() -> bool:
 		return false
 
 	_listening = true
+	set_process(true)
 	print("[LocalhostBridge] Listening on http://%s:%d" % [host, port])
 	return true
 
 func stop_server() -> void:
+	set_process(false)
 	for connection_id in _connections.keys():
 		_close_connection(connection_id)
 	_connections.clear()
@@ -374,6 +376,7 @@ func _run_action(action: String, params: Dictionary, request_id: String) -> void
 			error_message = "unknown action"
 
 	_busy = false
+	var debug_payload = _last_action_result.get("debug_payload", {})
 	_last_action_result = {
 		"request_id": request_id,
 		"action": action,
@@ -381,6 +384,7 @@ func _run_action(action: String, params: Dictionary, request_id: String) -> void
 		"error": error_message,
 		"started_at_ms": int(_last_action_result.get("started_at_ms", _now_ms())),
 		"finished_at_ms": _now_ms(),
+		"debug_payload": debug_payload,
 	}
 
 func _get_page_by_bridge_name(page_name: String) -> CanvasLayer:

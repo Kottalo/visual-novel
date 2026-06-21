@@ -205,7 +205,12 @@ func _resolve_bridge_chapter_dialogue(chapter_name_from_bridge: String) -> Dialo
 
 func get_bridge_dialogue_debug_lines(chapter_name_from_bridge: String = "", text_query: String = "", key_query: String = "", limit: int = 50, offset: int = 0) -> Dictionary:
 	var target_dialogue := dialogue
-	if not chapter_name_from_bridge.is_empty():
+	if chapter_name_from_bridge.is_empty():
+		if target_dialogue == null and not chapters_dict.is_empty():
+			var chapter_keys: Array = chapters_dict.keys()
+			chapter_keys.sort()
+			target_dialogue = chapters_dict[chapter_keys[0]]
+	else:
 		target_dialogue = _resolve_bridge_chapter_dialogue(chapter_name_from_bridge)
 	if target_dialogue == null:
 		return {
@@ -215,8 +220,8 @@ func get_bridge_dialogue_debug_lines(chapter_name_from_bridge: String = "", text
 
 	var normalized_text_query := text_query.strip_edges().to_lower()
 	var normalized_key_query := key_query.strip_edges().to_lower()
-	var safe_limit := clamp(limit, 1, 200)
-	var safe_offset := max(offset, 0)
+	var safe_limit: int = clampi(limit, 1, 200)
+	var safe_offset: int = maxi(offset, 0)
 	var keys: Array = target_dialogue.lines.keys()
 	keys.sort()
 
@@ -245,6 +250,7 @@ func get_bridge_dialogue_debug_lines(chapter_name_from_bridge: String = "", text
 	return {
 		"ok": true,
 		"chapter_name": target_dialogue.resource_path.get_file().trim_suffix(".dialogue"),
+		"requested_chapter_name": chapter_name_from_bridge,
 		"resource_path": target_dialogue.resource_path,
 		"text_query": text_query,
 		"key_query": key_query,
