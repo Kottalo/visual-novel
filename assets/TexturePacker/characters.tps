@@ -231,7 +231,7 @@
             <key type="filename">../characters/广播社老师/眉毛/默认.png</key>
             <key type="filename">../characters/广播社老师/眼睛/吃惊.png</key>
             <key type="filename">../characters/广播社老师/眼睛/悲伤.png</key>
-            <key type="filename">../characters/广播社老师/眼睛/眯眼开心.png</key>
+            <key type="filename">../characters/广播社老师/眼睛/眯眼.png</key>
             <key type="filename">../characters/广播社老师/眼睛/默认.png</key>
             <key type="filename">../characters/广播社老师/身体/工作服-待机.png</key>
             <key type="filename">../characters/广播社老师/附加/脸红.png</key>
