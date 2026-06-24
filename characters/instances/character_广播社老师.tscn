@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bgaobeqxog3h3" path="res://assets/sprites/characters/characters.sprites/广播社老师/眉毛/疑惑.tres" id="4_eb_conf"]
 [ext_resource type="Texture2D" uid="uid://1uloo0ffxqbe" path="res://assets/sprites/characters/characters.sprites/广播社老师/眉毛/认真.tres" id="5_eb_ser"]
 [ext_resource type="Texture2D" uid="uid://den4dc1jig2oh" path="res://assets/sprites/characters/characters.sprites/广播社老师/眉毛/默认.tres" id="6_eb_def"]
-[ext_resource type="Texture2D" uid="uid://cjirlii7u5pxc" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/吃惊.tres" id="7_eye_sur"]
-[ext_resource type="Texture2D" uid="uid://bgbb71xvbmq1y" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/悲伤.tres" id="8_eye_sad"]
-[ext_resource type="Texture2D" uid="uid://b0iuhvw7gekah" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/眯眼开心.tres" id="9_eye_hap"]
-[ext_resource type="Texture2D" uid="uid://cn8ntkc5wslym" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/默认.tres" id="10_eye_def"]
+[ext_resource type="Texture2D" uid="uid://bqqs8t1n8la5r" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/吃惊.tres" id="7_eye_sur"]
+[ext_resource type="Texture2D" uid="uid://bsyj5x7vmtvu3" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/悲伤.tres" id="8_eye_sad"]
+[ext_resource type="Texture2D" uid="uid://bai4aq1t6djc3" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/眯眼.tres" id="9_7jrw0"]
+[ext_resource type="Texture2D" uid="uid://bc52lttj88wlg" path="res://assets/sprites/characters/characters.sprites/广播社老师/眼睛/默认.tres" id="10_eye_def"]
 [ext_resource type="Texture2D" uid="uid://b5my456u5p7sj" path="res://assets/sprites/characters/characters.sprites/广播社老师/嘴巴/不开口.tres" id="11_mo_clo"]
 [ext_resource type="Texture2D" uid="uid://djvfbltudkar2" path="res://assets/sprites/characters/characters.sprites/广播社老师/嘴巴/小声说话.tres" id="12_mo_whi"]
 [ext_resource type="Texture2D" uid="uid://dv5rqa3dws5qn" path="res://assets/sprites/characters/characters.sprites/广播社老师/嘴巴/开口说话.tres" id="13_mo_spk"]
@@ -82,10 +82,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_eye_hap")
+"texture": ExtResource("9_7jrw0")
 }],
 "loop": true,
-"name": &"眯眼开心",
+"name": &"眯眼",
 "speed": 5.0
 }, {
 "frames": [{
@@ -132,15 +132,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7jrw0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0jq61"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0jq61"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s5ytx"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5ytx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0nko"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_0jq61")
+atlas = SubResource("ViewportTexture_s5ytx")
 region = Rect2(280, 10, 873.1731, 1114.4692)
 
 [node name="广播社老师" unique_id=-366395692 instance=ExtResource("1_base")]
@@ -167,11 +167,11 @@ animation = &"悲伤"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_eyes")
-animation = &"默认"
+animation = &"吃惊"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_mouth")
-animation = &"开口说话"
+animation = &"微笑"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=1926444703]
 visible = false
@@ -189,7 +189,7 @@ pivot_offset = Vector2(252, 330)
 offset_right = 841.0
 offset_bottom = 2235.0
 pivot_offset = Vector2(677, 1695)
-texture = SubResource("ViewportTexture_7jrw0")
+texture = SubResource("ViewportTexture_0jq61")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_s5ytx")
+preview_texture = SubResource("AtlasTexture_r0nko")
