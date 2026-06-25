@@ -301,7 +301,7 @@ offset_bottom = 1460.0
 size = Vector2i(1287, 2812)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(687, 1237)
+position = Vector2(684, 1237)
 scale = Vector2(0.774, 0.774)
 sprite_frames = SubResource("SpriteFrames_ha8hd")
 animation = &"校服-待机"
