@@ -277,6 +277,7 @@
             <key type="filename">../characters/葛城/眉毛/默认.png</key>
             <key type="filename">../characters/葛城/眼睛/微眯.png</key>
             <key type="filename">../characters/葛城/眼睛/悲伤.png</key>
+            <key type="filename">../characters/葛城/眼睛/惊讶.png</key>
             <key type="filename">../characters/葛城/眼睛/眯眼.png</key>
             <key type="filename">../characters/葛城/眼睛/默认.png</key>
             <key type="filename">../characters/葛城/身体/手抬起.png</key>
