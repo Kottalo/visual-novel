@@ -132,15 +132,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0jq61"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7jrw0"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s5ytx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0jq61"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0nko"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ytx"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_s5ytx")
+atlas = SubResource("ViewportTexture_0jq61")
 region = Rect2(280, 10, 873.1731, 1114.4692)
 
 [node name="广播社老师" unique_id=-366395692 instance=ExtResource("1_base")]
@@ -189,7 +189,7 @@ pivot_offset = Vector2(252, 330)
 offset_right = 841.0
 offset_bottom = 2235.0
 pivot_offset = Vector2(677, 1695)
-texture = SubResource("ViewportTexture_0jq61")
+texture = SubResource("ViewportTexture_7jrw0")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_r0nko")
+preview_texture = SubResource("AtlasTexture_s5ytx")

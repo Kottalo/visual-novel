@@ -151,15 +151,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xm650"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jbeyg"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6hyrk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xm650"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_33gpk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hyrk"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_6hyrk")
+atlas = SubResource("ViewportTexture_xm650")
 region = Rect2(290.5854, 7.3722153, 752.5955, 842.8549)
 
 [node name="葛城" unique_id=1900529109 instance=ExtResource("1_8t5bo")]
@@ -186,7 +186,7 @@ animation = &"默认"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_whde6")
-animation = &"默认"
+animation = &"惊讶"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_qs3gh")
@@ -200,12 +200,12 @@ visible = true
 pivot_offset = Vector2(-17, -2)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -2256.0
-offset_top = -1359.0
-offset_right = -1004.0
-offset_bottom = 2037.0
+offset_left = -720.0
+offset_top = -1403.0
+offset_right = 532.0
+offset_bottom = 1993.0
 pivot_offset = Vector2(705, 1430)
-texture = SubResource("ViewportTexture_xm650")
+texture = SubResource("ViewportTexture_jbeyg")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_33gpk")
+preview_texture = SubResource("AtlasTexture_6hyrk")

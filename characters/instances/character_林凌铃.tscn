@@ -335,10 +335,10 @@ visible = true
 pivot_offset = Vector2(-29, -6)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -2322.0
-offset_top = -1451.0
-offset_right = -1035.0
-offset_bottom = 1361.0
+offset_left = -671.0
+offset_top = -1318.0
+offset_right = 616.0
+offset_bottom = 1494.0
 pivot_offset = Vector2(624, 1372)
 texture = SubResource("ViewportTexture_3ptuv")
 

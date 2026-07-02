@@ -31,12 +31,17 @@ color = Color(0.67058825, 0.654902, 0.7764706, 1)
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("2_hx05g")
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 18
 
 [node name="ReplyText" type="RichTextLabel" parent="MarginContainer" unique_id=1664763826]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("2_hx05g")
+theme_override_constants/line_separation = 8
 theme_override_fonts/normal_font = ExtResource("4_jusj8")
 text = "我们"
 fit_content = true
