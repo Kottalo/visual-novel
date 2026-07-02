@@ -120,23 +120,39 @@ func replay_voice() -> void:
 
 func play_sound_by_name(sound_name: String, wait_for_finish: bool = false) -> void:
 	var stream: AudioStream = null
+	var fade_in := false
 	match sound_name:
 		"设备调试":
 			stream = intro_sfx_debugging
+			fade_in = true
 		_:
 			push_warning("play_sound_by_name: 未知音效 %s" % sound_name)
 			return
 	if stream == null:
 		push_warning("play_sound_by_name: 音效未配置 %s" % sound_name)
 		return
+	if _sound_fade_tween:
+		_sound_fade_tween.kill()
+	var target_db: float = audio_player_sound.volume_db
 	audio_player_sound.stream = stream
+	if fade_in:
+		var start_db: float = max(-80.0, target_db - 18.0)
+		audio_player_sound.volume_db = start_db
 	audio_player_sound.play()
+	if fade_in:
+		_sound_fade_tween = create_tween()
+		_sound_fade_tween.tween_property(audio_player_sound, "volume_db", target_db, 0.6) \
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	if wait_for_finish:
 		await audio_player_sound.finished
 
 func stop_sound() -> void:
+	if _sound_fade_tween:
+		_sound_fade_tween.kill()
 	audio_player_sound.stop()
 
+
+var _sound_fade_tween: Tween
 
 var _duck_tween: Tween
 var _unducked_db: float

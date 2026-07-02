@@ -239,14 +239,21 @@ func SetMusic(music_name: String) -> void:
 		and AudioManager.audio_player_music.stream == track_data.track \
 		and AudioManager.audio_player_music.playing:
 		return
-	# fade out 当前音乐
+	# fade out 当前音乐，但不阻塞对话推进
 	if AudioManager.audio_player_music.playing:
 		var saved_db := AudioManager.audio_player_music.volume_db
-		await create_tween().tween_property(
+		var tween := create_tween()
+		tween.tween_property(
 			AudioManager.audio_player_music, "volume_db", -80.0, 2.0
-		).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).finished
-		AudioManager.audio_player_music.stop()
-		AudioManager.audio_player_music.volume_db = saved_db
+		).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+		tween.tween_callback(
+			func():
+				AudioManager.audio_player_music.stop()
+				AudioManager.audio_player_music.volume_db = saved_db
+				AudioManager.track_index = AudioManager.playlist.find(track_data)
+				AudioManager.play_track()
+		)
+		return
 	AudioManager.track_index = AudioManager.playlist.find(track_data)
 	AudioManager.play_track()
 
@@ -254,11 +261,15 @@ func StopMusic() -> void:
 	if not AudioManager.audio_player_music.playing:
 		return
 	var saved_db := AudioManager.audio_player_music.volume_db
-	await create_tween().tween_property(
+	var tween := create_tween()
+	tween.tween_property(
 		AudioManager.audio_player_music, "volume_db", -80.0, 2.0
-	).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).finished
-	AudioManager.audio_player_music.stop()
-	AudioManager.audio_player_music.volume_db = saved_db
+	).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	tween.tween_callback(
+		func():
+			AudioManager.audio_player_music.stop()
+			AudioManager.audio_player_music.volume_db = saved_db
+	)
 
 func HideDialogue(duration: float = 0.4) -> void:
 	AudioManager.audio_player_voice.stop()

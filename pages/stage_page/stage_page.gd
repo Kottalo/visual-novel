@@ -58,6 +58,7 @@ var quick_save_progress_count: int = 0
 var current_book_segment_start_id: String = ""
 var _background_performance_tween: Tween
 var _opening_reveal_tween: Tween
+var _bridge_sorted_dialogue_keys_cache: Dictionary = {}
 
 var skip: bool:
 	get: return _mode == AdvanceMode.SKIP
@@ -191,9 +192,12 @@ func start_at_from_bridge(chapter_name_from_bridge: String, next_id: String) -> 
 	var target_dialogue := _resolve_bridge_chapter_dialogue(chapter_name_from_bridge)
 	if target_dialogue == null:
 		return false
+	var resolved_next_id := _resolve_bridge_next_id(target_dialogue, next_id)
+	if resolved_next_id.is_empty():
+		return false
 	dialogue = target_dialogue
 	reset()
-	dialogue_line = await dialogue.get_line(next_id, [self, Stage])
+	dialogue_line = await DialogueManager.get_line(dialogue, resolved_next_id, [self, Stage])
 	return dialogue_line != null
 
 func _resolve_bridge_chapter_dialogue(chapter_name_from_bridge: String) -> DialogueResource:
@@ -203,10 +207,27 @@ func _resolve_bridge_chapter_dialogue(chapter_name_from_bridge: String) -> Dialo
 		return dialogue
 	return null
 
-func get_bridge_dialogue_debug_lines(chapter_name_from_bridge: String = "", text_query: String = "", key_query: String = "", limit: int = 50, offset: int = 0) -> Dictionary:
-	var target_dialogue := dialogue
-	if not chapter_name_from_bridge.is_empty():
-		target_dialogue = _resolve_bridge_chapter_dialogue(chapter_name_from_bridge)
+func _resolve_bridge_next_id(target_dialogue: DialogueResource, next_id: String) -> String:
+	var candidate := next_id.strip_edges()
+	if target_dialogue.lines.has(candidate) or target_dialogue.titles.has(candidate):
+		return candidate
+	var static_line_id := _extract_bridge_static_line_id(candidate)
+	if static_line_id.is_empty():
+		return ""
+	return DialogueManager.static_id_to_line_id(target_dialogue, static_line_id)
+
+func _extract_bridge_static_line_id(value: String) -> String:
+	var start := value.find("[ID:")
+	if start == -1:
+		return value if value.ends_with(".line") or value.ends_with(".opt") else ""
+	var id_start := start + 4
+	var id_end := value.find("]", id_start)
+	if id_end == -1:
+		return ""
+	return value.substr(id_start, id_end - id_start).strip_edges()
+
+func get_bridge_dialogue_debug_lines(chapter_name_from_bridge: String = "", text_query: String = "", key_query: String = "", limit: int = 50, offset: int = 0, include_total: bool = false) -> Dictionary:
+	var target_dialogue := _resolve_bridge_debug_target_dialogue(chapter_name_from_bridge)
 	if target_dialogue == null:
 		return {
 			"ok": false,
@@ -215,43 +236,109 @@ func get_bridge_dialogue_debug_lines(chapter_name_from_bridge: String = "", text
 
 	var normalized_text_query := text_query.strip_edges().to_lower()
 	var normalized_key_query := key_query.strip_edges().to_lower()
-	var safe_limit := clamp(limit, 1, 200)
-	var safe_offset := max(offset, 0)
-	var keys: Array = target_dialogue.lines.keys()
-	keys.sort()
-
+	var safe_limit: int = clampi(limit, 1, 200)
+	var safe_offset: int = maxi(offset, 0)
+	var keys := _get_bridge_sorted_dialogue_keys(target_dialogue)
 	var lines: Array[Dictionary] = []
 	var total_matches := 0
+	var has_more := false
+
 	for key_variant in keys:
 		var line_key := str(key_variant)
 		var data: Dictionary = target_dialogue.lines.get(line_key, {})
 		if not _matches_bridge_dialogue_debug_query(line_key, data, normalized_text_query, normalized_key_query):
 			continue
-		if total_matches >= safe_offset and lines.size() < safe_limit:
-			var responses = data.get("responses", [])
-			var tags = data.get("tags", [])
-			lines.append({
-				"key": line_key,
-				"id": str(data.get("id", line_key)),
-				"type": str(data.get("type", "")),
-				"character": str(data.get("character", "")),
-				"text": str(data.get("text", "")),
-				"next_id": str(data.get("next_id", "")),
-				"response_count": responses.size() if typeof(responses) == TYPE_ARRAY else 0,
-				"tags": tags,
-			})
 		total_matches += 1
+		if total_matches <= safe_offset:
+			continue
+		if lines.size() < safe_limit:
+			lines.append(_serialize_bridge_dialogue_debug_line(line_key, data))
+		else:
+			has_more = true
+			if not include_total:
+				break
 
-	return {
+	var next_offset := safe_offset + lines.size()
+	var resolved_chapter_name := target_dialogue.resource_path.get_file().trim_suffix(".dialogue")
+	if resolved_chapter_name.is_empty() and target_dialogue == dialogue:
+		resolved_chapter_name = chapter_name
+	var pagination := {
+		"offset": safe_offset,
+		"limit": safe_limit,
+		"returned": lines.size(),
+		"has_more": has_more,
+		"next_offset": next_offset,
+		"include_total": include_total,
+	}
+	if include_total:
+		pagination["total_matches"] = total_matches
+
+	var result := {
 		"ok": true,
-		"chapter_name": target_dialogue.resource_path.get_file().trim_suffix(".dialogue"),
+		"chapter_name": resolved_chapter_name,
+		"requested_chapter_name": chapter_name_from_bridge,
 		"resource_path": target_dialogue.resource_path,
 		"text_query": text_query,
 		"key_query": key_query,
 		"offset": safe_offset,
 		"limit": safe_limit,
-		"total_matches": total_matches,
+		"returned": lines.size(),
+		"has_more": has_more,
+		"next_offset": next_offset,
+		"include_total": include_total,
+		"query": {
+			"chapter_name": chapter_name_from_bridge,
+			"text_query": text_query,
+			"key_query": key_query,
+		},
+		"pagination": pagination,
 		"lines": lines,
+	}
+	if include_total:
+		result["total_matches"] = total_matches
+	return result
+
+func _resolve_bridge_debug_target_dialogue(chapter_name_from_bridge: String) -> DialogueResource:
+	if not chapter_name_from_bridge.is_empty():
+		return _resolve_bridge_chapter_dialogue(chapter_name_from_bridge)
+	if dialogue:
+		return dialogue
+	if chapters_dict.is_empty():
+		return null
+	var chapter_keys: Array = chapters_dict.keys()
+	chapter_keys.sort()
+	return chapters_dict[chapter_keys[0]]
+
+func _get_bridge_sorted_dialogue_keys(target_dialogue: DialogueResource) -> Array:
+	var cache_key := target_dialogue.resource_path
+	if cache_key.is_empty():
+		cache_key = str(target_dialogue.get_instance_id())
+	var cached: Dictionary = _bridge_sorted_dialogue_keys_cache.get(cache_key, {})
+	if int(cached.get("size", -1)) != target_dialogue.lines.size():
+		var keys: Array = target_dialogue.lines.keys()
+		keys.sort()
+		cached = {
+			"size": target_dialogue.lines.size(),
+			"keys": keys,
+		}
+		_bridge_sorted_dialogue_keys_cache[cache_key] = cached
+	return cached.get("keys", [])
+
+func _serialize_bridge_dialogue_debug_line(line_key: String, data: Dictionary) -> Dictionary:
+	var responses = data.get("responses", [])
+	var tags = data.get("tags", [])
+	var static_id := str(data.get("translation_key", ""))
+	return {
+		"key": line_key,
+		"id": str(data.get("id", line_key)),
+		"static_id": static_id,
+		"jump_id": "[ID:%s]" % [static_id] if not static_id.is_empty() else line_key,
+		"type": str(data.get("type", "")),
+		"character": str(data.get("character", "")),
+		"text": str(data.get("text", "")),
+		"next_id": str(data.get("next_id", "")),
+		"response_count": responses.size() if typeof(responses) == TYPE_ARRAY else 0,
+		"tags": tags.duplicate() if typeof(tags) == TYPE_ARRAY else [],
 	}
 
 func _matches_bridge_dialogue_debug_query(line_key: String, data: Dictionary, normalized_text_query: String, normalized_key_query: String) -> bool:
@@ -261,9 +348,12 @@ func _matches_bridge_dialogue_debug_query(line_key: String, data: Dictionary, no
 		return true
 	for value in [
 		str(data.get("id", line_key)),
+		str(data.get("translation_key", "")),
+		str(data.get("type", "")),
 		str(data.get("character", "")),
 		str(data.get("text", "")),
 		str(data.get("next_id", "")),
+		str(data.get("tags", [])),
 	]:
 		if value.to_lower().contains(normalized_text_query):
 			return true

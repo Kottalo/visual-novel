@@ -14,7 +14,7 @@ var _busy: bool = false
 var _last_action_result: Dictionary = {}
 
 func _ready() -> void:
-	set_process(true)
+	set_process(false)
 	if auto_start_on_ready:
 		start_server()
 
@@ -86,10 +86,12 @@ func start_server() -> bool:
 		return false
 
 	_listening = true
+	set_process(true)
 	print("[LocalhostBridge] Listening on http://%s:%d" % [host, port])
 	return true
 
 func stop_server() -> void:
+	set_process(false)
 	for connection_id in _connections.keys():
 		_close_connection(connection_id)
 	_connections.clear()
@@ -184,6 +186,9 @@ func _handle_action_request(peer: StreamPeerTCP, body_text: String) -> void:
 		return
 	if not _is_allowed_action(action):
 		_send_json(peer, 400, {"ok": false, "error": "unknown action"})
+		return
+	if action == "stage.debug_dialogue_lines":
+		_send_json(peer, 200, _handle_debug_dialogue_lines_query(params, request_id))
 		return
 	if _busy:
 		_send_json(peer, 409, {"ok": false, "error": "bridge busy"})
@@ -291,18 +296,6 @@ func _run_action(action: String, params: Dictionary, request_id: String) -> void
 				ok = await Game.stage_page.start_at_from_bridge(chapter_name, next_id)
 				if not ok:
 					error_message = "unknown chapter or next_id"
-		"stage.debug_dialogue_lines":
-			var debug_payload := Game.stage_page.get_bridge_dialogue_debug_lines(
-				str(params.get("chapter_name", "")),
-				str(params.get("text_query", "")),
-				str(params.get("key_query", "")),
-				int(params.get("limit", 50)),
-				int(params.get("offset", 0))
-			)
-			ok = bool(debug_payload.get("ok", false))
-			_last_action_result["debug_payload"] = debug_payload
-			if not ok:
-				error_message = str(debug_payload.get("error", "unable to inspect dialogue lines"))
 		"stage.reset":
 			Game.stage_page.reset()
 		"stage.show_phone":
@@ -374,6 +367,7 @@ func _run_action(action: String, params: Dictionary, request_id: String) -> void
 			error_message = "unknown action"
 
 	_busy = false
+	var debug_payload = _last_action_result.get("debug_payload", {})
 	_last_action_result = {
 		"request_id": request_id,
 		"action": action,
@@ -381,7 +375,32 @@ func _run_action(action: String, params: Dictionary, request_id: String) -> void
 		"error": error_message,
 		"started_at_ms": int(_last_action_result.get("started_at_ms", _now_ms())),
 		"finished_at_ms": _now_ms(),
+		"debug_payload": debug_payload,
 	}
+
+func _handle_debug_dialogue_lines_query(params: Dictionary, request_id: String) -> Dictionary:
+	var started_at_ms := _now_ms()
+	var debug_payload := Game.stage_page.get_bridge_dialogue_debug_lines(
+		str(params.get("chapter_name", "")),
+		str(params.get("text_query", "")),
+		str(params.get("key_query", "")),
+		int(params.get("limit", 50)),
+		int(params.get("offset", 0)),
+		_as_bool(params.get("include_total", false), false)
+	)
+	var ok := bool(debug_payload.get("ok", false))
+	var error_message := "" if ok else str(debug_payload.get("error", "unable to inspect dialogue lines"))
+	_last_action_result = {
+		"request_id": request_id,
+		"action": "stage.debug_dialogue_lines",
+		"status": "ok" if ok else "error",
+		"error": error_message,
+		"started_at_ms": started_at_ms,
+		"finished_at_ms": _now_ms(),
+		"debug_payload": debug_payload,
+		"result": debug_payload,
+	}
+	return debug_payload
 
 func _get_page_by_bridge_name(page_name: String) -> CanvasLayer:
 	match page_name:

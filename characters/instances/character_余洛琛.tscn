@@ -253,17 +253,12 @@ texture = ExtResource("23_h3wkl")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
-offset_left = 57.0
-offset_top = 2.0
-offset_right = 57.0
-offset_bottom = 2.0
-pivot_offset = Vector2(-104, -9)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -1825.0
-offset_top = -1346.0
-offset_right = -495.0
-offset_bottom = 1724.0
+offset_left = -624.0
+offset_top = -1453.0
+offset_right = 706.0
+offset_bottom = 1617.0
 pivot_offset = Vector2(594, 1362)
 texture = SubResource("ViewportTexture_2s1x3")
 

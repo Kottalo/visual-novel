@@ -301,22 +301,22 @@ offset_bottom = 1460.0
 size = Vector2i(1287, 2812)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(721, 1196)
+position = Vector2(684, 1237)
 scale = Vector2(0.774, 0.774)
 sprite_frames = SubResource("SpriteFrames_ha8hd")
-animation = &"校服-摊手"
+animation = &"校服-待机"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_8sp82")
-animation = &"上扬"
+animation = &"默认"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_0t0je")
-animation = &"微眯"
+animation = &"惊喜"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_w6frx")
-animation = &"大开口"
+animation = &"默认"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=1564997541]
 visible = false
@@ -332,13 +332,12 @@ texture = ExtResource("33_rh8d2")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
-pivot_offset = Vector2(-29, -6)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -674.0
-offset_top = -1360.0
-offset_right = 613.0
-offset_bottom = 1452.0
+offset_left = -688.0
+offset_top = -1346.0
+offset_right = 599.0
+offset_bottom = 1466.0
 pivot_offset = Vector2(624, 1372)
 texture = SubResource("ViewportTexture_3ptuv")
 

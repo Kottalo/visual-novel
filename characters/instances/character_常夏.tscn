@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://dmtbp0bav5ra4" path="res://assets/sprites/characters/characters.sprites/常夏/身体/校服-叉腰.tres" id="7_uwf68"]
 [ext_resource type="Texture2D" uid="uid://dp086ygqnjsbs" path="res://assets/sprites/characters/characters.sprites/常夏/眉毛/认真.tres" id="8_qdyow"]
 [ext_resource type="Texture2D" uid="uid://djy4v3qb8db7g" path="res://assets/sprites/characters/characters.sprites/常夏/眉毛/默认.tres" id="9_vm0ad"]
-[ext_resource type="Texture2D" uid="uid://bfw887pbtrtpo" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/微眯.tres" id="10_uwf68"]
-[ext_resource type="Texture2D" uid="uid://bgnvobcf4ejtr" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/悲伤.tres" id="11_fbx6l"]
-[ext_resource type="Texture2D" uid="uid://be0tcx4n3set4" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/星星眼.tres" id="12_uhghm"]
-[ext_resource type="Texture2D" uid="uid://dma5ij773y2ll" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/眯眼.tres" id="13_h036r"]
-[ext_resource type="Texture2D" uid="uid://72c2anje8euw" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/默认.tres" id="14_fhsx7"]
+[ext_resource type="Texture2D" uid="uid://dbhpfe6kjkroi" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/微眯.tres" id="10_uwf68"]
+[ext_resource type="Texture2D" uid="uid://ckohqxu4d54g2" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/悲伤.tres" id="11_fbx6l"]
+[ext_resource type="Texture2D" uid="uid://h6e50ci3in44" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/星星眼.tres" id="12_uhghm"]
+[ext_resource type="Texture2D" uid="uid://dbhwqmblqvfk1" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/眯眼.tres" id="13_h036r"]
+[ext_resource type="Texture2D" uid="uid://dteuvwe7m3kwi" path="res://assets/sprites/characters/characters.sprites/常夏/眼睛/默认.tres" id="14_fhsx7"]
 [ext_resource type="Texture2D" uid="uid://sr4q6y4q716j" path="res://assets/sprites/characters/characters.sprites/常夏/嘴巴/不满.tres" id="15_84dwk"]
 [ext_resource type="Texture2D" uid="uid://b2btely4lepxj" path="res://assets/sprites/characters/characters.sprites/常夏/嘴巴/大开口.tres" id="16_ilflx"]
 [ext_resource type="Texture2D" uid="uid://cs5j06ocs3nm" path="res://assets/sprites/characters/characters.sprites/常夏/嘴巴/小开口.tres" id="17_hpak8"]
@@ -264,14 +264,12 @@ texture = ExtResource("21_hdqmv")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
-offset_left = -117.0
-offset_right = -117.0
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -2165.0
-offset_top = -1435.0
-offset_right = -826.0
-offset_bottom = 1278.0
+offset_left = -674.0
+offset_top = -1349.0
+offset_right = 665.0
+offset_bottom = 1364.0
 texture = SubResource("ViewportTexture_r613x")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
