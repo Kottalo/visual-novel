@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://b0n2joy3a36wk" path="res://data/backgrounds/07_教室.tres" id="10_lv745"]
 [ext_resource type="Resource" uid="uid://bo1argwl65ko4" path="res://data/backgrounds/08_广播社.tres" id="10_n6isd"]
 [ext_resource type="PackedScene" uid="uid://dvavxp5xvb7m1" path="res://characters/instances/character_林凌铃.tscn" id="11_ag5rj"]
+[ext_resource type="PackedScene" uid="uid://bklo0ijs4q51e" path="res://characters/instances/character_广播社老师.tscn" id="11_teacher"]
 [ext_resource type="Resource" uid="uid://3a3ymt10val6" path="res://data/backgrounds/09_广播社门口.tres" id="11_i3l8f"]
 [ext_resource type="Script" uid="uid://lqr1upuurtst" path="res://data/_models/gallery_data.gd" id="12_gallery"]
 [ext_resource type="Resource" uid="uid://b5x4vbvjby76n" path="res://data/backgrounds/10_天台.tres" id="12_njbww"]
@@ -78,4 +79,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="林凌铃" parent="Characters" unique_id=809289517 instance=ExtResource("11_ag5rj")]
+layout_mode = 1
+
+[node name="广播社老师" parent="Characters" unique_id=853321699 instance=ExtResource("11_teacher")]
 layout_mode = 1

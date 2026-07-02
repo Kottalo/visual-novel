@@ -186,7 +186,7 @@ animation = &"默认"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_whde6")
-animation = &"惊讶"
+animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_qs3gh")

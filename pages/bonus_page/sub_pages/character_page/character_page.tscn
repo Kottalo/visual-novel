@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dvwwuqgnvc672" path="res://characters/instances/character_余洛琛.tscn" id="9_5lwtc"]
 [ext_resource type="PackedScene" uid="uid://couiwje1dnllu" path="res://characters/instances/character_葛城.tscn" id="10_po4xj"]
 [ext_resource type="PackedScene" uid="uid://dvavxp5xvb7m1" path="res://characters/instances/character_林凌铃.tscn" id="11_dorhe"]
+[ext_resource type="PackedScene" uid="uid://bklo0ijs4q51e" path="res://characters/instances/character_广播社老师.tscn" id="11_teacher"]
 [ext_resource type="FontFile" uid="uid://c35dkyhsjoohv" path="res://assets/fonts/DreamHanSerif-W12（通用字）.ttc" id="12_qgx8s"]
 [ext_resource type="PackedScene" uid="uid://biidn3huf1yac" path="res://prefabs/character_option/character_option.tscn" id="13_34roo"]
 [ext_resource type="PackedScene" uid="uid://bjgc7qq7fa0s3" path="res://prefabs/slider_ex/slider_ex.tscn" id="14_201mx"]
@@ -58,14 +59,14 @@ stretch_mode = 6
 [node name="CharacterSelections" type="GridContainer" parent="." unique_id=2085298603]
 layout_mode = 0
 offset_left = -14.0
-offset_top = 163.0
-offset_right = 352.0
-offset_bottom = 529.0
+offset_top = 135.05
+offset_right = 476.0
+offset_bottom = 631.04956
 rotation = 0.7853982
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
-columns = 3
+columns = 4
 
 [node name="辉夜奏" parent="CharacterSelections" unique_id=449091213 instance=ExtResource("3_dorhe")]
 layout_mode = 2
@@ -85,6 +86,9 @@ layout_mode = 2
 [node name="Control2" type="Control" parent="CharacterSelections" unique_id=1682377295]
 layout_mode = 2
 
+[node name="Control3" type="Control" parent="CharacterSelections" unique_id=1406105038]
+layout_mode = 2
+
 [node name="余洛琛" parent="CharacterSelections" unique_id=2123052684 instance=ExtResource("3_dorhe")]
 layout_mode = 2
 
@@ -97,10 +101,13 @@ layout_mode = 2
 [node name="Portrait" parent="CharacterSelections/葛城/MarginContainer/Control" parent_id_path=PackedInt32Array(1471635053, 2112021901) index="0" unique_id=458404707]
 texture = ExtResource("7_od5st")
 
-[node name="Control3" type="Control" parent="CharacterSelections" unique_id=1406105038]
+[node name="Control4" type="Control" parent="CharacterSelections" unique_id=537962442]
 layout_mode = 2
 
-[node name="Control4" type="Control" parent="CharacterSelections" unique_id=537962442]
+[node name="Control5" type="Control" parent="CharacterSelections" unique_id=1787765368]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="CharacterSelections" unique_id=1315222525]
 layout_mode = 2
 
 [node name="林凌铃" parent="CharacterSelections" unique_id=1100820711 instance=ExtResource("3_dorhe")]
@@ -108,6 +115,12 @@ layout_mode = 2
 
 [node name="Portrait" parent="CharacterSelections/林凌铃/MarginContainer/Control" parent_id_path=PackedInt32Array(1100820711, 2112021901) index="0" unique_id=458404707]
 texture = ExtResource("8_5lwtc")
+
+[node name="广播社老师" parent="CharacterSelections" unique_id=1842045001 instance=ExtResource("3_dorhe")]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="CharacterSelections" unique_id=647103446]
+layout_mode = 2
 
 [node name="Characters" type="Control" parent="." unique_id=1346683318]
 anchors_preset = 0
@@ -167,6 +180,11 @@ grow_vertical = 1
 movable = true
 
 [node name="林凌铃" parent="Characters" unique_id=809289517 instance=ExtResource("11_dorhe")]
+visible = false
+layout_mode = 1
+movable = true
+
+[node name="广播社老师" parent="Characters" unique_id=1047711049 instance=ExtResource("11_teacher")]
 visible = false
 layout_mode = 1
 movable = true

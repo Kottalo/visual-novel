@@ -156,18 +156,18 @@ offset_bottom = 1900.0
 size = Vector2i(1300, 3600)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(670, 1700)
+position = Vector2(681, 1751.0001)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_body")
 animation = &"工作服-待机"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_ebrow")
-animation = &"悲伤"
+animation = &"默认"
 
 [node name="Eyes" parent="SubViewportContainer/SubViewport/Body" index="1" unique_id=493810032]
 sprite_frames = SubResource("SpriteFrames_eyes")
-animation = &"吃惊"
+animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_mouth")
@@ -181,10 +181,10 @@ texture = ExtResource("15_blush")
 visible = true
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -703.0
-offset_top = -1687.0
-offset_right = 597.0
-offset_bottom = 1913.0
+offset_left = -695.0
+offset_top = -1706.0
+offset_right = 605.0
+offset_bottom = 1894.0
 texture = SubResource("ViewportTexture_7jrw0")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
