@@ -247,15 +247,7 @@ func load_profile(profile: ProfileData) -> void:
 					character.character_image = character.story_model.duplicate()
 					Game.stage_page.character_image_pool.add_child(character.character_image)
 					character.character_image.show()
-			var pool = Game.stage_page.character_image_pool
-			var character_count = pool.get_child_count()
-			if character_count > 0:
-				var width = pool.size.x
-				var portion_width = width / character_count
-				var offset_x = portion_width / 2
-				for image: Control in pool.get_children():
-					var position_x = image.get_index() * portion_width + offset_x
-					image.position = Vector2(position_x, 0)
+			Character.redistribute_stage_characters(true)
 			Game.phone_page.chat_data_pool = profile.chat_datas.duplicate(true)
 			Game.phone_page.active_chat_character = profile.active_chat_character
 			Game.phone_page.reload_active_chat()

@@ -197,7 +197,6 @@ texture = ExtResource("16_wyfxs")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
-pivot_offset = Vector2(-17, -2)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
 offset_left = -720.0

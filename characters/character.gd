@@ -158,8 +158,7 @@ static func _slot_indices_for_count(count: int) -> Array:
 		4: return [0, 1, 3, 4]   # LeftMost, Left, Right, RightMost
 		_: return [0, 1, 2, 3, 4] # 5 或更多：全部 5 槽
 
-## 根据当前角色数量，把 character_image_pool 里的所有子节点分配到对应槽位
-func _redistribute_characters(new_image: Control = null) -> void:
+static func redistribute_stage_characters(instant: bool = false, new_image: Control = null) -> void:
 	var pool = Game.stage_page.character_image_pool
 	var children = pool.get_children()
 	var count = children.size()
@@ -170,14 +169,21 @@ func _redistribute_characters(new_image: Control = null) -> void:
 		var image: Control = children[i]
 		var slot_name = POSITION_SLOTS[indices[i]]
 		var target_pos: Vector2 = Game.stage_page.get_position_by_name(slot_name)
-		# 补偿 story_model 内部 TextureRect_Model 的偏移，让视觉中心对准槽位
-		var tex_rect: TextureRect = image.get_node_or_null("TextureRect_Model") as TextureRect
-		var center_off_x: float = (tex_rect.offset_left + tex_rect.offset_right) / 2.0 if tex_rect else 0.0
-		var adjusted_pos := target_pos - Vector2(center_off_x, 0)
-		if image == new_image:
+		var adjusted_pos := _get_adjusted_stage_position(image, target_pos)
+		if instant or image == new_image:
 			image.global_position = adjusted_pos
 		else:
-			create_tween().tween_property(image, "global_position", adjusted_pos, 0.3)
+			Game.stage_page.create_tween().tween_property(image, "global_position", adjusted_pos, 0.3)
+
+static func _get_adjusted_stage_position(image: Control, target_pos: Vector2) -> Vector2:
+	# 补偿 story_model 内部 TextureRect_Model 的偏移，让视觉中心对准槽位
+	var tex_rect: TextureRect = image.get_node_or_null("TextureRect_Model") as TextureRect
+	var center_off_x: float = (tex_rect.offset_left + tex_rect.offset_right) / 2.0 if tex_rect else 0.0
+	return target_pos - Vector2(center_off_x, 0)
+
+## 根据当前角色数量，把 character_image_pool 里的所有子节点分配到对应槽位
+func _redistribute_characters(new_image: Control = null) -> void:
+	redistribute_stage_characters(false, new_image)
 
 func FadeIn(position_name: String, duration: float = 0.5) -> void:
 	current_position = position_name

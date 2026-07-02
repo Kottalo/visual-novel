@@ -233,15 +233,12 @@ texture = ExtResource("18_mchy6")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
-offset_left = -63.0
-offset_right = -63.0
-pivot_offset = Vector2(113, -4)
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -455.0
-offset_top = -1376.0
-offset_right = 586.0
-offset_bottom = 1540.0
+offset_left = -516.0
+offset_top = -1351.0
+offset_right = 525.0
+offset_bottom = 1565.0
 texture = SubResource("ViewportTexture_kiw3g")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]

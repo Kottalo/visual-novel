@@ -264,14 +264,12 @@ texture = ExtResource("21_hdqmv")
 
 [node name="StoryModel" parent="." index="2" unique_id=816872337]
 visible = true
-offset_left = -117.0
-offset_right = -117.0
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -568.0
-offset_top = -1355.0
-offset_right = 771.0
-offset_bottom = 1358.0
+offset_left = -674.0
+offset_top = -1349.0
+offset_right = 665.0
+offset_bottom = 1364.0
 texture = SubResource("ViewportTexture_r613x")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
