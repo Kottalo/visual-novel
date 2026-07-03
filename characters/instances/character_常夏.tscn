@@ -229,7 +229,7 @@ region = Rect2(192.18396, 214.99954, 1080.44, 982.39453)
 offset_left = 153.0
 offset_right = 153.0
 pivot_offset = Vector2(-129, -11)
-speaking_mouth = "笑开口"
+speaking_mouth = "说话"
 phone_avatar = ExtResource("22_phone")
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
@@ -244,7 +244,7 @@ size = Vector2i(1339, 2713)
 position = Vector2(652, 1541)
 scale = Vector2(0.714, 0.714)
 sprite_frames = SubResource("SpriteFrames_mflfp")
-animation = &"校服-叉腰"
+animation = &"常服-举食指"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_mpe7f")

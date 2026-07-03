@@ -241,12 +241,12 @@ static var data = {
 		"微笑说": {
 			"Eyebrows": "上挑",
 			"Eyes": "眯眼",
-			"Mouth": "笑开口"
+			"Mouth": "说话"
 		},
 		"说话": {
 			"Eyebrows": "默认",
 			"Eyes": "默认",
-			"Mouth": "笑开口"
+			"Mouth": "说话"
 		},
 		"微笑": {
 			"Eyebrows": "上挑",
@@ -261,7 +261,7 @@ static var data = {
 		"坏笑说": {
 			"Eyebrows": "上挑",
 			"Eyes": "微眯",
-			"Mouth": "笑开口"
+			"Mouth": "说话"
 		},
 		"惊讶": {
 			"Eyebrows": "上挑",

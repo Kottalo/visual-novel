@@ -81,6 +81,29 @@ def extract_field(fields, name):
     return str(val)
 
 
+def extract_multi_values(fields, name):
+    """提取多选字段值，返回字符串数组"""
+    val = fields.get(name)
+    if val is None:
+        return []
+    if isinstance(val, str):
+        return [val] if val else []
+    if isinstance(val, list):
+        values = []
+        for item in val:
+            if isinstance(item, dict):
+                text = item.get("text", "")
+                if text:
+                    values.append(text)
+            elif isinstance(item, str) and item:
+                values.append(item)
+        return values
+    if isinstance(val, dict):
+        text = val.get("text", "")
+        return [text] if text else []
+    return []
+
+
 def get_parent_id(fields):
     """提取父记录 ID"""
     parent = None
@@ -124,7 +147,7 @@ def record_to_data(record):
         "voice": extract_field(fields, "语音"),
         "nickname": extract_field(fields, "昵称"),
         "hide_avatar": fields.get("隐藏头像", False),
-        "hide_portrait": fields.get("隐藏立绘", False),
+        "hidden_portraits": extract_multi_values(fields, "隐藏立绘"),
         "body": body,
         "expression": extract_field(fields, "表情"),
         "optionals": optionals,
@@ -242,6 +265,7 @@ def generate_do_commands(data, state, lines, tabs):
             state["bg_name"] = data["bg_name"]
             state["time_period"] = data["time_period"]
             state["visible_characters"].clear()
+            state["visible_character_order"].clear()
 
     cg_key = ""
     if data["cg_name"] and data["cg_variation"]:
@@ -260,15 +284,32 @@ def generate_do_commands(data, state, lines, tabs):
             lines.append(f'{tabs}$> StopMusic()')
         state["music"] = data["music"]
 
+    hidden_portraits = data.get("hidden_portraits", [])
     if data["date"] and data["week_day"]:
         date_key = f'{data["date"]}-{data["week_day"]}-{data["time"]}'
         if date_key != state["date_key"]:
+            restore_characters = [
+                character for character in state["visible_character_order"]
+                if character not in hidden_portraits
+            ]
+            lines.append(f"{tabs}$> HideDialogue()")
+            for visible_character in state["visible_character_order"]:
+                lines.append(f'{tabs}$> Character("{visible_character}").FadeOut()')
+            state["visible_characters"].clear()
+            state["visible_character_order"].clear()
+
             timestamp_ms = int(float(data["date"]))
             dt = datetime.fromtimestamp(timestamp_ms / 1000, tz=BEIJING_TZ)
             month = dt.month
             day = dt.day
             week_day = data["week_day"] + data["time"]
             lines.append(f'{tabs}$> SetDate({month}, {day}, "{week_day}")')
+
+            for visible_character in restore_characters:
+                lines.append(f'{tabs}$> Character("{visible_character}").FadeIn("Center")')
+                state["visible_characters"].add(visible_character)
+                state["visible_character_order"].append(visible_character)
+            lines.append(f"{tabs}$> ShowDialogue()")
             state["date_key"] = date_key
 
     is_phone = bool(data["phone"])
@@ -286,10 +327,18 @@ def generate_do_commands(data, state, lines, tabs):
             if cmd_line:
                 lines.append(f"{tabs}{cmd_line}")
 
+    for hidden_character in hidden_portraits:
+        if hidden_character in state["visible_characters"]:
+            lines.append(f'{tabs}$> Character("{hidden_character}").FadeOut()')
+            state["visible_characters"].remove(hidden_character)
+            if hidden_character in state["visible_character_order"]:
+                state["visible_character_order"].remove(hidden_character)
+
     character = data["character"]
-    if character and not data["hide_portrait"] and not data["phone"] and character not in state["visible_characters"]:
+    if character and character not in hidden_portraits and not data["phone"] and character not in state["visible_characters"]:
         lines.append(f'{tabs}$> Character("{character}").FadeIn("Center")')
         state["visible_characters"].add(character)
+        state["visible_character_order"].append(character)
 
 
 def _close_book_if_needed(state, lines, tabs=""):
@@ -348,6 +397,7 @@ def convert_chapter(roots, children_map, chapter_filter):
     lines = ["~ start"]
     state = {
         "visible_characters": set(),
+        "visible_character_order": [],
         "bg_name": "",
         "time_period": "",
         "date_key": "",
