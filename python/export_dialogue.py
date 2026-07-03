@@ -25,6 +25,7 @@ PRESERVED_COMMAND_PREFIXES = (
     "$> PlaySFX(",
     "$> RevealBackgroundWithBlur(",
 )
+LINE_ID_PATTERN = re.compile(r"\[ID:([^\]]+)\]")
 
 
 def get_all_records(token):
@@ -376,17 +377,45 @@ def convert_chapter(roots, children_map, chapter_filter):
     return "\n".join(lines)
 
 
-def merge_preserved_commands(existing_content, generated_content):
-    if not existing_content:
-        return generated_content
+def extract_line_id(line):
+    match = LINE_ID_PATTERN.search(line)
+    return match.group(1) if match else None
 
-    existing_lines = existing_content.splitlines()
-    for line in existing_lines:
+
+def collect_preserved_commands(existing_content):
+    preserved_by_id = {}
+    pending_commands = []
+
+    if not existing_content:
+        return preserved_by_id
+
+    for line in existing_content.splitlines():
         stripped = line.strip()
         if stripped.startswith(PRESERVED_COMMAND_PREFIXES):
-            return existing_content
+            pending_commands.append(line)
+            continue
 
-    return generated_content
+        line_id = extract_line_id(line)
+        if line_id and pending_commands:
+            preserved_by_id.setdefault(line_id, []).extend(pending_commands)
+            pending_commands = []
+
+    return preserved_by_id
+
+
+def merge_preserved_commands(existing_content, generated_content):
+    preserved_by_id = collect_preserved_commands(existing_content)
+    if not preserved_by_id:
+        return generated_content
+
+    merged_lines = []
+    for line in generated_content.splitlines():
+        line_id = extract_line_id(line)
+        if line_id and line_id in preserved_by_id:
+            merged_lines.extend(preserved_by_id.pop(line_id))
+        merged_lines.append(line)
+
+    return "\n".join(merged_lines)
 
 
 def main():

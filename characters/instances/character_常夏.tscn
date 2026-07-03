@@ -210,7 +210,7 @@ animations = [{
 "texture": ExtResource("20_4o7u1")
 }],
 "loop": true,
-"name": &"笑开口",
+"name": &"说话",
 "speed": 5.0
 }]
 
@@ -256,7 +256,7 @@ animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_8q33n")
-animation = &"笑开口"
+animation = &"微笑"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=594954153]
 visible = false

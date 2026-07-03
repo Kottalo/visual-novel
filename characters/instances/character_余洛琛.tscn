@@ -108,6 +108,14 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("18_gfdhf")
+}],
+"loop": true,
+"name": &"不敢对视",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_sxffg")
 }],
 "loop": true,
@@ -143,7 +151,7 @@ animations = [{
 "texture": ExtResource("15_ykarx")
 }],
 "loop": true,
-"name": &"眯眼开心",
+"name": &"眯眼",
 "speed": 5.0
 }, {
 "frames": [{
@@ -152,14 +160,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"默认",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("18_gfdhf")
-}],
-"loop": true,
-"name": &"默认躲闪",
 "speed": 5.0
 }]
 
@@ -238,7 +238,7 @@ animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_bnq0n")
-animation = &"说话"
+animation = &"微笑"
 
 [node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=736903750]
 texture = ExtResource("21_tlcri")
