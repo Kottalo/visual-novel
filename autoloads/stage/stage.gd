@@ -315,11 +315,11 @@ func HideDialogue(duration: float = 0.4) -> void:
 			).finished
 		else:
 			Game.stage_page.dialogue_screen.modulate.a = 0
+	Game.stage_page.avatar.texture = null  # 淡出后再清头像，防止下次显示时闪现旧头像
 
 func ShowDialogue(duration: float = 0.4) -> void:
 	var sp = Game.stage_page
 	# 先更新状态再呈现
-	sp.avatar.texture = null  # 清除残留头像，防止上一句的头像在淡入时闪现
 	sp.label_character_name.text = sp.dialogue_line.get_tag_value("昵称") \
 		if sp.dialogue_line.has_tag("昵称") else sp.dialogue_line.character
 	sp.dialogue_label.text = ""
