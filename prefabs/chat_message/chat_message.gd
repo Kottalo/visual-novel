@@ -33,8 +33,9 @@ func setup(type: Enums.SenderType, text: String, avatar: Texture2D = null) -> vo
 	_apply_layout.call_deferred()
 
 func _apply_style() -> void:
-	frame_left.visible = not is_self
-	frame_right.visible = is_self
+	# frame 始终可见以占位，只切换头像纹理的显隐
+	frame_left.visible = true
+	frame_right.visible = true
 	avatar_left.visible = not is_self
 	avatar_right.visible = is_self
 	message_text.self_modulate = Color.WHITE if is_self else Color.BLACK
@@ -42,6 +43,8 @@ func _apply_style() -> void:
 	alignment = BoxContainer.ALIGNMENT_END if is_self else BoxContainer.ALIGNMENT_BEGIN
 
 func _apply_layout() -> void:
+	if not is_inside_tree():
+		return
 	# 默认展开+换行（安全值）
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	message_text.fit_content = false
@@ -50,12 +53,20 @@ func _apply_layout() -> void:
 	_wait_then_shrink.call_deferred()
 
 func _wait_then_shrink() -> void:
+	if not is_inside_tree():
+		return
 	# 等两帧确保 layout 完全就绪（RichTextLabel 内容更新 + 容器递归排序）
 	await get_tree().process_frame
+	if not is_inside_tree():
+		return
 	await get_tree().process_frame
+	if not is_inside_tree():
+		return
 	_check_shrink()
 
 func _check_shrink() -> void:
+	if not is_inside_tree():
+		return
 	# 布局未就绪时保持展开（安全值）
 	var row_width: float = _get_row_width()
 	if row_width <= 0:
@@ -84,15 +95,14 @@ func _check_shrink() -> void:
 		_apply_text_bounds(max_text_width, font, font_size)
 
 func _get_row_width() -> float:
-	var node: Node = get_parent()
-	while node:
-		if node is ScrollContainer:
-			return (node as ScrollContainer).size.x
-		node = node.get_parent()
+	# ChatMessage 自身宽度 = 父容器分配的实际可用空间
+	if size.x > 0:
+		return size.x
+	# 布局未就绪时的回退
 	var parent_control: Control = get_parent() as Control
 	if parent_control and parent_control.size.x > 0:
 		return parent_control.size.x
-	return size.x
+	return 0.0
 
 func _apply_text_bounds(width: float, font: Font, font_size: int) -> void:
 	var bounded_width: float = ceilf(maxf(MIN_TEXT_WIDTH, width))

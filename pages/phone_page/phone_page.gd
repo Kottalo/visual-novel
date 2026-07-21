@@ -163,7 +163,7 @@ func _add_chat_message(character_name: String, text: String, silent: bool = fals
 		chat_message.modulate.a = 1.0
 	else:
 		chat_message.modulate.a = 0.0
-		create_tween().tween_property(chat_message, "modulate:a", 1.0, 0.3)
+		chat_message.create_tween().tween_property(chat_message, "modulate:a", 1.0, 0.3)
 		AudioManager.audio_player_sound.stream = preload("res://assets/system_sounds/奇迹书音效/手机发消息音效.wav")
 		AudioManager.audio_player_sound.play()
 

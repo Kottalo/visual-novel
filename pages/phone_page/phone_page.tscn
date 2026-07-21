@@ -67,6 +67,7 @@ label_time = NodePath("Phone/Home/Date/Label_Time")
 label_location = NodePath("Phone/Home/Date/Label_Location")
 typing_tip = NodePath("Phone/Chat/TypingTip")
 self_avatar = ExtResource("20_phone")
+chat_data_pool = null
 
 [node name="Background" type="Panel" parent="." unique_id=1289440326]
 anchors_preset = 15
@@ -340,8 +341,7 @@ texture_hover = ExtResource("15_31aqv")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="InteractSound" parent="Phone/Messenger/BackButton" unique_id=1603927365 node_paths=PackedStringArray("target") instance=ExtResource("17_a7ami")]
-target = NodePath("")
+[node name="InteractSound" parent="Phone/Messenger/BackButton" unique_id=1603927365 instance=ExtResource("17_a7ami")]
 click_sound = ExtResource("18_22tcg")
 
 [node name="StatusHint" type="Panel" parent="Phone/Messenger" unique_id=1461080074]

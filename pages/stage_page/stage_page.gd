@@ -878,6 +878,8 @@ func reset() -> void:
 	current_book_segment_start_id = ""
 
 func start() -> void:
+	Main.save_data.read_data_list.clear()
+	Main.save_save_data()
 	reset()
 	dialogue_line = await dialogue.get_next_dialogue_line("start", [ self , Stage])
 	if not Game.profile_page.has_quick_save():
