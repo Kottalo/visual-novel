@@ -16,7 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bk4hu44q1ui71" path="res://assets/sprites/ui/ui.sprites/phone_back_click.tres" id="14_ctgom"]
 [ext_resource type="Texture2D" uid="uid://beupyvqe73rww" path="res://assets/sprites/ui/ui.sprites/phone_back_hover.tres" id="15_31aqv"]
 [ext_resource type="Texture2D" uid="uid://0wkaqcowuu33" path="res://assets/ui_backgrounds/messenger_background.png" id="16_xkddf"]
+[ext_resource type="PackedScene" uid="uid://mopd128nba0y" path="res://prefabs/components/interact_sound.tscn" id="17_a7ami"]
 [ext_resource type="Texture2D" uid="uid://44is5nwcexeo" path="res://assets/temp/messenger.png" id="17_ctgom"]
+[ext_resource type="AudioStream" uid="uid://bp3v705tatxsh" path="res://assets/system_sounds/奇迹书音效/手机点击音效.wav" id="18_22tcg"]
 [ext_resource type="Texture2D" uid="uid://brce1083bc8hr" path="res://assets/temp/phone_chat.jpg" id="20_pdylm"]
 [ext_resource type="Texture2D" uid="uid://be820mvro5i1o" path="res://assets/sprites/ui/ui.sprites/头像/phone_portrait_zhouteng.tres" id="20_phone"]
 
@@ -288,6 +290,9 @@ texture_hover = ExtResource("15_31aqv")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="InteractSound" parent="Phone/Chat/BackButton" unique_id=1483212628 instance=ExtResource("17_a7ami")]
+click_sound = ExtResource("18_22tcg")
+
 [node name="TypingTip" type="PanelContainer" parent="Phone/Chat" unique_id=2112320852]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -334,6 +339,10 @@ texture_pressed = ExtResource("14_ctgom")
 texture_hover = ExtResource("15_31aqv")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="InteractSound" parent="Phone/Messenger/BackButton" unique_id=1603927365 node_paths=PackedStringArray("target") instance=ExtResource("17_a7ami")]
+target = NodePath("")
+click_sound = ExtResource("18_22tcg")
 
 [node name="StatusHint" type="Panel" parent="Phone/Messenger" unique_id=1461080074]
 modulate = Color(0.29411766, 0.8627451, 0.69411767, 1)

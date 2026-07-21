@@ -18,15 +18,16 @@ REPO_ROOT = SCRIPT_DIR.parent
 PERFORMANCE_TABLE_ID = "tblCjPtCWMLcKCS7"  # 演出表
 BASE_URL = "https://open.feishu.cn/open-apis"
 OUTPUT_DIR = REPO_ROOT / "dialogue_manager" / "dialogues"
-PRESERVED_COMMAND_PREFIXES = (
-    "$> PerformBackgroundPan(",
-    "$> StopBackgroundPerformance()",
-    "$> PrepareBackground(",
-    "$> PlaySFX(",
-    "$> RevealBackgroundWithBlur(",
-)
-LINE_ID_PATTERN = re.compile(r"\[ID:([^\]]+)\]")
+PREPARE_BACKGROUND_PATTERN = re.compile(r"^\$>\s*PrepareBackground\s*\(")
+NO_PORTRAIT_CHARACTERS = {"周腾"}
 
+
+def prepares_background(command):
+    return bool(PREPARE_BACKGROUND_PATTERN.match(command.strip()))
+
+
+def has_portrait(character):
+    return bool(character) and character not in NO_PORTRAIT_CHARACTERS
 
 def get_all_records(token):
     """分页获取演出表所有记录"""
@@ -81,27 +82,50 @@ def extract_field(fields, name):
     return str(val)
 
 
+def _append_multi_value(values, value):
+    if value is None or value is False:
+        return
+    if isinstance(value, str):
+        value = value.strip()
+        if value:
+            values.append(value)
+        return
+    if isinstance(value, (int, float)):
+        values.append(str(value))
+        return
+    if isinstance(value, list):
+        for item in value:
+            _append_multi_value(values, item)
+        return
+    if isinstance(value, dict):
+        for key in ("text", "name", "value", "text_arr"):
+            if key in value:
+                _append_multi_value(values, value[key])
+                return
+
+
 def extract_multi_values(fields, name):
-    """提取多选字段值，返回字符串数组"""
-    val = fields.get(name)
-    if val is None:
+    """提取多选字段值，返回去重后的字符串数组。"""
+    values = []
+    _append_multi_value(values, fields.get(name))
+
+    unique_values = []
+    seen = set()
+    for value in values:
+        if value not in seen:
+            unique_values.append(value)
+            seen.add(value)
+    return unique_values
+
+
+def extract_hidden_portraits(fields, character):
+    """提取需要隐藏立绘的角色；多选值表示选谁下谁，旧布尔 true 仍隐藏当前行角色。"""
+    val = fields.get("隐藏立绘")
+    if val is True:
+        return [character] if character else []
+    if val is False or val is None:
         return []
-    if isinstance(val, str):
-        return [val] if val else []
-    if isinstance(val, list):
-        values = []
-        for item in val:
-            if isinstance(item, dict):
-                text = item.get("text", "")
-                if text:
-                    values.append(text)
-            elif isinstance(item, str) and item:
-                values.append(item)
-        return values
-    if isinstance(val, dict):
-        text = val.get("text", "")
-        return [text] if text else []
-    return []
+    return extract_multi_values(fields, "隐藏立绘")
 
 
 def get_parent_id(fields):
@@ -127,6 +151,7 @@ def get_parent_id(fields):
 def record_to_data(record):
     """将一条演出表记录转换为结构化数据"""
     fields = record.get("fields", {})
+    character = extract_field(fields, "角色")
     costume = extract_field(fields, "服装")
     action = extract_field(fields, "动作")
     body = f"{costume}-{action}" if costume and action else ""
@@ -140,16 +165,17 @@ def record_to_data(record):
     return {
         "sheet_id": extract_field(fields, "ID").strip(),
         "feishu_record_id": record.get("record_id", "") or record.get("recordId", ""),
-        "character": extract_field(fields, "角色"),
+        "character": character,
         "text": extract_field(fields, "文字"),
         "is_option": fields.get("选项", False),
         "hidden": fields.get("隐藏", False),
         "voice": extract_field(fields, "语音"),
         "nickname": extract_field(fields, "昵称"),
         "hide_avatar": fields.get("隐藏头像", False),
-        "hidden_portraits": extract_multi_values(fields, "隐藏立绘"),
+        "hidden_portraits": extract_hidden_portraits(fields, character),
         "body": body,
         "expression": extract_field(fields, "表情"),
+        "end_expression": extract_field(fields, "结束表情"),
         "optionals": optionals,
         "phone": fields.get("手机", False),
         "book": fields.get("奇迹书", False),
@@ -205,6 +231,8 @@ def build_tags(data):
         tags.append(f"#身体={data['body']}")
     if data["expression"] and data["expression"] != "-":
         tags.append(f"#表情={data['expression']}")
+    if data["end_expression"] and data["end_expression"] != "-":
+        tags.append(f"#结束表情={data['end_expression']}")
     if data["optionals"]:
         tags.append(f"#附加={','.join(data['optionals'])}")
     return f"[{', '.join(tags)}]" if tags else ""
@@ -258,10 +286,13 @@ def generate_do_commands(data, state, lines, tabs):
 
     if data["bg_name"] and data["time_period"]:
         if data["bg_name"] != state["bg_name"] or data["time_period"] != state["time_period"]:
-            if not state["bg_name"]:
-                lines.append(f'{tabs}$> SetBackground("{data["bg_name"]}", "{data["time_period"]}", 0, 0)')
+            if state["skip_next_set_background"]:
+                state["skip_next_set_background"] = False
             else:
-                lines.append(f'{tabs}$> SetBackground("{data["bg_name"]}", "{data["time_period"]}")')
+                if not state["bg_name"]:
+                    lines.append(f'{tabs}$> SetBackground("{data["bg_name"]}", "{data["time_period"]}", 0, 0)')
+                else:
+                    lines.append(f'{tabs}$> SetBackground("{data["bg_name"]}", "{data["time_period"]}")')
             state["bg_name"] = data["bg_name"]
             state["time_period"] = data["time_period"]
             state["visible_characters"].clear()
@@ -288,10 +319,7 @@ def generate_do_commands(data, state, lines, tabs):
     if data["date"] and data["week_day"]:
         date_key = f'{data["date"]}-{data["week_day"]}-{data["time"]}'
         if date_key != state["date_key"]:
-            restore_characters = [
-                character for character in state["visible_character_order"]
-                if character not in hidden_portraits
-            ]
+            restore_characters = state["visible_character_order"].copy()
             lines.append(f"{tabs}$> HideDialogue()")
             for visible_character in state["visible_character_order"]:
                 lines.append(f'{tabs}$> Character("{visible_character}").FadeOut()')
@@ -326,19 +354,24 @@ def generate_do_commands(data, state, lines, tabs):
             cmd_line = cmd_line.strip()
             if cmd_line:
                 lines.append(f"{tabs}{cmd_line}")
+                if prepares_background(cmd_line):
+                    state["skip_next_set_background"] = True
 
-    for hidden_character in hidden_portraits:
-        if hidden_character in state["visible_characters"]:
+    character = data["character"]
+    if has_portrait(character) and character not in hidden_portraits and not data["phone"] and character not in state["visible_characters"]:
+        lines.append(f'{tabs}$> Character("{character}").FadeIn("Center")')
+        state["visible_characters"].add(character)
+        state["visible_character_order"].append(character)
+
+
+def generate_after_dialogue_commands(data, state, lines, tabs):
+    """生成对白后的指令行。"""
+    for hidden_character in data.get("hidden_portraits", []):
+        if has_portrait(hidden_character) and hidden_character in state["visible_characters"]:
             lines.append(f'{tabs}$> Character("{hidden_character}").FadeOut()')
             state["visible_characters"].remove(hidden_character)
             if hidden_character in state["visible_character_order"]:
                 state["visible_character_order"].remove(hidden_character)
-
-    character = data["character"]
-    if character and character not in hidden_portraits and not data["phone"] and character not in state["visible_characters"]:
-        lines.append(f'{tabs}$> Character("{character}").FadeIn("Center")')
-        state["visible_characters"].add(character)
-        state["visible_character_order"].append(character)
 
 
 def _close_book_if_needed(state, lines, tabs=""):
@@ -377,6 +410,7 @@ def walk(record, children_map, indent, lines, state):
         dialogue_line = build_dialogue_line(data, dialogue_id)
         if dialogue_line:
             lines.append(f"{tabs}{dialogue_line}")
+        generate_after_dialogue_commands(data, state, lines, tabs)
         for child in children:
             walk(child, children_map, indent, lines, state)
     else:
@@ -386,6 +420,7 @@ def walk(record, children_map, indent, lines, state):
         dialogue_line = build_dialogue_line(data, dialogue_id)
         if dialogue_line:
             lines.append(f"{tabs}{dialogue_line}")
+        generate_after_dialogue_commands(data, state, lines, tabs)
         for child in children:
             walk(child, children_map, indent, lines, state)
 
@@ -403,6 +438,7 @@ def convert_chapter(roots, children_map, chapter_filter):
         "date_key": "",
         "phone_mode": False,
         "book_mode": False,
+        "skip_next_set_background": False,
         "music": "",
         "used_static_ids": set(),
         "fallback_id_counter": 0,
@@ -425,47 +461,6 @@ def convert_chapter(roots, children_map, chapter_filter):
 
     lines.append("=> END")
     return "\n".join(lines)
-
-
-def extract_line_id(line):
-    match = LINE_ID_PATTERN.search(line)
-    return match.group(1) if match else None
-
-
-def collect_preserved_commands(existing_content):
-    preserved_by_id = {}
-    pending_commands = []
-
-    if not existing_content:
-        return preserved_by_id
-
-    for line in existing_content.splitlines():
-        stripped = line.strip()
-        if stripped.startswith(PRESERVED_COMMAND_PREFIXES):
-            pending_commands.append(line)
-            continue
-
-        line_id = extract_line_id(line)
-        if line_id and pending_commands:
-            preserved_by_id.setdefault(line_id, []).extend(pending_commands)
-            pending_commands = []
-
-    return preserved_by_id
-
-
-def merge_preserved_commands(existing_content, generated_content):
-    preserved_by_id = collect_preserved_commands(existing_content)
-    if not preserved_by_id:
-        return generated_content
-
-    merged_lines = []
-    for line in generated_content.splitlines():
-        line_id = extract_line_id(line)
-        if line_id and line_id in preserved_by_id:
-            merged_lines.extend(preserved_by_id.pop(line_id))
-        merged_lines.append(line)
-
-    return "\n".join(merged_lines)
 
 
 def main():
@@ -523,11 +518,6 @@ def main():
         print(f"\n[2] 转换章节: {ch_name} ({count} 条根记录)")
         content = convert_chapter(roots, children_map, ch_name)
         filepath = os.path.join(OUTPUT_DIR, f"{ch_name}.dialogue")
-        existing_content = ""
-        if os.path.exists(filepath):
-            with open(filepath, "r", encoding="utf-8") as f:
-                existing_content = f.read()
-        content = merge_preserved_commands(existing_content, content)
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
         print(f"  已写入: {filepath}")

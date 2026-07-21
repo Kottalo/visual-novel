@@ -1,5 +1,35 @@
 extends Node
 
+class MissingCharacter:
+	var character_name: String
+
+	func _init(name: String) -> void:
+		character_name = name
+
+	func FadeIn(_position_name: String, _duration: float = 0.5) -> void:
+		pass
+
+	func FadeOut(_duration: float = 0.5) -> void:
+		pass
+
+	func MoveTo(_position_name: String, _duration: float = 0.5) -> void:
+		pass
+
+	func SetParts(_parts_string: String) -> void:
+		pass
+
+	func SetBody(_body_name: String) -> void:
+		pass
+
+	func SetExpression(_expression_name: String) -> void:
+		pass
+
+	func ClearOptionals() -> void:
+		pass
+
+	func SetOptionals(_optionals_string: String) -> void:
+		pass
+
 @export var character_pool: Control
 @export var background_data_pool: Array[BackgroundData]
 @export var gallery_data_pool: Array[GalleryData]
@@ -16,6 +46,7 @@ var character_selection_name: String:
 		character_selection_name_changed.emit()
 
 var character_dict: Dictionary[String, Character]
+var _missing_character_dict: Dictionary[String, MissingCharacter]
 var character_array: Array[Character]:
 	get:
 		var characters: Array[Character]
@@ -41,8 +72,12 @@ func start() -> void:
 	Game.stage_page.start()
 
 #region Dialogue Commands
-func Character(character_name: String) -> Character:
-	return character_dict[character_name]
+func Character(character_name: String):
+	if character_dict.has(character_name):
+		return character_dict[character_name]
+	if not _missing_character_dict.has(character_name):
+		_missing_character_dict[character_name] = MissingCharacter.new(character_name)
+	return _missing_character_dict[character_name]
 
 func SetBackground(background_name: String, variation_name: String,
 		out_time: float = 1.2, in_time: float = 1.2) -> void:

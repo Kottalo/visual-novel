@@ -59,6 +59,8 @@ var current_book_segment_start_id: String = ""
 var _background_performance_tween: Tween
 var _opening_reveal_tween: Tween
 var _bridge_sorted_dialogue_keys_cache: Dictionary = {}
+var _pending_end_expression: String = ""
+var _pending_end_expression_character: String = ""
 
 var skip: bool:
 	get: return _mode == AdvanceMode.SKIP
@@ -553,7 +555,6 @@ func play_background_performance(scale_multiplier: float, segments: Array) -> vo
 				await get_tree().process_frame
 				if background_performance_mask.visible == false:
 					return
-	stop_background_performance()
 
 var dialogue_line: DialogueLine:
 	set(value):
@@ -679,6 +680,14 @@ func _register_quick_save_progress() -> void:
 
 func process_dialogue_line() -> void:
 	AudioManager.audio_player_voice.stop()
+
+	# 上一句的结束表情：在下一句话开始时应用到对应人物
+	if _pending_end_expression and _pending_end_expression_character:
+		if Stage.character_dict.has(_pending_end_expression_character):
+			Stage.Character(_pending_end_expression_character).SetExpression(_pending_end_expression)
+		_pending_end_expression = ""
+		_pending_end_expression_character = ""
+
 	var has_avatar = character != null
 
 	# 角色表情/身体（在对话框出现前准备好）
@@ -690,6 +699,15 @@ func process_dialogue_line() -> void:
 			character.SetOptionals(dialogue_line.get_tag_value("附加"))
 		if expression:
 			character.SetExpression(expression)
+
+		# 存储本句的结束表情，在下一句开始时应用
+		if dialogue_line.has_tag("结束表情"):
+			_pending_end_expression = dialogue_line.get_tag_value("结束表情")
+			_pending_end_expression_character = dialogue_line.character
+		elif expression:
+			# 如果没有结束表情但有普通表情，清除遗留的结束表情
+			_pending_end_expression = ""
+			_pending_end_expression_character = ""
 
 	# 角色头像
 	avatar.texture = null

@@ -160,7 +160,7 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hyrk"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_xm650")
-region = Rect2(290.5854, 7.3722153, 752.5955, 842.8549)
+region = Rect2(248, 32, 1128, 1080)
 
 [node name="葛城" unique_id=1900529109 instance=ExtResource("1_8t5bo")]
 speaking_mouth = "说话"
@@ -175,7 +175,7 @@ offset_bottom = 1982.0
 size = Vector2i(1252, 3396)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(741, 1745)
+position = Vector2(684, 1702.0001)
 scale = Vector2(0.849, 0.849)
 sprite_frames = SubResource("SpriteFrames_dacpq")
 animation = &"默认-手抬起"
@@ -199,10 +199,10 @@ texture = ExtResource("16_wyfxs")
 visible = true
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -720.0
-offset_top = -1403.0
-offset_right = 532.0
-offset_bottom = 1993.0
+offset_left = -730.0
+offset_top = -1413.0
+offset_right = 522.0
+offset_bottom = 1983.0
 pivot_offset = Vector2(705, 1430)
 texture = SubResource("ViewportTexture_jbeyg")
 

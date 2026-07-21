@@ -224,9 +224,10 @@ func _on_reply_clicked(text: String, next_id: String) -> void:
 
 func open_chat(chat_data: ChatData) -> void:
 	if _transitioning: return
-	label_chat_name.text = get_phone_nickname(chat_data.character_name)
+	active_chat_character = chat_data.character_name
 	chat_page.visible = true
 	chat_page.modulate.a = 0
+	reload_active_chat()
 	await _scroll_chat_to_bottom()
 	_transition_to_chat()
 
