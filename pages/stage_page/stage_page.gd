@@ -866,6 +866,9 @@ func reset() -> void:
 	dialogue_label.visible_characters = 0
 	date.modulate.a = 0
 	texture_rect_blackscreen.modulate.a = 0
+	texture_rect_cg.texture = null
+	texture_rect_cg.visible = false
+	texture_rect_variation.texture = null
 	avatar.texture = null
 	responses_menu.visible = false
 	voice_buttons.visible = false
