@@ -290,7 +290,6 @@ atlas = SubResource("ViewportTexture_ieyld")
 region = Rect2(216, 224, 968, 872)
 
 [node name="林凌铃" unique_id=809289517 instance=ExtResource("1_ivjag")]
-speaking_mouth = "说话"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -680.0

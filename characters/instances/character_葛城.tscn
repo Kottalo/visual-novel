@@ -163,7 +163,6 @@ atlas = SubResource("ViewportTexture_xm650")
 region = Rect2(248, 32, 1128, 1080)
 
 [node name="葛城" unique_id=1900529109 instance=ExtResource("1_8t5bo")]
-speaking_mouth = "说话"
 phone_avatar = ExtResource("17_phone")
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]

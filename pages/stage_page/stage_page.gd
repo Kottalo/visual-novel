@@ -53,11 +53,13 @@ var chapter_name: String:
 enum AdvanceMode { MANUAL, SKIP, AUTO }
 var _mode: AdvanceMode = AdvanceMode.MANUAL
 var _idle: bool = false
-var _voice_finished_cb: Callable = Callable()
 var quick_save_progress_count: int = 0
 var current_book_segment_start_id: String = ""
 var _background_performance_tween: Tween
 var _opening_reveal_tween: Tween
+var _dialogue_ui_tween: Tween
+var _dialogue_ui_hidden: bool = false
+var _dialogue_ui_restore_enabled: bool = true
 var _bridge_sorted_dialogue_keys_cache: Dictionary = {}
 var _pending_end_expression: String = ""
 var _pending_end_expression_character: String = ""
@@ -144,6 +146,47 @@ func advance_from_bridge() -> bool:
 		return true
 	next_line.emit()
 	return true
+
+func hide_dialogue_ui(duration: float = 0.2) -> void:
+	if dialogue_line == null or _dialogue_ui_hidden:
+		return
+	_set_dialogue_ui_hidden(true, duration)
+	_dialogue_ui_restore_enabled = false
+	_enable_dialogue_ui_restore.call_deferred()
+
+func show_dialogue_ui(duration: float = 0.2) -> void:
+	if not _dialogue_ui_hidden:
+		return
+	_set_dialogue_ui_hidden(false, duration)
+
+func reset_dialogue_ui_hidden() -> void:
+	_dialogue_ui_hidden = false
+	_dialogue_ui_restore_enabled = true
+	_kill_dialogue_ui_tween()
+
+func _enable_dialogue_ui_restore() -> void:
+	_dialogue_ui_restore_enabled = true
+
+func _kill_dialogue_ui_tween() -> void:
+	if _dialogue_ui_tween and is_instance_valid(_dialogue_ui_tween):
+		_dialogue_ui_tween.kill()
+	_dialogue_ui_tween = null
+
+func _set_dialogue_ui_hidden(hidden: bool, duration: float = 0.2) -> void:
+	_dialogue_ui_hidden = hidden
+	_kill_dialogue_ui_tween()
+	var target_alpha := 0.0 if hidden else 1.0
+	if duration <= 0.0:
+		dialogue_screen.modulate.a = target_alpha
+		return
+	_dialogue_ui_tween = create_tween()
+	_dialogue_ui_tween.tween_property(
+		dialogue_screen,
+		"modulate:a",
+		target_alpha,
+		duration
+	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_dialogue_ui_tween.finished.connect(func(): _dialogue_ui_tween = null)
 
 func skip_typing_from_bridge() -> bool:
 	if not dialogue_label.is_typing:
@@ -415,9 +458,19 @@ func stop_opening_effects(stop_sound: bool = true) -> void:
 	if stop_sound:
 		AudioManager.stop_sound()
 
-func stop_background_performance(clear_texture: bool = true) -> void:
+func stop_background_performance(clear_texture: bool = true, fade_duration: float = 0.0) -> void:
 	_kill_background_performance_tween()
+	if fade_duration > 0.0 and background_performance_mask.visible:
+		var fade_tween := create_tween()
+		fade_tween.tween_property(
+			background_performance_mask,
+			"modulate:a",
+			0.0,
+			fade_duration
+		).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		await fade_tween.finished
 	background_performance_mask.visible = false
+	background_performance_mask.modulate.a = 1.0
 	texture_rect_background_performance.position = Vector2.ZERO
 	texture_rect_background_performance.size = Vector2.ZERO
 	texture_rect_background_performance.scale = Vector2.ONE
@@ -479,6 +532,7 @@ func prepare_background_performance(texture: Texture2D, scale_multiplier: float)
 	texture_rect_background_performance.position = layout["base_position"]
 	texture_rect_background_performance.size = layout["drawn_size"]
 	texture_rect_background_performance.scale = Vector2.ONE
+	background_performance_mask.modulate.a = 1.0
 	background_performance_mask.visible = true
 	return layout
 
@@ -719,22 +773,12 @@ func process_dialogue_line() -> void:
 	await Stage.ShowDialogue()
 
 	# 语音
-	_disconnect_voice_finished()
 	if dialogue_line.has_tag("语音") and character:
-		character.subviewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
-		character.body_part_dict["Mouth"].animation = character.speaking_mouth
-		_voice_finished_cb = func():
-			if not expression: return
-			character.subviewport.render_target_update_mode = SubViewport.UPDATE_ONCE
-			character.SetExpression(expression)
-		AudioManager.voice_finished.connect(_voice_finished_cb)
 		update_favourite()
 		AudioManager.play_voice(voice_name, true)
 		AudioManager.apply_character_volume(dialogue_line.character)
 	else:
 		AudioManager.audio_player_voice.stop()
-		if character:
-			character.subviewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 
 	# 打字（fade in 完成后才开始）
 	responses_menu.visible = dialogue_line.responses.size() > 0
@@ -815,6 +859,10 @@ func _ready() -> void:
 			if Game.loading: return
 			if event is InputEventMouseButton:
 				if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+					if _dialogue_ui_hidden:
+						if _dialogue_ui_restore_enabled:
+							show_dialogue_ui()
+						return
 					if _mode != AdvanceMode.MANUAL:
 						var was_skip = (_mode == AdvanceMode.SKIP)
 						_set_mode(AdvanceMode.MANUAL)
@@ -848,15 +896,10 @@ func _ready() -> void:
 				update_favourite()
 	)
 
-
-func _disconnect_voice_finished() -> void:
-	if not _voice_finished_cb.is_null() and AudioManager.voice_finished.is_connected(_voice_finished_cb):
-		AudioManager.voice_finished.disconnect(_voice_finished_cb)
-		_voice_finished_cb = Callable()
-
 func reset() -> void:
 	_mode = AdvanceMode.MANUAL
 	_idle = false
+	reset_dialogue_ui_hidden()
 	skip_tag.visible = false
 	auto_tag.visible = false
 	dialogue_line = null
@@ -873,7 +916,6 @@ func reset() -> void:
 	responses_menu.visible = false
 	voice_buttons.visible = false
 	AudioManager.audio_player_voice.stop()
-	_disconnect_voice_finished()
 	stop_background_performance()
 	stop_opening_effects()
 	Stage.reset()
@@ -910,7 +952,6 @@ func update_favourite() -> void:
 func _on_dialogue_end(_resource: DialogueResource) -> void:
 	if _resource != dialogue:
 		return
-	_disconnect_voice_finished()
 	AudioManager.audio_player_voice.stop()
 	responses_menu.visible = false
 	Stage.reset()

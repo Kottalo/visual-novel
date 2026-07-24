@@ -34,7 +34,8 @@ func _ready() -> void:
 			var voice = ""
 			if line.has_tag("语音"):
 				voice = line.get_tag_value("语音")
-			add_line(line.character, line.text, voice, Game.stage_page.chapter_name)
+			var display_name := line.get_tag_value("昵称") if line.has_tag("昵称") else line.character
+			add_line(line.character, line.text, voice, Game.stage_page.chapter_name, display_name)
 	)
 
 func _input(event: InputEvent) -> void:
@@ -50,9 +51,11 @@ func _input(event: InputEvent) -> void:
 		var delta = _drag_start_y - event.global_position.y
 		scroll_container.scroll_vertical = _scroll_start + delta
 
-func add_line(character_name: String, text: String, voice_filename: String = "", chapter_name: String = "") -> void:
+func add_line(character_name: String, text: String, voice_filename: String = "",
+		chapter_name: String = "", display_name: String = "") -> void:
 	var data = LogData.new()
 	data.character_name = character_name
+	data.display_name = display_name
 	data.text = text
 	data.voice_filename = voice_filename
 	data.chapter_name = chapter_name

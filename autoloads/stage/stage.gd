@@ -308,6 +308,7 @@ func StopMusic() -> void:
 
 func HideDialogue(duration: float = 0.4) -> void:
 	AudioManager.audio_player_voice.stop()
+	Game.stage_page.reset_dialogue_ui_hidden()
 	if Game.stage_page.dialogue_screen.modulate.a > 0:
 		if duration > 0:
 			await create_tween().tween_property(
@@ -319,6 +320,7 @@ func HideDialogue(duration: float = 0.4) -> void:
 
 func ShowDialogue(duration: float = 0.4) -> void:
 	var sp = Game.stage_page
+	sp.reset_dialogue_ui_hidden()
 	# 先更新状态再呈现
 	sp.label_character_name.text = sp.dialogue_line.get_tag_value("昵称") \
 		if sp.dialogue_line.has_tag("昵称") else sp.dialogue_line.character
@@ -363,8 +365,8 @@ func PerformBackgroundPan(scale_multiplier: float, segments: Array) -> void:
 		Game.stage_page.skip_cancelled.emit()
 	Game.stage_page.play_background_performance.call_deferred(scale_multiplier, segments)
 
-func StopBackgroundPerformance() -> void:
-	Game.stage_page.stop_background_performance()
+func StopBackgroundPerformance(fade_duration: float = 0.8) -> void:
+	await Game.stage_page.stop_background_performance(true, fade_duration)
 
 func ShowPhone() -> void:
 	var initial_chat_character := ""

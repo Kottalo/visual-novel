@@ -373,4 +373,5 @@ texture = ExtResource("29_hovpu")
 [editable path="SubViewportContainer/SubViewport/DialogueScreen/DialogueBox/HBoxContainer_Buttons/DialogueButton_Voice"]
 [editable path="SubViewportContainer/SubViewport/DialogueScreen/DialogueBox/HBoxContainer_Buttons/DialogueButton_Phone"]
 [editable path="SubViewportContainer/SubViewport/DialogueScreen/DialogueBox/HBoxContainer_Buttons/DialogueButton_Book"]
+[editable path="SubViewportContainer/SubViewport/DialogueScreen/DialogueBox/HBoxContainer_Buttons/DialogueButton_Hide"]
 [editable path="SubViewportContainer/SubViewport/DialogueScreen/DialogueBox/HBoxContainer_Buttons/DialogueButton_Title"]

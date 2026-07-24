@@ -2,7 +2,6 @@
 class_name Character
 extends Control
 
-@export var speaking_mouth: String
 @export var sv_container: SubViewportContainer
 @export var subviewport: SubViewport
 @export var story_model: Control

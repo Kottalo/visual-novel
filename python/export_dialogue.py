@@ -82,6 +82,20 @@ def extract_field(fields, name):
     return str(val)
 
 
+def parse_duration(value):
+    value = str(value or "").strip()
+    if not value:
+        return None
+    try:
+        return float(value)
+    except ValueError:
+        return None
+
+
+def format_duration(value):
+    return f"{value:g}"
+
+
 def _append_multi_value(values, value):
     if value is None or value is False:
         return
@@ -118,14 +132,57 @@ def extract_multi_values(fields, name):
     return unique_values
 
 
-def extract_hidden_portraits(fields, character):
-    """提取需要隐藏立绘的角色；多选值表示选谁下谁，旧布尔 true 仍隐藏当前行角色。"""
-    val = fields.get("隐藏立绘")
+def _split_portrait_value(value):
+    """允许多选字段，也兼容逗号/换行分隔的文本字段。"""
+    if not isinstance(value, str):
+        return []
+    parts = re.split(r"[,，\n\r]+", value)
+    return [part.strip() for part in parts if part.strip()]
+
+
+def extract_portrait_actions(fields, name, character):
+    """提取立绘操作角色；布尔 true 表示当前行角色，多选/文本表示指定角色。"""
+    val = fields.get(name)
     if val is True:
         return [character] if character else []
     if val is False or val is None:
         return []
-    return extract_multi_values(fields, "隐藏立绘")
+    values = []
+    for value in extract_multi_values(fields, name):
+        split_values = _split_portrait_value(value)
+        values.extend(split_values if split_values else [value])
+
+    unique_values = []
+    seen = set()
+    for value in values:
+        if value not in seen:
+            unique_values.append(value)
+            seen.add(value)
+    return unique_values
+
+
+def add_visible_character(state, character):
+    state["visible_characters"].add(character)
+    if character not in state["visible_character_order"]:
+        state["visible_character_order"].append(character)
+
+
+def remove_visible_character(state, character):
+    state["visible_characters"].remove(character)
+    if character in state["visible_character_order"]:
+        state["visible_character_order"].remove(character)
+
+
+def append_fade_in(lines, tabs, state, character):
+    if has_portrait(character) and character not in state["visible_characters"]:
+        lines.append(f'{tabs}$> Character("{character}").FadeIn("Center")')
+        add_visible_character(state, character)
+
+
+def append_fade_out(lines, tabs, state, character):
+    if has_portrait(character) and character in state["visible_characters"]:
+        lines.append(f'{tabs}$> Character("{character}").FadeOut()')
+        remove_visible_character(state, character)
 
 
 def get_parent_id(fields):
@@ -172,7 +229,8 @@ def record_to_data(record):
         "voice": extract_field(fields, "语音"),
         "nickname": extract_field(fields, "昵称"),
         "hide_avatar": fields.get("隐藏头像", False),
-        "hidden_portraits": extract_hidden_portraits(fields, character),
+        "entering_portraits": extract_portrait_actions(fields, "立绘入场", character),
+        "hidden_portraits": extract_portrait_actions(fields, "隐藏立绘", character),
         "body": body,
         "expression": extract_field(fields, "表情"),
         "end_expression": extract_field(fields, "结束表情"),
@@ -182,6 +240,8 @@ def record_to_data(record):
         "delay": extract_field(fields, "延迟"),
         "bg_name": extract_field(fields, "场景"),
         "time_period": extract_field(fields, "时段"),
+        "bg_fade_to_black": extract_field(fields, "黑屏淡入"),
+        "bg_fade_from_black": extract_field(fields, "黑屏淡出"),
         "date": extract_field(fields, "日期"),
         "week_day": extract_field(fields, "星期"),
         "time": extract_field(fields, "时间"),
@@ -289,7 +349,17 @@ def generate_do_commands(data, state, lines, tabs):
             if state["skip_next_set_background"]:
                 state["skip_next_set_background"] = False
             else:
-                if not state["bg_name"]:
+                fade_to_black = parse_duration(data.get("bg_fade_to_black", ""))
+                fade_from_black = parse_duration(data.get("bg_fade_from_black", ""))
+                if fade_to_black is not None or fade_from_black is not None:
+                    default_duration = 0.0 if not state["bg_name"] else 1.2
+                    out_time = fade_to_black if fade_to_black is not None else default_duration
+                    in_time = fade_from_black if fade_from_black is not None else default_duration
+                    lines.append(
+                        f'{tabs}$> SetBackground("{data["bg_name"]}", "{data["time_period"]}", '
+                        f'{format_duration(out_time)}, {format_duration(in_time)})'
+                    )
+                elif not state["bg_name"]:
                     lines.append(f'{tabs}$> SetBackground("{data["bg_name"]}", "{data["time_period"]}", 0, 0)')
                 else:
                     lines.append(f'{tabs}$> SetBackground("{data["bg_name"]}", "{data["time_period"]}")')
@@ -334,9 +404,7 @@ def generate_do_commands(data, state, lines, tabs):
             lines.append(f'{tabs}$> SetDate({month}, {day}, "{week_day}")')
 
             for visible_character in restore_characters:
-                lines.append(f'{tabs}$> Character("{visible_character}").FadeIn("Center")')
-                state["visible_characters"].add(visible_character)
-                state["visible_character_order"].append(visible_character)
+                append_fade_in(lines, tabs, state, visible_character)
             lines.append(f"{tabs}$> ShowDialogue()")
             state["date_key"] = date_key
 
@@ -357,21 +425,18 @@ def generate_do_commands(data, state, lines, tabs):
                 if prepares_background(cmd_line):
                     state["skip_next_set_background"] = True
 
+    for entering_character in data.get("entering_portraits", []):
+        append_fade_in(lines, tabs, state, entering_character)
+
     character = data["character"]
     if has_portrait(character) and character not in hidden_portraits and not data["phone"] and character not in state["visible_characters"]:
-        lines.append(f'{tabs}$> Character("{character}").FadeIn("Center")')
-        state["visible_characters"].add(character)
-        state["visible_character_order"].append(character)
+        append_fade_in(lines, tabs, state, character)
 
 
 def generate_after_dialogue_commands(data, state, lines, tabs):
     """生成对白后的指令行。"""
     for hidden_character in data.get("hidden_portraits", []):
-        if has_portrait(hidden_character) and hidden_character in state["visible_characters"]:
-            lines.append(f'{tabs}$> Character("{hidden_character}").FadeOut()')
-            state["visible_characters"].remove(hidden_character)
-            if hidden_character in state["visible_character_order"]:
-                state["visible_character_order"].remove(hidden_character)
+        append_fade_out(lines, tabs, state, hidden_character)
 
 
 def _close_book_if_needed(state, lines, tabs=""):

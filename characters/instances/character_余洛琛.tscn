@@ -210,7 +210,6 @@ atlas = SubResource("ViewportTexture_gfdhf")
 region = Rect2(88, 128, 1152, 1056)
 
 [node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
-speaking_mouth = "说话"
 phone_avatar = ExtResource("24_phone")
 phone_nickname = "高三（10）班-余洛琛-12月5日"
 

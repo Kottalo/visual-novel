@@ -229,7 +229,6 @@ region = Rect2(128, 272, 1176, 976)
 offset_left = 153.0
 offset_right = 153.0
 pivot_offset = Vector2(-129, -11)
-speaking_mouth = "说话"
 phone_avatar = ExtResource("22_phone")
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
