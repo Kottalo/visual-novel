@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0gag5i2v34e2"]
 
 [ext_resource type="Script" uid="uid://c5tfa7c7bgv1b" path="res://pages/main_menu/main_menu.gd" id="1_563vs"]
-[ext_resource type="Texture2D" uid="uid://bxe31xgcmaiac" path="res://assets/ui_backgrounds/title_background.jpg" id="2_kxxlx"]
+[ext_resource type="Texture2D" uid="uid://d1xdm4an6dxf7" path="res://assets/ui_backgrounds/title_background.png" id="2_0kkdm"]
 [ext_resource type="Shader" uid="uid://bkb4yiv7ujaa2" path="res://shaders/title.gdshader" id="3_563vs"]
 [ext_resource type="Texture2D" uid="uid://dkl0wjuebbpm4" path="res://assets/sprites/ui/ui.sprites/logo_normal.tres" id="3_mtbyv"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_e7v1n"]
@@ -88,7 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_kxxlx")
+texture = ExtResource("2_0kkdm")
 expand_mode = 5
 stretch_mode = 6
 
@@ -97,12 +97,13 @@ material = SubResource("ShaderMaterial_tst2v")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 658.0
-offset_top = 752.0
-offset_right = -658.0
-offset_bottom = -184.0
+offset_left = 534.0
+offset_top = 710.0
+offset_right = -167.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_mtbyv")
 stretch_mode = 4
 

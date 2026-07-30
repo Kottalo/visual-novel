@@ -1654,16 +1654,16 @@
 			"image": "ui-5.png",
 			"size": {
 				"w": 2560,
-				"h": 2032
+				"h": 2040
 			},
 			"sprites": [
 				{
-					"filename": "botton_text_click.png",
+					"filename": "chat/chat_example.png",
 					"region": {
-						"x": 438,
-						"y": 1948,
-						"w": 150,
-						"h": 72
+						"x": 0,
+						"y": 1918,
+						"w": 458,
+						"h": 120
 					},
 					"margin": {
 						"x": 0,
@@ -1673,41 +1673,11 @@
 					}
 				},
 				{
-					"filename": "botton_text_hover.png",
+					"filename": "chr_chang_selected.png",
 					"region": {
-						"x": 590,
-						"y": 1948,
-						"w": 150,
-						"h": 72
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "botton_text_normal.png",
-					"region": {
-						"x": 742,
-						"y": 1948,
-						"w": 150,
-						"h": 72
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "chr_ge_selected.png",
-					"region": {
-						"x": 1246,
+						"x": 2020,
 						"y": 1442,
-						"w": 299,
+						"w": 298,
 						"h": 494
 					},
 					"margin": {
@@ -1718,12 +1688,12 @@
 					}
 				},
 				{
-					"filename": "exit.png",
+					"filename": "dataimage_empty.png",
 					"region": {
-						"x": 894,
-						"y": 1948,
-						"w": 157,
-						"h": 54
+						"x": 1054,
+						"y": 1714,
+						"w": 469,
+						"h": 263
 					},
 					"margin": {
 						"x": 0,
@@ -1733,12 +1703,57 @@
 					}
 				},
 				{
-					"filename": "logo_normal.png",
+					"filename": "dataimage_frame.png",
+					"region": {
+						"x": 0,
+						"y": 1762,
+						"w": 468,
+						"h": 154
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "log_title.png",
+					"region": {
+						"x": 470,
+						"y": 1762,
+						"w": 446,
+						"h": 256
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "voice_title.png",
+					"region": {
+						"x": 1525,
+						"y": 1714,
+						"w": 457,
+						"h": 256
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "插画鉴赏/image_click.png",
 					"region": {
 						"x": 0,
 						"y": 1442,
-						"w": 1244,
-						"h": 504
+						"w": 525,
+						"h": 318
 					},
 					"margin": {
 						"x": 0,
@@ -1748,72 +1763,12 @@
 					}
 				},
 				{
-					"filename": "miracle.png",
+					"filename": "插画鉴赏/image_example.png",
 					"region": {
-						"x": 1053,
-						"y": 1948,
-						"w": 139,
-						"h": 54
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "name_decoration.png",
-					"region": {
-						"x": 1246,
-						"y": 1938,
-						"w": 142,
-						"h": 88
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "page_hover.png",
-					"region": {
-						"x": 0,
-						"y": 1948,
-						"w": 217,
-						"h": 83
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "page_normal.png",
-					"region": {
-						"x": 219,
-						"y": 1948,
-						"w": 217,
-						"h": 83
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "voice_background_hover.png",
-					"region": {
-						"x": 1547,
+						"x": 1054,
 						"y": 1442,
-						"w": 883,
-						"h": 253
+						"w": 481,
+						"h": 270
 					},
 					"margin": {
 						"x": 0,
@@ -1823,12 +1778,72 @@
 					}
 				},
 				{
-					"filename": "voice_background_normal.png",
+					"filename": "插画鉴赏/image_hover.png",
 					"region": {
-						"x": 1547,
-						"y": 1697,
-						"w": 883,
-						"h": 253
+						"x": 527,
+						"y": 1442,
+						"w": 525,
+						"h": 318
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "插画鉴赏/image_locked.png",
+					"region": {
+						"x": 1537,
+						"y": 1442,
+						"w": 481,
+						"h": 270
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "立绘鉴赏/ico_changxia.png",
+					"region": {
+						"x": 2320,
+						"y": 1442,
+						"w": 153,
+						"h": 153
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "立绘鉴赏/ico_gecheng.png",
+					"region": {
+						"x": 2320,
+						"y": 1597,
+						"w": 153,
+						"h": 153
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "立绘鉴赏/ico_kanade.png",
+					"region": {
+						"x": 2320,
+						"y": 1752,
+						"w": 153,
+						"h": 153
 					},
 					"margin": {
 						"x": 0,
@@ -1858,44 +1873,44 @@
 			"image": "ui-6.png",
 			"size": {
 				"w": 2560,
-				"h": 1932
+				"h": 2008
 			},
 			"sprites": [
 				{
-					"filename": "chr_ge.png",
+					"filename": "bigchr_yu.png",
 					"region": {
-						"x": 1418,
-						"y": 1699,
-						"w": 291,
-						"h": 231
+						"x": 300,
+						"y": 1442,
+						"w": 477,
+						"h": 352
 					},
 					"margin": {
-						"x": 57,
-						"y": 11,
-						"w": 592,
-						"h": 22
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
-					"filename": "chr_kaguya_hover.png",
+					"filename": "chat/left-arrow.png",
 					"region": {
-						"x": 0,
-						"y": 1442,
-						"w": 280,
-						"h": 476
+						"x": 1010,
+						"y": 1750,
+						"w": 256,
+						"h": 256
 					},
 					"margin": {
-						"x": 10,
-						"y": 9,
-						"w": 19,
-						"h": 18
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
 					"filename": "chr_knd.png",
 					"region": {
-						"x": 1072,
-						"y": 1699,
+						"x": 1982,
+						"y": 1442,
 						"w": 344,
 						"h": 231
 					},
@@ -1909,8 +1924,8 @@
 				{
 					"filename": "chr_xia.png",
 					"region": {
-						"x": 637,
-						"y": 1700,
+						"x": 1716,
+						"y": 1699,
 						"w": 433,
 						"h": 231
 					},
@@ -1922,25 +1937,40 @@
 					}
 				},
 				{
-					"filename": "chr_yu.png",
+					"filename": "chr_yu_seleted.png",
 					"region": {
-						"x": 1711,
-						"y": 1699,
-						"w": 324,
-						"h": 230
+						"x": 0,
+						"y": 1442,
+						"w": 298,
+						"h": 494
 					},
 					"margin": {
-						"x": 60,
-						"y": 11,
-						"w": 559,
-						"h": 23
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "click_deco.png",
+					"region": {
+						"x": 300,
+						"y": 1796,
+						"w": 353,
+						"h": 159
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
 					"filename": "gallery_click_deco.png",
 					"region": {
-						"x": 282,
-						"y": 1750,
+						"x": 655,
+						"y": 1796,
 						"w": 353,
 						"h": 159
 					},
@@ -1954,7 +1984,7 @@
 				{
 					"filename": "load_title.png",
 					"region": {
-						"x": 1934,
+						"x": 1535,
 						"y": 1442,
 						"w": 445,
 						"h": 255
@@ -1967,24 +1997,9 @@
 					}
 				},
 				{
-					"filename": "log_title.png",
-					"region": {
-						"x": 590,
-						"y": 1442,
-						"w": 446,
-						"h": 256
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
 					"filename": "save_title.png",
 					"region": {
-						"x": 1038,
+						"x": 1087,
 						"y": 1442,
 						"w": 446,
 						"h": 255
@@ -1999,8 +2014,8 @@
 				{
 					"filename": "set_title.png",
 					"region": {
-						"x": 1486,
-						"y": 1442,
+						"x": 1268,
+						"y": 1699,
 						"w": 446,
 						"h": 255
 					},
@@ -2014,8 +2029,8 @@
 				{
 					"filename": "start_click_deco.png",
 					"region": {
-						"x": 2037,
-						"y": 1699,
+						"x": 2151,
+						"y": 1675,
 						"w": 353,
 						"h": 159
 					},
@@ -2029,10 +2044,40 @@
 				{
 					"filename": "头像/phone_portrait_yuluochen.png",
 					"region": {
-						"x": 282,
+						"x": 779,
 						"y": 1442,
 						"w": 306,
 						"h": 306
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "立绘鉴赏/ico_ling.png",
+					"region": {
+						"x": 2151,
+						"y": 1836,
+						"w": 153,
+						"h": 153
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "立绘鉴赏/ico_yuluochen.png",
+					"region": {
+						"x": 2306,
+						"y": 1836,
+						"w": 153,
+						"h": 153
 					},
 					"margin": {
 						"x": 0,
@@ -2066,7 +2111,7 @@
 			},
 			"sprites": [
 				{
-					"filename": "chr_kaguya_normal.png",
+					"filename": "chr_chang_hover.png",
 					"region": {
 						"x": 0,
 						"y": 1442,
@@ -2074,29 +2119,14 @@
 						"h": 476
 					},
 					"margin": {
-						"x": 10,
+						"x": 9,
 						"y": 9,
-						"w": 19,
+						"w": 18,
 						"h": 18
 					}
 				},
 				{
-					"filename": "chr_ling.png",
-					"region": {
-						"x": 1956,
-						"y": 1442,
-						"w": 309,
-						"h": 231
-					},
-					"margin": {
-						"x": 71,
-						"y": 11,
-						"w": 574,
-						"h": 22
-					}
-				},
-				{
-					"filename": "chr_ling_hover.png",
+					"filename": "chr_chang_normal.png",
 					"region": {
 						"x": 282,
 						"y": 1442,
@@ -2104,14 +2134,14 @@
 						"h": 476
 					},
 					"margin": {
-						"x": 11,
+						"x": 9,
 						"y": 9,
-						"w": 19,
+						"w": 18,
 						"h": 18
 					}
 				},
 				{
-					"filename": "chr_ling_normal.png",
+					"filename": "chr_ge_hover.png",
 					"region": {
 						"x": 564,
 						"y": 1442,
@@ -2126,7 +2156,7 @@
 					}
 				},
 				{
-					"filename": "chr_others_hover.png",
+					"filename": "chr_ge_normal.png",
 					"region": {
 						"x": 846,
 						"y": 1442,
@@ -2141,7 +2171,7 @@
 					}
 				},
 				{
-					"filename": "chr_others_normal.png",
+					"filename": "chr_kaguya_hover.png",
 					"region": {
 						"x": 1128,
 						"y": 1442,
@@ -2149,14 +2179,14 @@
 						"h": 476
 					},
 					"margin": {
-						"x": 11,
+						"x": 10,
 						"y": 9,
 						"w": 19,
 						"h": 18
 					}
 				},
 				{
-					"filename": "chr_yu_hover.png",
+					"filename": "chr_kaguya_normal.png",
 					"region": {
 						"x": 1410,
 						"y": 1442,
@@ -2166,23 +2196,38 @@
 					"margin": {
 						"x": 10,
 						"y": 9,
-						"w": 18,
+						"w": 19,
 						"h": 18
 					}
 				},
 				{
-					"filename": "chr_yu_normal.png",
+					"filename": "chr_ling.png",
 					"region": {
 						"x": 1692,
 						"y": 1442,
-						"w": 262,
-						"h": 458
+						"w": 309,
+						"h": 231
 					},
 					"margin": {
-						"x": 19,
-						"y": 18,
-						"w": 36,
-						"h": 36
+						"x": 71,
+						"y": 11,
+						"w": 574,
+						"h": 22
+					}
+				},
+				{
+					"filename": "chr_yu.png",
+					"region": {
+						"x": 1692,
+						"y": 1675,
+						"w": 324,
+						"h": 230
+					},
+					"margin": {
+						"x": 60,
+						"y": 11,
+						"w": 559,
+						"h": 23
 					}
 				},
 				{
@@ -2206,9 +2251,99 @@
 			"image": "ui-8.png",
 			"size": {
 				"w": 2560,
-				"h": 1440
+				"h": 1920
 			},
 			"sprites": [
+				{
+					"filename": "chr_ling_hover.png",
+					"region": {
+						"x": 0,
+						"y": 1442,
+						"w": 280,
+						"h": 476
+					},
+					"margin": {
+						"x": 11,
+						"y": 9,
+						"w": 19,
+						"h": 18
+					}
+				},
+				{
+					"filename": "chr_ling_normal.png",
+					"region": {
+						"x": 282,
+						"y": 1442,
+						"w": 280,
+						"h": 476
+					},
+					"margin": {
+						"x": 11,
+						"y": 9,
+						"w": 19,
+						"h": 18
+					}
+				},
+				{
+					"filename": "chr_others_hover.png",
+					"region": {
+						"x": 564,
+						"y": 1442,
+						"w": 280,
+						"h": 476
+					},
+					"margin": {
+						"x": 11,
+						"y": 9,
+						"w": 19,
+						"h": 18
+					}
+				},
+				{
+					"filename": "chr_others_normal.png",
+					"region": {
+						"x": 846,
+						"y": 1442,
+						"w": 280,
+						"h": 476
+					},
+					"margin": {
+						"x": 11,
+						"y": 9,
+						"w": 19,
+						"h": 18
+					}
+				},
+				{
+					"filename": "chr_yu_hover.png",
+					"region": {
+						"x": 1128,
+						"y": 1442,
+						"w": 280,
+						"h": 476
+					},
+					"margin": {
+						"x": 10,
+						"y": 9,
+						"w": 18,
+						"h": 18
+					}
+				},
+				{
+					"filename": "chr_yu_normal.png",
+					"region": {
+						"x": 1410,
+						"y": 1442,
+						"w": 262,
+						"h": 458
+					},
+					"margin": {
+						"x": 19,
+						"y": 18,
+						"w": 36,
+						"h": 36
+					}
+				},
 				{
 					"filename": "音乐鉴赏/play_normal.png",
 					"region": {
@@ -2682,15 +2817,15 @@
 		{
 			"image": "ui-11.png",
 			"size": {
-				"w": 2464,
-				"h": 2032
+				"w": 2556,
+				"h": 2044
 			},
 			"sprites": [
 				{
 					"filename": "bigchr_knd.png",
 					"region": {
-						"x": 1049,
-						"y": 1675,
+						"x": 1861,
+						"y": 1106,
 						"w": 561,
 						"h": 353
 					},
@@ -2702,12 +2837,12 @@
 					}
 				},
 				{
-					"filename": "chat/left-arrow.png",
+					"filename": "chr_ge_selected.png",
 					"region": {
-						"x": 0,
-						"y": 1757,
-						"w": 256,
-						"h": 256
+						"x": 1861,
+						"y": 1461,
+						"w": 299,
+						"h": 494
 					},
 					"margin": {
 						"x": 0,
@@ -2719,40 +2854,10 @@
 				{
 					"filename": "chr_kaguya_selected.png",
 					"region": {
-						"x": 1864,
-						"y": 1106,
+						"x": 2162,
+						"y": 1461,
 						"w": 299,
 						"h": 494
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "chr_ling_selected.png",
-					"region": {
-						"x": 2165,
-						"y": 1106,
-						"w": 299,
-						"h": 494
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "click_deco.png",
-					"region": {
-						"x": 1612,
-						"y": 1871,
-						"w": 353,
-						"h": 159
 					},
 					"margin": {
 						"x": 0,
@@ -2777,10 +2882,25 @@
 					}
 				},
 				{
+					"filename": "date_deco.png",
+					"region": {
+						"x": 0,
+						"y": 1929,
+						"w": 253,
+						"h": 115
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
 					"filename": "ico_book.png",
 					"region": {
-						"x": 2331,
-						"y": 1602,
+						"x": 2424,
+						"y": 1106,
 						"w": 130,
 						"h": 130
 					},
@@ -2794,8 +2914,8 @@
 				{
 					"filename": "ico_message.png",
 					"region": {
-						"x": 2331,
-						"y": 1734,
+						"x": 2424,
+						"y": 1238,
 						"w": 130,
 						"h": 130
 					},
@@ -2807,72 +2927,12 @@
 					}
 				},
 				{
-					"filename": "nnote.png",
-					"region": {
-						"x": 1612,
-						"y": 1675,
-						"w": 717,
-						"h": 194
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "place_outline.png",
-					"region": {
-						"x": 1011,
-						"y": 1106,
-						"w": 851,
-						"h": 567
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "select_outline.png",
+					"filename": "logo_normal.png",
 					"region": {
 						"x": 0,
 						"y": 1106,
-						"w": 1009,
-						"h": 649
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "skip.png",
-					"region": {
-						"x": 1967,
-						"y": 1871,
-						"w": 484,
-						"h": 158
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "音乐鉴赏/info_decoration.png",
-					"region": {
-						"x": 258,
-						"y": 1757,
-						"w": 789,
-						"h": 205
+						"w": 1859,
+						"h": 821
 					},
 					"margin": {
 						"x": 0,
@@ -2887,16 +2947,16 @@
 			"image": "ui-12.png",
 			"size": {
 				"w": 2560,
-				"h": 2020
+				"h": 2036
 			},
 			"sprites": [
 				{
-					"filename": "bigchr_ling.png",
+					"filename": "botton_text_click.png",
 					"region": {
-						"x": 1439,
-						"y": 1047,
-						"w": 463,
-						"h": 353
+						"x": 1295,
+						"y": 1953,
+						"w": 150,
+						"h": 72
 					},
 					"margin": {
 						"x": 0,
@@ -2906,12 +2966,12 @@
 					}
 				},
 				{
-					"filename": "chat/chat_example.png",
+					"filename": "botton_text_hover.png",
 					"region": {
-						"x": 1439,
-						"y": 1402,
-						"w": 458,
-						"h": 120
+						"x": 1447,
+						"y": 1953,
+						"w": 150,
+						"h": 72
 					},
 					"margin": {
 						"x": 0,
@@ -2921,71 +2981,11 @@
 					}
 				},
 				{
-					"filename": "chr_chang_hover.png",
+					"filename": "chr_ling_selected.png",
 					"region": {
-						"x": 857,
-						"y": 1543,
-						"w": 280,
-						"h": 476
-					},
-					"margin": {
-						"x": 9,
-						"y": 9,
-						"w": 18,
-						"h": 18
-					}
-				},
-				{
-					"filename": "chr_chang_normal.png",
-					"region": {
-						"x": 1139,
-						"y": 1543,
-						"w": 280,
-						"h": 476
-					},
-					"margin": {
-						"x": 9,
-						"y": 9,
-						"w": 18,
-						"h": 18
-					}
-				},
-				{
-					"filename": "chr_ge_hover.png",
-					"region": {
-						"x": 1157,
-						"y": 1047,
-						"w": 280,
-						"h": 476
-					},
-					"margin": {
-						"x": 11,
-						"y": 9,
-						"w": 19,
-						"h": 18
-					}
-				},
-				{
-					"filename": "chr_ge_normal.png",
-					"region": {
-						"x": 1421,
-						"y": 1525,
-						"w": 280,
-						"h": 476
-					},
-					"margin": {
-						"x": 11,
-						"y": 9,
-						"w": 19,
-						"h": 18
-					}
-				},
-				{
-					"filename": "chr_yu_seleted.png",
-					"region": {
-						"x": 857,
-						"y": 1047,
-						"w": 298,
+						"x": 1868,
+						"y": 1518,
+						"w": 299,
 						"h": 494
 					},
 					"margin": {
@@ -2996,12 +2996,12 @@
 					}
 				},
 				{
-					"filename": "dataimage_empty.png",
+					"filename": "chr_others_selected.png",
 					"region": {
-						"x": 1904,
-						"y": 1319,
-						"w": 469,
-						"h": 263
+						"x": 2169,
+						"y": 1518,
+						"w": 299,
+						"h": 494
 					},
 					"margin": {
 						"x": 0,
@@ -3011,12 +3011,12 @@
 					}
 				},
 				{
-					"filename": "voice_title.png",
+					"filename": "data_background_normal.png",
 					"region": {
-						"x": 1703,
-						"y": 1720,
-						"w": 457,
-						"h": 256
+						"x": 1868,
+						"y": 1047,
+						"w": 571,
+						"h": 469
 					},
 					"margin": {
 						"x": 0,
@@ -3026,12 +3026,72 @@
 					}
 				},
 				{
-					"filename": "头像/phone_portrait_changxia.png",
+					"filename": "exit.png",
 					"region": {
-						"x": 1703,
-						"y": 1524,
-						"w": 194,
-						"h": 194
+						"x": 1599,
+						"y": 1953,
+						"w": 157,
+						"h": 54
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "page_hover.png",
+					"region": {
+						"x": 857,
+						"y": 1953,
+						"w": 217,
+						"h": 83
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "page_normal.png",
+					"region": {
+						"x": 1076,
+						"y": 1953,
+						"w": 217,
+						"h": 83
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "select_outline.png",
+					"region": {
+						"x": 857,
+						"y": 1047,
+						"w": 1009,
+						"h": 649
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "voice_background_hover.png",
+					"region": {
+						"x": 857,
+						"y": 1698,
+						"w": 883,
+						"h": 253
 					},
 					"margin": {
 						"x": 0,
@@ -3047,51 +3107,6 @@
 						"y": 0,
 						"w": 2560,
 						"h": 1045
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "插画鉴赏/image_locked.png",
-					"region": {
-						"x": 1904,
-						"y": 1047,
-						"w": 481,
-						"h": 270
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "立绘鉴赏/ico_select.png",
-					"region": {
-						"x": 2387,
-						"y": 1047,
-						"w": 167,
-						"h": 167
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "立绘鉴赏/ico_yuluochen.png",
-					"region": {
-						"x": 2387,
-						"y": 1216,
-						"w": 153,
-						"h": 153
 					},
 					"margin": {
 						"x": 0,
@@ -3120,15 +3135,15 @@
 		{
 			"image": "ui-13.png",
 			"size": {
-				"w": 2552,
-				"h": 2044
+				"w": 2560,
+				"h": 2048
 			},
 			"sprites": [
 				{
 					"filename": "auto.png",
 					"region": {
-						"x": 2047,
-						"y": 1825,
+						"x": 853,
+						"y": 1791,
 						"w": 484,
 						"h": 169
 					},
@@ -3140,12 +3155,27 @@
 					}
 				},
 				{
-					"filename": "bigchr_yu.png",
+					"filename": "bigchr_ling.png",
 					"region": {
-						"x": 1568,
-						"y": 1649,
-						"w": 477,
-						"h": 352
+						"x": 1880,
+						"y": 1329,
+						"w": 463,
+						"h": 353
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "botton_text_normal.png",
+					"region": {
+						"x": 1644,
+						"y": 1584,
+						"w": 150,
+						"h": 72
 					},
 					"margin": {
 						"x": 0,
@@ -3170,87 +3200,72 @@
 					}
 				},
 				{
-					"filename": "chr_chang_selected.png",
+					"filename": "chr_ge.png",
 					"region": {
-						"x": 527,
-						"y": 1431,
-						"w": 298,
-						"h": 494
+						"x": 1339,
+						"y": 1791,
+						"w": 291,
+						"h": 231
 					},
 					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "chr_others_selected.png",
-					"region": {
-						"x": 2095,
-						"y": 1329,
-						"w": 299,
-						"h": 494
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "data_background_normal.png",
-					"region": {
-						"x": 995,
-						"y": 1329,
-						"w": 571,
-						"h": 469
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "dataimage_frame.png",
-					"region": {
-						"x": 827,
-						"y": 1800,
-						"w": 468,
-						"h": 154
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "date_deco.png",
-					"region": {
-						"x": 483,
-						"y": 1927,
-						"w": 253,
-						"h": 115
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
+						"x": 57,
+						"y": 11,
+						"w": 592,
+						"h": 22
 					}
 				},
 				{
 					"filename": "ico_select_light.png",
 					"region": {
-						"x": 827,
-						"y": 1431,
+						"x": 2118,
+						"y": 1880,
 						"w": 166,
 						"h": 166
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "miracle.png",
+					"region": {
+						"x": 853,
+						"y": 1431,
+						"w": 139,
+						"h": 54
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "name_decoration.png",
+					"region": {
+						"x": 2345,
+						"y": 1531,
+						"w": 142,
+						"h": 88
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "nnote.png",
+					"region": {
+						"x": 1644,
+						"y": 1684,
+						"w": 717,
+						"h": 194
 					},
 					"margin": {
 						"x": 0,
@@ -3275,6 +3290,21 @@
 					}
 				},
 				{
+					"filename": "place_outline.png",
+					"region": {
+						"x": 0,
+						"y": 1431,
+						"w": 851,
+						"h": 567
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
 					"filename": "screen_image.png",
 					"region": {
 						"x": 1727,
@@ -3290,10 +3320,55 @@
 					}
 				},
 				{
+					"filename": "skip.png",
+					"region": {
+						"x": 1632,
+						"y": 1880,
+						"w": 484,
+						"h": 158
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "voice_background_normal.png",
+					"region": {
+						"x": 995,
+						"y": 1329,
+						"w": 883,
+						"h": 253
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "头像/phone_portrait_changxia.png",
+					"region": {
+						"x": 2363,
+						"y": 1621,
+						"w": 194,
+						"h": 194
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
 					"filename": "头像/phone_portrait_kanade.png",
 					"region": {
-						"x": 1297,
-						"y": 1800,
+						"x": 2345,
+						"y": 1329,
 						"w": 200,
 						"h": 200
 					},
@@ -3305,12 +3380,12 @@
 					}
 				},
 				{
-					"filename": "插画鉴赏/image_click.png",
+					"filename": "立绘鉴赏/ico_select.png",
 					"region": {
-						"x": 1568,
-						"y": 1329,
-						"w": 525,
-						"h": 318
+						"x": 2363,
+						"y": 1817,
+						"w": 167,
+						"h": 167
 					},
 					"margin": {
 						"x": 0,
@@ -3320,87 +3395,12 @@
 					}
 				},
 				{
-					"filename": "插画鉴赏/image_example.png",
+					"filename": "音乐鉴赏/info_decoration.png",
 					"region": {
-						"x": 0,
-						"y": 1751,
-						"w": 481,
-						"h": 270
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "插画鉴赏/image_hover.png",
-					"region": {
-						"x": 0,
-						"y": 1431,
-						"w": 525,
-						"h": 318
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "立绘鉴赏/ico_changxia.png",
-					"region": {
-						"x": 2396,
-						"y": 1329,
-						"w": 153,
-						"h": 153
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "立绘鉴赏/ico_gecheng.png",
-					"region": {
-						"x": 2396,
-						"y": 1484,
-						"w": 153,
-						"h": 153
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "立绘鉴赏/ico_kanade.png",
-					"region": {
-						"x": 2396,
-						"y": 1639,
-						"w": 153,
-						"h": 153
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "立绘鉴赏/ico_ling.png",
-					"region": {
-						"x": 827,
-						"y": 1599,
-						"w": 153,
-						"h": 153
+						"x": 853,
+						"y": 1584,
+						"w": 789,
+						"h": 205
 					},
 					"margin": {
 						"x": 0,
@@ -3415,6 +3415,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:abae32d010509b0033cc5ff5595c16f4:4f61575740ffc9dccda550e40710eacb:67eaf37eea44c4511444f69d26e74af2$"
+		"smartupdate": "$TexturePacker:SmartUpdate:c8e57dbc4de2556e19075d1bfd5e0ce6:a6e752b9dd77af64c757f1a535916ec4:67eaf37eea44c4511444f69d26e74af2$"
 	}
 }
