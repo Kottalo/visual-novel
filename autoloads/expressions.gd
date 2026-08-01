@@ -125,7 +125,7 @@ static var data = {
 			"Mouth": "无口"
 		},
 		"害羞": {
-			"Eyebrows": "悲伤",
+			"Eyebrows": "默认",
 			"Eyes": "不敢对视",
 			"Mouth": "微笑"
 		},
@@ -153,6 +153,11 @@ static var data = {
 			"Eyebrows": "疑惑",
 			"Eyes": "微眯",
 			"Mouth": "无口"
+		},
+		"眯眼开心": {
+			"Eyebrows": "默认",
+			"Eyes": "眯眼",
+			"Mouth": "微笑"
 		},
 		"苦恼说话": {
 			"Eyebrows": "悲伤",
@@ -240,6 +245,11 @@ static var data = {
 			"Eyebrows": "默认",
 			"Eyes": "默认",
 			"Mouth": "默认"
+		},
+		"意味深长（闭嘴）": {
+			"Eyebrows": "疑惑",
+			"Eyes": "微眯",
+			"Mouth": "微笑"
 		}
 	},
 	"常夏": {
