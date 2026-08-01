@@ -229,7 +229,7 @@ def record_to_data(record):
         "voice": extract_field(fields, "语音"),
         "nickname": extract_field(fields, "昵称"),
         "hide_avatar": fields.get("隐藏头像", False),
-        "entering_portraits": extract_portrait_actions(fields, "立绘入场", character),
+        "entering_portraits": extract_portrait_actions(fields, "立绘入场", character) + extract_portrait_actions(fields, "显示立绘", character),
         "hidden_portraits": extract_portrait_actions(fields, "隐藏立绘", character),
         "body": body,
         "expression": extract_field(fields, "表情"),

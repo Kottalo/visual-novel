@@ -13,8 +13,9 @@ resource_local_to_scene = true
 shader = ExtResource("3_563vs")
 shader_parameter/x = 0.0
 shader_parameter/size = 0.03
-shader_parameter/dark_alpha = 0.9210000437475
-shader_parameter/light_alpha = 1.57200007467
+shader_parameter/shine_color = Vector3(1, 0.94902, 0.721569)
+shader_parameter/shine_strength = 0.2010000095475
+shader_parameter/glow_strength = 0.06400000304
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mtbyv"]
 particles_animation = true

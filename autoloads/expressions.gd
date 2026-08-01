@@ -153,6 +153,11 @@ static var data = {
 			"Eyebrows": "疑惑",
 			"Eyes": "微眯",
 			"Mouth": "无口"
+		},
+		"苦恼说话": {
+			"Eyebrows": "悲伤",
+			"Eyes": "微眯",
+			"Mouth": "小开口"
 		}
 	},
 	"林凌铃": {

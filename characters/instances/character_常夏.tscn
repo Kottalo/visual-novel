@@ -223,7 +223,7 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdyow"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_ktyj5")
-region = Rect2(128, 272, 1176, 976)
+region = Rect2(128, 216, 1216, 1032)
 
 [node name="常夏" unique_id=401531579 instance=ExtResource("1_1d4w3")]
 offset_left = 153.0
@@ -240,7 +240,7 @@ offset_bottom = 1361.0
 size = Vector2i(1339, 2713)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(614, 1557)
+position = Vector2(668, 1532)
 scale = Vector2(0.714, 0.714)
 sprite_frames = SubResource("SpriteFrames_mflfp")
 animation = &"常服-举食指"
@@ -265,9 +265,9 @@ texture = ExtResource("21_hdqmv")
 visible = true
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -686.0
+offset_left = -682.0
 offset_top = -1356.0
-offset_right = 653.0
+offset_right = 657.0
 offset_bottom = 1357.0
 texture = SubResource("ViewportTexture_r613x")
 
