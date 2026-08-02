@@ -61,6 +61,11 @@ static var data = {
 			"Eyebrows": "上挑",
 			"Eyes": "惊讶",
 			"Mouth": "说话"
+		},
+		"无奈（开口）": {
+			"Eyebrows": "悲伤",
+			"Eyes": "微眯",
+			"Mouth": "说话"
 		}
 	},
 	"余洛琛": {
@@ -71,7 +76,7 @@ static var data = {
 		},
 		"晕说话": {
 			"Eyebrows": "默认",
-			"Eyes": "微眯",
+			"Eyes": "晕晕眼",
 			"Mouth": "说话"
 		},
 		"悲伤说话": {
@@ -169,7 +174,7 @@ static var data = {
 		"说话": {
 			"Eyebrows": "默认",
 			"Eyes": "默认",
-			"Mouth": "默认"
+			"Mouth": "说话"
 		},
 		"低落思考": {
 			"Eyebrows": "上扬",
@@ -213,8 +218,8 @@ static var data = {
 		},
 		"微笑": {
 			"Eyebrows": "默认",
-			"Eyes": "眯眼",
-			"Mouth": "说话"
+			"Eyes": "默认",
+			"Mouth": "微笑"
 		},
 		"意味深长": {
 			"Eyebrows": "疑惑",
@@ -239,7 +244,7 @@ static var data = {
 		"严肃（开口）": {
 			"Eyebrows": "生气",
 			"Eyes": "默认",
-			"Mouth": "说话"
+			"Mouth": "小开口"
 		},
 		"默认": {
 			"Eyebrows": "默认",
@@ -249,6 +254,11 @@ static var data = {
 		"意味深长（闭嘴）": {
 			"Eyebrows": "疑惑",
 			"Eyes": "微眯",
+			"Mouth": "微笑"
+		},
+		"眯眼开心": {
+			"Eyebrows": "上挑",
+			"Eyes": "眯眼",
 			"Mouth": "微笑"
 		}
 	},
@@ -265,7 +275,7 @@ static var data = {
 		},
 		"微笑": {
 			"Eyebrows": "上挑",
-			"Eyes": "眯眼",
+			"Eyes": "默认",
 			"Mouth": "微笑"
 		},
 		"坏笑": {
@@ -317,6 +327,11 @@ static var data = {
 			"Eyebrows": "悲伤",
 			"Eyes": "默认",
 			"Mouth": "说话"
+		},
+		"眯眼笑": {
+			"Eyebrows": "上挑",
+			"Eyes": "眯眼",
+			"Mouth": "微笑"
 		}
 	}
 }

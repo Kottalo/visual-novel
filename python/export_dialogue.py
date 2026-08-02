@@ -173,8 +173,12 @@ def remove_visible_character(state, character):
         state["visible_character_order"].remove(character)
 
 
-def append_fade_in(lines, tabs, state, character):
+def append_fade_in(lines, tabs, state, character, body=None):
     if has_portrait(character) and character not in state["visible_characters"]:
+        # 优先用传入的 body，其次用 state 中追踪的身体
+        effective_body = body if (body and body != "-") else state.get("character_bodies", {}).get(character, "")
+        if effective_body:
+            lines.append(f'{tabs}$> Character("{character}").SetBody("{effective_body}")')
         lines.append(f'{tabs}$> Character("{character}").FadeIn("Center")')
         add_visible_character(state, character)
 
@@ -425,12 +429,16 @@ def generate_do_commands(data, state, lines, tabs):
                 if prepares_background(cmd_line):
                     state["skip_next_set_background"] = True
 
+    # 追踪角色身体（在 FadeIn 之前记录）
+    character = data["character"]
+    if data["body"] and data["body"] != "-" and character:
+        state["character_bodies"][character] = data["body"]
+
     for entering_character in data.get("entering_portraits", []):
         append_fade_in(lines, tabs, state, entering_character)
 
-    character = data["character"]
     if has_portrait(character) and character not in hidden_portraits and not data["phone"] and character not in state["visible_characters"]:
-        append_fade_in(lines, tabs, state, character)
+        append_fade_in(lines, tabs, state, character, data.get("body", ""))
 
 
 def generate_after_dialogue_commands(data, state, lines, tabs):
@@ -498,6 +506,7 @@ def convert_chapter(roots, children_map, chapter_filter):
     state = {
         "visible_characters": set(),
         "visible_character_order": [],
+        "character_bodies": {},
         "bg_name": "",
         "time_period": "",
         "date_key": "",
