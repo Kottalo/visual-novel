@@ -243,7 +243,7 @@ size = Vector2i(1339, 2713)
 position = Vector2(668, 1532)
 scale = Vector2(0.714, 0.714)
 sprite_frames = SubResource("SpriteFrames_mflfp")
-animation = &"常服-举食指"
+animation = &"校服-叉腰"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_mpe7f")

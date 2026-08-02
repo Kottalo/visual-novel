@@ -239,6 +239,7 @@
             <key type="filename">../characters/林凌铃/嘴巴/大开口.png</key>
             <key type="filename">../characters/林凌铃/嘴巴/小开口.png</key>
             <key type="filename">../characters/林凌铃/嘴巴/开口.png</key>
+            <key type="filename">../characters/林凌铃/嘴巴/微笑.png</key>
             <key type="filename">../characters/林凌铃/嘴巴/默认.png</key>
             <key type="filename">../characters/林凌铃/嘴巴/鼓嘴.png</key>
             <key type="filename">../characters/林凌铃/眉毛/上扬.png</key>

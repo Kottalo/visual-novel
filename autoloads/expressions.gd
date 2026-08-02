@@ -168,6 +168,11 @@ static var data = {
 			"Eyebrows": "悲伤",
 			"Eyes": "微眯",
 			"Mouth": "小开口"
+		},
+		"疑问说话": {
+			"Eyebrows": "疑惑",
+			"Eyes": "微眯",
+			"Mouth": "小开口"
 		}
 	},
 	"林凌铃": {
@@ -260,12 +265,17 @@ static var data = {
 			"Eyebrows": "上挑",
 			"Eyes": "眯眼",
 			"Mouth": "微笑"
+		},
+		"眯眼开心说话": {
+			"Eyebrows": "上挑",
+			"Eyes": "眯眼",
+			"Mouth": "说话"
 		}
 	},
 	"常夏": {
 		"微笑说": {
 			"Eyebrows": "上挑",
-			"Eyes": "眯眼",
+			"Eyes": "默认",
 			"Mouth": "说话"
 		},
 		"说话": {
@@ -332,6 +342,11 @@ static var data = {
 			"Eyebrows": "上挑",
 			"Eyes": "眯眼",
 			"Mouth": "微笑"
+		},
+		"眯眼开心说话": {
+			"Eyebrows": "上挑",
+			"Eyes": "眯眼",
+			"Mouth": "说话"
 		}
 	}
 }

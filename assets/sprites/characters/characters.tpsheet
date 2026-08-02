@@ -638,6 +638,21 @@
 					}
 				},
 				{
+					"filename": "林凌铃/嘴巴/微笑.png",
+					"region": {
+						"x": 2351,
+						"y": 838,
+						"w": 44,
+						"h": 20
+					},
+					"margin": {
+						"x": 1085,
+						"y": 931,
+						"w": 2116,
+						"h": 3820
+					}
+				},
+				{
 					"filename": "林凌铃/嘴巴/默认.png",
 					"region": {
 						"x": 1328,
@@ -2014,6 +2029,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:1efa4753a1e45ed8ac68d48b87b8dcf1:cac8a385d802c00f7c07b902dd6919f3:b905fd587adf7484b71d2426f5605ebf$"
+		"smartupdate": "$TexturePacker:SmartUpdate:9963dd66ca9a0a3606e3a401ee40da54:0bccdc384fd20f8fd31711d9fd52ff10:b905fd587adf7484b71d2426f5605ebf$"
 	}
 }
