@@ -95,6 +95,8 @@ func _trigger_auto_advance() -> void:
 		while AudioManager.audio_player_voice.playing:
 			await get_tree().process_frame
 			if _mode != AdvanceMode.AUTO or not _idle: return
+		# 语音播完后停顿约1秒再进下一句，避免听感太赶
+		await get_tree().create_timer(finish_pause * 0.5).timeout
 	if _idle and _mode == AdvanceMode.AUTO:
 		next_line.emit()
 
@@ -823,12 +825,33 @@ func wait_for_advance() -> void:
 			else:
 				next_line.emit()
 		AdvanceMode.AUTO:
-			if dialogue_line.has_tag("语音"):
-				while AudioManager.audio_player_voice.playing:
+			# 被设置等覆盖页面盖住时挂起自动推进（对白语音也已被暂停），
+			# 否则语音被暂停/替换会误触发跳下一句
+			var advance_ready := false
+			while _mode == AdvanceMode.AUTO and not advance_ready:
+				if Game.current_page != self:
 					await get_tree().process_frame
-					if _mode != AdvanceMode.AUTO: break
-			else:
-				await get_tree().create_timer(finish_pause).timeout
+					continue
+				if dialogue_line.has_tag("语音"):
+					while AudioManager.audio_player_voice.playing:
+						await get_tree().process_frame
+						if _mode != AdvanceMode.AUTO: break
+					if _mode != AdvanceMode.AUTO:
+						break
+					if Game.current_page != self:
+						continue
+					# 语音播完后停顿约1秒再进下一句（语音本身有自然语速，间隔比纯文字短），避免接得太紧
+					await get_tree().create_timer(finish_pause * 0.5).timeout
+					if _mode != AdvanceMode.AUTO:
+						break
+					if Game.current_page != self:
+						continue
+					advance_ready = true
+				else:
+					await get_tree().create_timer(finish_pause).timeout
+					if Game.current_page != self:
+						continue
+					advance_ready = true
 			if _mode == AdvanceMode.AUTO:
 				next_line.emit()
 			else:

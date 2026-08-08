@@ -32,7 +32,7 @@ signal reply_selected(next_id: String)
 @export var chat_data_pool: Array[ChatData]
 var pending_reply_options: Array[Dictionary] = []
 
-const SLIDE_DURATION: float = 1.5
+const SLIDE_DURATION: float = 0.5
 const PAGE_TRANSITION_DURATION: float = 0.25
 
 # 是否由剧情触发（ShowPhone）

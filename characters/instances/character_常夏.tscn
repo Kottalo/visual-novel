@@ -223,13 +223,14 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdyow"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_ktyj5")
-region = Rect2(128, 216, 1216, 1032)
+region = Rect2(328, 216, 864, 824)
 
 [node name="常夏" unique_id=401531579 instance=ExtResource("1_1d4w3")]
 offset_left = 153.0
 offset_right = 153.0
 pivot_offset = Vector2(-129, -11)
 phone_avatar = ExtResource("22_phone")
+avatar_fixed_action = "叉腰"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -684.0

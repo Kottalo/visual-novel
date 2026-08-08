@@ -141,9 +141,10 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5ytx"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_0jq61")
-region = Rect2(136, 312, 1072, 896)
+region = Rect2(352, 312, 744, 760)
 
 [node name="广播社老师" unique_id=-366395692 instance=ExtResource("1_base")]
+avatar_fixed_action = "待机"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -700.0

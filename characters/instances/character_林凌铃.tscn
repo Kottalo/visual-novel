@@ -287,18 +287,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rh8d2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ieyld"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_de42s"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rh8d2"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5h074"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_de42s"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_de42s")
-region = Rect2(216, 224, 968, 872)
+atlas = SubResource("ViewportTexture_rh8d2")
+region = Rect2(336, 152, 824, 824)
 
 [node name="林凌铃" unique_id=809289517 instance=ExtResource("1_ivjag")]
+avatar_fixed_action = "待机"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -680.0
@@ -347,7 +348,7 @@ offset_top = -1363.0
 offset_right = 611.0
 offset_bottom = 1449.0
 pivot_offset = Vector2(624, 1372)
-texture = SubResource("ViewportTexture_rh8d2")
+texture = SubResource("ViewportTexture_ieyld")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_5h074")
+preview_texture = SubResource("AtlasTexture_de42s")

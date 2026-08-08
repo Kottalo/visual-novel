@@ -60,6 +60,49 @@ func _on_voice_finished() -> void:
 	if _music_paused:
 		resume_music()
 
+# ─── 舞台语音的暂停/恢复（设置等覆盖页面用） ───
+
+var _stage_voice_stream: AudioStream
+var _stage_voice_position: float = 0.0
+
+## 覆盖页面打开时暂停当前对白语音，并恢复被 duck 的音乐
+func pause_stage_voice() -> void:
+	if _stage_voice_stream != null:
+		return
+	if not audio_player_voice.playing:
+		return
+	_stage_voice_stream = audio_player_voice.stream
+	_stage_voice_position = audio_player_voice.get_playback_position()
+	audio_player_voice.stop()
+	if _is_ducked:
+		if _music_paused:
+			_is_ducked = false
+		else:
+			_unduck_music()
+	if _music_paused:
+		resume_music()
+
+## 覆盖页面关闭时恢复对白语音
+func resume_stage_voice() -> void:
+	var stream := _stage_voice_stream
+	_stage_voice_stream = null
+	if stream == null:
+		return
+	audio_player_voice.stream = stream
+	audio_player_voice.play(_stage_voice_position)
+	_duck_music()
+
+## 主动停止语音（如设置页的预览语音），并同步恢复音乐 duck 状态
+func stop_voice() -> void:
+	audio_player_voice.stop()
+	if _is_ducked:
+		if _music_paused:
+			_is_ducked = false
+		else:
+			_unduck_music()
+	if _music_paused:
+		resume_music()
+
 func play_track() -> void:
 	_playlist_paused = false
 	_music_source = MusicSource.PLAYLIST

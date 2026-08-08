@@ -40,7 +40,16 @@ func _ready() -> void:
 	_load_settings()
 	_connect_signals()
 	_ready_done = true
-	visibility_changed.connect(func(): if not visible: AudioManager.audio_player_voice.stop())
+	# 打开设置时暂停对白语音（并恢复 BGM），关闭时先停掉预览语音再恢复对白语音，
+	# 避免直接 stop() 导致自动播放跳到下一句、BGM 保持 duck 音量
+	visibility_changed.connect(
+		func():
+			if visible:
+				AudioManager.pause_stage_voice()
+			else:
+				AudioManager.stop_voice()
+				AudioManager.resume_stage_voice()
+	)
 
 func _load_settings() -> void:
 	var s = Main.setting_data
@@ -192,7 +201,8 @@ func _get_selected_card() -> CharacterVoiceCard:
 func _play_character_preview() -> void:
 	var card := _get_selected_card()
 	if not card or card.preview_voices.is_empty(): return
-	AudioManager.audio_player_voice.volume_db = linear_to_db(slider_character_voice_volume.value)
+	# 试听与实际播放一致：角色音量 × 总音量
+	AudioManager.audio_player_voice.volume_db = linear_to_db(slider_character_voice_volume.value * Main.setting_data.voice_volume)
 	if AudioManager.audio_player_voice.playing: return
 	var voices = card.preview_voices
 	var idx := randi() % voices.size()
@@ -203,20 +213,22 @@ func _play_character_preview() -> void:
 	AudioManager.play_voice(_voice_filename(voices[idx]))
 
 func _play_random_voice_preview() -> void:
-	var all_voices: Array[String] = []
+	var all_voices: Array[Dictionary] = []
 	for card in character_voice_card_container.get_children():
 		if card is CharacterVoiceCard:
 			for voice in card.preview_voices:
-				all_voices.append(voice)
+				all_voices.append({"character": card.character_name, "voice": voice})
 	if all_voices.is_empty(): return
-	AudioManager.audio_player_voice.volume_db = linear_to_db(slider_master_voice_volume.value)
 	if AudioManager.audio_player_voice.playing: return
 	var idx := randi() % all_voices.size()
 	if all_voices.size() > 1:
-		while all_voices[idx] == _last_preview_voice:
+		while all_voices[idx].voice == _last_preview_voice:
 			idx = randi() % all_voices.size()
-	_last_preview_voice = all_voices[idx]
-	AudioManager.play_voice(_voice_filename(all_voices[idx]))
+	_last_preview_voice = all_voices[idx].voice
+	# 试听与实际播放一致：该语音所属角色的音量 × 总音量
+	var vol: float = Main.setting_data.character_volumes.get(all_voices[idx].character, 1.0)
+	AudioManager.audio_player_voice.volume_db = linear_to_db(vol * Main.setting_data.voice_volume)
+	AudioManager.play_voice(_voice_filename(all_voices[idx].voice))
 
 static func _voice_filename(path: String) -> String:
 	if path.begins_with("uid://"):
@@ -245,7 +257,8 @@ func _select_character_card(card: CharacterVoiceCard) -> void:
 			idx = randi() % voices.size()
 	_last_preview_voice = voices[idx]
 	AudioManager.audio_player_voice.stop()
-	AudioManager.audio_player_voice.volume_db = linear_to_db(vol)
+	# 试听与实际播放一致：角色音量 × 总音量
+	AudioManager.audio_player_voice.volume_db = linear_to_db(vol * Main.setting_data.voice_volume)
 	AudioManager.play_voice(_voice_filename(voices[idx]))
 
 func _reset_settings() -> void:

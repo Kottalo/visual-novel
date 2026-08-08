@@ -20,9 +20,114 @@ var character_image: Control
 var current_position: String
 var _viewport_always_update: bool = false
 
+# 头像「中间过渡态」：离屏渲染固定动作差分，只跟随服装+表情
+## 头像固定的动作差分后缀；留空则自动用角色初始身体动画的动作部分
+@export var avatar_fixed_action: String = ""
+var _avatar_viewport: SubViewport
+var _avatar_body: AnimatedSprite2D
+var _avatar_part_dict: Dictionary[String, AnimatedSprite2D] = {}
+var _avatar_optionals: Node2D
+var _avatar_action: String = ""
+var _avatar_crop_pad: int = 24
+
 func _request_viewport_update() -> void:
 	if not _viewport_always_update:
 		subviewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+
+func _setup_avatar_render() -> void:
+	# 头像裁剪源：换成一个离屏「中间过渡态」SubViewport，
+	# 固定动作差分后缀，只跟随服装+表情，动作差分切换不影响头像
+	if not dialogue_box or not dialogue_box.preview_texture:
+		return
+	if not body_part_dict.has("Body"):
+		return
+	var old_preview := dialogue_box.preview_texture as AtlasTexture
+	if not old_preview:
+		return
+	var region := old_preview.region
+	if region.size.x <= 0.0 or region.size.y <= 0.0:
+		region = Rect2(Vector2.ZERO, Vector2(subviewport.size))
+	var pad := float(_avatar_crop_pad)
+
+	_avatar_viewport = SubViewport.new()
+	_avatar_viewport.size = Vector2i(
+		int(region.size.x) + _avatar_crop_pad * 2,
+		int(region.size.y) + _avatar_crop_pad * 2
+	)
+	_avatar_viewport.transparent_bg = true
+	_avatar_viewport.disable_3d = true
+	_avatar_viewport.handle_input_locally = false
+	_avatar_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	add_child(_avatar_viewport)
+
+	# 复制整棵 Body 子树（Body + 表情层 + 附加层），sprite_frames 资源共享
+	_avatar_body = body_part_dict["Body"].duplicate(0) as AnimatedSprite2D
+	# 平移使头像裁剪区内容落到 [pad, pad+region.size]，子节点自动跟随
+	_avatar_body.position = body_part_dict["Body"].position - (region.position - Vector2(pad, pad))
+	_avatar_viewport.add_child(_avatar_body)
+
+	_avatar_part_dict.clear()
+	for part: Node in _avatar_body.get_children():
+		if part is AnimatedSprite2D:
+			_avatar_part_dict[part.name] = part as AnimatedSprite2D
+		elif part.name == "Optionals":
+			_avatar_optionals = part as Node2D
+
+	# 固定动作后缀：优先用 avatar_fixed_action，否则用当前身体动画的动作部分，之后不再变
+	var body_anim: String = body_part_dict["Body"].animation
+	if avatar_fixed_action != "":
+		_avatar_action = avatar_fixed_action
+	elif "-" in body_anim:
+		_avatar_action = body_anim.split("-")[1]
+
+	# 新 AtlasTexture 裁剪头像视口，替换 preview_texture（走 setter 更新头像显示）
+	var new_preview := AtlasTexture.new()
+	new_preview.atlas = _avatar_viewport.get_texture()
+	new_preview.region = Rect2(pad, pad, region.size.x, region.size.y)
+	dialogue_box.preview_texture = new_preview
+
+	_sync_avatar()
+
+func _sync_avatar() -> void:
+	if not _avatar_viewport or not _avatar_body:
+		return
+	# 服装 + 固定动作
+	var body_anim: String = body_part_dict["Body"].animation
+	var costume := body_anim.split("-")[0] if "-" in body_anim else body_anim
+	var target := body_anim
+	if costume and _avatar_action:
+		target = "%s-%s" % [costume, _avatar_action]
+	var anim_names: PackedStringArray = _avatar_body.sprite_frames.get_animation_names()
+	if not anim_names.has(target):
+		target = _find_costume_animation(_avatar_body.sprite_frames, costume)
+		if target == "":
+			target = body_anim
+	if _avatar_body.animation != target:
+		_avatar_body.animation = target
+	# 表情层
+	for part_name in _avatar_part_dict:
+		var main_part: AnimatedSprite2D = body_part_dict.get(part_name)
+		if main_part:
+			_avatar_part_dict[part_name].animation = main_part.animation
+	# 附加层
+	if _avatar_optionals and optionals_pool:
+		var avatar_children: Array = _avatar_optionals.get_children()
+		var main_children: Array = optionals_pool.get_children()
+		for i in mini(avatar_children.size(), main_children.size()):
+			avatar_children[i].visible = main_children[i].visible
+	_request_avatar_viewport_update()
+
+func _find_costume_animation(sprite_frames: SpriteFrames, costume: String) -> String:
+	# 该服装前缀下的第一条动画（余洛琛这类服装特异动作名时，按服装冻结在第一张）
+	var prefix := costume + "-"
+	for anim in sprite_frames.get_animation_names():
+		if anim.begins_with(prefix):
+			return anim
+	return ""
+
+func _request_avatar_viewport_update() -> void:
+	if _avatar_viewport:
+		_avatar_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 
 @export var movable: bool
 
@@ -68,6 +173,7 @@ func _ready() -> void:
 	)
 	
 	ClearOptionals()
+	_setup_avatar_render()
 
 var dragged: bool
 var drag_offset: Vector2
@@ -141,6 +247,7 @@ func set_character_data(character_data: CharacterData) -> void:
 	for optional: String in character_data.optionals:
 		SetOptionals(optional)
 	_request_viewport_update()
+	_sync_avatar()
 
 #region Dialogue Commands
 
@@ -215,10 +322,12 @@ func SetParts(parts_string: String) -> void:
 		var item_name = part_item[1]
 		body_part_dict[part_name].animation = item_name
 		_request_viewport_update()
+	_sync_avatar()
 
 func SetBody(body_name: String) -> void:
 	body_part_dict["Body"].animation = body_name
 	_request_viewport_update()
+	_sync_avatar()
 
 func SetExpression(expression_name: String) -> void:
 	current_expression = expression_name
@@ -227,11 +336,13 @@ func SetExpression(expression_name: String) -> void:
 		var part_value: String = expression_data[part_name]
 		body_part_dict[part_name].animation = part_value
 		_request_viewport_update()
+	_sync_avatar()
 
 func ClearOptionals() -> void:
 	for additional: Sprite2D in optionals_pool.get_children():
 		additional.visible = false
 		_request_viewport_update()
+	_sync_avatar()
 
 func SetOptionals(optionals_string: String) -> void:
 	var optionals_array = optionals_string.split(",")
@@ -239,5 +350,6 @@ func SetOptionals(optionals_string: String) -> void:
 		var addtional_sprite: Sprite2D = optionals_pool.get_node(additional)
 		addtional_sprite.visible = true
 		_request_viewport_update()
+	_sync_avatar()
 
 #endregion

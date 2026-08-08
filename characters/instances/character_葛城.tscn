@@ -160,10 +160,11 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hyrk"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_xm650")
-region = Rect2(248, 32, 1128, 1080)
+region = Rect2(248, 32, 856, 848)
 
 [node name="葛城" unique_id=1900529109 instance=ExtResource("1_8t5bo")]
 phone_avatar = ExtResource("17_phone")
+avatar_fixed_action = "手放下"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -725.0
@@ -177,7 +178,7 @@ size = Vector2i(1252, 3396)
 position = Vector2(684, 1702.0001)
 scale = Vector2(0.849, 0.849)
 sprite_frames = SubResource("SpriteFrames_dacpq")
-animation = &"默认-手抬起"
+animation = &"默认-手放下"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_i7yso")
