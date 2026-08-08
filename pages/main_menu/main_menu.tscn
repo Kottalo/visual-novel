@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c0gag5i2v34e2"]
 
 [ext_resource type="Script" uid="uid://c5tfa7c7bgv1b" path="res://pages/main_menu/main_menu.gd" id="1_563vs"]
-[ext_resource type="Texture2D" uid="uid://bxe31xgcmaiac" path="res://assets/ui_backgrounds/title_background.jpg" id="2_kxxlx"]
+[ext_resource type="Texture2D" uid="uid://bxe31xgcmaiac" path="res://assets/ui_backgrounds/title_background.jpg" id="2_0kkdm"]
 [ext_resource type="Shader" uid="uid://bkb4yiv7ujaa2" path="res://shaders/title.gdshader" id="3_563vs"]
-[ext_resource type="Texture2D" uid="uid://dkl0wjuebbpm4" path="res://assets/sprites/ui/ui.sprites/logo_normal.tres" id="3_mtbyv"]
 [ext_resource type="PackedScene" uid="uid://lfcmnldfkrh" path="res://prefabs/main_menu_button/main_menu_button.tscn" id="4_e7v1n"]
+[ext_resource type="Texture2D" uid="uid://c54lrkry1c0p2" path="res://assets/sprites/ui/ui.sprites/logo_normal_1.tres" id="4_eneqn"]
 [ext_resource type="AudioStream" uid="uid://bko4xeytxroi8" path="res://assets/system_sounds/奇迹书音效/游戏开始音效.wav" id="6_0kkdm"]
 [ext_resource type="Texture2D" uid="uid://crq4giyf66als" path="res://assets/particles/snow.png" id="6_mtbyv"]
 
@@ -13,8 +13,9 @@ resource_local_to_scene = true
 shader = ExtResource("3_563vs")
 shader_parameter/x = 0.0
 shader_parameter/size = 0.03
-shader_parameter/dark_alpha = 0.9210000437475
-shader_parameter/light_alpha = 1.57200007467
+shader_parameter/shine_color = Vector3(1, 0.94902, 0.721569)
+shader_parameter/shine_strength = 0.2010000095475
+shader_parameter/glow_strength = 0.06400000304
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mtbyv"]
 particles_animation = true
@@ -88,7 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_kxxlx")
+texture = ExtResource("2_0kkdm")
 expand_mode = 5
 stretch_mode = 6
 
@@ -97,13 +98,14 @@ material = SubResource("ShaderMaterial_tst2v")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 658.0
-offset_top = 752.0
-offset_right = -658.0
-offset_bottom = -184.0
+offset_left = 534.0
+offset_top = 710.0
+offset_right = -167.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_mtbyv")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_eneqn")
 stretch_mode = 4
 
 [node name="Buttons" type="Control" parent="." unique_id=295338161]

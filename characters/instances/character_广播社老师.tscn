@@ -141,10 +141,10 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5ytx"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_0jq61")
-region = Rect2(280, 10, 873.1731, 1114.4692)
+region = Rect2(352, 312, 744, 760)
 
 [node name="广播社老师" unique_id=-366395692 instance=ExtResource("1_base")]
-speaking_mouth = "开口说话"
+avatar_fixed_action = "待机"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -700.0
@@ -156,7 +156,7 @@ offset_bottom = 1900.0
 size = Vector2i(1300, 3600)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(681, 1751.0001)
+position = Vector2(715, 1706.0001)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_body")
 animation = &"工作服-待机"
@@ -181,10 +181,10 @@ texture = ExtResource("15_blush")
 visible = true
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -695.0
-offset_top = -1706.0
-offset_right = 605.0
-offset_bottom = 1894.0
+offset_left = -700.0
+offset_top = -1695.0
+offset_right = 600.0
+offset_bottom = 1905.0
 texture = SubResource("ViewportTexture_7jrw0")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]

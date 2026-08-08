@@ -42,7 +42,7 @@ var is_favourite: bool:
 
 func setup(data: LogData) -> void:
 	log_data = data
-	character_name = data.character_name
+	character_name = data.display_name if data.display_name else data.character_name
 	dialogue_text = data.text
 	var show = has_voice
 	button_replay.visible = show

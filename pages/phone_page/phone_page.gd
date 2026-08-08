@@ -32,7 +32,7 @@ signal reply_selected(next_id: String)
 @export var chat_data_pool: Array[ChatData]
 var pending_reply_options: Array[Dictionary] = []
 
-const SLIDE_DURATION: float = 0.4
+const SLIDE_DURATION: float = 0.5
 const PAGE_TRANSITION_DURATION: float = 0.25
 
 # 是否由剧情触发（ShowPhone）
@@ -163,7 +163,7 @@ func _add_chat_message(character_name: String, text: String, silent: bool = fals
 		chat_message.modulate.a = 1.0
 	else:
 		chat_message.modulate.a = 0.0
-		create_tween().tween_property(chat_message, "modulate:a", 1.0, 0.3)
+		chat_message.create_tween().tween_property(chat_message, "modulate:a", 1.0, 0.3)
 		AudioManager.audio_player_sound.stream = preload("res://assets/system_sounds/奇迹书音效/手机发消息音效.wav")
 		AudioManager.audio_player_sound.play()
 
@@ -224,9 +224,10 @@ func _on_reply_clicked(text: String, next_id: String) -> void:
 
 func open_chat(chat_data: ChatData) -> void:
 	if _transitioning: return
-	label_chat_name.text = get_phone_nickname(chat_data.character_name)
+	active_chat_character = chat_data.character_name
 	chat_page.visible = true
 	chat_page.modulate.a = 0
+	reload_active_chat()
 	await _scroll_chat_to_bottom()
 	_transition_to_chat()
 

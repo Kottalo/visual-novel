@@ -1,5 +1,35 @@
 extends Node
 
+class MissingCharacter:
+	var character_name: String
+
+	func _init(name: String) -> void:
+		character_name = name
+
+	func FadeIn(_position_name: String, _duration: float = 0.5) -> void:
+		pass
+
+	func FadeOut(_duration: float = 0.5) -> void:
+		pass
+
+	func MoveTo(_position_name: String, _duration: float = 0.5) -> void:
+		pass
+
+	func SetParts(_parts_string: String) -> void:
+		pass
+
+	func SetBody(_body_name: String) -> void:
+		pass
+
+	func SetExpression(_expression_name: String) -> void:
+		pass
+
+	func ClearOptionals() -> void:
+		pass
+
+	func SetOptionals(_optionals_string: String) -> void:
+		pass
+
 @export var character_pool: Control
 @export var background_data_pool: Array[BackgroundData]
 @export var gallery_data_pool: Array[GalleryData]
@@ -16,6 +46,7 @@ var character_selection_name: String:
 		character_selection_name_changed.emit()
 
 var character_dict: Dictionary[String, Character]
+var _missing_character_dict: Dictionary[String, MissingCharacter]
 var character_array: Array[Character]:
 	get:
 		var characters: Array[Character]
@@ -41,8 +72,12 @@ func start() -> void:
 	Game.stage_page.start()
 
 #region Dialogue Commands
-func Character(character_name: String) -> Character:
-	return character_dict[character_name]
+func Character(character_name: String):
+	if character_dict.has(character_name):
+		return character_dict[character_name]
+	if not _missing_character_dict.has(character_name):
+		_missing_character_dict[character_name] = MissingCharacter.new(character_name)
+	return _missing_character_dict[character_name]
 
 func SetBackground(background_name: String, variation_name: String,
 		out_time: float = 1.2, in_time: float = 1.2) -> void:
@@ -273,6 +308,7 @@ func StopMusic() -> void:
 
 func HideDialogue(duration: float = 0.4) -> void:
 	AudioManager.audio_player_voice.stop()
+	Game.stage_page.reset_dialogue_ui_hidden()
 	if Game.stage_page.dialogue_screen.modulate.a > 0:
 		if duration > 0:
 			await create_tween().tween_property(
@@ -280,9 +316,11 @@ func HideDialogue(duration: float = 0.4) -> void:
 			).finished
 		else:
 			Game.stage_page.dialogue_screen.modulate.a = 0
+	Game.stage_page.avatar.texture = null  # 淡出后再清头像，防止下次显示时闪现旧头像
 
 func ShowDialogue(duration: float = 0.4) -> void:
 	var sp = Game.stage_page
+	sp.reset_dialogue_ui_hidden()
 	# 先更新状态再呈现
 	sp.label_character_name.text = sp.dialogue_line.get_tag_value("昵称") \
 		if sp.dialogue_line.has_tag("昵称") else sp.dialogue_line.character
@@ -327,8 +365,8 @@ func PerformBackgroundPan(scale_multiplier: float, segments: Array) -> void:
 		Game.stage_page.skip_cancelled.emit()
 	Game.stage_page.play_background_performance.call_deferred(scale_multiplier, segments)
 
-func StopBackgroundPerformance() -> void:
-	Game.stage_page.stop_background_performance()
+func StopBackgroundPerformance(fade_duration: float = 0.8) -> void:
+	await Game.stage_page.stop_background_performance(true, fade_duration)
 
 func ShowPhone() -> void:
 	var initial_chat_character := ""

@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dptcwuvdtymn8" path="res://assets/sprites/ui/ui.sprites/botton_hover.tres" id="18_3vosg"]
 [ext_resource type="Texture2D" uid="uid://ocfot3ouwomw" path="res://assets/sprites/ui/ui.sprites/botton_replay.tres" id="19_74ksf"]
 [ext_resource type="Texture2D" uid="uid://b30vxpb4y60u3" path="res://assets/sprites/ui/ui.sprites/botton_star.tres" id="20_q2k8d"]
+[ext_resource type="Texture2D" uid="uid://buakxq3fk2v0q" path="res://assets/sprites/ui/ui.sprites/botton_close.tres" id="21_vfmve"]
 
 [node name="DialogueBox" type="Control" unique_id=700312722 node_paths=PackedStringArray("avatar")]
 self_modulate = Color(1, 1, 1, 0)
@@ -116,7 +117,7 @@ size_flags_vertical = 8
 theme_override_constants/separation = -19
 alignment = 1
 
-[node name="DialogueButtonController" type="Node" parent="." unique_id=744838571 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_voice", "button_phone", "button_book", "button_title")]
+[node name="DialogueButtonController" type="Node" parent="." unique_id=744838571 node_paths=PackedStringArray("button_skip", "button_auto", "button_save", "button_load", "button_log", "button_set", "button_voice", "button_phone", "button_book", "button_hide", "button_title")]
 script = ExtResource("6_jr8jn")
 button_skip = NodePath("../HBoxContainer_Buttons/DialogueButton_Skip")
 button_auto = NodePath("../HBoxContainer_Buttons/DialogueButton_Auto")
@@ -127,6 +128,7 @@ button_set = NodePath("../HBoxContainer_Buttons/DialogueButton_Set")
 button_voice = NodePath("../HBoxContainer_Buttons/DialogueButton_Voice")
 button_phone = NodePath("../HBoxContainer_Buttons/DialogueButton_Phone")
 button_book = NodePath("../HBoxContainer_Buttons/DialogueButton_Book")
+button_hide = NodePath("../HBoxContainer_Buttons/DialogueButton_Hide")
 button_title = NodePath("../HBoxContainer_Buttons/DialogueButton_Title")
 
 [node name="HBoxContainer_Buttons" type="HBoxContainer" parent="." unique_id=1977368125]
@@ -199,6 +201,13 @@ hint_text = "奇迹书"
 [node name="Icon" parent="HBoxContainer_Buttons/DialogueButton_Book" index="1" unique_id=1758427880]
 texture = ExtResource("15_kmxdp")
 
+[node name="DialogueButton_Hide" parent="HBoxContainer_Buttons" unique_id=1733050591 instance=ExtResource("7_hwkq6")]
+layout_mode = 2
+hint_text = "隐藏对话框"
+
+[node name="Icon" parent="HBoxContainer_Buttons/DialogueButton_Hide" index="1" unique_id=1758427880]
+texture = ExtResource("21_vfmve")
+
 [node name="DialogueButton_Title" parent="HBoxContainer_Buttons" unique_id=744792504 instance=ExtResource("7_hwkq6")]
 layout_mode = 2
 hint_text = "主菜单"
@@ -257,4 +266,5 @@ texture = ExtResource("20_q2k8d")
 [editable path="HBoxContainer_Buttons/DialogueButton_Voice"]
 [editable path="HBoxContainer_Buttons/DialogueButton_Phone"]
 [editable path="HBoxContainer_Buttons/DialogueButton_Book"]
+[editable path="HBoxContainer_Buttons/DialogueButton_Hide"]
 [editable path="HBoxContainer_Buttons/DialogueButton_Title"]

@@ -9,6 +9,7 @@ extends Node
 @export var button_voice: DialogueButton
 @export var button_phone: DialogueButton
 @export var button_book: DialogueButton
+@export var button_hide: DialogueButton
 @export var button_title: DialogueButton
 
 func _ready() -> void:
@@ -55,6 +56,9 @@ func _ready() -> void:
 	)
 	button_book.clicked.connect(
 		func (): Game.switch_to_page(Game.book_page, true, true)
+	)
+	button_hide.clicked.connect(
+		func (): Game.stage_page.hide_dialogue_ui()
 	)
 	button_title.clicked.connect(
 		func ():

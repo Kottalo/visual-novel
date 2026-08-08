@@ -108,6 +108,14 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("18_gfdhf")
+}],
+"loop": true,
+"name": &"不敢对视",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_sxffg")
 }],
 "loop": true,
@@ -143,7 +151,7 @@ animations = [{
 "texture": ExtResource("15_ykarx")
 }],
 "loop": true,
-"name": &"眯眼开心",
+"name": &"眯眼",
 "speed": 5.0
 }, {
 "frames": [{
@@ -152,14 +160,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"默认",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("18_gfdhf")
-}],
-"loop": true,
-"name": &"默认躲闪",
 "speed": 5.0
 }]
 
@@ -207,12 +207,12 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_iajx4"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_gfdhf")
-region = Rect2(194.94196, 46.457703, 970.89386, 1009.7415)
+region = Rect2(256, 128, 912, 856)
 
 [node name="余洛琛" unique_id=318354031 instance=ExtResource("1_pac1f")]
-speaking_mouth = "说话"
 phone_avatar = ExtResource("24_phone")
-phone_nickname = "【高三（10）班-余洛琛-12月5日】"
+phone_nickname = "高三（10）班-余洛琛-12月5日"
+avatar_fixed_action = null
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -620.0
@@ -223,7 +223,7 @@ offset_bottom = 1718.0
 size = Vector2i(1330, 3070)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(727, 1648)
+position = Vector2(764, 1643)
 scale = Vector2(0.794, 0.794)
 sprite_frames = SubResource("SpriteFrames_qqr4u")
 animation = &"常服-常服差分1"
@@ -238,7 +238,7 @@ animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_bnq0n")
-animation = &"说话"
+animation = &"微笑"
 
 [node name="眼镜" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=736903750]
 texture = ExtResource("21_tlcri")
@@ -255,10 +255,10 @@ texture = ExtResource("23_h3wkl")
 visible = true
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -624.0
-offset_top = -1453.0
-offset_right = 706.0
-offset_bottom = 1617.0
+offset_left = -617.0
+offset_top = -1364.0
+offset_right = 713.0
+offset_bottom = 1706.0
 pivot_offset = Vector2(594, 1362)
 texture = SubResource("ViewportTexture_2s1x3")
 

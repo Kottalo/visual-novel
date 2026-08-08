@@ -60,6 +60,49 @@ func _on_voice_finished() -> void:
 	if _music_paused:
 		resume_music()
 
+# ─── 舞台语音的暂停/恢复（设置等覆盖页面用） ───
+
+var _stage_voice_stream: AudioStream
+var _stage_voice_position: float = 0.0
+
+## 覆盖页面打开时暂停当前对白语音，并恢复被 duck 的音乐
+func pause_stage_voice() -> void:
+	if _stage_voice_stream != null:
+		return
+	if not audio_player_voice.playing:
+		return
+	_stage_voice_stream = audio_player_voice.stream
+	_stage_voice_position = audio_player_voice.get_playback_position()
+	audio_player_voice.stop()
+	if _is_ducked:
+		if _music_paused:
+			_is_ducked = false
+		else:
+			_unduck_music()
+	if _music_paused:
+		resume_music()
+
+## 覆盖页面关闭时恢复对白语音
+func resume_stage_voice() -> void:
+	var stream := _stage_voice_stream
+	_stage_voice_stream = null
+	if stream == null:
+		return
+	audio_player_voice.stream = stream
+	audio_player_voice.play(_stage_voice_position)
+	_duck_music()
+
+## 主动停止语音（如设置页的预览语音），并同步恢复音乐 duck 状态
+func stop_voice() -> void:
+	audio_player_voice.stop()
+	if _is_ducked:
+		if _music_paused:
+			_is_ducked = false
+		else:
+			_unduck_music()
+	if _music_paused:
+		resume_music()
+
 func play_track() -> void:
 	_playlist_paused = false
 	_music_source = MusicSource.PLAYLIST
@@ -96,12 +139,27 @@ func play_voice(filename: String, set_current: bool = false) -> void:
 		return
 
 	var file_path = "%s/%s.wav" % [AudioManager.voice_path, filename]
-	ResourceLoader.load_threaded_request(file_path)
+	if not ResourceLoader.exists(file_path):
+		push_warning("play_voice: 语音文件不存在 %s" % file_path)
+		return
+	# CACHE_MODE_IGNORE：不进 Godot 全局资源缓存，避免所有播放过的语音常驻内存
+	# （晚章节内存压力→音频卡顿）；voice_cache 是唯一持有者，淘汰时自然释放
+	ResourceLoader.load_threaded_request(file_path, "", false, ResourceLoader.CACHE_MODE_IGNORE)
+	# 等待加载完成；加帧数上限，避免加载卡住时对白永久阻塞
+	var frames := 0
 	var status = ResourceLoader.load_threaded_get_status(file_path)
-	while status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+	while status == ResourceLoader.THREAD_LOAD_IN_PROGRESS and frames < 600:
 		await get_tree().process_frame
+		frames += 1
 		status = ResourceLoader.load_threaded_get_status(file_path)
-	var voice = ResourceLoader.load_threaded_get(file_path)
+	var voice: AudioStream = null
+	if status != ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		voice = ResourceLoader.load_threaded_get(file_path)
+	if voice == null:
+		voice = ResourceLoader.load(file_path, "", ResourceLoader.CACHE_MODE_IGNORE)  # 兜底同步加载，同样不进全局缓存
+	if voice == null:
+		push_warning("play_voice: 无法加载语音 %s" % file_path)
+		return
 	voice_cache[filename] = voice
 	voice_cache_order.append(filename)
 	while voice_cache_order.size() > MAX_VOICE_CACHE:

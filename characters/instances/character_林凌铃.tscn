@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ckxhuh3g3mgfu" path="res://assets/sprites/characters/characters.sprites/林凌铃/嘴巴/大开口.tres" id="26_7ljgm"]
 [ext_resource type="Texture2D" uid="uid://dxk04niw0edyh" path="res://assets/sprites/characters/characters.sprites/林凌铃/嘴巴/小开口.tres" id="27_pfxck"]
 [ext_resource type="Texture2D" uid="uid://cfkcnjf13ns3r" path="res://assets/sprites/characters/characters.sprites/林凌铃/嘴巴/开口.tres" id="28_3ptuv"]
+[ext_resource type="Texture2D" uid="uid://c04lbcw6u3a76" path="res://assets/sprites/characters/characters.sprites/林凌铃/嘴巴/微笑.tres" id="28_ieyld"]
 [ext_resource type="Texture2D" uid="uid://cstatp5ttumkc" path="res://assets/sprites/characters/characters.sprites/林凌铃/嘴巴/默认.tres" id="29_ieyld"]
 [ext_resource type="Texture2D" uid="uid://cbvxdle8hgx7m" path="res://assets/sprites/characters/characters.sprites/林凌铃/嘴巴/鼓嘴.tres" id="30_rh8d2"]
 [ext_resource type="Texture2D" uid="uid://j1s4taambkg3" path="res://assets/sprites/characters/characters.sprites/林凌铃/附加/脸红.tres" id="31_3ptuv"]
@@ -255,10 +256,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("28_ieyld")
+}],
+"loop": true,
+"name": &"微笑",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("28_3ptuv")
 }],
 "loop": true,
-"name": &"开口",
+"name": &"说话",
 "speed": 5.0
 }, {
 "frames": [{
@@ -278,19 +287,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3ptuv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ieyld"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ieyld"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rh8d2"]
 viewport_path = NodePath("../SubViewportContainer/SubViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rh8d2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_de42s"]
 resource_local_to_scene = true
-atlas = SubResource("ViewportTexture_ieyld")
-region = Rect2(296.5786, 66.561516, 831.69165, 827.0984)
+atlas = SubResource("ViewportTexture_rh8d2")
+region = Rect2(336, 152, 824, 824)
 
 [node name="林凌铃" unique_id=809289517 instance=ExtResource("1_ivjag")]
-speaking_mouth = "开口"
+avatar_fixed_action = "待机"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -680.0
@@ -301,7 +310,7 @@ offset_bottom = 1460.0
 size = Vector2i(1287, 2812)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(684, 1237)
+position = Vector2(659, 1408)
 scale = Vector2(0.774, 0.774)
 sprite_frames = SubResource("SpriteFrames_ha8hd")
 animation = &"校服-待机"
@@ -316,7 +325,7 @@ animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_w6frx")
-animation = &"开口"
+animation = &"微笑"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=1564997541]
 visible = false
@@ -334,12 +343,12 @@ texture = ExtResource("33_rh8d2")
 visible = true
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -688.0
-offset_top = -1346.0
-offset_right = 599.0
-offset_bottom = 1466.0
+offset_left = -676.0
+offset_top = -1363.0
+offset_right = 611.0
+offset_bottom = 1449.0
 pivot_offset = Vector2(624, 1372)
-texture = SubResource("ViewportTexture_3ptuv")
+texture = SubResource("ViewportTexture_ieyld")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]
-preview_texture = SubResource("AtlasTexture_rh8d2")
+preview_texture = SubResource("AtlasTexture_de42s")

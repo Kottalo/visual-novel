@@ -196,11 +196,11 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_hebva"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_plist")
-region = Rect2(266.75812, 62.713425, 709.0987, 818.1888)
+region = Rect2(224, 62.713425, 984, 1001.28656)
 
 [node name="辉夜奏" unique_id=961663325 instance=ExtResource("1_mvhsb")]
-speaking_mouth = "说话"
 phone_avatar = ExtResource("19_phone")
+avatar_fixed_action = "手放下"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -514.0
@@ -213,7 +213,7 @@ size = Vector2i(1041, 2916)
 position = Vector2(601, 1528.0001)
 scale = Vector2(0.749, 0.749)
 sprite_frames = SubResource("SpriteFrames_mvhsb")
-animation = &"校服-默认"
+animation = &"校服-手放下"
 
 [node name="Eyebrows" parent="SubViewportContainer/SubViewport/Body" index="0" unique_id=354402092]
 sprite_frames = SubResource("SpriteFrames_lre8g")

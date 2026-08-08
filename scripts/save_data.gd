@@ -33,7 +33,7 @@ func _save_deferred() -> void:
 	_save_thread = Thread.new()
 	_save_thread.start(
 		func():
-			
+
 			_save_pending = false
 	)
 

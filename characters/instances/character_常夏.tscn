@@ -210,7 +210,7 @@ animations = [{
 "texture": ExtResource("20_4o7u1")
 }],
 "loop": true,
-"name": &"笑开口",
+"name": &"说话",
 "speed": 5.0
 }]
 
@@ -223,14 +223,14 @@ viewport_path = NodePath("../SubViewportContainer/SubViewport")
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdyow"]
 resource_local_to_scene = true
 atlas = SubResource("ViewportTexture_ktyj5")
-region = Rect2(192.18396, 214.99954, 1080.44, 982.39453)
+region = Rect2(328, 216, 864, 824)
 
 [node name="常夏" unique_id=401531579 instance=ExtResource("1_1d4w3")]
 offset_left = 153.0
 offset_right = 153.0
 pivot_offset = Vector2(-129, -11)
-speaking_mouth = "笑开口"
 phone_avatar = ExtResource("22_phone")
+avatar_fixed_action = "叉腰"
 
 [node name="SubViewportContainer" parent="." index="1" unique_id=2063694038]
 offset_left = -684.0
@@ -241,7 +241,7 @@ offset_bottom = 1361.0
 size = Vector2i(1339, 2713)
 
 [node name="Body" parent="SubViewportContainer/SubViewport" index="0" unique_id=216061573]
-position = Vector2(652, 1541)
+position = Vector2(668, 1532)
 scale = Vector2(0.714, 0.714)
 sprite_frames = SubResource("SpriteFrames_mflfp")
 animation = &"校服-叉腰"
@@ -256,7 +256,7 @@ animation = &"默认"
 
 [node name="Mouth" parent="SubViewportContainer/SubViewport/Body" index="2" unique_id=631882318]
 sprite_frames = SubResource("SpriteFrames_8q33n")
-animation = &"笑开口"
+animation = &"微笑"
 
 [node name="脸红" type="Sprite2D" parent="SubViewportContainer/SubViewport/Body/Optionals" parent_id_path=PackedInt32Array(703917704) index="0" unique_id=594954153]
 visible = false
@@ -266,10 +266,10 @@ texture = ExtResource("21_hdqmv")
 visible = true
 
 [node name="TextureRect_Model" parent="StoryModel" index="0" unique_id=1204109800]
-offset_left = -674.0
-offset_top = -1349.0
-offset_right = 665.0
-offset_bottom = 1364.0
+offset_left = -682.0
+offset_top = -1356.0
+offset_right = 657.0
+offset_bottom = 1357.0
 texture = SubResource("ViewportTexture_r613x")
 
 [node name="DialogueBox" parent="." index="3" unique_id=700312722]

@@ -19,10 +19,14 @@ import json
 import os
 import sys
 import io
+from pathlib import Path
 from typing import Dict, List, Any
 
 # Fix encoding issue on Windows
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent
 
 
 # ==================== 配置区域 ====================
@@ -38,7 +42,7 @@ APP_SECRET = "7izYC4vTwwY0TOAuZ6jezhRUXjgUfWHH"   # 替换为你的 App Secret
 APP_TOKEN = "VVSGbFpmEaDwcjskj1qchmi0nAh"
 TABLE_ID = "tbl6BmpwfWlZZNql"
 VIEW_ID = None  # 不指定视图，获取所有记录
-OUTPUT_PATH = "../autoloads/expressions.gd"
+OUTPUT_PATH = REPO_ROOT / "autoloads" / "expressions.gd"
 
 
 class FeishuExpressionFetcher:
@@ -259,7 +263,7 @@ static var data = {
         print(gdscript_code)
 
         # 保存到文件
-        output_dir = os.path.dirname(OUTPUT_PATH)
+        output_dir = OUTPUT_PATH.parent
         if output_dir:
             os.makedirs(output_dir, exist_ok=True)
 

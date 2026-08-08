@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://6bg61v05tfeg" path="res://assets/sprites/ui/ui.sprites/bichr_xia.tres" id="1_hij43"]
 [ext_resource type="FontFile" uid="uid://cume3135j7ij" path="res://assets/fonts/HarmonyOS_Sans_SC_Medium（聊天正文）.ttf" id="2_asp5r"]
 [ext_resource type="FontFile" uid="uid://6ydkdqqx8lgc" path="res://assets/fonts/Poppins-Medium（各种no）.ttf" id="3_5nnpx"]
+[ext_resource type="PackedScene" uid="uid://mopd128nba0y" path="res://prefabs/components/interact_sound.tscn" id="5_7mq0w"]
+[ext_resource type="AudioStream" uid="uid://bp3v705tatxsh" path="res://assets/system_sounds/奇迹书音效/手机点击音效.wav" id="6_qwkix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7ami"]
 bg_color = Color(1, 1, 1, 1)
@@ -94,3 +96,6 @@ theme_override_fonts/font = ExtResource("3_5nnpx")
 theme_override_font_sizes/font_size = 19
 text = "1"
 horizontal_alignment = 1
+
+[node name="InteractSound" parent="." unique_id=1483212628 instance=ExtResource("5_7mq0w")]
+click_sound = ExtResource("6_qwkix")

@@ -21,7 +21,7 @@ base_font = ExtResource("5_7ahqw")
 custom_minimum_size = Vector2(200, 0)
 size_flags_horizontal = 0
 mouse_filter = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 12
 script = ExtResource("1_afdii")
 self_bubble_color = Color(0.6666667, 0.6509804, 0.76862746, 1)
 frame_left = NodePath("Frame_Left")
@@ -34,7 +34,7 @@ bubble_margin = NodePath("BubbleMargin")
 
 [node name="Frame_Left" type="PanelContainer" parent="." unique_id=891025246]
 clip_children = 1
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
@@ -62,9 +62,9 @@ theme_override_styles/panel = ExtResource("4_cp86s")
 [node name="MarginContainer" type="MarginContainer" parent="BubbleMargin/Bubble" unique_id=92610423]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 28
 theme_override_constants/margin_bottom = 18
 
 [node name="MessageText" type="RichTextLabel" parent="BubbleMargin/Bubble/MarginContainer" unique_id=1720897531]
@@ -72,19 +72,17 @@ self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("5_x1p1g")
-theme_override_constants/line_separation = 8
+theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = SubResource("FontVariation_by5q6")
-theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/normal_font_size = 30
 text = "文本内容什么问题
 文本内容"
-fit_content = true
 scroll_active = false
-autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="Frame_Right" type="PanelContainer" parent="." unique_id=1876946076]
 clip_children = 1
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
