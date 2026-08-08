@@ -139,12 +139,27 @@ func play_voice(filename: String, set_current: bool = false) -> void:
 		return
 
 	var file_path = "%s/%s.wav" % [AudioManager.voice_path, filename]
-	ResourceLoader.load_threaded_request(file_path)
+	if not ResourceLoader.exists(file_path):
+		push_warning("play_voice: 语音文件不存在 %s" % file_path)
+		return
+	# CACHE_MODE_IGNORE：不进 Godot 全局资源缓存，避免所有播放过的语音常驻内存
+	# （晚章节内存压力→音频卡顿）；voice_cache 是唯一持有者，淘汰时自然释放
+	ResourceLoader.load_threaded_request(file_path, "", false, ResourceLoader.CACHE_MODE_IGNORE)
+	# 等待加载完成；加帧数上限，避免加载卡住时对白永久阻塞
+	var frames := 0
 	var status = ResourceLoader.load_threaded_get_status(file_path)
-	while status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+	while status == ResourceLoader.THREAD_LOAD_IN_PROGRESS and frames < 600:
 		await get_tree().process_frame
+		frames += 1
 		status = ResourceLoader.load_threaded_get_status(file_path)
-	var voice = ResourceLoader.load_threaded_get(file_path)
+	var voice: AudioStream = null
+	if status != ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		voice = ResourceLoader.load_threaded_get(file_path)
+	if voice == null:
+		voice = ResourceLoader.load(file_path, "", ResourceLoader.CACHE_MODE_IGNORE)  # 兜底同步加载，同样不进全局缓存
+	if voice == null:
+		push_warning("play_voice: 无法加载语音 %s" % file_path)
+		return
 	voice_cache[filename] = voice
 	voice_cache_order.append(filename)
 	while voice_cache_order.size() > MAX_VOICE_CACHE:

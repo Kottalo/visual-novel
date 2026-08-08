@@ -95,10 +95,24 @@ func _trigger_auto_advance() -> void:
 		while AudioManager.audio_player_voice.playing:
 			await get_tree().process_frame
 			if _mode != AdvanceMode.AUTO or not _idle: return
-		# 语音播完后停顿约1秒再进下一句，避免听感太赶
-		await get_tree().create_timer(finish_pause * 0.5).timeout
+		# 语音播完后的停顿：下一句换人则长一点（1s），同一个人则短（0.2s）
+		var pause_time := 1.0 if await _next_speaker_changed() else 0.2
+		await get_tree().create_timer(pause_time).timeout
 	if _idle and _mode == AdvanceMode.AUTO:
 		next_line.emit()
+
+# 下一句是否换了角色（用 get_line 预览，不触发 got_dialogue，避免污染对话日志）
+func _next_speaker_changed() -> bool:
+	if dialogue_line == null or dialogue == null:
+		return false
+	var next: DialogueLine = await DialogueManager.get_line(dialogue, dialogue_line.next_id, [self, Stage])
+	var changed: bool = next != null and next.character != dialogue_line.character
+	print("[自动播放] 当前=%s 下句=%s 停顿=%ss" % [
+		dialogue_line.character,
+		next.character if next else "<结束>",
+		"1.0" if changed else "0.2"
+	])
+	return changed
 
 func update_step_rate() -> void:
 	apply_speed_settings()
@@ -777,8 +791,9 @@ func process_dialogue_line() -> void:
 	# 语音
 	if dialogue_line.has_tag("语音") and character:
 		update_favourite()
-		AudioManager.play_voice(voice_name, true)
+		# 先设音量，再 await 语音加载完成，避免未缓存语音异步加载时自动播放抢跑/语音被切掉
 		AudioManager.apply_character_volume(dialogue_line.character)
+		await AudioManager.play_voice(voice_name, true)
 	else:
 		AudioManager.audio_player_voice.stop()
 
@@ -840,8 +855,9 @@ func wait_for_advance() -> void:
 						break
 					if Game.current_page != self:
 						continue
-					# 语音播完后停顿约1秒再进下一句（语音本身有自然语速，间隔比纯文字短），避免接得太紧
-					await get_tree().create_timer(finish_pause * 0.5).timeout
+					# 语音播完后的停顿：下一句换人则长一点（1s），同一个人则短（0.2s）
+					var pause_time := 1.0 if await _next_speaker_changed() else 0.2
+					await get_tree().create_timer(pause_time).timeout
 					if _mode != AdvanceMode.AUTO:
 						break
 					if Game.current_page != self:
