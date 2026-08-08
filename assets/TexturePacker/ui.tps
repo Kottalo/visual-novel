@@ -885,6 +885,7 @@
                 <false/>
             </struct>
             <key type="filename">../ui/开始游戏/logo_normal.png</key>
+            <key type="filename">../ui/开始游戏/logo_normal_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
